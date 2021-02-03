@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Commandes_Cube</title>
+  <link href="css/jquery-ui.css" rel="stylesheet">
+  <link type="text/javascript" src="js/fonction.js"/>
+  <style>
+  ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
+  li { margin: 5px; padding: 5px; width: 150px; }
+  #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+  #sortable { width: 172px; min-height: 200px;; padding: 0.5em; float: center; margin: 10px; background-color:#357ea2; }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<script>
+	
+
+//$( "#opener" ).on( "click", function() {
+  //    $( "#dialog_ok" ).dialog( "open" );
+    //});
+//$( "#opener" ).on( "click", function() {
+      //$( "#dialog_ok" ).dialog( "open" );
+    //});
+
+function popup(reponse) {
+    $( "#dialog_nok" ).text(reponse);
+    $( "#dialog_nok" ).dialog("open");
+    
+};    
+    
+    
+function c_envoi(cmd) {
+    $.ajax( {
+        url  : ("cgi-bin/Commande.cgi"),
+        type : 'GET',                          
+        data : "cmd="+cmd,
+        dataType: "html",
+		success : function(reponse){popup(reponse);}
+    } );
+};
+
+/*function c_envoi(cmd) {
+    $.ajax( {
+        url  : ("cgi-bin/Commande.cgi"),
+        type : 'GET',                          
+        data : "cmd=" +cmd,
+        dataType: "html"
+    } );
+
+}*/    
+$(document).ready(function () {
+	$( "#dialog_nok" ).dialog({
+		autoOpen: false,
+		show: {
+			effect: "blind",
+			duration: 1000
+		},
+		hide: {
+			effect: "explode",
+			duration: 1000
+		}
+    });
+		
+	$("#identifiantDuBouton").on("click",function(){
+		c_envoi("ouverture");
+		//popup();
+	});
+});
+	
+</script>
+<body> 
+	<div id="dialog_nok" title="Resultat de l'envoi">
+		<p>nok</p>
+	</div>
+    <div id="button_ajax">
+
+		<button id="identifiantDuBouton" class="ui-button ui-corner-all ui-widget">Envoi commande</button>
+    </div>
+</body>
+</html>

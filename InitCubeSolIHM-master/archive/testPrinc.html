@@ -1,0 +1,407 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta name="viewport" content="width=device-width,initial-scale=1"> <meta charset="utf-8"> 
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+        <link rel="stylesheet" href="css/etat.css">
+	<link href="css/jquery-ui.css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script src="/node_modules/chart.js/dist/Chart.bundle.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="js/CMatrice.js"></script>
+        <script type="text/javascript" src="js/CCamera.js"></script>
+        <script type="text/javascript" src="js/initcube.js"></script>
+	<script type="text/javascript" src="js/fonction.js"></script>
+    </head>
+    <body>
+        <script>
+            var source = new EventSource("/cgi-bin/CubeEventServer.cgi");
+            source.onmessage = function (event)
+            {
+                var obj = JSON.parse(event.data);
+                document.getElementById("Stockage").innerHTML = obj.stockage + " %";
+                document.getElementById("Batterie").innerHTML = obj.batterie + " %";
+                document.getElementById("Memoire").innerHTML = obj.memoire + " %";
+                document.getElementById("Temperature").innerHTML = obj.temp + " °C";
+                document.getElementById("Temperature1").innerHTML = obj.temp1 + " °C";
+                document.getElementById("Temperature2").innerHTML = obj.temp2 + " °C";
+                document.getElementById("Temperature3").innerHTML = obj.temp3 + " °C";
+
+                if (obj.camera == 0)
+                {
+                    document.getElementById("Camera").innerHTML = "OFF";
+                } else
+                {
+                    document.getElementById("Camera").innerHTML = "ON";
+                }
+
+                for (var i = 0; i < 10; i++)
+                {
+                    myChart.data.datasets[0].data[i] = myChart.data.datasets[0].data[i + 1];
+                    myChart.data.datasets[1].data[i] = myChart.data.datasets[1].data[i + 1];
+                    myChart.data.datasets[2].data[i] = myChart.data.datasets[2].data[i + 1];
+                    myChart.data.datasets[3].data[i] = myChart.data.datasets[3].data[i + 1];
+                }
+                ;
+                myChart.data.datasets[0].data[10] = obj.temp;
+                myChart.data.datasets[1].data[10] = obj.temp1;
+                myChart.data.datasets[2].data[10] = obj.temp2;
+                myChart.data.datasets[3].data[10] = obj.temp3;
+                myChart.update();
+                /*
+                 myChart.data.labels.splice(0,1); 
+                 myChart.data.datasets[0].data.splice(0,1);
+                 myChart.data.labels.push("temperature");
+                 myChart.data.datasets[0].data.push(obj.temp);		
+                 myChart.update();*
+                 */
+            };
+        </script>
+        <!-- 
+            ======================================
+                        page 1
+            ======================================
+        --> 
+        <div data-role="page" id="page1" data-theme="b">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+                <div>
+                    <img id="imgAcToulouse" src="images/acToulouse.png"/>
+                    <img id="imgCnes" src="images/cnes.png"/>
+                    <img id="imgJanus" src="images/index.png"/>
+                    <label id="lblTitre">CubeSat</label>
+                </div>
+            </div>	
+
+            <div data-role="main" data-position="ui-content">
+                <h2>Centre de contrôle des missions</h2> 
+                <table data-role="table" id="movie-table" data-mode="reflow" class="ui-body-b ui-shadow table-stripe ui-responsive">
+                    <thead>
+                        <tr>
+                            <th>Batterie</th>
+                            <th>Mémoire utilisée</th>
+                            <th>Stockage libre</th>
+                            <th>Etat camera infra-rouge</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="Batterie"></td>
+                            <td id="Memoire"></td>
+                            <td id="Stockage"></td>
+                            <td id="Camera"></td> 
+                        </tr>
+                    </tbody>
+                </table>
+                <br/><br/><br/>
+                <div id="line">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <script>
+                    var ctx = document.getElementById("myChart");
+                    var myChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+                            datasets: [{
+                                    label: 'Temperature systeme',
+                                    data: [],
+                                    borderWidth: 2,
+                                    borderColor: ['red'],
+                                }, {
+                                    label: 'Temperature processeur',
+                                    data: [],
+                                    borderWidth: 2,
+                                    borderColor: ['green'],
+                                }, {
+                                    label: 'Temperature batterie',
+                                    data: [],
+                                    borderWidth: 2,
+                                    borderColor: ['yellow'],
+                                }, {
+                                    label: 'Temperature caméra',
+                                    data: [],
+                                    borderWidth: 2,
+                                    borderColor: ['aqua'],
+                                }
+                            ]
+
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                            }
+                        }
+                    });
+                </script>
+
+                <div id="line">
+                    <canvas id="myChart1"></canvas>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed"  data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+                <div data-role="navbar" data-grid="a" data-iconpos="left">
+                    <ul>
+                        <li><a href="#page1">Etat</a></li>
+                        <li><a href="#page2">Synoptique</a></li>
+                        <li><a href="#page3">Commande</a></li>
+                        <li><a href="#page4">Matrice</a></li>
+                    </ul>    
+                </div>
+            </div>
+        </div>
+
+        <!--
+            ======================================
+                        page 2 
+            ======================================
+        -->
+
+
+        <div data-role="page" id="page2" data-theme="b">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+                <div>
+                    <img id="imgAcToulouse" src="images/acToulouse.png" alt="acToulouse"  />
+                    <img id="imgCnes" src="images/cnes.png"  alt="cnes" />
+                    <label id="lblTitre">CubeSat</label>
+                    <img id="imgJanus" src="images/index.png"/>
+                </div>
+            </div>
+            <div data-role="main"  class="ui-responsive ui-shadow">
+                <div id="legende">
+                    <p>Température Systeme : rouge</p>
+                    <p>Température Processeur : vert</p>
+                    <p>Température Batterie: jaune</p>
+                    <p>Température Caméra : cyan</p>
+                </div>
+                <div id="synoptique">
+
+                    <div id="Temperature"></div>
+                    <div id="Temperature1"></div>
+                    <div id="Temperature2"></div>
+                    <div id="Temperature3"></div>
+                </div>
+            </div>
+
+            <div data-role="footer" data-position="fixed"  data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+                <div data-role="navbar" data-grid="a" data-iconpos="left">
+                    <ul>
+                        <li><a href="#page1">Etat</a></li>
+                        <li><a href="#page2">Synoptique</a></li>
+                        <li><a href="#page3">Commande</a></li>
+                        <li><a href="#page4">Matrice</a></li>
+                    </ul>    
+                </div>
+            </div>   
+        </div>
+        <!--
+            ======================================
+                        page 3 
+            ======================================
+        -->
+
+        <div data-role="page" id="page3" data-theme="b">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+                <div>
+                    <img id="imgAcToulouse" src="images/acToulouse.png" alt="acToulouse"  />
+                    <img id="imgCnes" src="images/cnes.png"  alt="cnes" />
+                    <label id="lblTitre">CubeSat</label>
+                    <img id="imgJanus" src="images/index.png"/>
+                </div>
+            </div>
+            <div data-role="main" data-position="ui-content">
+                <style>               ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
+                    li { margin: 5px; padding: 5px; width: 150px; }
+                    #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+                    #sortable { width: 172px; min-height: 200px;; padding: 0.5em; float: center; margin: 10px; background-color:#4e7b92; }
+                </style>              
+                <ul id="listeCommande">
+    			<li id="Commande0" class="ui-state-default">MEASURE</li>
+   	 		<li id="Commande1" class="ui-state-default">STATUS</li>
+    			<li id="Commande2" class="ui-state-default">MISSION</li>
+    			<li id="Commande3" class="ui-state-default">EMPTY</li>
+    			<li id="Commande4" class="ui-state-default">DEPLOY</li>
+  		</ul>
+ 		<div id="zoneCommande">
+  			<ul id="sortable" class="ui-widget-header">
+  			</ul>
+    			<button id="envoiCommande" class="ui-button ui-corner-all ui-widget">Envoi commande</button>
+    		</div>
+
+  		<div id="dialog_nok" title="      Commandes transmises       "></div>
+  		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+ 
+                <div data-role="footer" data-position="fixed"  data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+                    <div data-role="navbar" data-grid="a" data-iconpos="left">
+                        <ul>
+                            <li><a href="#page1">Etat</a></li>
+                            <li><a href="#page2">Synoptique</a></li>
+                            <li><a href="#page3">Commande</a></li>
+                            <li><a href="#page4">Matrice</a></li>
+                        </ul>    
+                    </div>
+                </div>   
+            </div>
+
+
+        </div>
+        <!--
+                ======================================
+                            page 4
+                ======================================
+        -->
+        <div data-role="page" id="page4" data-theme="b">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+                <div>
+                    <img id="imgAcToulouse" src="images/acToulouse.png" alt="acToulouse"  />
+                    <img id="imgCnes" src="images/cnes.png"  alt="cnes" />
+                    <label id="lblTitre">CubeSat</label>
+                    <img id="imgJanus" src="images/index.png"/>
+                </div>
+            </div>
+            <div data-role="main" data-position="ui-content">
+                <div data-role="controlgroup" data-type="horizontal" data-mini="true" >
+                    <a id="target" data-role="button" data-icon="arrow-r" data-inline="true" >Valeur d'exemples</a> 
+                    <a id="target3" data-role="button" data-icon="arrow-r" data-inline="true" >Exemple Matrice Reelle</a>
+                    <a id="target4" data-role="button" data-icon="arrow-r" data-inline="true" >Exemple Matrice Reelle Chaude</a>
+                    <a id="target5" data-role="button" data-icon="arrow-r" data-inline="true" >Exemple Matrice Reelle Froide</a>      
+                </div>
+                <div id="target2">
+                    <input type="range" name="slider-1" id="slider-1" value="0" min="0" max="80" step="1"/>
+                </div>
+                <!-- Tableau Fonctionnel -->
+                <!-- Le mode sélecteur de colonne nécessite un tableélément avec deux attributs: data-role="table"et data-mode="columntoggle". Un IDattribut est également requis sur la table pour l'associer au menu contextuel du sélecteur de colonnes. -->
+                <!--class="ui-responsive ui-shadow" = adaptabilité du tableau -->
+                <!--data-column-btn-text= modifier le bouton de selection-->
+                <table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="myTable" data-column-btn-text="Parametres">
+                    <thead>
+                        <tr>
+                            <th data-priority="1">Instrument</th>
+                            <th data-priority="2">Moyenne des mesures en °C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Camera Thermique</td>
+                            <td id="temp"></td>
+                            <td>
+                </table>
+                </td>
+                </tbody>
+
+                <table id="matrice">
+
+                    <thead>
+                        <tr>
+                            <th id="entete" COLSPAN=8 >MATRICE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="ligne1">
+                            <td id="pixel0"></td>
+                            <td id="pixel1"></td>
+                            <td id="pixel2"></td>
+                            <td id="pixel3"></td>
+                            <td id="pixel4"></td>
+                            <td id="pixel5"></td>
+                            <td id="pixel6"></td>
+                            <td id="pixel7"></td>
+                        </tr>
+                        <tr id="ligne2">
+                            <td id="pixel8"></td>
+                            <td id="pixel9"></td>
+                            <td id="pixel10"></td>
+                            <td id="pixel11"></td>
+                            <td id="pixel12"></td>
+                            <td id="pixel13"></td>
+                            <td id="pixel14"></td>
+                            <td id="pixel15"></td>
+                        </tr>
+                        <tr id="ligne3">
+                            <td id="pixel16"></td>
+                            <td id="pixel17"></td>
+                            <td id="pixel18"></td>
+                            <td id="pixel19"></td>
+                            <td id="pixel20"></td>
+                            <td id="pixel21"></td>
+                            <td id="pixel22"></td>
+                            <td id="pixel23"></td>
+                        </tr>
+                        <tr id="ligne4">
+                            <td id="pixel24"></td>
+                            <td id="pixel25"></td>
+                            <td id="pixel26"></td>
+                            <td id="pixel27"></td>
+                            <td id="pixel28"></td>
+                            <td id="pixel29"></td>
+                            <td id="pixel30"></td>
+                            <td id="pixel31"></td>
+                        </tr>
+                        <tr id="ligne5">
+                            <td id="pixel32"></td>
+                            <td id="pixel33"></td>
+                            <td id="pixel34"></td>
+                            <td id="pixel35"></td>
+                            <td id="pixel36"></td>
+                            <td id="pixel37"></td>
+                            <td id="pixel38"></td>
+                            <td id="pixel39"></td>
+                        </tr>
+                        <tr id="ligne6">
+                            <td id="pixel40"></td>
+                            <td id="pixel41"></td>
+                            <td id="pixel42"></td>
+                            <td id="pixel43"></td>
+                            <td id="pixel44"></td>
+                            <td id="pixel45"></td>
+                            <td id="pixel46"></td>
+                            <td id="pixel47"></td>
+                        </tr>
+                        <tr id="ligne7">
+                            <td id="pixel48"></td>
+                            <td id="pixel49"></td>
+                            <td id="pixel50"></td>
+                            <td id="pixel51"></td>
+                            <td id="pixel52"></td>
+                            <td id="pixel53"></td>
+                            <td id="pixel54"></td>
+                            <td id="pixel55"></td>
+                        </tr>
+                        <tr id="ligne8">
+                            <td id="pixel56"></td>
+                            <td id="pixel57"></td>
+                            <td id="pixel58"></td>
+                            <td id="pixel59"></td>
+                            <td id="pixel60"></td>
+                            <td id="pixel61"></td>
+                            <td id="pixel62"></td>
+                            <td id="pixel63"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div data-role="footer" data-position="fixed"  data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+                <div data-role="navbar" data-grid="a" data-iconpos="left">
+                    <ul>
+                        <li><a href="#page1">Etat</a></li>
+                        <li><a href="#page2">Synoptique</a></li>
+                        <li><a href="#page3">Commande</a></li>
+                        <li><a href="#page4">Matrice</a></li>
+                    </ul>    
+                </div>
+            </div> 
+        </div>
+    </body>
+</html>
+
+

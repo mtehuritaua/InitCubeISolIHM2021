@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Commandes_Cube</title>
+  <link href="css/jquery-ui.css" rel="stylesheet">
+  <link type="text/javascript" src="js/fonction.js"/>
+  <style>
+  ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
+  li { margin: 5px; padding: 5px; width: 150px; }
+  #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+  #sortable { width: 172px; min-height: 200px;; padding: 0.5em; float: center; margin: 10px; background-color:#357ea2; }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<script>
+function popup(reponse) {
+    $( "#dialog_nok" ).text(reponse);
+    $( "#dialog_nok" ).dialog("open");
+    
+};  
+
+$( function() {
+    $( "#dialog_ok" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "blind",
+        duration: 1000
+      }
+    });
+});
+
+
+
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  });
+
+
+
+   
+       
+
+  $( function () {
+    $( "#mission" ).sortable({
+      revert: true
+    });
+  });
+
+
+
+    //$.post("http://localhost/cgi-bin/Commande.cgi", function (data) {
+      //alert("success");
+    //})
+
+    .done(function (data) {
+      $("#ajax").empty().append(data);
+    });
+    $( "#Commande0" ).draggable({
+      connectToSortable: "#mission",
+      helper: "clone",
+      revert: "invalid"
+    });
+    $( "#Commande1" ).draggable({
+      connectToSortable: "#mission",
+      helper: "clone",
+      revert: "invalid"
+    });
+    $( "#Commande2" ).draggable({
+      connectToSortable: "#mission",
+      helper: "clone",
+      revert: "invalid"
+    });
+    $( "#Commande3" ).draggable({
+      connectToSortable: "#mission",
+      helper: "clone",
+      revert: "invalid"
+    });
+    $( "#Commande4" ).draggable({
+      connectToSortable: "#mission",
+      helper: "clone",
+      revert: "invalid"
+    });
+    $( "#droppable" ).droppable({
+      drop: function( event, ui ) {
+        $( this )
+        .addClass( "ui-state-highlight" )
+        .find( "p" )
+        .html( "Dropped!" );
+        }
+    });
+
+
+
+$( "#identifiantDuBouton" ).on( "click", c_envoi())
+    $("ul, li" ).disableSelection();
+
+
+function c_envoi(cmd) {
+    $.ajax({
+        url  : ("cgi-bin/Commande.cgi"),
+        type : 'GET',                          
+        data : "cmd=" + cmd,
+        dataType: "html",
+	success : function(reponse){popup(reponse);}
+    });
+};
+
+$(document).ready(function () {
+	$( "#dialog_nok" ).dialog({
+		autoOpen: false,
+		show: {
+			effect: "blind",
+			duration: 1000
+		},
+		hide: {
+			effect: "explode",
+			duration: 1000
+		}
+    });
+		
+	$("#identifiantDuBouton").on("click",function(){
+		c_envoi("ouverture");
+		//popup();
+	});
+});
+     
+   
+</script>
+<body>
+ 
+<ul>
+  <li id="Commande0" class="ui-state-default">Commande 1</li>
+  <li id="Commande1" class="ui-state-default">Commande 2</li>
+  <li id="Commande2" class="ui-state-default">Commande 3</li>
+  <li id="Commande3" class="ui-state-default">Commande 4</li>
+  <li id="Commande4" class="ui-state-default">Commande 5</li>
+</ul>
+ 
+<ul id="d">
+  
+</ul>
+<ul id="mission">
+</ul>
+     <div id="button_ajax">
+        <button id="opener" class="ui-button ui-corner-all ui-widget" >Envoi</button>
+	<button id="identifiantDuBouton" class="ui-button ui-corner-all ui-widget">Envoi commande</button>
+    </div>
+<div id="dialog_ok" title="Basic dialog">
+  <p>ok.</p>
+</div>
+<div id="dialog_nok" title="Basic dialog">
+  <p>nok.</p>
+</div>
+<p><h2>Date: </h2><input type="text" id="datepicker" size="30" class="demoHeaders ui-widget-content"></p>
+</body>
+</html>

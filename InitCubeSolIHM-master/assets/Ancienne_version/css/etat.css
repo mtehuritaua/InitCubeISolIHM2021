@@ -1,0 +1,128 @@
+
+/*
+    ----------- Charte des couleurs --------------
+    #feedd8     crème très clair
+    #ffcf91     fond de page
+    #333        gris : pour les ombres
+    #5c3400     marron foncé : les boutons et les encadrements
+    #f6b26b     marron moyen : entête et pied de page
+    #fdf1e3     crème clair : les textes des boutons
+    #999        gris : pour les textes des boutons grisés
+    green       vert : les textes des états stables
+    #a05000     marron : les textes en action
+    red         rouge : les textes des états en panne
+    #43382e     le control video
+    #f7b074     header & footer (couleur du fond))
+
+    ATTENTION : pour les commentaires '//' ne marche pas !
+
+    Ce CSS place les éléments de manière absolue et adapté
+    uniquement à un écran de 1280x780
+
+    Version 0.31 - 15/04/2015    Auteur : 
+        Ajout du CSS pour #vidPopFilm
+    Version beta6 - 26/04/2015    Auteur : 
+        Ajout du CSS pour #imgEtatCamera
+    Version beta7 - 28/04/2015    Auteur : 
+
+       
+/* toutes les images ont une position fixe */
+
+img{position: fixed;}
+
+/* ----------------------- Zone des Popup ----------------------- */
+div[data-role="popup"] { padding:2px 4px 2px 4px;
+width: 300px;
+height: 300px;}
+.ui-header { height:60px; box-shadow: 1px 1px 20px #222;}
+.ui-content { height:640px;}
+.ui-etat { height:65px;}       /* le bandeau des états du lander */
+.centrer {text-align: center;}  /* centrage d'un texte */
+.center-btn {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left:auto;
+    margin-right:auto;       /* met de la place autour des boutons */
+}   /* centrage d'un bouton */
+.show {display : block;}
+.hide {display : none;}
+.ui-btn {font-size: 20px; box-shadow: 1px 1px 8px #333;} /* ombre portée */
+
+/* ----------------------- Zone de l'entête ----------------------- */
+#imgJanus { top : 6px; left :660px; width:80px ;height:50px; }
+#imgCnes { top : 6px; left : 20px; }
+#lblTitre { top : 2px; left : 380px; font-size: 30px;  position: fixed;}
+#imgAcToulouse { top : 2px; left : 250px; }
+
+/* ----------------------- Zone Synoptique ----------------------- */
+#synoptique{
+position: relative;
+background-image:url('../images/cubesat.jpg');
+width:100%;
+padding-top:80%;
+background-size: contain;
+background-repeat:no-repeat;
+}
+#legende {
+padding:0;
+margin:0;
+top:10%
+left:10%
+position:absolute;
+font-size: 2vw;
+}
+#Temperature {
+background-color:#4d4948;
+color:red;
+position: absolute;
+top:24%;
+padding:1vw;
+margin:0;
+right:25%;
+font-size:2vw;
+}
+#Temperature1 {
+background-color:#4d4948;
+color:green;
+position: absolute;
+top:24%;
+padding:1vw;
+margin:0;
+right:65%;
+font-size:2vw;
+}
+#Temperature2 {
+background-color:#4d4948;
+color:yellow;
+position: absolute;
+top:80%;
+padding:1vw;
+margin:0;
+right:25%;
+font-size:2vw;
+}
+#Temperature3 {
+background-color:#4d4948;;
+color:aqua;
+position: absolute;
+top:80%;
+padding:1vw;
+margin:0;
+right:65%;
+font-size:2vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

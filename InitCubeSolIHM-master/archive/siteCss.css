@@ -1,0 +1,426 @@
+/*
+    ----------- Charte des couleurs --------------
+    #feedd8     crème très clair
+    #ffcf91     fond de page
+    #333        gris : pour les ombres
+    #5c3400     marron foncé : les boutons et les encadrements
+    #f6b26b     marron moyen : entête et pied de page
+    #fdf1e3     crème clair : les textes des boutons
+    #999        gris : pour les textes des boutons grisés
+    green       vert : les textes des états stables
+    #a05000     marron : les textes en action
+    red         rouge : les textes des états en panne
+    #43382e     le control video
+    #f7b074     header & footer (couleur du fond))
+
+    ATTENTION : pour les commentaires '//' ne marche pas !
+
+    Ce CSS place les éléments de manière absolue et adapté
+    uniquement à un écran de 1280x780
+
+    Version 0.31 - 15/04/2015    Auteur : 
+        Ajout du CSS pour #vidPopFilm
+    Version beta6 - 26/04/2015    Auteur : 
+        Ajout du CSS pour #imgEtatCamera
+    Version beta7 - 28/04/2015    Auteur : 
+
+       
+/* toutes les images ont une position fixe */
+
+img {
+    position: fixed;
+}
+
+/* ----------------------- Zone des Popup ----------------------- */
+div[data-role="popup"] {
+    padding: 2px 4px 2px 4px;
+    width: 300px;
+    height: 300px;
+}
+
+.ui-header {
+    height: 60px;
+    box-shadow: 1px 1px 20px #222;
+}
+
+.ui-content {
+    height: 640px;
+}
+
+.ui-etat {
+    height: 65px;
+}
+
+/* le bandeau des états du lander */
+.centrer {
+    text-align: center;
+}
+
+/* centrage d'un texte */
+.center-btn {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    /* met de la place autour des boutons */
+}
+
+/* centrage d'un bouton */
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.ui-btn {
+    font-size: 20px;
+    box-shadow: 1px 1px 8px #333;
+}
+
+/* ombre portée */
+
+/* ----------------------- Zone de l'entête ----------------------- */
+#imgCnes {
+    top: 6px;
+    left: 20px;
+    width: 240px;
+    height: 60px
+}
+
+/* ----------------------- Zone Synoptique ----------------------- */
+#synoptique {
+    position: relative;
+    background-image: url('../images/cubesat.jpg');
+    width: 100%;
+    padding-top: 80%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+p {
+    margin: 10px;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input {
+    margin: .4rem;
+}
+
+#legende {
+    padding: 0;
+    text-align: center;
+    top: 1%;
+    left: 1%;
+    position: absolute;
+    /*font-size: 1vw;*/
+}
+
+mark {
+    background-color: grey;
+    color: white;
+}
+
+#donnesMagneto {
+    font: Verdana, Geneva, sans-serif;
+
+    font-size: 18px;
+    text-align: left;
+    height: 50px;
+    position: absolute;
+    bottom: 50%;
+}
+
+
+#donnesCamera {
+
+    font: Verdana, Geneva, sans-serif;
+    font-size: 18px;
+    text-align: left;
+    height: 50px;
+    position: absolute;
+    bottom: 50%;
+}
+
+#Temperature {
+    background-color: #4d4948;
+    color: red;
+    position: absolute;
+    top: 24%;
+    padding: 1vw;
+    margin: 0;
+    right: 25%;
+    font-size: 2vw;
+}
+
+#Temperature1 {
+    background-color: #4d4948;
+    color: green;
+    position: absolute;
+    top: 24%;
+    padding: 1vw;
+    margin: 0;
+    right: 65%;
+    font-size: 2vw;
+}
+
+#Temperature2 {
+    background-color: #4d4948;
+    color: yellow;
+    position: absolute;
+    top: 80%;
+    padding: 1vw;
+    margin: 0;
+    right: 25%;
+    font-size: 2vw;
+}
+
+#Temperature3 {
+    background-color: #4d4948;
+    ;
+    color: aqua;
+    position: absolute;
+    top: 80%;
+    padding: 1vw;
+    margin: 0;
+    right: 65%;
+    font-size: 2vw;
+}
+
+#test {
+    position: absolute;
+    top: 80%;
+    padding: 1vw;
+    margin: 0;
+    right: 65%;
+}
+
+#ligne1 {
+    padding: 1px;
+    margin: 2px;
+}
+
+
+h1 {
+    color: #005191;
+    font: ARIAL REGULAR, sans-serif, font-weight:bold;
+}
+
+
+
+
+
+
+
+#menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+#menu>li,
+#menu>li li {
+    position: relative;
+    display: inline-block;
+    width: 110px;
+    padding: 6px 15px;
+    background-color: #777;
+    background-image: linear-gradient(#aaa, #888 50%, #777 50%, #999);
+}
+
+#menu>li li {
+    background: transparent none;
+}
+
+#menu>li li a {
+    color: #444;
+}
+
+#menu>li li:hover {
+    background: #eee;
+}
+
+#menu>li:first-child {
+    border-right: 1px solid #777;
+    border-radius: 8px 0 0 8px;
+}
+
+#menu>li+li {
+    border-left: 1px solid #aaa;
+    border-right: 1px solid #777;
+}
+
+#menu>li:last-child {
+    border-right: 0;
+    border-left: 1px solid #aaa;
+    border-radius: 0 8px 8px 0;
+}
+
+#menu>li:hover {
+    background-color: #999;
+    background-image: linear-gradient(#ccc, #aaa 50%, #999 50%, #bbb);
+}
+
+/* (presque) fin de la partie positionnement/déco */
+/* dans cette déclaration, on fixe le max-height */
+#menu ul {
+    position: absolute;
+    top: 2em;
+    left: 0;
+    max-height: 0em;
+    margin: 0;
+    padding: 0;
+    background-color: #ddd;
+    background-image: linear-gradient(#fff, #ddd);
+    overflow: hidden;
+    transition: 1s max-height 0.3s;
+    border-radius: 0 0 8px 8px;
+}
+
+/* ici on change la valeur de max-height au :hover */
+#menu>li:hover ul {
+
+    max-height: 13em;
+}
+
+#slideshow {
+    margin: 50px auto;
+    position: relative;
+    width: 260px;
+    height: 195px;
+    padding: 20px;
+
+}
+
+#slideshow>div {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+
+/* ----------------------- Zone HTML ----------------------- */
+html {
+    font-family: sans-serif;
+}
+
+form {
+    width: 600px;
+    margin: 0 auto;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+fieldset {
+    background: #4C4B4A;
+    border: 5px #4C4B4A;
+}
+
+legend {
+    padding: 10px;
+    background: #4C4B4A;
+    color: #fff;
+}
+
+#otherValue {
+    display: true;
+}
+
+#other:checked~#otherValue {
+    display: inline-block;
+}
+
+/* ----------------------- Zone Matrice ----------------------- */
+
+table#matrice {
+    position: relative;
+    background-color: #071416;
+    margin: auto;
+    border-collapse: collapse;
+    /* Les bordures du tableau seront collées (plus joli) */
+    border: 5px solid black;
+    empty-cells: show;
+
+}
+
+td#pixel0,
+#pixel1,
+#pixel2,
+#pixel3,
+#pixel4,
+#pixel5,
+#pixel6,
+#pixel7,
+#pixel8,
+#pixel9,
+#pixel10,
+#pixel11,
+#pixel12,
+#pixel13,
+#pixel14,
+#pixel15,
+#pixel16,
+#pixel17,
+#pixel18,
+#pixel19,
+#pixel20,
+#pixel21,
+#pixel22,
+#pixel23,
+#pixel24,
+#pixel25,
+#pixel26,
+#pixel27,
+#pixel28,
+#pixel29,
+#pixel30,
+#pixel31,
+#pixel32,
+#pixel33,
+#pixel34,
+#pixel35,
+#pixel36,
+#pixel37,
+#pixel38,
+#pixel39,
+#pixel40,
+#pixel41,
+#pixel42,
+#pixel43,
+#pixel44,
+#pixel45,
+#pixel46,
+#pixel47,
+#pixel48,
+#pixel49,
+#pixel50,
+#pixel51,
+#pixel52,
+#pixel53,
+#pixel54,
+#pixel55,
+#pixel56,
+#pixel57,
+#pixel58,
+#pixel59,
+#pixel60,
+#pixel61,
+#pixel62,
+#pixel63,
+#pixel64 {
+    background-color: white;
+    border: none;
+    width: 65px;
+    height: 65px;
+}
+
+th#entete {
+    background-color: white;
+    border: 5px solid black;
+    width: 50px;
+    height: 50px;
+}

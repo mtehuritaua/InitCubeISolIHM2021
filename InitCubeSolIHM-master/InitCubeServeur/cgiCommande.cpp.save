@@ -1,0 +1,10 @@
+#include <iostream>
+#include <stdlib.h>
+
+using namespace std;
+
+	cout << "Content-type: text/html\r\n\r\n"
+		"<TITLE>^_^</TITLE>\n";
+
+cout << getenv("	QUERY_STRING");
+

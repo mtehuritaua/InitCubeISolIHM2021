@@ -1,0 +1,228 @@
+:root{
+    font-size: 16px;
+    font-family: 'Titillium Web';
+    --text-primary: #FFFFFF;
+
+    --bg-primary: #252525;
+    --bg-secondary: #2a2a2a;
+    --bg-nav:#333333;
+}
+
+/* ----------------------- Zone HTML ----------------------- */
+.general{
+    background-color: #252525;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    height: 100%;
+}
+
+#imgCnes{
+    top: 6px;
+    left: 20px;
+    width: 240px;
+    height: 60px;
+}
+
+#header{
+    position: relative;
+    background-color: #1D1D1D;
+}
+
+.body{
+    position: relative;
+    height: 100%;
+    background-color: #252525;
+
+}
+.sub {
+    display: none;
+  }
+
+
+/* ----------------------- Zone Etat ----------------------- */
+
+h2{
+    border: 0px;
+    display: block;
+    color: #555;
+    font-weight: normal;
+    font-size: 28px;
+    margin: 10px;
+    padding: 0px;
+    text-shadow: 0;
+    text-align: center;
+}
+
+#bandeauInfoUtile{
+    box-sizing: border-box;
+}
+
+#tableEtat{
+    background-color:#2a2a2a; 
+    display: table;
+    border: 0px;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#graphique{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.graphe{
+    width: 450px;
+    margin: 10px;
+    /*margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;*/
+}
+
+/* ----------------------- Zone Instruments ----------------------- */
+
+#Instruments {
+    position: relative;
+    background-image: url('../images/cubesat.jpg');
+    width: 100%;
+    padding-top: 80%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#navSyno a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+#navSyno>li,
+#navSyno>li li {
+    position: relative;
+    display: inline-block;
+    width: 110px;
+    padding: 6px 15px;
+    background-color: #777;
+    background-image: linear-gradient(#aaa, #888 50%, #777 50%, #999);
+}
+
+#navSyno>li li {
+    background: transparent none;
+    z-index: 1;
+}
+
+#navSyno>li li a {
+    color: #444;
+}
+
+#navSyno>li li:hover {
+    background: #eee;
+}
+
+#navSyno>li:first-child {
+    border-right: 1px solid #777;
+    border-radius: 8px 0 0 8px;
+}
+
+#navSyno>li+li {
+    border-left: 1px solid #aaa;
+    border-right: 1px solid #777;
+}
+
+#navSyno>li:last-child {
+    border-right: 0;
+    border-left: 1px solid #aaa;
+    border-radius: 0 8px 8px 0;
+}
+
+#navSyno>li:hover {
+    background-color: #999;
+    background-image: linear-gradient(#ccc, #aaa 50%, #999 50%, #bbb);
+}
+
+/* (presque) fin de la partie positionnement/déco */
+/* dans cette déclaration, on fixe le max-height */
+#navSyno ul {
+    position: absolute;
+    top: 2em;
+    left: 0;
+    max-height: 0em;
+    margin: 0;
+    padding: 0;
+    background-color: #ddd;
+    background-image: linear-gradient(#fff, #ddd);
+    overflow: hidden;
+    transition: 1s max-height 0.3s;
+    border-radius: 0 0 8px 8px;
+    z-index: 1;
+}
+
+/* ici on change la valeur de max-height au :hover */
+#navSyno>li:hover ul {
+    max-height: 13em;
+}
+
+#slideshow {
+    margin: 50px auto;
+    position: relative;
+    width: 260px;
+    height: 195px;
+    padding: 20px;
+
+}
+
+#slideshow>div {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+
+/* ----------------------- Zone Camera ----------------------- */
+
+/* ----------------------- Zone Magnetometre ----------------------- */
+
+/* ----------------------- Zone Matrice ----------------------- */
+
+#matrice {
+    margin: auto;
+}
+
+#matrice > tbody > tr > td {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-image: initial;
+}
+
+/* ----------------------- Zone Commande ----------------------- */
+
+.demo-non-form {
+    color: initial;
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-family: arial, verdana, sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+}
+
+.external-container button.external-button {
+    font-weight: 400;
+    padding: 10px;
+    margin: 6px 0 13px 0;
+    width: 100%;
+}

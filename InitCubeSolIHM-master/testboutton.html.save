@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<script type="text/javascript" src="testjs.js"></script>
+		<script src="></script>
+	</head>
+	<body>
+		<form action="cgi-bin/cgiCommande.cgi" method="GET" id="formulaire">
+	
+			<input type="text" name="commande"></input><br>
+			<input type="submit" value="Envoyer" id="envoyer">
+	
+		</form>
+		<div id="afficher"></div>
+	</body>
+</html>

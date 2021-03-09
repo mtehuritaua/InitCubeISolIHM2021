@@ -2,13 +2,20 @@
 //var matrice = new CMatrice(camera);
 
 $(document).ready(function() {
-    let graphBattCharge = new Graphique("Etat","Batterie", "Charge","%");
-    let graphBattTension = new Graphique("Etat","Batterie", "Tension","V");
-    let graphBattCourant = new Graphique("Etat","Batterie", "Courant","A");
-    let graphRAMuse = new Graphique("Etat","RAM", "Occupation","%");
-    let graphRAMdispo = new Graphique("Etat","RAM", "Disponile","Mo");
-    let graphStockLibreP = new Graphique("Etat","Stockage", "Libre","%");
-    let graphStockLibreM = new Graphique("Etat","Stockage", "Disponible","Mo");
+    let graphBattCharge = new Graphique("graphique","Etat","Batterie", "Charge","%");
+    let graphBattTension = new Graphique("graphique","Etat","Batterie", "Tension","V");
+    let graphBattCourant = new Graphique("graphique","Etat","Batterie", "Courant","A");
+    let graphRAMuse = new Graphique("graphique","Etat","RAM", "Occupation","%");
+    let graphRAMdispo = new Graphique("graphique","Etat","RAM", "Disponile","Mo");
+    let graphStockLibreP = new Graphique("graphique","Etat","Stockage", "Libre","%");
+    let graphStockLibreM = new Graphique("graphique","Etat","Stockage", "Disponible","Mo");
+    
+    let graphMagnetoBX = new Graphique("graphMagneto","Magnetometre","ValeurBX","Valeur","μT");
+    
+    let graphMagnetoBY = new Graphique("graphMagneto","Magnetometre","ValeurBY","Valeur","μT");
+    
+    let graphMagnetoBZ = new Graphique("graphMagneto","Magnetometre","ValeurBZ","Valeur","μT");
+    
     var source = new EventSource("../cgi-bin/cubeEventServer.cgi");
     source.addEventListener("etat", function(event) {
     var obj = JSON.parse(event.data);
@@ -46,9 +53,15 @@ source.addEventListener("instrument", function(evt){
             matrice.majMatrice();
             break;
         case "magneto":
+            graphMagnetoBX.ajouterMesure(instru.instrument.date,instru.instrument.mesure.ValeurMagnetoBX);
+            graphMagnetoBY.ajouterMesure(instru.instrument.date,instru.instrument.mesure.ValeurMagnetoBY);
+            graphMagnetoBZ.ajouterMesure(instru.instrument.date,instru.instrument.mesure.ValeurMagnetoBZ);
+
             document.getElementById("ValeurMagnetoBX").innerHTML = instru.instrument.mesure.ValeurMagnetoBX + " μT";
             document.getElementById("ValeurMagnetoBY").innerHTML = instru.instrument.mesure.ValeurMagnetoBY + " μT";
             document.getElementById("ValeurMagnetoBZ").innerHTML = instru.instrument.mesure.ValeurMagnetoBZ + " μT";
+            
+            
             break;
         default:
             console.log("Erreur d'identification de l'instrument");

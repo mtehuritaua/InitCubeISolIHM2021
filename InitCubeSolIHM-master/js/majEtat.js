@@ -2,6 +2,7 @@
 //var matrice = new CMatrice(camera);
 
 $(document).ready(function() {
+/*-------------------------------------Graphiques de la page Etat-------------------------------------------*/
     let graphBattCharge = new Graphique("graphique","Etat","Batterie", "Charge","%");
     let graphBattTension = new Graphique("graphique","Etat","Batterie", "Tension","V");
     let graphBattCourant = new Graphique("graphique","Etat","Batterie", "Courant","A");
@@ -10,10 +11,9 @@ $(document).ready(function() {
     let graphStockLibreP = new Graphique("graphique","Etat","Stockage", "Libre","%");
     let graphStockLibreM = new Graphique("graphique","Etat","Stockage", "Disponible","Mo");
     
+/*--------------------------------------Graphiques de la page Magnétomètre--------------------------------------------*/
     let graphMagnetoBX = new Graphique("graphMagneto","Magnetometre","ValeurBX","Valeur","μT");
-    
     let graphMagnetoBY = new Graphique("graphMagneto","Magnetometre","ValeurBY","Valeur","μT");
-    
     let graphMagnetoBZ = new Graphique("graphMagneto","Magnetometre","ValeurBZ","Valeur","μT");
     
     var source = new EventSource("../cgi-bin/cubeEventServer.cgi");

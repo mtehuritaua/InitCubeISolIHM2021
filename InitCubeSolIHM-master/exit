@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+	    <meta charset="utf-8">
+	    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+	    <link rel="stylesheet" href="css/siteCssZ.css">
+	    <link href="css/jquery-ui.css" rel="stylesheet">
+	    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	    <script type="text/javascript" src="js/p5.js"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	    <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+	    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	    <script type="text/javascript" src="js/resizeGraphic.js"></script>
+	    <!-- <script type="text/javascript" src="js/majEtat.js"></script> -->
+	    <script type="text/javascript" src="js/matrice/mainMatrice.js"></script> 
+        <script type="text/javascript" src="js/matrice/CCamera.js"></script>     
+        <script type="text/javascript" src="js/matrice/CMatrice2.js"></script>
+        <script type="text/javascript" src="js/matrice/Square.js"></script>
+        <script type="text/javascript" src="js/matrice/Source.js"></script>  
+	</head>
+
+	 <!-- 
+            ======================================
+                        Page Etat
+            ======================================
+        -->
+	<body>
+		<div data-role="page" id="pageEtat" class="general" data-theme="b">
+			<div data-role="header" class="general">
+				<img id="imgCnes" src="images/cnes.png" />	
+			</div>
+
+			<div class="general body">
+				<div id="bandeauInfoUtile">
+					<h2>Centre de contrôle des missions</h2>
+					<table id="tableEtat" class="ui-body-b ui-shadow">
+						<thead id="nomInfo">
+							<tr>
+		                        <th>Niveau de charge de la batterie</th>
+		                        <th>Tension en sortie</th>
+		                        <th>Courant en sortie</th>
+		                        <th>RAM utilisée en %</th>
+		                        <th>Ram disponible</th>
+		                        <th>Stockage libre en %</th>
+		                        <th>Stockage libre en Mo</th>
+		                    </tr>
+						</thead>
+						<tbody id="info">
+							<tr>
+		                        <td id="ChargeBatterie"></td>
+		                        <td id="TensionSortie"></td>
+		                        <td id="CourantSortie"></td>
+		                        <td id="RamUse%"></td>
+		                        <td id="RamDispo"></td>
+		                        <td id="StockLibre%"></td>
+		                        <td id="StockLibreMo"></td>
+		                    </tr>
+						</tbody>
+					</table>
+				</div>
+				<br /><br /><br />
+				<div id="graphique">
+					<canvas id="myChart"></canvas>
+					<script type="text/javascript" src="js/courbe.js"></script>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+	            <div data-role="navbar" data-grid="" data-iconpos="left">
+	                <ul>                    
+	                    <li><a href="#pageEtat">Etat</a></li>
+	                    <li><a href="#pageSynoptique">Synoptique</a></li>
+	                    <li><a href="#pageCommande">Commande</a></li>
+	                	<li><a href="commande_complete">CommandeTest</a></li>
+	                </ul>
+	            </div>
+	        </div>
+		</div>
+
+		<!-- 
+	            ======================================
+	                        Page Synoptique
+	            ======================================
+	        -->
+		
+		<div data-role="page" id="pageSynoptique" data-theme="b">
+			<div id="header" class="general">
+				<img id="imgCnes" src="images/cnes.png" />	
+			</div>
+
+			<div data-role="main" class="general body">
+				<ul id="navSyno">
+		            <li><a>Instrument</a>
+		                <ul>
+		                    <li><a href="#pageSynoptique">CubeSat</a></li>
+		                    <li><a href="#pageMagnetometre">Magnétomètre</a></li>
+		                    <li><a href="#pageCamera">Caméra</a></li>
+		                    <li><a href="#pageMatrice">Matrice</a></li>
+		                </ul>
+		            </li>
+	        	</ul>
+
+	        	<div id="schemaSyno">
+	        		<!-- <script type="text/javascript" src="js/schemaSyno/mainSchema.js"></script>
+	        		<script type="text/javascript" src="js/schemaSyno/Rectangle.js"></script> -->
+	        	</div>
+			</div>
+
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+	            <div data-role="navbar" data-grid="" data-iconpos="left">
+	                <ul>                    
+	                    <li><a href="#pageEtat">Etat</a></li>
+	                    <li><a href="#pageSynoptique">Synoptique</a></li>
+	                    <li><a href="#pageCommande">Commande</a></li>
+	                </ul>
+	            </div>
+	        </div>
+		</div>
+
+		<!--
+	                    ======================================
+	                                page Camera
+	                    ======================================
+	        -->
+
+	    <div data-role="page" id="pageCamera" data-theme="b">
+	    	<div id="header" class="general">
+				<img id="imgCnes" src="images/cnes.png" />	
+			</div>
+
+			<div class="general body">
+				<ul id="navSyno">
+		            <li><a>Instrument</a>
+		                <ul>
+		                    <li><a href="#pageSynoptique">CubeSat</a></li>
+		                    <li><a href="#pageMagnetometre">Magnétomètre</a></li>
+		                    <li><a href="#pageCamera">Caméra</a></li>
+		                    <li><a href="#pageMatrice">Matrice</a></li>
+		                </ul>
+		            </li>
+	        	</ul>
+
+	        	<div id="slideshow">
+		            <div>
+		                <img src="images/planete.jpg" width="300" height="300">
+		            </div>
+		            <div>
+		                <img src="images/ihm_camera.jpg" width="300" height="260">
+		            </div>
+		            <div>
+		                <img src="images/planete1.jpg" width="300" height="260">
+		            </div>
+		        </div>
+		        <script>
+		            $("#slideshow > div:gt(0)").hide();
+
+		            setInterval(function() {
+		                $('#slideshow > div:first')
+		                    .fadeOut(1000)
+		                    .next()
+		                    .fadeIn(1000)
+		                    .end()
+		                    .appendTo('#slideshow');
+		            }, 3000);
+		        </script>
+		        <table id="tableCamera">
+		            <tr>
+		                <th><mark>Info Caméra : </mark></th>
+		                <td id="InfoCamera1"></td>
+		            </tr>
+		            <tr>
+		                <th><mark>Info Caméra : </mark></th>
+		                <td id="InfoCamera2"></td>
+		            </tr>
+		        </table>
+			</div>
+
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+	            <div data-role="navbar" data-grid="" data-iconpos="left">
+	                <ul>                    
+	                    <li><a href="#pageEtat">Etat</a></li>
+	                    <li><a href="#pageSynoptique">Synoptique</a></li>
+	                    <li><a href="#pageCommande">Commande</a></li>
+	                </ul>
+	            </div>
+	        </div>
+	    </div>
+
+	    <!--
+	                    ======================================
+	                                page Magnetometre
+	                    ======================================
+	        -->
+		
+		<div data-role="page" id="pageMagnetometre" data-theme="b">
+			<div id="header" class="general">
+				<img id="imgCnes" src="images/cnes.png" />	
+			</div>
+
+			<div class="general body">
+
+				<ul id="navSyno">
+		            <li><a>Instrument</a>
+		                <ul>
+		                    <li><a href="#pageSynoptique">CubeSat</a></li>
+		                    <li><a href="#pageMagnetometre">Magnétomètre</a></li>
+		                    <li><a href="#pageCamera">Caméra</a></li>
+		                    <li><a href="#pageMatrice">Matrice</a></li>
+		                </ul>
+		            </li>
+	        	</ul>
+
+				<div id="imgMagneto">
+	            	<img src="images/imgMagneto.png" width="500" height="350" />
+	       		</div>
+
+	        	<div id="donnesMagneto">
+		            <table id="tableMagneto">
+		                <tr>
+		                    <th><mark>Valeur BX (μT) : </mark></th>
+		                    <td id="ValeurMagnetoBX"></td>
+		                </tr>
+		                <tr>
+		                    <th><mark>Valeur BY (μT) : </mark></th>
+		                    <td id="ValeurMagnetoBY"></td>
+		                </tr>
+		                <tr>
+		                    <th><mark>Valeur BZ (μT) : </mark></th>
+		                    <td id="ValeurMagnetoBZ"></td>
+		                </tr>
+		            </table>
+	        	</div>
+			</div>
+
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+	            <div data-role="navbar" data-grid="" data-iconpos="left">
+	                <ul>                    
+	                    <li><a href="#pageEtat">Etat</a></li>
+	                    <li><a href="#pageSynoptique">Synoptique</a></li>
+	                    <li><a href="#pageCommande">Commande</a></li>
+	                </ul>
+	            </div>
+	        </div>
+		</div>
+
+		<!--
+	            ======================================
+	                        page Commande
+	            ======================================
+	        -->
+	    <div data-role="page" id="pageCommande" data-theme="b">
+	    	<head>
+				<meta charset="utf-8">
+		
+				<title>GESTION DE COMMANDES </title>   
+		
+				<!-- Favicons (just the basics for now, check out http://realfavicongenerator.net/ for all available) -->
+				<link rel="shortcut icon" href="images/cnes1.png">
+				<link rel="icon" type="image/png" href="images/cnes1.png">
+				<link rel="h" type="image/png"href="images/cnes.png">
+				
+				<!-- Web fonts -->
+				<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700&Open+Sans:300,400,600,700">
+		
+				<!-- Bootstrap and Ares CSS -->
+				<link rel="stylesheet" href="css/bootstrap.min.css">
+				<link rel="stylesheet" href="css/animate.min.css">
+				<link rel="stylesheet" href="css/ares.css">
+			</head>
+			<body>
+				<!-- Page Container -->
+				<!--
+					Available Classes: 'modern-sf', 'vintage-sf', 'interstellar-sf'
+				-->
+				<div id="page-container" class="modern-sf">
+					<!-- Header -->
+					<header id="page-header">
+						<div class="h3 text-right pull-right hidden-xs">
+							<div class="text-crystal font-w300">CNES</div>
+							<div class="text-success animated infinite pulse pull-right">JANUS</div>
+						</div>
+						<h1 class="h3 font-w200">
+							<span class="text-crystal"></span> <a class="link-sf font-s36" href="index.html">INITCUBE-SOL-IHM</a>
+						</h1>
+					</header>
+					<!-- END Header -->
+		
+					<!-- Main Content -->
+					<main id="page-main">
+						<!-- Columns -->
+						<div class="row">
+							<!-- Animated Circles Column -->
+							<div class="col-lg-6 col-lg-push-3 overflow-hidden push-20">
+								<div class="circles push-50">
+									<div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn">
+										<span class="circle circle-0"></span>
+									</div>
+									<div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="100">
+										<span class="circle circle-1"></span>
+									</div>
+									<div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="200">
+										<span class="circle circle-2"></span>
+									</div>
+									<div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="300">
+										<span class="circle circle-3"></span>
+									</div>
+									<div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="400">
+										<span class="circle circle-4"></span>
+									</div>
+									<div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="500">
+										<span class="circle circle-5"></span>
+									</div>
+									<div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="600">
+										<span class="circle circle-6"></span>
+									</div>
+									
+									<span class="circle circles-main-content visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="100">
+										<img id="imgCnes" src="images/cnes.png" height="100" width="300>
+										<span class="text-crystal="eee"></span>
+									</span>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 animated fadeInLeft" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="500">
+										<a href="#pageSynoptique" class="btn btn-xl btn-block btn-sf">SYNOPTIQUE</a>
+									</div>
+									<div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="500">
+										<a href="#pageEtat" class="btn btn-xl btn-block btn-sf">ETAT</a>
+									</div>
+								</div>
+							</div>
+							<!-- END Animated Circles Column -->
+		
+							<!-- Left Column -->
+							<div class="col-sm-6 col-lg-3 col-lg-pull-6">
+								<!-- Environment -->
+								<div class="block">
+									<div class="block-header overflow-hidden">
+										<h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown"style="color:#0066FF";>CENTRE DE COMMANDE</h2>
+									</div>
+									<head>  
+										<meta charset="utf-8">
+										<meta http-equiv="X-UA-Compatible" content="IE=edge">
+										<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+										<script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+										<script type="text/javascript" src="assets/js/date.js"></script>
+										<link rel="stylesheet" href="css/siteCssZ.css">
+										<!--<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>-->
+										<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+										<script src="assets/js/ajax.js"></script>
+									</head>
+									<html>
+									<div class="block-content">
+										<script>
+											$(function() {
+													console.log( "La page a été chargée en entier." );});
+													
+											$(document).ready(function(){        
+												$("#TypeMeasure").hide("slow");
+												$("#DateHeure").hide("slow");
+												$("#test1").hide("slow");
+												$("#BORD").hide("slow");
+												$("#BATT").hide("slow");
+												$("#INST").hide("slow");
+												$("#instrument").hide("slow"); 
+												$("#REBOOT").hide();
+												$("#demo-desktop").hide();
+								
+												});
+										</script>
+											<body>   
+												<form id="myForm">
+													<div class="form-group">
+															<label class="control-label"  title="Sets the Controller and Class to get data from"style="color:#0066FF";>Type de Commande</label> 
+													<select id="typeCmd" name="CMD.TYPE_CMD" >
+														<option value="default"aria-checked="true">--Choisir un type de commande--</option>
+														<option radio value="MISSION" aria-checked="true"> Mission </option>
+														<option radio value="MEASURE" aria-checked="true">Mesure</option>
+														<option radio value="STATUS">Statut</option>
+														<option radio value="DEPLOY">Déploiment</option>
+														<option radio value="SURVIVAL">orientation du Cubesat</option>
+														<option radio value="EMPTY"> vidage mémoire</option>
+														<option radio value="SAVE">Ordre d’enregistrement</option>
+														<option radio value="MEETING ">Configuration</option>
+														<option radio value="DATE">Mise à l’heure de l’ordinateur de bord</option>
+													</select>
+						
+													</div>
+						
+													<select id="instrument" name="CMD.INSTRUMENT">
+														<option radio value="default">-- Instrument -- </option>
+														<option radio value="CAMERA">Caméra</option>
+														<option radio value="MAGNETOMETRE">Magnétomètre</option>
+													</select>
+													<!--<select id="BORD" name="CMD.BORD">
+														<option radio value="BORD"> BORD </option>
+														<option radio value="ODB">Ordinateur de bord</option>
+														<option radio value="SMo">Stockage SD libre en Mo</option>
+														<option radio value="S%">Stockage SD utilisé en pourcent</option>
+														<option radio value="R%">occupation mémoire RAM en %</option>
+														<option radio value="DT">Date/heure à bord</option>
+														<option radio value="T">température du processeur en °C</option>                       
+													</select>
+													<select id="INST" name="CMD.INST">
+														<option radio value="INST"> INSTRUMENT </option>
+														<option radio value="Instrument">Instrument</option>
+														<optgroup label="État de marche" value= "État de marche" > Etat de marche <option value="ON">Allumé</option><option value="OFF">ETEINT</option></optgroup>
+														<option radio value="E">erreur</option>
+														<optgroup radio label="mode d'exploitation"  value="mode d'exploitation">Mode d'exploitation <option value="SLEEP">mode sleep</option><option value="STBY">mode stand-by suivi de la durée (10 s ou 60 s)</option><option value="NORM ">normal</option></optgroup>
+														<option radio value="LOAD">En charge</option>
+														<option radio value="T">température batterie</option>                       
+													</select>
+													<select id="BATT" name="CMD.BATT">
+														<option radio value="default"> BATT </option>
+														<option radio value="Batterie">Batterie</option>
+														<option radio value="C">Niveau de charge en pourcentage</option>
+														<option radio value="V">Tension batterie en V</option>
+														<option radio value="A">Courant en mA</option>
+														<option radio value="LOAD">En charge</option>
+														<option radio value="T">température batterie</option>                       
+													</select>
+													<select id="REBOOT" name="CMD.REBOOT">
+														<option radio value="default"> REBOOT </option>
+														<option radio value="DR">Données de redémarrages dus aux radiations (particules énergétiques)</option>
+														
+														<option radio value="DT">Date du dernier redémarrage</option>
+														<option radio value="N"> Nombre de redémarrage</option>           
+													</select>-->
+													<select id="TypeMeasure" name="CMD.TYPE_MEASURE">
+														<option radio value="default">-- Type de mesure -- </option>
+														<option radio value="IMAGE"> Température en °C</option>
+														<option radio value="IMAGE_IR"> Pixels de la caméra IR</option>
+													</select>
+													<select id="DateHeure" name="CMD.DATE_HEURE">
+														<option value="default"> date et heure </option>
+														<input name="date" class="form-control" type="datetime-local">
+													</select>
+													<script>
+													$(document).ready(function () {
+														$("#typeCmd").change(function () {
+														   switch($(this).val()) {
+															  case 'MISSION':
+															  //COMMANDE MESURE CACHEE
+																  $("#instrument").show();
+																  $("#TypeMeasure").show();
+																  $("#DateHeure").show();
+																  $("#BORD").hide();
+																  $("#BATT").hide();
+																  $("#INST").hide();
+																  $("#REBOOT").hide();
+																  //Le reste est à définir
+																  break;
+															  case 'MEASURE':
+															  //COMMANDE MESURE OUVERT
+																  $("#instrument").show();
+																  $("#TypeMeasure").show();
+																  $("#DateHeure").show();
+																  $("#BORD").hide();
+																  $("#BATT").hide();
+																  $("#INST").hide();
+																  $("#REBOOT").hide();
+																  break;
+															  case 'STATUS':
+															  //COMMANDE MESURE CACHEE
+																  $("#instrument").hide();
+																  $("#TypeMeasure").hide();
+																  $("#DateHeure").hide();
+																  $("#BORD").show();
+																  $("#BATT").show();
+																  $("#INST").show();
+																  $("#STATUS").show();
+																  $("#REBOOT").show();
+																  //Le reste est à définir
+																  break;
+															  case 'DEPLOY':
+															  //COMMANDE MESURE CACHEE
+																  $("#instrument").hide();
+																  $("#TypeMeasure").hide();
+																  $("#DateHeure").hide();
+																  $("#BORD").hide();
+																  $("#BATT").hide();
+																  $("#INST").hide();
+																  $("#REBOOT").hide();
+																  //Le reste est à définir
+																  break;
+															  case 'SURVIVAL':
+															  //COMMANDE MESURE CACHEE
+																  $("#instrument").hide();
+																  $("#TypeMeasure").hide();
+																  $("#DateHeure").hide();
+																  $("#BORD").hide();
+																  $("#BATT").hide();
+																  $("#INST").hide();
+																  $("#REBOOT").hide();
+																  //Le reste est à définir
+																  break;
+															  case 'EMPTY':
+															  //COMMANDE MESURE CACHEE
+																  $("#instrument").hide();
+																  $("#TypeMeasure").hide();
+																  $("#DateHeure").hide();
+																  $("#BORD").hide();
+																  $("#BATT").hide();
+																  $("#INST").hide();
+																  $("#REBOOT").hide();
+																  //Le reste est à définir
+																  break;
+															  case 'SAVE':
+															  //COMMANDE MESURE CACHEE
+																  $("#instrument").hide();
+																  $("#TypeMeasure").hide();
+																  $("#DateHeure").hide();
+																  $("#BORD").hide();
+																  $("#BATT").hide();
+																  $("#INST").hide();
+																  $("#REBOOT").hide();
+																  //Le reste est à définir
+																  break;
+															  case 'MEETING':
+															  //COMMANDE MESURE CACHEE
+																  $("#instrument").hide();
+																  $("#TypeMeasure").hide();
+																  $("#DateHeure").hide();
+																  $("#BORD").hide();
+																  $("#BATT").hide();
+																  $("#INST").hide();
+																  $("#REBOOT").hide();
+																  //Le reste est à définir
+																  break;
+															  case 'DATE':
+															  //COMMANDE MESURE CACHEE
+																  $("#instrument").hide();
+																  $("#TypeMeasure").hide();
+																  $("#DateHeure").hide();
+																  $("#BORD").hide();
+																  $("#BATT").hide();
+																  $("#INST").hide();
+																  $("#REBOOT").hide();
+																  //Le reste est à définir
+																  break;
+															  default:
+															  //COMMANDE MESURE CACHEE
+																  $("#instrument").hide();
+																  $("#TypeMeasure").hide();
+																  $("#DateHeure").hide();
+																  $("#BORD").hide();
+																  $("#BATT").hide();
+																  $("#INST").hide();
+																  $("#REBOOT").hide();
+															   //Le reste est à définir
+														   }
+														});
+													  });
+													</script>
+												</form>
+										</body>
+									</div>
+								</div>
+								<div class="clearfix">
+									<button type="button" id="btnSerialize" class="btn btn-primary pull-right">Valider</button>
+								</div>
+								
+								<div class="form-group">
+									<label>Result</label>
+									<textarea id="result" class="form-control" rows="5"></textarea>
+								</div>
+								
+								
+								<script src="assets/js/jquery-1.11.2.min.js"></script>
+									<script src="assets/js/jquery.serializeToJSON.js"></script>
+									<script type="text/javascript">
+								$(function(test){
+									$("#btnSerialize").on("click", function(){
+											var commande = $("#myForm").serializeArray({
+													
+											});
+											console.log(commande);
+											
+											var jsonString = JSON.stringify(commande);
+											$("#result").val(jsonString);
+										})
+									})
+									
+									ajaxPost("https://www.mocky.io/v2/5185415ba171ea3a00704eed", commande,
+									function (reponse) {
+										// Affichage dans la console en cas de succès
+										console.log("Commande envoyée au serveur" + reponse);
+									}
+								);
+								</script>
+							</div>
+							</html>
+							<!-- END Left Column -->
+		
+							<!-- Right Column -->
+							<div class="col-sm-6 col-lg-3">
+							<!-- POS_TRACKING -->
+								<div class="block">
+									<div class="block-header overflow-hidden">
+										<h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown"style="color:#0066FF";>Historique des commandes</h2>
+									</div>
+									<div class="form-group">
+										<label class="control-label"  title="Sets the Controller and Class to get data from"style="color:#FFFFFF";> MISSION</label> 
+											<select id="typeCmd" name="CMD.TYPE_CMD" >
+												<option value="default"aria-checked="true">--HISTORIQUE MISSION--</option>
+											</select>
+									</div>
+									<div class="form-group">
+										<label class="control-label"  title="Sets the Controller and Class to get data from"style="color:#FFFFFF";> MEASURE</label> 
+											<select id="typeCmd" name="CMD.TYPE_CMD" >
+												<option value="default"aria-checked="true">--HISTORIQUE MEASURE--</option>
+											</select>
+									</div>
+									<div class="form-group">
+										<label class="control-label"  title="Sets the Controller and Class to get data from"style="color:#FFFFFF";> STATUS</label> 
+											<select id="typeCmd" name="CMD.TYPE_CMD" >
+												<option value="default"aria-checked="true">--HISTORIQUE STATUS--</option>
+											</select>
+									</div>
+									<div class="form-group">
+										<label class="control-label"  title="Sets the Controller and Class to get data from"style="color:#FFFFFF";>DEPLOIMENT</label> 
+											<select id="typeCmd" name="CMD.TYPE_CMD" >
+												<option value="default"aria-checked="true">--HISTORIQUE DEPLOIMENT--</option>
+											</select>
+									</div>
+									<div class="form-group">
+										<label class="control-label"  title="Sets the Controller and Class to get data from"style="color:#FFFFFF";>ORIANTATION CUBESAT</label> 
+											<select id="typeCmd" name="CMD.TYPE_CMD" >
+												<option value="default"aria-checked="true">--HISTORIQUE ORIANTATION--</option>
+											</select>
+									</div>
+									<div class="form-group">
+										<label class="control-label"  title="Sets the Controller and Class to get data from"style="color:#FFFFFF";> VIDAGE MEMOIRE</label> 
+											<select id="typeCmd" name="CMD.TYPE_CMD" >
+												<option value="default"aria-checked="true">--HISTORIQUE VIDAGE--</option>
+											</select>
+									</div>
+									<div class="form-group">
+										<label class="control-label"  title="Sets the Controller and Class to get data from"style="color:#FFFFFF";> ORDRE ENREGISTREMENT</label> 
+											<select id="typeCmd" name="CMD.TYPE_CMD" >
+												<option value="default"aria-checked="true">--HISTORIQUE ENREGISTREMENT--</option>
+											</select>
+									</div>
+									<div class="form-group">
+										<label class="control-label"  title="Sets the Controller and Class to get data from"style="color:#FFFFFF";>CONFIGURATION</label> 
+											<select id="typeCmd" name="CMD.TYPE_CMD" >
+												<option value="default"aria-checked="true">--HISTORIQUE CONFIGURATION--</option>
+											</select>
+									</div>
+									<div class="form-group">
+										<label class="control-label"  title="Sets the Controller and Class to get data from"style="color:#FFFFFF";>MISE A JOUR </label> 
+											<select id="typeCmd" name="CMD.TYPE_CMD" >
+												<option value="default"aria-checked="true">--HISTORIQUE ORDINATEUR BORD--</option>
+											</select>
+									</div>
+								</div>
+							
+		
+								
+							</div>
+							<!-- END Right Column -->
+						</div>
+						<!-- END Columns -->
+		
+						<!-- Page Footer -->
+						<div class="block">
+							<div class="block-content block-content-full font-s12 text-center visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="1000">
+								2020 &copy; Site créé en collaboration avec  <a class="link-sf" href="https://victor-hugo-colomiers.mon-ent-occitanie.fr/">LYCEE VICTOR HUGO COLOMIERS</a>
+							</div>
+						</div>
+						<!-- END Page Footer -->
+					</main>
+					<!-- END Main Content -->
+				</div>
+				<!-- END Page Container -->
+		
+				<!-- Scripts -->
+				<script src="assets/js/core/jquery.min.js"></script>
+				<script src="assets/js/plugins/jquery.appear.min.js"></script>
+				<script src="assets/js/plugins/jquery.countTo.min.js"></script>
+				<script src="assets/js/plugins/jquery.easypiechart.min.js"></script>
+				<script src="assets/js/ares.js"></script>
+		
+				<!-- Page JS Code -->
+				<script>
+					jQuery(function(){
+						// Init page helpers (Appear + CountTo + Easy Pie Chart plugins)
+						Ares.initHelpers(['appear', 'appear-countTo', 'easy-pie-chart']);
+					});
+				</script>
+			</body>
+	    </div>
+
+	    <!--
+	                ======================================
+	                            page Matrice
+	                ======================================
+	        -->
+		
+		<div data-role="page" id="pageMatrice" data-theme="b">
+			<div id="header" class="general">
+				<img id="imgCnes" src="images/cnes.png"/>	
+			</div>
+			
+			<div class="general body">
+				<ul id="navSyno">
+		            <li><a>Instrument</a>
+		                <ul>
+		                    <li><a href="#pageSynoptique">CubeSat</a></li>
+		                    <li><a href="#pageMagnetometre">Magnétomètre</a></li>
+		                    <li><a href="#pageCamera">Caméra</a></li>
+		                    <li><a href="#pageMatrice">Matrice</a></li>
+		                </ul>
+		            </li>
+	        	</ul>
+
+				<table id="tableMatrice">
+					<thead>
+						<tr>
+	                        <th data-priority="1">Instrument</th>
+	                        <th data-priority="2">Moyenne des mesures en °C</th>
+	                        <th data-priority="3">Etat camera IR</th>
+	                    </tr>
+					</thead>
+					<tbody>
+						<tr>
+	                        <td>Camera Thermique</td>
+	                        <td id="tempMoyenne"></td>
+							<td id="CameraIR"></td>
+							<td id="arrMatrice"></td>
+	                    </tr>
+					</tbody>
+				</table>
+				<div id="matriceP5">
+					 
+	            </div>
+			</div>
+			
+
+
+			<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+	            <div data-role="navbar" data-grid="" data-iconpos="left">
+	                <ul>                    
+	                    <li><a href="#pageEtat">Etat</a></li>
+	                    <li><a href="#pageSynoptique">Synoptique</a></li>
+	                    <li><a href="#pageCommande">Commande</a></li>
+	                </ul>
+	            </div>
+	        </div>
+		</div>
+	</body>
+</html>	

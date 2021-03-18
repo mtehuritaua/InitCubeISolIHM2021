@@ -1,6 +1,6 @@
 class Source{
 	constructor(){
-		this.source = new EventSource("../../cgi-bin/cubeEventServer.cgi");
+		this.source = new EventSource("cgi-bin/cubeEventServer.cgi");
 		this.obj = 0;
 		this.arr = [];
 	}

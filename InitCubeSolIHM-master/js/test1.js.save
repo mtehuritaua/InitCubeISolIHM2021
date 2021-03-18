@@ -1,0 +1,12 @@
+$(document).ready(function(){
+	$("#button").click(function{
+		$.ajax({
+			type: 'GET',
+			url: '../testbutton.html',
+			dataType: 'html',
+			
+		});
+	});
+
+});
+success : function(code_html, statut){

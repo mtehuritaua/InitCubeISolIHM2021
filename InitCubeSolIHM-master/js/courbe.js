@@ -1,31 +1,33 @@
+//var Chart = require('chart.js');
+//$(document).ready(function() {
 var ctx = document.getElementById('myChart');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
         labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
         datasets: [{
-            label: 'Temperature systeme',
+            label: 'Niveau de charge de la batterie',
             data: [],
             borderWidth: 2,
             borderColor: ['red'],
         }, {
-            label: 'Temperature processeur',
+            label: 'Tension de sortie',
             data: [],
             borderWidth: 2,
             borderColor: ['green'],
         }, {
-            label: 'Temperature batterie',
+            label: 'Courant de sortie',
             data: [],
             borderWidth: 2,
             borderColor: ['yellow'],
         }, {
-            label: 'Temperature caméra',
+            label: 'RAM utilisée en %',
             data: [],
             borderWidth: 2,
             borderColor: ['aqua'],
         }, {
-            label: 'Temperature Test',
-            data: [],
+            label: 'Stockage libre en %',
+            data: [30,23,56,45,34,23,67,76,12,12],//data: [],
             borderWidth: 2,
             borderColor: ['white'],
         }]
@@ -42,3 +44,4 @@ var myChart = new Chart(ctx, {
         maintainAspectRatio: false
     }
 });
+//});

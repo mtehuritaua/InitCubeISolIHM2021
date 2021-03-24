@@ -3,28 +3,28 @@
 <html>
 
 <head>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
-	<script type="text/javascript" src="js/graphique.js"></script>
-	<link rel="stylesheet" href="css/siteCssZ.css">
-	<link href="css/jquery-ui.css" rel="stylesheet">
-	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
-	<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script type="text/javascript" src="js/resizeGraphic.js"></script>
-	<script type="text/javascript" src="js/canvasjs.min.js"></script>
-	<script type="text/javascript" src="js/matrice/CCamera.js"></script>
-	<script type="text/javascript" src="js/matrice/CMatrice.js"></script>
-	<script type="text/javascript" src="js/instrument/gestionnaireInstruments.js"></script>
-	<script type="text/javascript" src="js/instrument/IHMInstument.js"></script>
-	<script type="text/javascript" src="js/instrument/instrument.js"></script>
-	<script type="text/javascript" src="js/instrument/Mesure.js"></script>
-	<script type="text/javascript" src="js/instrument/TypeMesure.js"></script>
-	<script type="text/javascript" src="js/segmentVol.js"></script>
-	<script type="text/javascript" src="js/initcube.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+    <script type="text/javascript" src="js/graphique.js"></script>
+    <link rel="stylesheet" href="css/siteCssZ.css">
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/resizeGraphic.js"></script>
+    <script type="text/javascript" src="js/canvasjs.min.js"></script>
+    <script type="text/javascript" src="js/matrice/CCamera.js"></script>
+    <script type="text/javascript" src="js/matrice/CMatrice.js"></script>
+    <script type="text/javascript" src="js/instrument/gestionnaireInstruments.js"></script>
+    <script type="text/javascript" src="js/instrument/IHMInstument.js"></script>
+    <script type="text/javascript" src="js/instrument/instrument.js"></script>
+    <script type="text/javascript" src="js/instrument/Mesure.js"></script>
+    <script type="text/javascript" src="js/instrument/TypeMesure.js"></script>
+    <script type="text/javascript" src="js/segmentVol.js"></script>
+    <script type="text/javascript" src="js/initcube.js"></script>
 </head>
 
 <!--
@@ -34,60 +34,60 @@
     -->
 
 <body>
-	<div data-role="page" id="pageEtat" class="general" data-theme="b">
-		<div data-role="header" class="general">
-			<img id="imgCnes" src="images/cnes.png" />
-		</div>
+    <div data-role="page" id="pageEtat" class="general" data-theme="b">
+        <div data-role="header" class="general">
+            <img id="imgCnes" src="images/cnes.png" />
+        </div>
 
-		<div class="general body">
-			<div id="bandeauInfoUtile">
-				<h2>Centre de contrôle des missions</h2>
-				<table id="tableEtat" class="ui-body-b ui-shadow">
-					<thead id="nomInfo">
-						<tr>
-							<th>Niveau de charge de la batterie</th>
-							<th>Tension en sortie</th>
-							<th>Courant en sortie</th>
-							<th>RAM utilisée en %</th>
-							<th>Ram disponible</th>
-							<th>Stockage libre en %</th>
-							<th>Stockage libre en Mo</th>
-						</tr>
-					</thead>
-					<tbody id="info">
-						<tr>
-							<td id="ChargeBatterie"></td>
-							<td id="TensionSortie"></td>
-							<td id="CourantSortie"></td>
-							<td id="RamUse%"></td>
-							<td id="RamDispo"></td>
-							<td id="StockLibre%"></td>
-							<td id="StockLibreMo"></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<br />
-			<div id="graphique"></div>
-		</div>
-		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-			<div data-role="navbar" data-grid="" data-iconpos="left">
-				<ul id="menu">
-					<li><a href="#pageEtat">Etat</a></li>
-					<li><a href="#pageInstruments"> Instruments</a>
-						<ul>
-							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-							<li><a href="#pageCamera">Caméra</a></li>
-							<li><a href="#pageMatrice">Matrice</a></li>
-						</ul>
-					</li>
-					<li><a href="#pageCommande">Commande</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+        <div class="general body">
+            <div id="bandeauInfoUtile">
+                <h2>Centre de contrôle des missions</h2>
+                <table id="tableEtat" class="ui-body-b ui-shadow">
+                    <thead id="nomInfo">
+                        <tr>
+                            <th>Niveau de charge de la batterie</th>
+                            <th>Tension en sortie</th>
+                            <th>Courant en sortie</th>
+                            <th>RAM utilisée en %</th>
+                            <th>Ram disponible</th>
+                            <th>Stockage libre en %</th>
+                            <th>Stockage libre en Mo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="info">
+                        <tr>
+                            <td id="ChargeBatterie"></td>
+                            <td id="TensionSortie"></td>
+                            <td id="CourantSortie"></td>
+                            <td id="RamUse%"></td>
+                            <td id="RamDispo"></td>
+                            <td id="StockLibre%"></td>
+                            <td id="StockLibreMo"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <div id="graphique"></div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+            <div data-role="navbar" data-grid="" data-iconpos="left">
+                <ul id="menu">
+                    <li><a href="#pageEtat">Etat</a></li>
+                    <li><a href="#pageInstruments"> Instruments</a>
+                        <ul>
+                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+                            <li><a href="#pageCamera">Caméra</a></li>
+                            <li><a href="#pageMatrice">Matrice</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#pageCommande">Commande</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-	<!-- 
+    <!-- 
             ======================================
                         Page Instruments
             ======================================
@@ -145,8 +145,8 @@
 		</div>
 	</div>
 
-	<!-- 
-            ==============================================
+    <!-- 
+            ======================================
                         Page Formulaire Ajout Instrument
             ==============================================
         -->
@@ -161,33 +161,8 @@
 				<form action="#" method="post">
 					<label for="nom">Renseignez le nom:</label>
 					<input type="text" name="nom" id="nom" class="champs" />
-
-
-				<!--	<a href="#popupLogin" data-rel="popup" data-position-to="window"
-						class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-plus ui-btn-icon-left "
-						data-transition="pop">Ajouter</a>
-					<div data-role="popup" id="popupLogin" class="ui-corner-all">
-						<form>
-							<div style="padding:50px 50px;">
-								<label for="valMin">Renseignez la mesure:</label>
-								<input type="text" name="mesure" id="mesure" class="champs" />
-
-								<label for="valMin">Renseignez l'unité':</label>
-								<input type="text" name="unite" id="unite" class="champs" />
-
-								<label for="valMin">Renseignez le seuil Min:</label>
-								<input type="text" name="valMin" id="valMin" class="champs" />
-
-								<label for="valMax">Renseignez le seuil Max:</label>
-								<input type="text" name="valMax" id="valMax" class="champs" />
-
-								<button type="submit" name="valid" class="ui-btn ui-btn-inline">Valider</button>
-								<button type="reset" name="cancel" class="ui-btn ui-btn-inline">Annuler</button>
-							</div>
-						</form>
-					</div> -->
-
 					<fieldset>
+
 						<legend>Type de Mesure</legend>
 						<label for="mesure">Renseignez la mesure:</label>
 						<input type="text" name="mesure" id="mesure" class="champs" />
@@ -232,130 +207,128 @@
 			</div>
 		</div>
 	</div>
-
-	<!--
-                    ======================================
+ <!--               ======================================
                                 page Camera
                     ======================================
         -->
 
-	<div data-role="page" id="pageCamera" data-theme="b">
-		<div id="header" class="general">
-			<img id="imgCnes" src="images/cnes.png" />
-		</div>
+    <div data-role="page" id="pageCamera" data-theme="b">
+        <div id="header" class="general">
+            <img id="imgCnes" src="images/cnes.png" />
+        </div>
 
-		<div class="general body">
+        <div class="general body">
 
-			<div id="slideshow">
-				<div>
-					<img src="images/planete.jpg" width="300" height="300">
-				</div>
-				<div>
-					<img src="images/ihm_camera.jpg" width="300" height="260">
-				</div>
-				<div>
-					<img src="images/planete1.jpg" width="300" height="260">
-				</div>
-			</div>
-			<script>
-				$("#slideshow > div:gt(0)").hide();
+            <div id="slideshow">
+                <div>
+                    <img src="images/planete.jpg" width="300" height="300">
+                </div>
+                <div>
+                    <img src="images/ihm_camera.jpg" width="300" height="260">
+                </div>
+                <div>
+                    <img src="images/planete1.jpg" width="300" height="260">
+                </div>
+            </div>
+            <script>
+                $("#slideshow > div:gt(0)").hide();
 
-				setInterval(function () {
-					$('#slideshow > div:first')
-						.fadeOut(1000)
-						.next()
-						.fadeIn(1000)
-						.end()
-						.appendTo('#slideshow');
-				}, 3000);
-			</script>
-			<table id="tableCamera">
-				<tr>
-					<th><mark>Info Caméra : </mark></th>
-					<td id="InfoCamera1"></td>
-				</tr>
-				<tr>
-					<th><mark>Info Caméra : </mark></th>
-					<td id="InfoCamera2"></td>
-				</tr>
-			</table>
-		</div>
+                setInterval(function() {
+                    $('#slideshow > div:first')
+                        .fadeOut(1000)
+                        .next()
+                        .fadeIn(1000)
+                        .end()
+                        .appendTo('#slideshow');
+                }, 3000);
+            </script>
+            <table id="tableCamera">
+                <tr>
+                    <th><mark>Info Caméra : </mark></th>
+                    <td id="InfoCamera1"></td>
+                </tr>
+                <tr>
+                    <th><mark>Info Caméra : </mark></th>
+                    <td id="InfoCamera2"></td>
+                </tr>
+            </table>
+        </div>
 
-		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-			<div data-role="navbar" data-grid="" data-iconpos="left">
-				<ul id="menu">
-					<li><a href="#pageEtat">Etat</a></li>
-					<li><a href="#pageInstruments"> Instruments</a>
-						<ul>
-							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-							<li><a href="#pageCamera">Caméra</a></li>
-							<li><a href="#pageMatrice">Matrice</a></li>
-						</ul>
-					</li>
-					<li><a href="#pageCommande">Commande</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+            <div data-role="navbar" data-grid="" data-iconpos="left">
+                <ul id="menu">
+                    <li><a href="#pageEtat">Etat</a></li>
+                    <li><a href="#pageInstruments"> Instruments</a>
+                        <ul>
+                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+                            <li><a href="#pageCamera">Caméra</a></li>
+                            <li><a href="#pageMatrice">Matrice</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#pageCommande">Commande</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-	<!--
+    <!--
                         ======================================
                                     page Magnetometre
                         ======================================
         -->
 
-	<div data-role="page" id="pageMagnetometre" data-theme="b">
-		<div id="header" class="general">
-			<img id="imgCnes" src="images/cnes.png" />
-		</div>
+    <div data-role="page" id="pageMagnetometre" data-theme="b">
+        <div id="header" class="general">
+            <img id="imgCnes" src="images/cnes.png" />
+        </div>
 
-		<div class="general body">
+        <div class="general body">
 
 
-			<!--Valeur et graphique-->
-			<div id="donnesMagneto">
-				<table id="tableMagneto">
-					<tr>
-						<th class="valeurMagneto">
-							<center>Valeur BX (μT)</center>
-						</th>
-						<th class="valeurMagneto">
-							<center>Valeur BY (μT)</center>
-						</th>
-						<th class="valeurMagneto">
-							<center>Valeur BZ (μT)</center>
-						</th>
-					</tr>
-					<tr>
-						<td id="ValeurMagnetoBX"></td>
-						<td id="ValeurMagnetoBY"></td>
-						<td id="ValeurMagnetoBZ"></td>
-					</tr>
-				</table>
-			</div>
-			<br />
-			<div id="graphMagneto"></div>
+            <!--Valeur et graphique-->
+            <div id="donnesMagneto">
+                <table id="tableMagneto">
+                    <tr>
+                        <th class="valeurMagneto">
+                            <center>Valeur BX (μT)</center>
+                        </th>
+                        <th class="valeurMagneto">
+                            <center>Valeur BY (μT)</center>
+                        </th>
+                        <th class="valeurMagneto">
+                            <center>Valeur BZ (μT)</center>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td id="ValeurMagnetoBX"></td>
+                        <td id="ValeurMagnetoBY"></td>
+                        <td id="ValeurMagnetoBZ"></td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <div id="graphMagneto"></div>
 
-		</div>
+        </div>
 
-		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-			<div data-role="navbar" data-grid="" data-iconpos="left">
-				<ul id="menu">
-					<li><a href="#pageEtat">Etat</a></li>
-					<li><a href="#pageInstruments"> Instruments</a>
-						<ul>
-							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-							<li><a href="#pageCamera">Caméra</a></li>
-							<li><a href="#pageMatrice">Matrice</a></li>
-						</ul>
-					</li>
-					<li><a href="#pageCommande">Commande</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+            <div data-role="navbar" data-grid="" data-iconpos="left">
+                <ul id="menu">
+                    <li><a href="#pageEtat">Etat</a></li>
+                    <li><a href="#pageInstruments"> Instruments</a>
+                        <ul>
+                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+                            <li><a href="#pageCamera">Caméra</a></li>
+                            <li><a href="#pageMatrice">Matrice</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#pageCommande">Commande</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-	<!--
+    <!--
 	            ======================================
 	                        page Commande
 	            ======================================
@@ -841,142 +814,141 @@
 		</ul>
 	</div>
 </div>
-<!--
-                    ======================================
+<!--                ======================================
                                 page Matrice
                     ======================================
         -->
 
-<div data-role="page" id="pageMatrice" data-theme="b">
-	<div id="header" class="general">
-		<img id="imgCnes" src="images/cnes.png" />
-	</div>
+    <div data-role="page" id="pageMatrice" data-theme="b">
+        <div id="header" class="general">
+            <img id="imgCnes" src="images/cnes.png" />
+        </div>
 
-	<div class="general body">
-		<table id="tableMatrice">
-			<thead>
-				<tr>
-					<th data-priority="1">Instrument</th>
-					<th data-priority="2">Moyenne des mesures en °C</th>
-					<th data-priority="3">Etat camera IR</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Camera Thermique</td>
-					<td id="tempMoyenne"></td>
-					<td id="CameraIR"></td>
-					<td id="arrMatrice"></td>
-				</tr>
-			</tbody>
-		</table>
+        <div class="general body">
+            <table id="tableMatrice">
+                <thead>
+                    <tr>
+                        <th data-priority="1">Instrument</th>
+                        <th data-priority="2">Moyenne des mesures en °C</th>
+                        <th data-priority="3">Etat camera IR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Camera Thermique</td>
+                        <td id="tempMoyenne"></td>
+                        <td id="CameraIR"></td>
+                        <td id="arrMatrice"></td>
+                    </tr>
+                </tbody>
+            </table>
 
-		<table id="matrice">
-			<thead>
-				<tr>
-					<th id="entete" COLSPAN=8>Caméra thermique</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr id="ligne1">
-					<td id="pixel0"></td>
-					<td id="pixel1"></td>
-					<td id="pixel2"></td>
-					<td id="pixel3"></td>
-					<td id="pixel4"></td>
-					<td id="pixel5"></td>
-					<td id="pixel6"></td>
-					<td id="pixel7"></td>
-				</tr>
-				<tr id="ligne2">
-					<td id="pixel8"></td>
-					<td id="pixel9"></td>
-					<td id="pixel10"></td>
-					<td id="pixel11"></td>
-					<td id="pixel12"></td>
-					<td id="pixel13"></td>
-					<td id="pixel14"></td>
-					<td id="pixel15"></td>
-				</tr>
-				<tr id="ligne3">
-					<td id="pixel16"></td>
-					<td id="pixel17"></td>
-					<td id="pixel18"></td>
-					<td id="pixel19"></td>
-					<td id="pixel20"></td>
-					<td id="pixel21"></td>
-					<td id="pixel22"></td>
-					<td id="pixel23"></td>
-				</tr>
-				<tr id="ligne4">
-					<td id="pixel24"></td>
-					<td id="pixel25"></td>
-					<td id="pixel26"></td>
-					<td id="pixel27"></td>
-					<td id="pixel28"></td>
-					<td id="pixel29"></td>
-					<td id="pixel30"></td>
-					<td id="pixel31"></td>
-				</tr>
-				<tr id="ligne5">
-					<td id="pixel32"></td>
-					<td id="pixel33"></td>
-					<td id="pixel34"></td>
-					<td id="pixel35"></td>
-					<td id="pixel36"></td>
-					<td id="pixel37"></td>
-					<td id="pixel38"></td>
-					<td id="pixel39"></td>
-				</tr>
-				<tr id="ligne6">
-					<td id="pixel40"></td>
-					<td id="pixel41"></td>
-					<td id="pixel42"></td>
-					<td id="pixel43"></td>
-					<td id="pixel44"></td>
-					<td id="pixel45"></td>
-					<td id="pixel46"></td>
-					<td id="pixel47"></td>
-				</tr>
-				<tr id="ligne7">
-					<td id="pixel48"></td>
-					<td id="pixel49"></td>
-					<td id="pixel50"></td>
-					<td id="pixel51"></td>
-					<td id="pixel52"></td>
-					<td id="pixel53"></td>
-					<td id="pixel54"></td>
-					<td id="pixel55"></td>
-				</tr>
-				<tr id="ligne8">
-					<td id="pixel56"></td>
-					<td id="pixel57"></td>
-					<td id="pixel58"></td>
-					<td id="pixel59"></td>
-					<td id="pixel60"></td>
-					<td id="pixel61"></td>
-					<td id="pixel62"></td>
-					<td id="pixel63"></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-		<div data-role="navbar" data-grid="" data-iconpos="left">
-			<ul id="menu">
-				<li><a href="#pageEtat">Etat</a></li>
-				<li><a href="#pageInstruments"> Instruments</a>
-					<ul>
-						<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-						<li><a href="#pageCamera">Caméra</a></li>
-						<li><a href="#pageMatrice">Matrice</a></li>
-					</ul>
-				</li>
-				<li><a href="#pageCommande">Commande</a></li>
-			</ul>
-		</div>
-	</div>
-</div>
+            <table id="matrice">
+                <thead>
+                    <tr>
+                        <th id="entete" COLSPAN=8>Caméra thermique</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="ligne1">
+                        <td id="pixel0"></td>
+                        <td id="pixel1"></td>
+                        <td id="pixel2"></td>
+                        <td id="pixel3"></td>
+                        <td id="pixel4"></td>
+                        <td id="pixel5"></td>
+                        <td id="pixel6"></td>
+                        <td id="pixel7"></td>
+                    </tr>
+                    <tr id="ligne2">
+                        <td id="pixel8"></td>
+                        <td id="pixel9"></td>
+                        <td id="pixel10"></td>
+                        <td id="pixel11"></td>
+                        <td id="pixel12"></td>
+                        <td id="pixel13"></td>
+                        <td id="pixel14"></td>
+                        <td id="pixel15"></td>
+                    </tr>
+                    <tr id="ligne3">
+                        <td id="pixel16"></td>
+                        <td id="pixel17"></td>
+                        <td id="pixel18"></td>
+                        <td id="pixel19"></td>
+                        <td id="pixel20"></td>
+                        <td id="pixel21"></td>
+                        <td id="pixel22"></td>
+                        <td id="pixel23"></td>
+                    </tr>
+                    <tr id="ligne4">
+                        <td id="pixel24"></td>
+                        <td id="pixel25"></td>
+                        <td id="pixel26"></td>
+                        <td id="pixel27"></td>
+                        <td id="pixel28"></td>
+                        <td id="pixel29"></td>
+                        <td id="pixel30"></td>
+                        <td id="pixel31"></td>
+                    </tr>
+                    <tr id="ligne5">
+                        <td id="pixel32"></td>
+                        <td id="pixel33"></td>
+                        <td id="pixel34"></td>
+                        <td id="pixel35"></td>
+                        <td id="pixel36"></td>
+                        <td id="pixel37"></td>
+                        <td id="pixel38"></td>
+                        <td id="pixel39"></td>
+                    </tr>
+                    <tr id="ligne6">
+                        <td id="pixel40"></td>
+                        <td id="pixel41"></td>
+                        <td id="pixel42"></td>
+                        <td id="pixel43"></td>
+                        <td id="pixel44"></td>
+                        <td id="pixel45"></td>
+                        <td id="pixel46"></td>
+                        <td id="pixel47"></td>
+                    </tr>
+                    <tr id="ligne7">
+                        <td id="pixel48"></td>
+                        <td id="pixel49"></td>
+                        <td id="pixel50"></td>
+                        <td id="pixel51"></td>
+                        <td id="pixel52"></td>
+                        <td id="pixel53"></td>
+                        <td id="pixel54"></td>
+                        <td id="pixel55"></td>
+                    </tr>
+                    <tr id="ligne8">
+                        <td id="pixel56"></td>
+                        <td id="pixel57"></td>
+                        <td id="pixel58"></td>
+                        <td id="pixel59"></td>
+                        <td id="pixel60"></td>
+                        <td id="pixel61"></td>
+                        <td id="pixel62"></td>
+                        <td id="pixel63"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+            <div data-role="navbar" data-grid="" data-iconpos="left">
+                <ul id="menu">
+                    <li><a href="#pageEtat">Etat</a></li>
+                    <li><a href="#pageInstruments"> Instruments</a>
+                        <ul>
+                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+                            <li><a href="#pageCamera">Caméra</a></li>
+                            <li><a href="#pageMatrice">Matrice</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#pageCommande">Commande</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

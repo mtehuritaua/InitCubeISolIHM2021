@@ -1,4 +1,4 @@
-class GestionnaireInstruments {
+class SegmentVol {
     constructor(urlFichierConf) {
         console.log("instance d'un gestionnaire d'instruments url du fichier :" + urlFichierConf);
         this.urlFichierConf = urlFichierConf;

@@ -3,12 +3,16 @@
 
 $(document).ready(function() {
 
-    /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------*/
+    /*-------------------------------------Instance d'instruments de la classe Gestionnaire d'Instruments---------------*/
         let gestionnaireInstruments = new GestionnaireInstruments("../initcube.xml");
-	    gestionnaireInstruments.recupererFichierConf();
+        let gestionnaireInstruments = new GestionnaireInstruments("../inicube.xml");
+	    
+    /*-------------------------------------Méthode de la classe Gestionnaire d'Instruments------------------------------------------------*/    
+        gestionnaireInstruments.recupererFichierConf();
+        gestionnaireInstruments.recupererFichierConf();
     
     
-    /*-------------------------------------Graphiques de la page Etat-------------------------------------------*/
+    /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
         let graphBattCharge = new Graphique("graphique","Etat","Batterie", "Charge","%");
         let graphBattTension = new Graphique("graphique","Etat","Batterie", "Tension","V");
         let graphBattCourant = new Graphique("graphique","Etat","Batterie", "Courant","A");
@@ -17,14 +21,16 @@ $(document).ready(function() {
         let graphStockLibreP = new Graphique("graphique","Etat","Stockage", "Libre","%");
         let graphStockLibreM = new Graphique("graphique","Etat","Stockage", "Disponible","Mo");
         
-    /*--------------------------------------Graphiques de la page Magnétomètre--------------------------------------------*/
+    /*--------------------------------------Graphiques de la page Magnétomètre-----------------------------------------*/
         let graphMagnetoBX = new Graphique("graphMagneto","Magnetometre","ValeurBX","Valeur","μT");
         let graphMagnetoBY = new Graphique("graphMagneto","Magnetometre","ValeurBY","Valeur","μT");
         let graphMagnetoBZ = new Graphique("graphMagneto","Magnetometre","ValeurBZ","Valeur","μT");
         
-        var source = new EventSource("../cgi-bin/cubeEventServer.cgi");
+        var source = new EventSource("cgi-bin/cubeEventServer.cgi");
         source.addEventListener("etat", function(event) {
         var obj = JSON.parse(event.data);
+
+    /*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
         document.getElementById("ChargeBatterie").innerHTML = obj.batterie.niveauDeCharge + " %";
         graphBattCharge.ajouterMesure(obj.date,obj.batterie.niveauDeCharge);
         document.getElementById("TensionSortie").innerHTML = obj.batterie.tension + " V";

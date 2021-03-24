@@ -52,5 +52,12 @@
 			<date>"2019-02-13 11:12:46"</date>
 			<valeur unite="°C">15</valeur>
 		</mesure>
+  </instrument>
+  <instrument>
+		<description>
+			<id>124BCD</id>
+			<type>magnétomètre</type>
+			<role>mesurer un champ magnétique</role>
+		</description>
   </instrument>    
 </initcube>

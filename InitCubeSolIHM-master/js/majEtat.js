@@ -2,6 +2,23 @@
 //var matrice = new CMatrice(camera);
 
 $(document).ready(function() {
+
+    /*-------------------------------------Gestionnaire du Formulaire---------------------------------------------*/
+    let $nom = $('#nom'),
+       $unite = $('#unite'),
+        $image = $('#image'),
+        $valMin = $('#valMin'),
+        $valMAx = $('#valMAx'),
+        $Valider = $('#Valider'),
+        $Annuler = $('#Annuler');
+
+/*-------------------------------------Gestionnaire d'Instrument---------------------------------------------*/
+        let gestionnaireInstruments = new GestionnaireInstruments("../initcube.xml");
+	    gestionnaireInstruments.recupererFichierConf();
+
+        $Valider.click(gestionnaireInstruments.ajouterInstrument());
+        
+
 /*-------------------------------------Graphiques de la page Etat-------------------------------------------*/
     let graphBattCharge = new Graphique("graphique","Etat","Batterie", "Charge","%");
     let graphBattTension = new Graphique("graphique","Etat","Batterie", "Tension","V");

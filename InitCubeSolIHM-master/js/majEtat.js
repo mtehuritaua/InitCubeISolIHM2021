@@ -3,20 +3,19 @@
 
 $(document).ready(function() {
 
-    /*-------------------------------------Gestionnaire du Formulaire---------------------------------------------*/
+/*-------------------------------------Gestionnaire du Formulaire---------------------------------------------*/
     let $nom = $('#nom'),
-       $unite = $('#unite'),
-        $image = $('#image'),
-        $valMin = $('#valMin'),
-        $valMAx = $('#valMAx'),
-        $Valider = $('#Valider'),
-        $Annuler = $('#Annuler');
+    $unite = $('#unite'),
+    $image = $('#image'),
+    $valMin = $('#valMin'),
+    $valMAx = $('#valMAx'),
+    $Valider = $('#Valider'),
+    $Annuler = $('#Annuler');
 
 /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------*/
-        let gestionnaireInstruments = new GestionnaireInstruments("../initcube.xml");
-	    gestionnaireInstruments.recupererFichierConf();
-
-        $Valider.click(gestionnaireInstruments.ajouterInstrument());
+    let gestionnaireInstruments = new GestionnaireInstruments("../initcube.xml");
+	gestionnaireInstruments.recupererFichierConf();
+    $Valider.click(gestionnaireInstruments.ajouterInstrument());
         
 
 /*-------------------------------------Graphiques de la page Etat-------------------------------------------*/

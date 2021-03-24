@@ -5,6 +5,7 @@ $(document).ready(function() {
 
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------*/
         let gestionnaireInstruments = new GestionnaireInstruments("../initcube.xml");
+	gestionnaireInstruments.recupererFichierConf();
     
     
     /*-------------------------------------Graphiques de la page Etat-------------------------------------------*/

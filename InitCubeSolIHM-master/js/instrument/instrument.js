@@ -1,4 +1,4 @@
-class Intrument {
+class Instrument {
     constructor (nom) {
         this.nom=nom;
         this.typesMesure=new Array();

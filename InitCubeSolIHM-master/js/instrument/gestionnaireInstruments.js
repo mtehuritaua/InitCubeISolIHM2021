@@ -34,6 +34,6 @@ class GestionnaireInstruments {
     }
 
     ajouterInstrument (){
-        this.listeInstruments.push(new Instrument($nom));
+        this.listeInstruments.push(new Instrument($('#nom')));
     }
 }

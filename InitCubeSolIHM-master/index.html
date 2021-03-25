@@ -105,17 +105,17 @@
 
 			<div id="Instrument" class="general">
 
-				<div id="Instrument_1">
+				<div class="Instrument_1">
 					<a href="#pageMagnetometre"> <img src="images/Magnétomètre.png" alt="Magnétomètre" /> <br />
 						<span>Magnétomètre</span> </a>
 				</div>
 
-				<div id="Instrument_1">
+				<div class="Instrument_1">
 					<a href="#pageCamera"> <img src="images/Caméra.png" alt="Caméra" /> <br /> <span> Caméra </span>
 					</a>
 				</div>
 
-				<div id="Instrument_1">
+				<div class="Instrument_1">
 					<a href="#pageMatrice"> <img src="images/Matrice.png" alt="Matrice" /> <br /> <span> Matrice </span>
 					</a>
 				</div>
@@ -158,12 +158,13 @@
 		<!--  création d'un formulaire jQuery Mobile -->
 		<div class="ui-grid-b">
 			<div class="ui-block-b">
-				<form action="#" method="post">
+				<form action="#" method="post" id="form">
 					<label for="nom">Renseignez le nom:</label>
 					<input type="text" name="nom" id="nom" class="champs" />
+				
 					<fieldset>
-
-						<legend>Type de Mesure</legend>
+						<legend style="color:#ffffff" >Type de Mesure</legend>
+						<!--<button class="ui-btn ui-icon-plus ui-btn-icon-left" id="Ajouter">Ajouter Mesure</button>-->
 						<label for="mesure">Renseignez la mesure:</label>
 						<input type="text" name="mesure" id="mesure" class="champs" />
 
@@ -186,8 +187,8 @@
 		</div>
 
 		<br />
-		<button type="submit" name="valid" class="ui-btn ui-btn-inline">Valider</button>
-		<button type="reset" name="cancel" class="ui-btn ui-btn-inline">Annuler</button>
+		<button type="submit" name="send" class="ui-btn ui-btn-inline" id="Envoyer">Envoyer</button>
+		<a href="#pageInstruments" type="reset" name="cancel" class="ui-btn ui-btn-inline">Annuler</a>
 
 		<!--  fin du formulaire jQuery Mobile -->
 

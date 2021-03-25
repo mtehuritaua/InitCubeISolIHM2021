@@ -2,7 +2,7 @@ class GestionnaireInstruments {
     constructor(urlFichierConf) {
         console.log("instance d'un gestionnaire d'instruments url du fichier :" + urlFichierConf);
         this.urlFichierConf = urlFichierConf;
-        console.log("<canva id=\"instru" + this.type + this.source + "\"></canvas>");
+        console.log("<canvas id=\"instru" + this.type + this.source + "\"></canvas>");
         $("#instru").append("<div class=\"instruments\"><canvas id=\"instru" + this.type + "\"></canvas></div>");
         this.listeInstruments=new Array();
     }

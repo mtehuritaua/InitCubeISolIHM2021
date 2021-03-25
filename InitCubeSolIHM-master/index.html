@@ -24,6 +24,8 @@
     <script type="text/javascript" src="js/instrument/Mesure.js"></script>
     <script type="text/javascript" src="js/instrument/TypeMesure.js"></script>
     <script type="text/javascript" src="js/segmentVol.js"></script>
+    <script type="text/javascript" src="js/commande.js"></script>
+    <script type="text/javascript" src="js/gestionnaireCommandes.js"></script>
     <script type="text/javascript" src="js/initcube.js"></script>
 </head>
 
@@ -336,34 +338,45 @@
             <img id="imgCnes" src="images/cnes.png" />
         </div>
         <div data-role="fieldcontain">
+            <label for="liste"> Identifiant du satellite :</label>
+            <select style="color:#0066FF" name="liste" id="IdSatellite"> 
+				<option value="1"> 1 </option> 
+				<option value="2"> 2 </option> 
+			</select>
+        </div>
+        <div data-role="fieldcontain">
             <label for="liste"> Type de commande :</label>
-            <select style="color:#0066FF" name="liste" id="liste"> 
-			<option value="MISSION">Mission</option> 
-			<option value="MEASURE">Mesure</option> 
-			<option value="STATUS">Status</option> 
-			<option value="DEPLOY">Déploiement</option> 
-			<option value="SURVIVAL">Orientation du Cubesat</option> 
-		</select>
+            <select style="color:#0066FF" name="liste" id="TypeCommande"> 
+				<option value="MISSION">Mission</option> 
+				<option value="MEASURE">Mesure</option> 
+				<option value="STATUS">Status</option> 
+				<option value="DEPLOY">Déploiement</option> 
+				<option value="SURVIVAL">Orientation du Cubesat</option> 
+			</select>
         </div>
         <div data-role="fieldcontain">
             <label for="liste"> Instruments :</label>
-            <select style="color:#0066FF" name="liste" id="liste"> 
-			<option value="CAMERA">Caméra</option> 
-			<option value="MAGNETOMETRE">Magnétomètre</option> 
-		</select>
+            <select style="color:#0066FF" name="liste" id="Instru"> 
+				<option value="CAM_THERM">Caméra</option> 
+				<option value="MAGNETOMETRE">Magnétomètre</option> 
+			</select>
         </div>
         <div data-role="fieldcontain">
             <label for="liste"> Type de mesure :</label>
-            <select style="color:#0066FF" name="liste" id="liste"> 
+            <select style="color:#0066FF" name="liste" id="TypeMesure"> 
 			<option value="TEMPERATURE">Température en °C</option> 
-			<option value="IMAGE_IR">Pixels de la caméra</option> 
+			<option value="PIX">Pixels de la caméra</option> 
 		</select>
         </div>
         <div data-role="fieldcontain">
-            <label for="liste"> Date et heure :</label>
+            <label for="DateEtHeure"> Date et heure :</label>
             <input name="date" class="form-control" type="datetime-local">
         </div>
+        <!-- Bouton valider et annuler -->
 
+        <div class="clearfix">
+            <button type="submit" id="btnCommande" class="btn btn-primary pull-right">Valider</button>
+        </div>
 
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
             <div data-role="navbar" data-grid="" data-iconpos="left">
@@ -494,7 +507,7 @@
                                             $("#BORD").hide("slow");
                                             $("#BATT").hide("slow");
                                             $("#INST").hide("slow");
-                                            $("#instrument").hide("slow");
+                                            //$("#instrument").hide("slow");
                                             $("#REBOOT").hide();
                                             $("#demo-desktop").hide();
 

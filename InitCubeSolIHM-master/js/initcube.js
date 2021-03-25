@@ -5,8 +5,10 @@ $(document).ready(function() {
 
 /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
   let gestionnaireInstruments = new GestionnaireInstruments("../initcube.xml");
-  gestionnaireInstruments.recupererFichierConf();
-  $('#Envoyer').click(gestionnaireInstruments.ajouterInstrument());
+	gestionnaireInstruments.recupererFichierConf();
+  $('#Envoyer').click(function(){
+    gestionnaireInstruments.ajouterInstrument();
+  })
 
 /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");

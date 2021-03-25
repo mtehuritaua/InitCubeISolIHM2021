@@ -35,5 +35,6 @@ class GestionnaireInstruments {
 
     ajouterInstrument (){
         this.listeInstruments.push(new Instrument($('#nom')));
+        console.log("Generer trame JSON" + this.listeInstruments[this.listeInstruments.length-1].genererJSON() );
     }
 }

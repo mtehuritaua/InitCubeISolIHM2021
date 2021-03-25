@@ -3,19 +3,10 @@
 
 $(document).ready(function() {
 
-/*-------------------------------------Gestionnaire du Formulaire--------------------------------------------------*/
-    let $nom = $('#nom'),
-    $unite = $('#unite'),
-    $image = $('#image'),
-    $valMin = $('#valMin'),
-    $valMAx = $('#valMAx'),
-    $Valider = $('#Valider'),
-    $Annuler = $('#Annuler');
-
 /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
-    let gestionnaireInstruments = new GestionnaireInstruments("../initcube.xml");
+  let gestionnaireInstruments = new GestionnaireInstruments("../initcube.xml");
 	gestionnaireInstruments.recupererFichierConf();
-    $Valider.click(gestionnaireInstruments.ajouterInstrument());
+  $('#Envoyer').click(gestionnaireInstruments.ajouterInstrument());
 
 /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");

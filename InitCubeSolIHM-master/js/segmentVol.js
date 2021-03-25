@@ -2,7 +2,8 @@ class SegmentVol {
     constructor(urlFichierConf) {
         console.log("instance d'un gestionnaire d'instruments url du fichier : " + urlFichierConf);
         this.urlFichierConf = urlFichierConf;
-        console.log("<canva id=\"instru" + this.type + this.source + "\"></canvas>");
+        this.listeInstruments = new Array();
+        console.log("<canvas id=\"instru" + this.type + this.source + "\"></canvas>");
         $("#instru").append("<div class=\"instruments\"><canvas id=\"instru" + this.type + "\"></canvas></div>");
     }
 
@@ -30,5 +31,10 @@ class SegmentVol {
                     });
             }
         });
+    }
+
+    genererMenuInstruments() {
+        console.log("Nouvel Instrument du fichier : initcube.xml");
+        $("#Instrument").append("<div class=\"Instrument_1\"><br/><span>Instrument</span></div>");
     }
 }

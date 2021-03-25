@@ -95,120 +95,123 @@
             ======================================
         -->
 
-    <div data-role="page" id="pageInstruments" data-theme="b">
-        <div id="header" class="general">
-            <img id="imgCnes" src="images/cnes.png" />
-            <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-        </div>
+	<div data-role="page" id="pageInstruments" data-theme="b">
+		<div id="header" class="general">
+			<img id="imgCnes" src="images/cnes.png" />
+			<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+		</div>
 
-        <div data-role="main" class="general body">
+		<div data-role="main" class="general body">
 
-            <a href="#pageFormulaire" class="ui-btn ui-btn-inline">Ajouter un Instrument</a>
+			<a href="#pageFormulaire" class="ui-btn ui-btn-inline">Ajouter un Instrument</a>
 
-            <div id="Instrument" class="general">
+			<div id="Instrument" class="general">
 
-                <div id="Instrument_1">
-                    <a href="#pageMagnetometre"> <img src="images/Magnétomètre.png" alt="Magnétomètre" /> <br />
-                        <span>Magnétomètre</span> </a>
-                </div>
+				<div class="Instrument_1">
+					<a href="#pageMagnetometre"> <img src="images/Magnétomètre.png" alt="Magnétomètre" /> <br />
+						<span>Magnétomètre</span> </a>
+				</div>
 
-                <div id="Instrument_1">
-                    <a href="#pageCamera"> <img src="images/Caméra.png" alt="Caméra" /> <br /> <span> Caméra </span>
-                    </a>
-                </div>
+				<div class="Instrument_1">
+					<a href="#pageCamera"> <img src="images/Caméra.png" alt="Caméra" /> <br /> <span> Caméra </span>
+					</a>
+				</div>
 
-                <div id="Instrument_1">
-                    <a href="#pageMatrice"> <img src="images/Matrice.png" alt="Matrice" /> <br /> <span> Matrice </span>
-                    </a>
-                </div>
+				<div class="Instrument_1">
+					<a href="#pageMatrice"> <img src="images/Matrice.png" alt="Matrice" /> <br /> <span> Matrice </span>
+					</a>
+				</div>
 
-            </div>
+			</div>
 
-            <div id="schemaSyno">
-                <script type="text/javascript" src="js/schemaSyno/mainSchema.js"></script>
-                <script type="text/javascript" src="js/schemaSyno/Rectangle.js"></script>
-            </div>
-        </div>
+			<div id="schemaSyno">
+				<script type="text/javascript" src="js/schemaSyno/mainSchema.js"></script>
+				<script type="text/javascript" src="js/schemaSyno/Rectangle.js"></script>
+			</div>
+		</div>
 
-        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-            <div data-role="navbar" data-grid="" data-iconpos="left">
-                <ul id="menu">
-                    <li><a href="#pageEtat">Etat</a></li>
-                    <li><a href="#pageInstruments"> Instruments</a>
-                        <ul>
-                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-                            <li><a href="#pageCamera">Caméra</a></li>
-                            <li><a href="#pageMatrice">Matrice</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#pageCommande">Commande</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+			<div data-role="navbar" data-grid="" data-iconpos="left">
+				<ul id="menu">
+					<li><a href="#pageEtat">Etat</a></li>
+					<li><a href="#pageInstruments"> Instruments</a>
+						<ul>
+							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+							<li><a href="#pageCamera">Caméra</a></li>
+							<li><a href="#pageMatrice">Matrice</a></li>
+						</ul>
+					</li>
+					<li><a href="#pageCommande">Commande</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 
     <!-- 
             ======================================
                         Page Formulaire Ajout Instrument
             ==============================================
         -->
-    <div data-role="page" id="pageFormulaire" data-theme="b">
-        <div id="header" class="general">
-            <img id="imgCnes" src="images/cnes.png" />
-        </div>
 
-        <!--  création d'un formulaire jQuery Mobile -->
-        <div class="ui-grid-b">
-            <div class="ui-block-b">
-                <form action="#" method="post">
-                    <label for="nom">Renseignez le nom:</label>
-                    <input type="text" name="nom" id="nom" class="champs" />
-                    <fieldset>
+	<div data-role="page" id="pageFormulaire" data-theme="b">
+		<div id="header" class="general">
+			<img id="imgCnes" src="images/cnes.png" />
+		</div>
 
-                        <legend>Type de Mesure</legend>
-                        <label for="mesure">Renseignez la mesure:</label>
-                        <input type="text" name="mesure" id="mesure" class="champs" />
+		<!--  création d'un formulaire jQuery Mobile -->
+		<div class="ui-grid-b">
+			<div class="ui-block-b">
+				<form action="#" method="post" id="form">
+					<label for="nom">Renseignez le nom:</label>
+					<input type="text" name="nom" id="nom" class="champs" />
+				
+					<fieldset>
+						<legend style="color:#ffffff" >Type de Mesure</legend>
+						<!--<button class="ui-btn ui-icon-plus ui-btn-icon-left" id="Ajouter">Ajouter Mesure</button>-->
+						<label for="mesure">Renseignez la mesure:</label>
+						<input type="text" name="mesure" id="mesure" class="champs" />
 
-                        <label for="unite">Renseignez l'unité':</label>
-                        <input type="text" name="unite" id="unite" class="champs" />
+						<label for="unite">Renseignez l'unité':</label>
+						<input type="text" name="unite" id="unite" class="champs" />
 
-                        <label for="valMin">Renseignez le seuil Min:</label>
-                        <input type="text" name="valMin" id="valMin" class="champs" />
+						<label for="valMin">Renseignez le seuil Min:</label>
+						<input type="text" name="valMin" id="valMin" class="champs" />
 
-                        <label for="valMax">Renseignez le seuil Max:</label>
-                        <input type="text" name="valMax" id="valMax" class="champs" />
-                    </fieldset>
+						<label for="valMax">Renseignez le seuil Max:</label>
+						<input type="text" name="valMax" id="valMax" class="champs" />
+					</fieldset>
 
-                    <form enctype="multipart/form-data" action="file_news_upload.php" method="post">
-                        <label for="image">Télécharger l'image:</label>      <input type="file" name="image" id="image" class="champs" />
-                    </form>
-                </form>
-            </div>
-        </div>
+					<form enctype="multipart/form-data" action="file_news_upload.php" method="post">
+						<label for="image">Télécharger l'image:</label>
+						     <input type="file" name="image" id="image" class="champs" />
+					</form>
+				</form>
+			</div>
+		</div>
 
-        <br />
-        <button type="submit" name="valid" class="ui-btn ui-btn-inline">Valider</button>
-        <button type="reset" name="cancel" class="ui-btn ui-btn-inline">Annuler</button>
+		<br />
+		<button type="submit" name="send" class="ui-btn ui-btn-inline" id="Envoyer">Envoyer</button>
+		<a href="#pageInstruments" type="reset" name="cancel" class="ui-btn ui-btn-inline">Annuler</a>
 
-        <!--  fin du formulaire jQuery Mobile -->
+		<!--  fin du formulaire jQuery Mobile -->
 
-        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-            <div data-role="navbar" data-grid="" data-iconpos="left">
-                <ul id="menu">
-                    <li><a href="#pageEtat">Etat</a></li>
-                    <li><a href="#pageInstruments"> Instruments</a>
-                        <ul>
-                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-                            <li><a href="#pageCamera">Caméra</a></li>
-                            <li><a href="#pageMatrice">Matrice</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#pageCommande">Commande</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!--               ======================================
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+			<div data-role="navbar" data-grid="" data-iconpos="left">
+				<ul id="menu">
+					<li><a href="#pageEtat">Etat</a></li>
+					<li><a href="#pageInstruments"> Instruments</a>
+						<ul>
+							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+							<li><a href="#pageCamera">Caméra</a></li>
+							<li><a href="#pageMatrice">Matrice</a></li>
+						</ul>
+					</li>
+					<li><a href="#pageCommande">Commande</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+ <!--               ======================================
                                 page Camera
                     ======================================
         -->

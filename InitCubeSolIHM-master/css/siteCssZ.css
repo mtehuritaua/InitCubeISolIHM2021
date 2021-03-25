@@ -96,7 +96,7 @@ h2{
     flex-wrap: wrap;
     justify-content: center;
 }
-#Instrument_1 {
+.Instrument_1 {
     position:relative;
     top:200px; 
     height:400px;

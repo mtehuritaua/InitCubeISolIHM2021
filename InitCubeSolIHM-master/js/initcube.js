@@ -1,27 +1,28 @@
 //var camera = new CCamera;
 //var matrice = new CMatrice(camera);
 
-$(document).ready(function() {
+$(document).ready(function () {
 
 
-    /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
+/*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
     let gestionnaireCommandes = new GestionnaireCommandes();
-    $('#btnCommande').click(function() {
+    $('#btnCommande').click(function () {
         gestionnaireCommandes.genererCommande();
         console.log("Commande format JSON" + gestionnaireCommandes.listeCommandes[gestionnaireCommandes.listeCommandes.length - 1].genererJSON());
     })
 
-    /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
+/*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireInstruments = new GestionnaireInstruments("../initcube.xml");
     gestionnaireInstruments.recupererFichierConf();
-    $('#Envoyer').click(function() {
-            gestionnaireInstruments.ajouterInstrument();
-        })
-        /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
+    $('#Envoyer').click(function () {
+        gestionnaireInstruments.ajouterInstrument();
+    })
+
+/*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
     let segmentVol1 = new SegmentVol("../initcube.xml");
 
-    /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
+/*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");
     let graphBattTension = new Graphique("graphique", "Etat", "Batterie", "Tension", "V");
     let graphBattCourant = new Graphique("graphique", "Etat", "Batterie", "Courant", "A");
@@ -30,16 +31,15 @@ $(document).ready(function() {
     let graphStockLibreP = new Graphique("graphique", "Etat", "Stockage", "Libre", "%");
     let graphStockLibreM = new Graphique("graphique", "Etat", "Stockage", "Disponible", "Mo");
 
-    /*--------------------------------------Graphiques de la page Magnétomètre-----------------------------------------*/
+/*--------------------------------------Graphiques de la page Magnétomètre-----------------------------------------*/
     let graphMagnetoBX = new Graphique("graphMagneto", "Magnetometre", "ValeurBX", "Valeur", "μT");
     let graphMagnetoBY = new Graphique("graphMagneto", "Magnetometre", "ValeurBY", "Valeur", "μT");
     let graphMagnetoBZ = new Graphique("graphMagneto", "Magnetometre", "ValeurBZ", "Valeur", "μT");
 
+/*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
     var source = new EventSource("cgi-bin/cubeEventServer.cgi");
-    source.addEventListener("etat", function(event) {
+    source.addEventListener("etat", function (event) {
         var obj = JSON.parse(event.data);
-
-        /*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
         document.getElementById("ChargeBatterie").innerHTML = obj.batterie.niveauDeCharge + " %";
         graphBattCharge.ajouterMesure(obj.date, obj.batterie.niveauDeCharge);
         document.getElementById("TensionSortie").innerHTML = obj.batterie.tension + " V";
@@ -64,7 +64,7 @@ $(document).ready(function() {
         }
     });
 
-    source.addEventListener("instrument", function(evt) {
+    source.addEventListener("instrument", function (evt) {
         var instru = JSON.parse(evt.data);
         var camera = new CCamera();
         var matrice = new CMatrice(camera);

@@ -15,8 +15,7 @@ $(document).ready(function () {
   });
 
   /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
-  let gestionnaireInstruments = new GestionnaireInstruments("../initcube.xml");
-  gestionnaireInstruments.recupererFichierConf();
+  let gestionnaireInstruments = new GestionnaireInstruments();
   $("#Ajouter").click(function () {
 
   });

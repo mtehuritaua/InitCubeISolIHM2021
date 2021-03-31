@@ -732,7 +732,7 @@
 					<!--End Left Colons-->
 					<div id="dialog">
 						<!-- Bonne transmission-->
-						<div data-position-to="window" id="Bpopup" data-overlay-theme="b" data-theme="b" data-dismissible="true"
+						<div data-position-to="window" id="Bpopup" data-overlay-theme="b" data-theme="b" data-dismissible="false"
 							style="max-width:400px; min-width: 400px;">
 							<div data-role="header" data-theme="a">
 								<h3>Information</h3>
@@ -745,7 +745,7 @@
 
 						<!-- Mauvaise transmission-->
 						<div data-position-to="window" data-transition="pop" id="Mpopup"
-							data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+							data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
 							<div data-role="header" data-theme="a">
 								<h3>Information</h3>
 							</div>
@@ -757,7 +757,7 @@
 
 						<!-- Erreur transmission-->
 						<div data-position-to="window" data-transition="pop" id="AbcVD"
-							data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+							data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
 							<div data-role="header" data-theme="a">
 								<h3>Information</h3>
 							</div>
@@ -789,7 +789,7 @@
 
 								$.ajax({
 									type: 'GET',
-									url: 'cgi-bin/cgi_1',
+									url: 'cgi-bin/cgi',
 									data: jsonString,
 									dataType: 'html',
 									success: function (codeRecu) {
@@ -798,9 +798,9 @@
 
 										}
 										else if (codeRecu == 285)
-											$("#Mpopup").show();
+											$("#Mpopup").fadeIn(400).delay(800).fadeOut(400);
 										else
-											$("#AbcVD").show();
+											$("#AbcVD").fadeIn(400).delay(800).fadeOut(400);
 										
 									}
 								});

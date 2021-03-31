@@ -16,7 +16,9 @@ $(document).ready(function () {
     gestionnaireInstruments.recupererFichierConf();
     $('#Envoyer').click(function () {
         gestionnaireInstruments.ajouterInstrument();
+        gestionnaireInstruments.recapFormInstrument();
     })
+    $("#stop :input").prop("disabled", true);
 
 /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");

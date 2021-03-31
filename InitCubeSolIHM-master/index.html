@@ -95,15 +95,16 @@
                         Page Instruments
             ======================================
         -->
-
-    <div data-role="page" id="pageInstruments" data-theme="b">
+<div data-role="page" id="pageInstruments" data-theme="b">
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
             <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
         </div>
 
         <div data-role="main" class="general body">
+
             <a href="#pageFormulaire" class="ui-btn ui-btn-inline">Ajouter un Instrument</a>
+
             <div id="Instrument" class="general">
 
                 <div class="Instrument_1">
@@ -159,32 +160,38 @@
 
         <!--  création d'un formulaire jQuery Mobile -->
         <div class="ui-grid-b">
-            <div class="ui-block-b">
-                <form action="#" method="post" id="form">
-                    <label for="nom">Renseignez le nom:</label>
-                    <input type="text" name="nom" id="nom"/>
-
-                    <fieldset>
-                        <legend style="color:#ffffff">Type de Mesure</legend>
-                        <!--<button class="ui-btn ui-icon-plus ui-btn-icon-left" id="Ajouter">Ajouter Mesure</button>-->
-                        <label for="mesure">Renseignez la mesure:</label>
-                        <input type="text" name="mesure" id="mesure"/>
-
-                        <label for="unite">Renseignez l'unité':</label>
-                        <input type="text" name="unite" id="unite"/>
-
-                        <label for="valMin">Renseignez le seuil Min:</label>
-                        <input type="text" name="valMin" id="valMin"/>
-
-                        <label for="valMax">Renseignez le seuil Max:</label>
-                        <input type="text" name="valMax" id="valMax"/>
-                    </fieldset>
-
-                    <form enctype="multipart/form-data" action="file_news_upload.php" method="post">
-                        <label for="image">Télécharger l'image:</label>
-                             <input type="file" name="image" id="image"/>
-                    </form>
-                </form>
+            <div class="ui-block-b" >
+				<form action="#" method="post" id="form">
+					<label for="nom">Renseignez le nom:</label>
+					<input type="text" name="nom" id="nom" />
+				
+					<label for="identifiant">Renseignez le identifiant:</label>
+					<input name="identifiant" id="identifiant" class="champs" />
+				
+					<label for="role">Renseignez le role:</label>
+					<input name="role" id="role" class="champs" />
+				
+					<legend style="color:#ffffff">Type de Mesure</legend>
+					<button class="ui-btn ui-icon-plus ui-btn-icon-left ui-btn-inline" id="Ajouter">Ajouter Mesure</button>
+					<fieldset>
+						<label for="mesure">Renseignez la mesure:</label>
+						<input type="text" name="nomMesure" id="nomMesure" />
+				
+						<label for="unite">Renseignez l'unité':</label>
+						<input type="text" name="unite" id="unite" />
+				
+						<label for="valMin">Renseignez le seuil Min:</label>
+						<input type="text" name="valMin" id="valMin" />
+				
+						<label for="valMax">Renseignez le seuil Max:</label>
+						<input type="text" name="valMax" id="valMax" />
+					</fieldset>
+				
+					<form enctype="multipart/form-data" action="file_news_upload.php" method="post">
+						<label for="image">Télécharger l'image:</label>
+						     <input type="file" name="image" id="image" />
+					</form>
+				</form>
             </div>
         </div>
         <br />
@@ -199,15 +206,21 @@
 
         <!-- Récap formulaire instrument-->
         <div data-role="popup" id="popupRecap" data-theme="a" class="ui-corner-all">
-            <form>
+            <form action="#" method="post" id="testForm">
                 <div style="padding:10px 20px;">
                     <fieldset id="stop">
                         <h3>Veuillez vérifier les informations </h3>
                         <label for="nom">Nom:</label>
                         <input name="nom" id="popNom" class="champs" />
+
+						<label for="identifiant">Identifiant:</label>
+                        <input name="identifiant" id="popIdentifiant" class="champs" />
+
+						<label for="role">Role:</label>
+                        <input name="role" id="popRole" class="champs" />
                     
                         <label for="mesure">Mesure:</label>
-                        <input name="mesure" id="popMesure" class="champs" />
+                        <input name="mesure" id="popNomMesure" class="champs" />
                     
                         <label for="unite">Unité:</label>
                         <input name="unite" id="popUnite" class="champs" />
@@ -221,8 +234,8 @@
                         <!-- <label for="image">Image:</label>
                                         <input name="image" id="popImage" class="champs" />-->
                     </fieldset>
-                    <button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check">Envoyer</button>
-                    <a href="#" type="reset" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
+                    <button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check" id="EnvoieRecap">Envoyer</button>
+                    <a href="#" data-rel="back" type="reset" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
                 </div>
             </form>
         </div> 
@@ -361,7 +374,7 @@
     </div>
     <!--
                 ======================================
-                        page nouveau formulaire
+                        page Commande nouveau formulaire 
                 ======================================
 -->
     <div data-role="page" id="formulaireCommande" data-theme="b">

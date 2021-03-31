@@ -148,115 +148,129 @@
     </div>
 
 	<!-- 
-            ======================================
-                        Page Formulaire Ajout Instrument
-            ==============================================
-        -->
-
-    <div data-role="page" id="pageFormulaire" data-theme="b">
-        <div id="header" class="general">
-            <img id="imgCnes" src="images/cnes.png" />
-        </div>
-
-        <!--  création d'un formulaire jQuery Mobile -->
-        <div class="ui-grid-b">
-            <div class="ui-block-b" >
-				<form action="#" method="post" id="form">
+	            ======================================
+	                        Page Formulaire Ajout Instrument
+	            ==============================================
+	        -->
+	
+	<div data-role="page" id="pageFormulaire" data-theme="b">
+		<div id="header" class="general">
+			<img id="imgCnes" src="images/cnes.png" />
+		</div>
+	
+		<!--  création d'un formulaire jQuery Mobile -->
+		<div class="ui-grid-b">
+			<div class="ui-block-b" id="form_2">
+				<form action="#" method="post">
+					<legend style="color:#ffffff">Nouvel Instrument</legend>
 					<label for="nom">Renseignez le nom:</label>
 					<input type="text" name="nom" id="nom" />
-				
+	
 					<label for="identifiant">Renseignez le identifiant:</label>
 					<input name="identifiant" id="identifiant" class="champs" />
-				
+	
 					<label for="role">Renseignez le role:</label>
 					<input name="role" id="role" class="champs" />
-				
-					<legend style="color:#ffffff">Type de Mesure</legend>
+	
 					<button class="ui-btn ui-icon-plus ui-btn-icon-left ui-btn-inline" id="Ajouter">Ajouter Mesure</button>
-					<fieldset>
+					<button class="ui-btn ui-icon-minus ui-btn-icon-left ui-btn-inline" id="Suprimer">Suprimer Mesure</button>
+	
+					<fieldset id="test">
+						<legend style="color:#ffffff">Type de Mesure</legend>
 						<label for="mesure">Renseignez la mesure:</label>
-						<input type="text" name="nomMesure" id="nomMesure" />
-				
+						<input type="text" name="nomMesure" id="nomMesure" class="champs" />
+	
 						<label for="unite">Renseignez l'unité':</label>
-						<input type="text" name="unite" id="unite" />
-				
+						<input type="text" name="unite" id="unite" class="champs" />
+	
 						<label for="valMin">Renseignez le seuil Min:</label>
-						<input type="text" name="valMin" id="valMin" />
-				
+						<input type="text" name="valMin" id="valMin" class="champs" />
+	
 						<label for="valMax">Renseignez le seuil Max:</label>
-						<input type="text" name="valMax" id="valMax" />
+						<input type="text" name="valMax" id="valMax" class="champs" />
 					</fieldset>
-				
+	
 					<form enctype="multipart/form-data" action="file_news_upload.php" method="post">
 						<label for="image">Télécharger l'image:</label>
 						     <input type="file" name="image" id="image" />
 					</form>
 				</form>
-            </div>
-        </div>
-        <br />
-    <a href="#popupRecap" data-rel="popup" data-position-to="window"
-        class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer"
-        data-transition="pop">Envoyer</a>
-    
-    <a href="#pageInstruments" type="reset" name="cancel"
-        class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
-
-        <!--  fin du formulaire jQuery Mobile -->
-
-        <!-- Récap formulaire instrument-->
-        <div data-role="popup" id="popupRecap" data-theme="a" class="ui-corner-all">
-            <form action="#" method="post" id="testForm">
-                <div style="padding:10px 20px;">
-                    <fieldset id="stop">
-                        <h3>Veuillez vérifier les informations </h3>
-                        <label for="nom">Nom:</label>
-                        <input name="nom" id="popNom" class="champs" />
-
+			</div>
+			<!-- Ajouter Mesure-->
+			<div class="ui-block-b" id="form_2">
+				<form action="#" method="post">
+					<fieldset id="new">
+					</fieldset>
+				</form>
+			</div>
+			<!-- Fin Ajouter Mesure-->
+		</div>
+		<br />
+		<a href="#popupRecap" data-rel="popup" data-position-to="window"
+			class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer"
+			data-transition="pop">Envoyer</a>
+	
+		<a href="#pageInstruments" type="reset" name="cancel"
+			class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
+	
+		<!--  fin du formulaire jQuery Mobile -->
+	
+		<!-- Récap formulaire instrument-->
+		<div data-role="popup" id="popupRecap" data-theme="a" class="ui-corner-all">
+			<form action="#" method="post" id="testForm">
+				<div style="padding:10px 20px;">
+					<fieldset id="stop">
+						<h3>Veuillez vérifier les informations </h3>
+						<label for="nom">Nom:</label>
+						<input name="nom" id="popNom" />
+	
 						<label for="identifiant">Identifiant:</label>
-                        <input name="identifiant" id="popIdentifiant" class="champs" />
-
+						<input name="identifiant" id="popIdentifiant" />
+	
 						<label for="role">Role:</label>
-                        <input name="role" id="popRole" class="champs" />
-                    
-                        <label for="mesure">Mesure:</label>
-                        <input name="mesure" id="popNomMesure" class="champs" />
-                    
-                        <label for="unite">Unité:</label>
-                        <input name="unite" id="popUnite" class="champs" />
-                    
-                        <label for="valMin">Seuil Min:</label>
-                        <input name="valMin" id="popValMin" class="champs" />
-                    
-                        <label for="valMax">Seuil Max:</label>
-                        <input name="valMax" id="popValMax" class="champs" />
-                    
-                        <!-- <label for="image">Image:</label>
-                                        <input name="image" id="popImage" class="champs" />-->
-                    </fieldset>
-                    <button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check" id="EnvoieRecap">Envoyer</button>
-                    <a href="#" data-rel="back" type="reset" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
-                </div>
-            </form>
-        </div> 
-        <!-- fin récap-->
+						<input name="role" id="popRole" />
+						<fieldset id="addRecap">
+							<label for="mesure">Mesure:</label>
+							<input name="mesure" id="popNomMesure" class="rajout" />
+	
+							<label for="unite">Unité:</label>
+							<input name="unite" id="popUnite" class="rajout" />
+	
+							<label for="valMin">Seuil Min:</label>
+							<input name="valMin" id="popValMin" class="rajout" />
+	
+							<label for="valMax">Seuil Max:</label>
+							<input name="valMax" id="popValMax" class="rajout" />
 
-        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-            <div data-role="navbar" data-grid="" data-iconpos="left">
-                <ul id="menu">
-                    <li><a href="#pageEtat">Etat</a></li>
-                    <li><a href="#pageInstruments"> Instruments</a>
-                        <ul>
-                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-                            <li><a href="#pageCamera">Caméra</a></li>
-                            <li><a href="#pageMatrice">Matrice</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#pageCommande">Commande</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+						</fieldset>
+						<!-- <label for="image">Image:</label>
+			                                        <input name="image" id="popImage" class="champs" />-->
+					</fieldset>
+					<button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check"
+						id="EnvoieRecap">Envoyer</button>
+					<a href="#" data-rel="back" type="reset" name="cancel"
+						class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
+				</div>
+			</form>
+		</div>
+		<!-- fin récap-->
+	
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+			<div data-role="navbar" data-grid="" data-iconpos="left">
+				<ul id="menu">
+					<li><a href="#pageEtat">Etat</a></li>
+					<li><a href="#pageInstruments"> Instruments</a>
+						<ul>
+							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+							<li><a href="#pageCamera">Caméra</a></li>
+							<li><a href="#pageMatrice">Matrice</a></li>
+						</ul>
+					</li>
+					<li><a href="#pageCommande">Commande</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
     <!--               ======================================
                                 page Camera
                     ======================================

@@ -17,22 +17,35 @@ $(document).ready(function () {
   /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
   let gestionnaireInstruments = new GestionnaireInstruments();
   $("#Ajouter").click(function () {
+    var add = $('#test').clone();
+    add.find('.champ');
+    add.appendTo('#new');
 
-  });
+    var addRecap = $('#addRecap').clone();
+    addRecap.find('.rajout');
+    addRecap.appendTo('#addRecap');
+  });/*
+  $("#Supprimer").click(function () {
+    var add = $('#new').bind();
+    add.find('.champ');
+    add.appendTo('#new');
 
-  $("#Envoyer").click(function () {
-    gestionnaireInstruments.ajouterInstrument();
-    gestionnaireInstruments.recapFormInstrument();
-  });
-  
+    var addRecap = $('#addRecap').bind();
+    addRecap.find('.rajout');
+    addRecap.appendTo('#addRecap');
+  });*/
+
   $("#stop :input").prop("disabled", true);
 
   $("#EnvoieRecap").click(function () {
-    let form_data = $("#testForm").serializeArray(); 
+    gestionnaireInstruments.ajouterInstrument();
+    gestionnaireInstruments.recapFormInstrument();
+
+    let form_data = $("#testForm").serializeArray();
     console.log(form_data);
     let jsonString = JSON.stringify(form_data);
     $.ajax({
-      url: "cgi-bin/??",
+      url: "cgi-bin/addInstrument.cgi",
       type: "POST",
       data: jsonString,
       dataType: "html",
@@ -49,19 +62,78 @@ $(document).ready(function () {
   segmentVol.genererMenuInstruments();
 
   /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
-  let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");
-    let graphBattTension = new Graphique("graphique", "Etat", "Batterie", "Tension", "V");
-    let graphBattCourant = new Graphique("graphique", "Etat", "Batterie", "Courant", "A");
-    let graphRAMuse = new Graphique("graphique", "Etat", "RAM", "Occupation", "%");
-    let graphRAMdispo = new Graphique("graphique", "Etat", "RAM", "Disponile", "Mo");
-    let graphStockLibreP = new Graphique("graphique", "Etat", "Stockage", "Libre", "%");
-    let graphStockLibreM = new Graphique("graphique", "Etat", "Stockage", "Disponible", "Mo");
-
+  let graphBattCharge = new Graphique(
+    "graphique",
+    "Etat",
+    "Batterie",
+    "Charge",
+    "%"
+  );
+  let graphBattTension = new Graphique(
+    "graphique",
+    "Etat",
+    "Batterie",
+    "Tension",
+    "V"
+  );
+  let graphBattCourant = new Graphique(
+    "graphique",
+    "Etat",
+    "Batterie",
+    "Courant",
+    "A"
+  );
+  let graphRAMuse = new Graphique(
+    "graphique",
+    "Etat",
+    "RAM",
+    "Occupation",
+    "%"
+  );
+  let graphRAMdispo = new Graphique(
+    "graphique",
+    "Etat",
+    "RAM",
+    "Disponile",
+    "Mo"
+  );
+  let graphStockLibreP = new Graphique(
+    "graphique",
+    "Etat",
+    "Stockage",
+    "Libre",
+    "%"
+  );
+  let graphStockLibreM = new Graphique(
+    "graphique",
+    "Etat",
+    "Stockage",
+    "Disponible",
+    "Mo"
+  );
 
   /*--------------------------------------Graphiques de la page Magnétomètre-----------------------------------------*/
-  let graphMagnetoBX = new Graphique("graphMagneto", "Magnetometre", "ValeurBX", "Valeur", "μT");
-    let graphMagnetoBY = new Graphique("graphMagneto", "Magnetometre", "ValeurBY", "Valeur", "μT");
-    let graphMagnetoBZ = new Graphique("graphMagneto", "Magnetometre", "ValeurBZ", "Valeur", "μT");
+  let graphMagnetoBX = new Graphique(
+    "graphMagneto",
+    "Magnetometre",
+    "ValeurBX",
+    "Valeur",
+    "μT"
+  );
+  let graphMagnetoBY = new Graphique(
+    "graphMagneto",
+    "Magnetometre",
+    "ValeurBY",
+    "Valeur",
+    "μT"
+  );
+  let graphMagnetoBZ = new Graphique(
+    "graphMagneto",
+    "Magnetometre",
+    "ValeurBZ",
+    "Valeur",
+    "μT"
+  );
 
   /*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
   var source = new EventSource("cgi-bin/cubeEventServer.cgi");
@@ -108,13 +180,25 @@ $(document).ready(function () {
         matrice.majMatrice();
         break;
       case "magneto":
-        graphMagnetoBX.ajouterMesure(instru.instrument.date, instru.instrument.mesure.ValeurMagnetoBX);
-        graphMagnetoBY.ajouterMesure(instru.instrument.date, instru.instrument.mesure.ValeurMagnetoBY);
-        graphMagnetoBZ.ajouterMesure(instru.instrument.date, instru.instrument.mesure.ValeurMagnetoBZ);
+        graphMagnetoBX.ajouterMesure(
+          instru.instrument.date,
+          instru.instrument.mesure.ValeurMagnetoBX
+        );
+        graphMagnetoBY.ajouterMesure(
+          instru.instrument.date,
+          instru.instrument.mesure.ValeurMagnetoBY
+        );
+        graphMagnetoBZ.ajouterMesure(
+          instru.instrument.date,
+          instru.instrument.mesure.ValeurMagnetoBZ
+        );
 
-        document.getElementById("ValeurMagnetoBX").innerHTML = instru.instrument.mesure.ValeurMagnetoBX + " μT";
-        document.getElementById("ValeurMagnetoBY").innerHTML = instru.instrument.mesure.ValeurMagnetoBY + " μT";
-        document.getElementById("ValeurMagnetoBZ").innerHTML = instru.instrument.mesure.ValeurMagnetoBZ + " μT";
+        document.getElementById("ValeurMagnetoBX").innerHTML =
+          instru.instrument.mesure.ValeurMagnetoBX + " μT";
+        document.getElementById("ValeurMagnetoBY").innerHTML =
+          instru.instrument.mesure.ValeurMagnetoBY + " μT";
+        document.getElementById("ValeurMagnetoBZ").innerHTML =
+          instru.instrument.mesure.ValeurMagnetoBZ + " μT";
 
         break;
       default:

@@ -1,7 +1,7 @@
 class TypeMesure {
 
-    constructor(nom, unite, valMin, valMax) {
-        this.nom = nom;
+    constructor(mesure, unite, valMin, valMax) {
+        this.mesure = mesure;
         this.unite = unite;
         this.valMax = valMax;
         this.valMin = valMin;

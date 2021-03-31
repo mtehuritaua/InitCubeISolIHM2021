@@ -34,7 +34,18 @@ class GestionnaireInstruments {
     }
 
     ajouterInstrument (){
-        this.listeInstruments.push(new Instrument($('#nom')));
+        this.listeInstruments.push(new Instrument($('#nom').val()));
+        this.listeInstruments[this.listeInstruments.length-1].addTypeMesure($('#mesure').val(), $('#unite').val(), $('#valMin').val(), $('#valMax').val());
         console.log("Generer trame JSON" + this.listeInstruments[this.listeInstruments.length-1].genererJSON() );
+    }
+
+    recapFormInstrument(){
+        var instrumentCourant =this.listeInstruments[this.listeInstruments.length-1];
+        $('#popNom').val(instrumentCourant.nom);
+        $('#popMesure').val(instrumentCourant.listeTypesMesure[0].mesure);
+        $('#popUnite').val(instrumentCourant.listeTypesMesure[0].unite);
+        $('#popValMin').val(instrumentCourant.listeTypesMesure[0].valMin);
+        $('#popValMax').val(instrumentCourant.listeTypesMesure[0].valMax);
+       // $('#popImage').text(instrumentCourant.nom);
     }
 }

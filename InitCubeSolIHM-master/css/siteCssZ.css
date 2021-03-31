@@ -89,38 +89,20 @@ h2{
 
 /* ----------------------- Zone Instruments ----------------------- */
 
-#Instrument_1{
+#Instrument{
     font-size: 23px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
-.Instrument_1{
-    width: 450px;
-    margin: 10px;
-
-}
-#Magnétomètre{
+.Instrument_1 {
     position:relative;
-    top:200px; right: 10%;
-    width:200px;
+    top:200px; 
     height:400px;
+    width: 20%;
     z-index:2;
-}
-#Matrice{   
-    position:relative;
-    top:200px; left: 10%;
-    width:400px;
-    height:400px;
-    z-index:2;
-}
-#Caméra {
-    position:relative;
-    top:200px; left: 10%;
-    width:600px;
-    height:400px;
-    z-index:2;
+    margin: auto;
 }
 img {
     width: 300px;
@@ -130,6 +112,7 @@ img {
 span {
     color: #fff;
 }
+
 /* ----------------------- Zone Camera ----------------------- */
 
 #slideshow {
@@ -138,9 +121,7 @@ span {
     width: 260px;
     height: 195px;
     padding: 20px;
-
 }
-
 #slideshow>div {
     position: absolute;
     top: 10px;
@@ -151,30 +132,19 @@ span {
 
 /* ----------------------- Zone Magnetometre | Matrice | Caméra ----------------------- */
 #menu, #menu ul {
-    list-style: none;
     text-align: center;
 }
 #menu li {
     display:inline-block;
     position: relative;
 }
-#menu ul li {
-    display:block;
-}
 #menu ul {
     position:absolute;
     width:100%;
-    overflow:hidden;
-    -moz-transition: all 1s;
-
 }
 #menu li:hover ul {
     top:-35px;
     height: 110px;
-}
-#menu a {
-    display:block;
-    height:30px;
 }
 /* ----------------------- Zone Magnetometre ----------------------- */
 

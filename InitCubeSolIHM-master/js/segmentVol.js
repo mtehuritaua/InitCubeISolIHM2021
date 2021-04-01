@@ -3,29 +3,28 @@ class SegmentVol {
         console.log("instance d'un gestionnaire d'instruments url du fichier : " + urlFichierConf);
         this.urlFichierConf = urlFichierConf;
         this.listeInstruments = new Array();
-        this.fichierConf;
-        this.recupererFichierConf();
+        this.fichierConf = this.recupererFichierConf();
         this.chargerInstruments();
         console.log("<canvas id=\"instru" + this.type + this.source + "\"></canvas>");
         $("#instru").append("<div class=\"instruments\"><canvas id=\"instru" + this.type + "\"></canvas></div>");
     }
 
     recupererFichierConf() {
-         $.ajax({
+        var fichier; 
+        $.ajax({
             type: "GET",
             url: this.urlFichierConf,
             dataType: "xml",
             async:false,
             success: function (fichierXML){
-                this.fichierConf = $(fichierXML);
+                fichier = $(fichierXML);
             }
         });
-        console.log("fichier XML : " + fichierXML);
-        //return fichierXML;
+        return fichier;
     }
 
     chargerInstruments(){
-        fichierConf.find('instrument').each(
+        this.fichierConf.find('instrument').each(
         function () {
 
             var id = $(this).find('id').text();
@@ -35,10 +34,11 @@ class SegmentVol {
             var role = $(this).find('role').text();
             console.log("role de l'instrument : " + role);
 
-            listeInstruments.push(Instrument(id,nom,role));
+            this.listeInstruments.push(new Instrument(nom, role, id));
             
             this.fichierConf.find('typeMesure').each(
             function(){
+
                 var nom = $(this).find(nom).text();
                 console.log("nom du type de mesure : " + nom);
                 var description = $(this).find(description).text();

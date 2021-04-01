@@ -17,9 +17,6 @@ $(document).ready(function () {
     let segmentVol1 = new SegmentVol("../initcube.xml");
 
     segmentVol.genererMenuInstruments();
-
-    segmentVol.chargerInstruments();
-    
     
 /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");

@@ -62,39 +62,6 @@ $(document).ready(function () {
             document.getElementById("CameraIR").innerHTML = "ON";
         }
     });
-    var addRecap = $('#addRecap').clone();
-    addRecap.find('.rajout');
-    addRecap.appendTo('#addRecap');
-  });/*
-  $("#Supprimer").click(function () {
-    var add = $('#new').bind();
-    add.find('.champ');
-    add.appendTo('#new');
-
-    var addRecap = $('#addRecap').bind();
-    addRecap.find('.rajout');
-    addRecap.appendTo('#addRecap');
-  });*/
-
-  $("#stop :input").prop("disabled", true);
-
-  $("#EnvoieRecap").click(function () {
-    gestionnaireInstruments.ajouterInstrument();
-    gestionnaireInstruments.recapFormInstrument();
-
-    let form_data = $("#testForm").serializeArray();
-    console.log(form_data);
-    let jsonString = JSON.stringify(form_data);
-    $.ajax({
-      url: "cgi-bin/addInstrument.cgi",
-      type: "POST",
-      data: jsonString,
-      dataType: "html",
-      success: function (codeRecu) {
-        console.log(" " + codeRecu);
-      },
-    });
-  });
 
   source.addEventListener("instrument", function (evt) {
     var instru = JSON.parse(evt.data);

@@ -11,15 +11,14 @@ $(document).ready(function () {
 
 /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireInstruments = new GestionnaireInstruments();
-
+    gestionnaireInstruments.bloquerEcriture();
+    gestionnaireInstruments.ajouterTypeMesure();
+    
 /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
-    let segmentVol1 = new SegmentVol("../initcube.xml");
 
     segmentVol.genererMenuInstruments();
-
     segmentVol.chargerInstruments();
-    
     
 /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");

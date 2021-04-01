@@ -12,12 +12,7 @@ class GestionnaireInstruments {
   /*Créer un nouvel instrument*/
   ajouterInstrument() {
     this.listeInstruments.push(
-      new Instrument(
-        $("#nom").val(),
-        $("#role").val(),
-        $("#identifiant").val(),
-        $("#image").val()
-      )
+      new Instrument($("#nom").val(), $("#role").val(), $("#identifiant").val())
     );
     this.listeInstruments[this.listeInstruments.length - 1].addTypeMesure(
       $("#nomMesure").val(),
@@ -38,12 +33,14 @@ class GestionnaireInstruments {
     ];
     $("#popNom").val(instrumentCourant.nom);
     $("#popRole").val(instrumentCourant.role);
-    //$("#popImage").val(instrumentCourant.image);
     $("#popIdentifiant").val(instrumentCourant.identifiant);
-    $("#popNomMesure").val(instrumentCourant.listeTypesMesure[0].nomMesure);
+    $("#popNomMesure").val(instrumentCourant.listeTypesMesure[0].nom);
     $("#popUnite").val(instrumentCourant.listeTypesMesure[0].unite);
     $("#popValMin").val(instrumentCourant.listeTypesMesure[0].valMin);
     $("#popValMax").val(instrumentCourant.listeTypesMesure[0].valMax);
+  }
+
+  bloquerEcriture() {
     /*Bloquer écriture récapitulatif*/
     $("#bloqueInput :input").prop("disabled", true);
   }
@@ -81,8 +78,9 @@ class GestionnaireInstruments {
       addRecap.appendTo("#addRecap");
     }); /*
     $("#Supprimer").click(function () {
-    $("fieldset" ).remove(":contains('new')");
-    $('#Suprimer').closest('#form_2').find('#new').not(':first').last().remove();
+      var add = $("#new").remove();
+      add.find(".champ");
+      add.appendTo("#test");
 
   });*/
   }

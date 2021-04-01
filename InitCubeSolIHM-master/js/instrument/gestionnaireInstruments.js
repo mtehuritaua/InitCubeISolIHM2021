@@ -12,12 +12,7 @@ class GestionnaireInstruments {
   /*Créer un nouvel instrument*/
   ajouterInstrument() {
     this.listeInstruments.push(
-      new Instrument(
-        $("#nom").val(),
-        $("#role").val(),
-        $("#identifiant").val(),
-        $("#image").val()
-      )
+      new Instrument($("#nom").val(), $("#role").val(), $("#identifiant").val())
     );
     this.listeInstruments[this.listeInstruments.length - 1].addTypeMesure(
       $("#nomMesure").val(),
@@ -33,24 +28,25 @@ class GestionnaireInstruments {
 
   /*Reprise des données pour faire pop up récapitulatif*/
   recapFormInstrument() {
-    var instrumentCourant = this.listeInstruments[
-      this.listeInstruments.length - 1
-    ];
+    var instrumentCourant = this.listeInstruments[this.listeInstruments.length - 1];
     $("#popNom").val(instrumentCourant.nom);
     $("#popRole").val(instrumentCourant.role);
-    //$("#popImage").val(instrumentCourant.image);
     $("#popIdentifiant").val(instrumentCourant.identifiant);
-    $("#popNomMesure").val(instrumentCourant.listeTypesMesure[0].nomMesure);
+    $("#popNomMesure").val(instrumentCourant.listeTypesMesure[0].nom);
     $("#popUnite").val(instrumentCourant.listeTypesMesure[0].unite);
     $("#popValMin").val(instrumentCourant.listeTypesMesure[0].valMin);
     $("#popValMax").val(instrumentCourant.listeTypesMesure[0].valMax);
-    /*Bloquer écriture récapitulatif*/
+  }
+
+   /*Bloquer écriture récapitulatif*/
+  bloquerEcriture() {
     $("#bloqueInput :input").prop("disabled", true);
   }
 
   /*Envoyer Trame JSON du nouvel instrument pour sauvegarder dans la base de donnée*/
   enregistrerInstrument() {
     $("#EnvoieRecap").click(function () {
+      let gestionnaireInstruments = new GestionnaireInstruments();
       gestionnaireInstruments.ajouterInstrument();
       gestionnaireInstruments.recapFormInstrument();
 
@@ -81,8 +77,9 @@ class GestionnaireInstruments {
       addRecap.appendTo("#addRecap");
     }); /*
     $("#Supprimer").click(function () {
-    $("fieldset" ).remove(":contains('new')");
-    $('#Suprimer').closest('#form_2').find('#new').not(':first').last().remove();
+      var add = $("#new").remove();
+      add.find(".champ");
+      add.appendTo("#test");
 
   });*/
   }

@@ -2,134 +2,98 @@
 //var matrice = new CMatrice(camera);
 
 $(document).ready(function () {
-  /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
-  let gestionnaireCommandes = new GestionnaireCommandes();
-  $("#btnCommande").click(function () {
-    gestionnaireCommandes.genererCommande();
-    console.log(
-      "Commande format JSON" +
-        gestionnaireCommandes.listeCommandes[
-          gestionnaireCommandes.listeCommandes.length - 1
-        ].genererJSON()
-    );
-  });
+/*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
+    let gestionnaireCommandes = new GestionnaireCommandes();
+    $('#btnCommande').click(function () {
+        gestionnaireCommandes.genererCommande();
+        console.log("Commande format JSON" + gestionnaireCommandes.listeCommandes[gestionnaireCommandes.listeCommandes.length - 1].genererJSON());
+    })
 
-  /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
-  let gestionnaireInstruments = new GestionnaireInstruments(); 
-  
-  /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
-  let segmentVol = new SegmentVol("../initcube.xml");
-  let segmentVol1 = new SegmentVol("../initcube.xml");
+/*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
+    let gestionnaireInstruments = new GestionnaireInstruments();
 
-  segmentVol.genererMenuInstruments();
+/*-------------------------------------Segment Vol-----------------------------------------------------------------*/
+    let segmentVol = new SegmentVol("../initcube.xml");
+    let segmentVol1 = new SegmentVol("../initcube.xml");
 
-  /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
-  let graphBattCharge = new Graphique(
-    "graphique",
-    "Etat",
-    "Batterie",
-    "Charge",
-    "%"
-  );
-  let graphBattTension = new Graphique(
-    "graphique",
-    "Etat",
-    "Batterie",
-    "Tension",
-    "V"
-  );
-  let graphBattCourant = new Graphique(
-    "graphique",
-    "Etat",
-    "Batterie",
-    "Courant",
-    "A"
-  );
-  let graphRAMuse = new Graphique(
-    "graphique",
-    "Etat",
-    "RAM",
-    "Occupation",
-    "%"
-  );
-  let graphRAMdispo = new Graphique(
-    "graphique",
-    "Etat",
-    "RAM",
-    "Disponile",
-    "Mo"
-  );
-  let graphStockLibreP = new Graphique(
-    "graphique",
-    "Etat",
-    "Stockage",
-    "Libre",
-    "%"
-  );
-  let graphStockLibreM = new Graphique(
-    "graphique",
-    "Etat",
-    "Stockage",
-    "Disponible",
-    "Mo"
-  );
+    segmentVol.genererMenuInstruments();
 
-  /*--------------------------------------Graphiques de la page Magnétomètre-----------------------------------------*/
-  let graphMagnetoBX = new Graphique(
-    "graphMagneto",
-    "Magnetometre",
-    "ValeurBX",
-    "Valeur",
-    "μT"
-  );
-  let graphMagnetoBY = new Graphique(
-    "graphMagneto",
-    "Magnetometre",
-    "ValeurBY",
-    "Valeur",
-    "μT"
-  );
-  let graphMagnetoBZ = new Graphique(
-    "graphMagneto",
-    "Magnetometre",
-    "ValeurBZ",
-    "Valeur",
-    "μT"
-  );
+    segmentVol.chargerInstruments();
+    
+    
+/*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
+    let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");
+    let graphBattTension = new Graphique("graphique", "Etat", "Batterie", "Tension", "V");
+    let graphBattCourant = new Graphique("graphique", "Etat", "Batterie", "Courant", "A");
+    let graphRAMuse = new Graphique("graphique", "Etat", "RAM", "Occupation", "%");
+    let graphRAMdispo = new Graphique("graphique", "Etat", "RAM", "Disponile", "Mo");
+    let graphStockLibreP = new Graphique("graphique", "Etat", "Stockage", "Libre", "%");
+    let graphStockLibreM = new Graphique("graphique", "Etat", "Stockage", "Disponible", "Mo");
 
-  /*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
-  var source = new EventSource("cgi-bin/cubeEventServer.cgi");
-  source.addEventListener("etat", function (event) {
-    var obj = JSON.parse(event.data);
-    document.getElementById("ChargeBatterie").innerHTML =
-      obj.batterie.niveauDeCharge + " %";
-    graphBattCharge.ajouterMesure(obj.date, obj.batterie.niveauDeCharge);
-    document.getElementById("TensionSortie").innerHTML =
-      obj.batterie.tension + " V";
-    graphBattTension.ajouterMesure(obj.date, obj.batterie.tension);
-    document.getElementById("CourantSortie").innerHTML =
-      obj.batterie.courant + " mA";
-    graphBattCourant.ajouterMesure(obj.date, obj.batterie.courant);
-    document.getElementById("RamUse%").innerHTML =
-      obj.memoire.occupMemoire + " %";
-    graphRAMuse.ajouterMesure(obj.date, obj.memoire.occupMemoire);
-    document.getElementById("RamDispo").innerHTML =
-      obj.memoire.memoireDispoMo + " Mo";
-    graphRAMdispo.ajouterMesure(obj.date, obj.memoire.memoireDispoMo);
-    document.getElementById("StockLibre%").innerHTML =
-      obj.stockage.stockLibreEnP + " %";
-    graphStockLibreP.ajouterMesure(obj.date, obj.stockage.stockLibreEnP);
-    document.getElementById("StockLibreMo").innerHTML =
-      obj.stockage.stockLibreMo + " Mo";
-    graphStockLibreM.ajouterMesure(obj.date, obj.stockage.stockLibreMo);
-    document.getElementById("InfoCamera1").innerHTML = obj.camera.InfoCamera1;
-    document.getElementById("InfoCamera2").innerHTML = obj.camera.InfoCamera2;
+/*--------------------------------------Graphiques de la page Magnétomètre-----------------------------------------*/
+    let graphMagnetoBX = new Graphique("graphMagneto", "Magnetometre", "ValeurBX", "Valeur", "μT");
+    let graphMagnetoBY = new Graphique("graphMagneto", "Magnetometre", "ValeurBY", "Valeur", "μT");
+    let graphMagnetoBZ = new Graphique("graphMagneto", "Magnetometre", "ValeurBZ", "Valeur", "μT");
 
-    if (obj.cameraIR == 0) {
-      document.getElementById("CameraIR").innerHTML = "OFF";
-    } else {
-      document.getElementById("CameraIR").innerHTML = "ON";
-    }
+/*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
+    var source = new EventSource("cgi-bin/cubeEventServer.cgi");
+    source.addEventListener("etat", function (event) {
+        var obj = JSON.parse(event.data);
+        document.getElementById("ChargeBatterie").innerHTML = obj.batterie.niveauDeCharge + " %";
+        graphBattCharge.ajouterMesure(obj.date, obj.batterie.niveauDeCharge);
+        document.getElementById("TensionSortie").innerHTML = obj.batterie.tension + " V";
+        graphBattTension.ajouterMesure(obj.date, obj.batterie.tension);
+        document.getElementById("CourantSortie").innerHTML = obj.batterie.courant + " mA";
+        graphBattCourant.ajouterMesure(obj.date, obj.batterie.courant);
+        document.getElementById("RamUse%").innerHTML = obj.memoire.occupMemoire + " %";
+        graphRAMuse.ajouterMesure(obj.date, obj.memoire.occupMemoire);
+        document.getElementById("RamDispo").innerHTML = obj.memoire.memoireDispoMo + " Mo";
+        graphRAMdispo.ajouterMesure(obj.date, obj.memoire.memoireDispoMo);
+        document.getElementById("StockLibre%").innerHTML = obj.stockage.stockLibreEnP + " %";
+        graphStockLibreP.ajouterMesure(obj.date, obj.stockage.stockLibreEnP);
+        document.getElementById("StockLibreMo").innerHTML = obj.stockage.stockLibreMo + " Mo";
+        graphStockLibreM.ajouterMesure(obj.date, obj.stockage.stockLibreMo);
+        document.getElementById("InfoCamera1").innerHTML = obj.camera.InfoCamera1;
+        document.getElementById("InfoCamera2").innerHTML = obj.camera.InfoCamera2;
+
+        if (obj.cameraIR == 0) {
+            document.getElementById("CameraIR").innerHTML = "OFF";
+        } else {
+            document.getElementById("CameraIR").innerHTML = "ON";
+        }
+    });
+    var addRecap = $('#addRecap').clone();
+    addRecap.find('.rajout');
+    addRecap.appendTo('#addRecap');
+  });/*
+  $("#Supprimer").click(function () {
+    var add = $('#new').bind();
+    add.find('.champ');
+    add.appendTo('#new');
+
+    var addRecap = $('#addRecap').bind();
+    addRecap.find('.rajout');
+    addRecap.appendTo('#addRecap');
+  });*/
+
+  $("#stop :input").prop("disabled", true);
+
+  $("#EnvoieRecap").click(function () {
+    gestionnaireInstruments.ajouterInstrument();
+    gestionnaireInstruments.recapFormInstrument();
+
+    let form_data = $("#testForm").serializeArray();
+    console.log(form_data);
+    let jsonString = JSON.stringify(form_data);
+    $.ajax({
+      url: "cgi-bin/addInstrument.cgi",
+      type: "POST",
+      data: jsonString,
+      dataType: "html",
+      success: function (codeRecu) {
+        console.log(" " + codeRecu);
+      },
+    });
   });
 
   source.addEventListener("instrument", function (evt) {

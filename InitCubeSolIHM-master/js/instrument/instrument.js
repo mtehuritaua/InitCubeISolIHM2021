@@ -8,8 +8,8 @@ class Instrument {
     console.log("Création d'un Instrument nommé " + this.nom);
   }
 
-  addTypeMesure(nomMesure, unite, valMin, valMax){
-    this.listeTypesMesure.push(new TypeMesure(nomMesure, unite, valMin, valMax));
+  addTypeMesure(nom, description, unite, valMin, valMax){
+    this.listeTypesMesure.push(new TypeMesure(nom, description, unite, valMin, valMax));
   }
 
   genererJSON() {

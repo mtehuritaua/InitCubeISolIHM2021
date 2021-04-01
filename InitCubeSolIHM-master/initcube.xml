@@ -35,7 +35,7 @@
 	<instrument>
 		<description>
 			<id>123BCD</id>
-			<type>camera infrarouge</type>
+			<nom>camera infrarouge</nom>
 			<role>mesurer une temperature</role>
 		</description>		
 		<etat>
@@ -44,20 +44,39 @@
 			<courant unite="mA" SeuilALerte="1500">200</courant>	
 			<erreur></erreur>
 		</etat>
-		<mesure id="1">
-			<date>"2019-02-13 10:52:25"</date>
-			<valeur unite="°C">12</valeur>
-		</mesure>
-		<mesure id="2">
-			<date>"2019-02-13 11:12:46"</date>
-			<valeur unite="°C">15</valeur>
-		</mesure>
-  </instrument>
-  <instrument>
+		<typeMesure>
+			<nom>temperature</nom>
+			<unite>°C</unite>
+			<valMin>-40</valMin>
+			<valMax>+90</valMax>
+		</typeMesure>
+  	</instrument>
+  	<instrument>
 		<description>
 			<id>124BCD</id>
-			<type>magnétomètre</type>
+			<nom>magnétomètre</nom>
 			<role>mesurer un champ magnétique</role>
 		</description>
-  </instrument>    
+		<typeMesure>
+			<nom>BX</nom>
+			<description>champ magnetique suivant X </description>
+			<unite>μT</unite>
+			<valMin>0</valMin>
+			<valMax>+100</valMax>
+		</typeMesure>
+		<typeMesure>
+			<nom>BY</nom>
+			<description>champ magnetique suivant Y </description>
+			<unite>μT</unite>
+			<valMin>0</valMin>
+			<valMax>+100</valMax>
+		</typeMesure>
+		<typeMesure>
+			<nom>BZ</nom>
+			<description>champ magnetique suivant Z </description>
+			<unite>μT</unite>
+			<valMin>0</valMin>
+			<valMax>+100</valMax>
+		</typeMesure>
+  	</instrument>    
 </initcube>

@@ -3,33 +3,82 @@ class SegmentVol {
         console.log("instance d'un gestionnaire d'instruments url du fichier : " + urlFichierConf);
         this.urlFichierConf = urlFichierConf;
         this.listeInstruments = new Array();
+        this.fichierConf = this.recupererFichierConf(this.chargerInstruments);
         console.log("<canvas id=\"instru" + this.type + this.source + "\"></canvas>");
         $("#instru").append("<div class=\"instruments\"><canvas id=\"instru" + this.type + "\"></canvas></div>");
     }
 
-    recupererFichierConf() {
-        $.ajax({
+    recupererFichierConf(fonctionRappel) {
+         $.ajax({
             type: "GET",
             url: this.urlFichierConf,
             dataType: "xml",
-            success: function (xml) {
-                $(xml).find('instrument').each(
+            success: fonctionRappel
+                /*$(data).find('instrument').each(
                     function () {
+            
                         var id = $(this).find('id').text();
-                        console.log("l'identifiant de l'instrument : "+id);
-                        var type = $(this).find('type').text();
-                        console.log("type de l'instrument : "+type);
-                        /*var url = $(this).find('url').text();
-                        $('<div class="items" id="link_' + id + '"></div>').html('<a href="' + url + '">' + title + '</a>').appendTo('#Div_XML');
-                        $(this).find('desc').each(
-                            function () {
-                                var brief = $(this).find('brief').text();
-                                var long = $(this).find('long').text();
-                                $('<div class="brief"></div>').html(brief).appendTo('#link_' + id);
-                                $('<div class="long"></div>').html(long).appendTo('#link_' + id);
-                            });*/
-                    });
-            }
+                        console.log("l'identifiant de l'instrument : " + id);
+                        var nom = $(this).find('nom').text();
+                        console.log("nom de l'instrument : " + nom);
+                        var role = $(this).find('role').text();
+                        console.log("role de l'instrument : " + role);
+            
+                        this.listeInstruments.push(Instrument(id,nom,role));
+                        
+                        this.fichierConf.find('typeMesure').each(
+                        function(){
+                            var nom = $(this).find(nom).text();
+                            console.log("nom du type de mesure : " + nom);
+                            var description = $(this).find(description).text();
+                            console.log("description du type de mesure : " + description);
+                            var unite = $(this).find(unite).text();
+                            console.log("unite du type de mesure : " + unite);
+                            var valMin = $(this).find(valMin).text();
+                            console.log("valMin du type de mesure : " + valMin);
+                            var valMax = $(this).find(valMax).text();
+                            console.log("valMax du type de mesure : " + valMax);
+            
+                            this.listeInstruments[listeInstruments.length()-1].addTypeMesure(nom,description,unite,valMin,valMax);
+                        });
+                        console.log("caracteristique de l'instrument trouve dans le fichier de conf : ");
+                        console.log(this.listeInstruments[listeInstruments.length()-1].genererJSON());
+                    });*/
+        });
+        console.log("fichier XML : " + fichierXML);
+        //return fichierXML;
+    }
+
+    chargerInstruments(xml){
+        xml.find('instrument').each(
+        function () {
+
+            var id = $(this).find('id').text();
+            console.log("l'identifiant de l'instrument : " + id);
+            var nom = $(this).find('nom').text();
+            console.log("nom de l'instrument : " + nom);
+            var role = $(this).find('role').text();
+            console.log("role de l'instrument : " + role);
+
+            listeInstruments.push(Instrument(id,nom,role));
+            
+            this.fichierConf.find('typeMesure').each(
+            function(){
+                var nom = $(this).find(nom).text();
+                console.log("nom du type de mesure : " + nom);
+                var description = $(this).find(description).text();
+                console.log("description du type de mesure : " + description);
+                var unite = $(this).find(unite).text();
+                console.log("unite du type de mesure : " + unite);
+                var valMin = $(this).find(valMin).text();
+                console.log("valMin du type de mesure : " + valMin);
+                var valMax = $(this).find(valMax).text();
+                console.log("valMax du type de mesure : " + valMax);
+
+                this.listeInstruments[listeInstruments.length()-1].addTypeMesure(nom,description,unite,valMin,valMax);
+            });
+            console.log("caracteristique de l'instrument trouve dans le fichier de conf : ");
+            console.log(this.listeInstruments[listeInstruments.length()-1].genererJSON());
         });
     }
 

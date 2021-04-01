@@ -846,28 +846,6 @@
 										if (codeRecu == "ACK") {
 											$("#Bpopup").fadeIn(200).delay(3000).fadeOut(400)
 
-										}
-										else if (codeRecu == "NACK")
-											$("#Mpopup").fadeIn(200).delay(3000).fadeOut(400);
-										else
-											$("#AbcVD").fadeIn(200).delay(3000).fadeOut(400);
-
-									}
-								});
-							});
-							$("#").on("click", function () {
-								$.ajax({
-									type: 'GET',
-									url: '',
-									data: jsonString,
-									dataType: 'html',
-									success: function (codeRecu) {
-
-									}
-								});
-							});
-						});
-					</script>
 				</div>
 				<!--End Colons-->
 

@@ -4,14 +4,16 @@
 $(document).ready(function () {
 
 
-/*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
+    /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
     let gestionnaireCommandes = new GestionnaireCommandes();
     $('#btnCommande').click(function () {
         gestionnaireCommandes.genererCommande();
         console.log("Commande format JSON" + gestionnaireCommandes.listeCommandes[gestionnaireCommandes.listeCommandes.length - 1].genererJSON());
     })
+    gestionnaireCommandes.afficherHistorique();
+    gestionnaireCommandes.getHistorique();
 
-/*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
+    /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireInstruments = new GestionnaireInstruments("../initcube.xml");
     gestionnaireInstruments.recupererFichierConf();
     $('#Envoyer').click(function () {
@@ -20,14 +22,14 @@ $(document).ready(function () {
     })
     $("#stop :input").prop("disabled", true);
 
-/*-------------------------------------Segment Vol-----------------------------------------------------------------*/
+    /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
     let segmentVol1 = new SegmentVol("../initcube.xml");
 
     segmentVol.genererMenuInstruments();
-    
-    
-/*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
+
+
+    /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");
     let graphBattTension = new Graphique("graphique", "Etat", "Batterie", "Tension", "V");
     let graphBattCourant = new Graphique("graphique", "Etat", "Batterie", "Courant", "A");
@@ -36,12 +38,12 @@ $(document).ready(function () {
     let graphStockLibreP = new Graphique("graphique", "Etat", "Stockage", "Libre", "%");
     let graphStockLibreM = new Graphique("graphique", "Etat", "Stockage", "Disponible", "Mo");
 
-/*--------------------------------------Graphiques de la page Magnétomètre-----------------------------------------*/
+    /*--------------------------------------Graphiques de la page Magnétomètre-----------------------------------------*/
     let graphMagnetoBX = new Graphique("graphMagneto", "Magnetometre", "ValeurBX", "Valeur", "μT");
     let graphMagnetoBY = new Graphique("graphMagneto", "Magnetometre", "ValeurBY", "Valeur", "μT");
     let graphMagnetoBZ = new Graphique("graphMagneto", "Magnetometre", "ValeurBZ", "Valeur", "μT");
 
-/*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
+    /*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
     var source = new EventSource("cgi-bin/cubeEventServer.cgi");
     source.addEventListener("etat", function (event) {
         var obj = JSON.parse(event.data);

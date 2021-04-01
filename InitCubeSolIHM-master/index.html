@@ -26,6 +26,12 @@
 	<script type="text/javascript" src="js/segmentVol.js"></script>
 	<script type="text/javascript" src="js/commande.js"></script>
 	<script type="text/javascript" src="js/gestionnaireCommandes.js"></script>
+	<script type="text/javascript" src="js/Commande/ajaxEnvoyerCommande.js"></script>
+	<script type="text/javascript" src="js/Commande/gestionnaireCommandes.js"></script>
+	<script src="assets/js/jquery-1.11.2.min.js"></script>
+	<script src="assets/js/jquery.serializeToJSON.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script type="text/javascript" src="js/initcube.js"></script>
 </head>
 
@@ -767,9 +773,9 @@
 								data-class="animated fadeInDown" style="color:#0066FF" ;>HISTORIQUE</h2>
 						</div>
 
-						<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+						<textarea cols="40" rows="8" name="textarea" id="textHC"></textarea>
 						<div class="clearfix">
-							<button class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-right">
+							<button id="btnHC" class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-right">
 								Afficher plus</button>
 						</div>
 					</div>
@@ -819,33 +825,6 @@
 						<div role="dialog" id="dialog"></div>
 
 					</div>
-
-					<script src="assets/js/jquery-1.11.2.min.js"></script>
-					<script src="assets/js/jquery.serializeToJSON.js"></script>
-					<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-					<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-					<script type="text/javascript">
-
-						$(document).ready(function () {
-							$("#Bpopup").hide();
-							$("#Mpopup").hide();
-							$("#AbcVD").hide();
-
-							$("#btnSerialize").on("click", function () {
-								var commande = $("#myForm").serializeArray({
-								});
-								console.log(commande);
-								var jsonString = JSON.stringify(commande);
-
-								$.ajax({
-									type: 'GET',
-									url: 'cgi-bin/cgi_1',
-									data: jsonString,
-									dataType: 'html',
-									success: function (codeRecu) {
-										if (codeRecu == "ACK") {
-											$("#Bpopup").fadeIn(200).delay(3000).fadeOut(400)
-
 				</div>
 				<!--End Colons-->
 

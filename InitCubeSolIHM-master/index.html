@@ -95,15 +95,16 @@
                         Page Instruments
             ======================================
         -->
-
-    <div data-role="page" id="pageInstruments" data-theme="b">
+<div data-role="page" id="pageInstruments" data-theme="b">
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
             <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
         </div>
 
         <div data-role="main" class="general body">
+
             <a href="#pageFormulaire" class="ui-btn ui-btn-inline">Ajouter un Instrument</a>
+
             <div id="Instrument" class="general">
 
                 <div class="Instrument_1">
@@ -147,288 +148,314 @@
     </div>
 
 	<!-- 
-            ======================================
-                        Page Formulaire Ajout Instrument
-            ==============================================
-        -->
+	            ======================================
+	                        Page Formulaire Ajout Instrument
+	            ==============================================
+	        -->
+	
+	<div data-role="page" id="pageFormulaire" data-theme="b">
+		<div id="header" class="general">
+			<img id="imgCnes" src="images/cnes.png" />
+		</div>
+	
+		<!--  création d'un formulaire jQuery Mobile -->
+		<div class="ui-grid-b">
+			<div class="ui-block-b" id="form_2">
+				<form action="#" method="post">
+					<legend style="color:#ffffff">Nouvel Instrument</legend>
+					<label for="nom">Renseignez le nom:</label>
+					<input type="text" name="nom" id="nom" />
+	
+					<label for="identifiant">Renseignez le identifiant:</label>
+					<input name="identifiant" id="identifiant" class="champs" />
+	
+					<label for="role">Renseignez le role:</label>
+					<input name="role" id="role" class="champs" />
+	
+					<button class="ui-btn ui-icon-plus ui-btn-icon-left ui-btn-inline" id="Ajouter">Ajouter Mesure</button>
+					<button class="ui-btn ui-icon-minus ui-btn-icon-left ui-btn-inline" id="Suprimer">Suprimer Mesure</button>
+	
+					<fieldset id="test">
+						<legend style="color:#ffffff">Type de Mesure</legend>
+						<label for="mesure">Renseignez la mesure:</label>
+						<input type="text" name="nomMesure" id="nomMesure" class="champs" />
+	
+						<label for="unite">Renseignez l'unité':</label>
+						<input type="text" name="unite" id="unite" class="champs" />
+	
+						<label for="valMin">Renseignez le seuil Min:</label>
+						<input type="text" name="valMin" id="valMin" class="champs" />
+	
+						<label for="valMax">Renseignez le seuil Max:</label>
+						<input type="text" name="valMax" id="valMax" class="champs" />
+					</fieldset>
+	
+					<form enctype="multipart/form-data" action="file_news_upload.php" method="post">
+						<label for="image">Télécharger l'image:</label>
+						     <input type="file" name="image" id="image" />
+					</form>
+				</form>
+			</div>
+			<!-- Ajouter Mesure-->
+			<div class="ui-block-b" id="form_2">
+				<form action="#" method="post">
+					<fieldset id="new">
+					</fieldset>
+				</form>
+			</div>
+			<!-- Fin Ajouter Mesure-->
+		</div>
+		<br />
+		<a href="#popupRecap" data-rel="popup" data-position-to="window"
+			class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer"
+			data-transition="pop">Envoyer</a>
+	
+		<a href="#pageInstruments" type="reset" name="cancel"
+			class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
+	
+		<!--  fin du formulaire jQuery Mobile -->
+	
+		<!-- Récap formulaire instrument-->
+		<div data-role="popup" id="popupRecap" data-theme="a" class="ui-corner-all">
+			<form action="#" method="post" id="testForm">
+				<div style="padding:10px 20px;">
+					<fieldset id="stop">
+						<h3>Veuillez vérifier les informations </h3>
+						<label for="nom">Nom:</label>
+						<input name="nom" id="popNom" />
+	
+						<label for="identifiant">Identifiant:</label>
+						<input name="identifiant" id="popIdentifiant" />
+	
+						<label for="role">Role:</label>
+						<input name="role" id="popRole" />
+						<fieldset id="addRecap">
+							<label for="mesure">Mesure:</label>
+							<input name="mesure" id="popNomMesure" class="rajout" />
+	
+							<label for="unite">Unité:</label>
+							<input name="unite" id="popUnite" class="rajout" />
+	
+							<label for="valMin">Seuil Min:</label>
+							<input name="valMin" id="popValMin" class="rajout" />
+	
+							<label for="valMax">Seuil Max:</label>
+							<input name="valMax" id="popValMax" class="rajout" />
 
-    <div data-role="page" id="pageFormulaire" data-theme="b">
-        <div id="header" class="general">
-            <img id="imgCnes" src="images/cnes.png" />
-        </div>
-
-        <!--  création d'un formulaire jQuery Mobile -->
-        <div class="ui-grid-b">
-            <div class="ui-block-b">
-                <form action="#" method="post" id="form">
-                    <label for="nom">Renseignez le nom:</label>
-                    <input type="text" name="nom" id="nom"/>
-
-                    <fieldset>
-                        <legend style="color:#ffffff">Type de Mesure</legend>
-                        <!--<button class="ui-btn ui-icon-plus ui-btn-icon-left" id="Ajouter">Ajouter Mesure</button>-->
-                        <label for="mesure">Renseignez la mesure:</label>
-                        <input type="text" name="mesure" id="mesure"/>
-
-                        <label for="unite">Renseignez l'unité':</label>
-                        <input type="text" name="unite" id="unite"/>
-
-                        <label for="valMin">Renseignez le seuil Min:</label>
-                        <input type="text" name="valMin" id="valMin"/>
-
-                        <label for="valMax">Renseignez le seuil Max:</label>
-                        <input type="text" name="valMax" id="valMax"/>
-                    </fieldset>
-
-                    <form enctype="multipart/form-data" action="file_news_upload.php" method="post">
-                        <label for="image">Télécharger l'image:</label>
-                             <input type="file" name="image" id="image"/>
-                    </form>
-                </form>
-            </div>
-        </div>
-        <br />
-    <a href="#popupRecap" data-rel="popup" data-position-to="window"
-        class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer"
-        data-transition="pop">Envoyer</a>
-    
-    <a href="#pageInstruments" type="reset" name="cancel"
-        class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
-
-        <!--  fin du formulaire jQuery Mobile -->
-
-        <!-- Récap formulaire instrument-->
-        <div data-role="popup" id="popupRecap" data-theme="a" class="ui-corner-all">
-            <form>
-                <div style="padding:10px 20px;">
-                    <fieldset id="stop">
-                        <h3>Veuillez vérifier les informations </h3>
-                        <label for="nom">Nom:</label>
-                        <input name="nom" id="popNom" class="champs" />
-                    
-                        <label for="mesure">Mesure:</label>
-                        <input name="mesure" id="popMesure" class="champs" />
-                    
-                        <label for="unite">Unité:</label>
-                        <input name="unite" id="popUnite" class="champs" />
-                    
-                        <label for="valMin">Seuil Min:</label>
-                        <input name="valMin" id="popValMin" class="champs" />
-                    
-                        <label for="valMax">Seuil Max:</label>
-                        <input name="valMax" id="popValMax" class="champs" />
-                    
-                        <!-- <label for="image">Image:</label>
-                                        <input name="image" id="popImage" class="champs" />-->
-                    </fieldset>
-                    <button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check">Envoyer</button>
-                    <a href="#" type="reset" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
-                </div>
-            </form>
-        </div> 
-        <!-- fin récap-->
-
-        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-            <div data-role="navbar" data-grid="" data-iconpos="left">
-                <ul id="menu">
-                    <li><a href="#pageEtat">Etat</a></li>
-                    <li><a href="#pageInstruments"> Instruments</a>
-                        <ul>
-                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-                            <li><a href="#pageCamera">Caméra</a></li>
-                            <li><a href="#pageMatrice">Matrice</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#pageCommande">Commande</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+						</fieldset>
+						<!-- <label for="image">Image:</label>
+			                                        <input name="image" id="popImage" class="champs" />-->
+					</fieldset>
+					<button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check"
+						id="EnvoieRecap">Envoyer</button>
+					<a href="#" data-rel="back" type="reset" name="cancel"
+						class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
+				</div>
+			</form>
+		</div>
+		<!-- fin récap-->
+	
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+			<div data-role="navbar" data-grid="" data-iconpos="left">
+				<ul id="menu">
+					<li><a href="#pageEtat">Etat</a></li>
+					<li><a href="#pageInstruments"> Instruments</a>
+						<ul>
+							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+							<li><a href="#pageCamera">Caméra</a></li>
+							<li><a href="#pageMatrice">Matrice</a></li>
+						</ul>
+					</li>
+					<li><a href="#pageCommande">Commande</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
     <!--               ======================================
                                 page Camera
                     ======================================
         -->
 
-    <div data-role="page" id="pageCamera" data-theme="b">
-        <div id="header" class="general">
-            <img id="imgCnes" src="images/cnes.png" />
-        </div>
+	<div data-role="page" id="pageCamera" data-theme="b">
+		<div id="header" class="general">
+			<img id="imgCnes" src="images/cnes.png" />
+		</div>
 
-        <div class="general body">
-            <div id="slideshow">
-                <div>
-                    <img src="images/planete.jpg" width="300" height="300">
-                </div>
-                <div>
-                    <img src="images/ihm_camera.jpg" width="300" height="260">
-                </div>
-                <div>
-                    <img src="images/planete1.jpg" width="300" height="260">
-                </div>
-            </div>
-            <script>
-                $("#slideshow > div:gt(0)").hide();
+		<div class="general body">
+			<div id="slideshow">
+				<div>
+					<img src="images/planete.jpg" width="300" height="300">
+				</div>
+				<div>
+					<img src="images/ihm_camera.jpg" width="300" height="260">
+				</div>
+				<div>
+					<img src="images/planete1.jpg" width="300" height="260">
+				</div>
+			</div>
+			<script>
+				$("#slideshow > div:gt(0)").hide();
 
-                setInterval(function () {
-                    $('#slideshow > div:first')
-                        .fadeOut(1000)
-                        .next()
-                        .fadeIn(1000)
-                        .end()
-                        .appendTo('#slideshow');
-                }, 3000);
-            </script>
-            <table id="tableCamera">
-                <tr>
-                    <th><mark>Info Caméra : </mark></th>
-                    <td id="InfoCamera1"></td>
-                </tr>
-                <tr>
-                    <th><mark>Info Caméra : </mark></th>
-                    <td id="InfoCamera2"></td>
-                </tr>
-            </table>
-        </div>
+				setInterval(function () {
+					$('#slideshow > div:first')
+						.fadeOut(1000)
+						.next()
+						.fadeIn(1000)
+						.end()
+						.appendTo('#slideshow');
+				}, 3000);
+			</script>
+			<table id="tableCamera">
+				<tr>
+					<th><mark>Info Caméra : </mark></th>
+					<td id="InfoCamera1"></td>
+				</tr>
+				<tr>
+					<th><mark>Info Caméra : </mark></th>
+					<td id="InfoCamera2"></td>
+				</tr>
+			</table>
+		</div>
 
-        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-            <div data-role="navbar" data-grid="" data-iconpos="left">
-                <ul id="menu">
-                    <li><a href="#pageEtat">Etat</a></li>
-                    <li><a href="#pageInstruments"> Instruments</a>
-                        <ul>
-                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-                            <li><a href="#pageCamera">Caméra</a></li>
-                            <li><a href="#pageMatrice">Matrice</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#pageCommande">Commande</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!--
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+			<div data-role="navbar" data-grid="" data-iconpos="left">
+				<ul id="menu">
+					<li><a href="#pageEtat">Etat</a></li>
+					<li><a href="#pageInstruments"> Instruments</a>
+						<ul>
+							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+							<li><a href="#pageCamera">Caméra</a></li>
+							<li><a href="#pageMatrice">Matrice</a></li>
+						</ul>
+					</li>
+					<li><a href="#pageCommande">Commande</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--
                         ======================================
                                     page Magnetometre
                         ======================================
         -->
-    <div data-role="page" id="pageMagnetometre" data-theme="b">
-        <div id="header" class="general">
-            <img id="imgCnes" src="images/cnes.png" />
-        </div>
+	<div data-role="page" id="pageMagnetometre" data-theme="b">
+		<div id="header" class="general">
+			<img id="imgCnes" src="images/cnes.png" />
+		</div>
 
-        <div class="general body">
+		<div class="general body">
 
-            <!--Valeur et graphique-->
-            <div id="donnesMagneto">
-                <table id="tableMagneto">
-                    <tr>
-                        <th class="valeurMagneto">
-                            <center>Valeur BX (μT)</center>
-                        </th>
-                        <th class="valeurMagneto">
-                            <center>Valeur BY (μT)</center>
-                        </th>
-                        <th class="valeurMagneto">
-                            <center>Valeur BZ (μT)</center>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td id="ValeurMagnetoBX"></td>
-                        <td id="ValeurMagnetoBY"></td>
-                        <td id="ValeurMagnetoBZ"></td>
-                    </tr>
-                </table>
-            </div>
-            <br />
-            <div id="graphMagneto"></div>
-        </div>
+			<!--Valeur et graphique-->
+			<div id="donnesMagneto">
+				<table id="tableMagneto">
+					<tr>
+						<th class="valeurMagneto">
+							<center>Valeur BX (μT)</center>
+						</th>
+						<th class="valeurMagneto">
+							<center>Valeur BY (μT)</center>
+						</th>
+						<th class="valeurMagneto">
+							<center>Valeur BZ (μT)</center>
+						</th>
+					</tr>
+					<tr>
+						<td id="ValeurMagnetoBX"></td>
+						<td id="ValeurMagnetoBY"></td>
+						<td id="ValeurMagnetoBZ"></td>
+					</tr>
+				</table>
+			</div>
+			<br />
+			<div id="graphMagneto"></div>
+		</div>
 
-        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-            <div data-role="navbar" data-grid="" data-iconpos="left">
-                <ul id="menu">
-                    <li><a href="#pageEtat">Etat</a></li>
-                    <li><a href="#pageInstruments"> Instruments</a>
-                        <ul>
-                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-                            <li><a href="#pageCamera">Caméra</a></li>
-                            <li><a href="#pageMatrice">Matrice</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#pageCommande">Commande</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!--
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+			<div data-role="navbar" data-grid="" data-iconpos="left">
+				<ul id="menu">
+					<li><a href="#pageEtat">Etat</a></li>
+					<li><a href="#pageInstruments"> Instruments</a>
+						<ul>
+							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+							<li><a href="#pageCamera">Caméra</a></li>
+							<li><a href="#pageMatrice">Matrice</a></li>
+						</ul>
+					</li>
+					<li><a href="#pageCommande">Commande</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--
                 ======================================
-                        page nouveau formulaire
+                        page Commande nouveau formulaire 
                 ======================================
 -->
-    <div data-role="page" id="formulaireCommande" data-theme="b">
-        <div id="header" class="general">
-            <img id="imgCnes" src="images/cnes.png" />
-        </div>
-        <div data-role="fieldcontain">
-            <label for="liste"> Identifiant du satellite :</label>
-            <select style="color:#0066FF" name="liste" id="IdSatellite">
-                <option value="1"> 1 </option>
-                <option value="2"> 2 </option>
-            </select>
-        </div>
-        <div data-role="fieldcontain">
-            <label for="liste"> Type de commande :</label>
-            <select style="color:#0066FF" name="liste" id="TypeCommande">
-                <option value="MISSION">Mission</option>
-                <option value="MEASURE">Mesure</option>
-                <option value="STATUS">Status</option>
-                <option value="DEPLOY">Déploiement</option>
-                <option value="SURVIVAL">Orientation du Cubesat</option>
-            </select>
-        </div>
-        <div data-role="fieldcontain">
-            <label for="liste"> Instruments :</label>
-            <select style="color:#0066FF" name="liste" id="Instru">
-                <option value="CAM_THERM">Caméra</option>
-                <option value="MAGNETOMETRE">Magnétomètre</option>
-            </select>
-        </div>
-        <div data-role="fieldcontain">
-            <label for="liste"> Type de mesure :</label>
-            <select style="color:#0066FF" name="liste" id="TypeMesure">
-                <option value="TEMPERATURE">Température en °C</option>
-                <option value="PIX">Pixels de la caméra</option>
-            </select>
-        </div>
-        <div data-role="fieldcontain">
-            <label for="DateEtHeure"> Date et heure :</label>
-            <input name="date" class="form-control" type="datetime-local">
-        </div>
-        <!-- Bouton valider et annuler -->
+	<div data-role="page" id="formulaireCommande" data-theme="b">
+		<div id="header" class="general">
+			<img id="imgCnes" src="images/cnes.png" />
+		</div>
+		<div data-role="fieldcontain">
+			<label for="liste"> Identifiant du satellite :</label>
+			<select style="color:#0066FF" name="liste" id="IdSatellite">
+				<option value="1"> 1 </option>
+				<option value="2"> 2 </option>
+			</select>
+		</div>
+		<div data-role="fieldcontain">
+			<label for="liste"> Type de commande :</label>
+			<select style="color:#0066FF" name="liste" id="TypeCommande">
+				<option value="MISSION">Mission</option>
+				<option value="MEASURE">Mesure</option>
+				<option value="STATUS">Status</option>
+				<option value="DEPLOY">Déploiement</option>
+				<option value="SURVIVAL">Orientation du Cubesat</option>
+			</select>
+		</div>
+		<div data-role="fieldcontain">
+			<label for="liste"> Instruments :</label>
+			<select style="color:#0066FF" name="liste" id="Instru">
+				<option value="CAM_THERM">Caméra</option>
+				<option value="MAGNETOMETRE">Magnétomètre</option>
+			</select>
+		</div>
+		<div data-role="fieldcontain">
+			<label for="liste"> Type de mesure :</label>
+			<select style="color:#0066FF" name="liste" id="TypeMesure">
+				<option value="TEMPERATURE">Température en °C</option>
+				<option value="PIX">Pixels de la caméra</option>
+			</select>
+		</div>
+		<div data-role="fieldcontain">
+			<label for="DateEtHeure"> Date et heure :</label>
+			<input name="date" class="form-control" type="datetime-local">
+		</div>
+		<!-- Bouton valider et annuler -->
 
-        <div class="clearfix">
-            <button type="submit" id="btnCommande" class="btn btn-primary pull-right">Valider</button>
-        </div>
+		<div class="clearfix">
+			<button type="submit" id="btnCommande" class="btn btn-primary pull-right">Valider</button>
+		</div>
 
-        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-            <div data-role="navbar" data-grid="" data-iconpos="left">
-                <ul id="menu">
-                    <li><a href="#pageEtat">Etat</a></li>
-                    <li><a href="#pageInstruments"> Instruments</a>
-                        <ul>
-                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-                            <li><a href="#pageCamera">Caméra</a></li>
-                            <li><a href="#pageMatrice">Matrice</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#pageCommande">Commande</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+			<div data-role="navbar" data-grid="" data-iconpos="left">
+				<ul id="menu">
+					<li><a href="#pageEtat">Etat</a></li>
+					<li><a href="#pageInstruments"> Instruments</a>
+						<ul>
+							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+							<li><a href="#pageCamera">Caméra</a></li>
+							<li><a href="#pageMatrice">Matrice</a></li>
+						</ul>
+					</li>
+					<li><a href="#pageCommande">Commande</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 
 
 
-    <!--
+	<!--
 			======================================
 						page Commande
 			======================================
@@ -748,49 +775,71 @@
 								</form>
 
 							</div>
+							<div class="clearfix">
+								<button type="button" id="btnSerialize"
+									class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-right">Valider</button>
+							</div>
 						</div>
 
-						<div class="clearfix">
-							<button type="button" id="btnSerialize"
-								class="btn btn-primary pull-right">Valider</button>
-						</div>
+
 
 					</div>
 					<!--End Left Colons-->
+
+					<!--Historique-->
+					<div class="col-sm-6 col-lg-3 col-lg-pull-6; block" style="margin-top: 3%;">
+						<div class="block-header overflow-hidden">
+							<h2 class="block-title visibility-hidden" data-toggle="appear"
+								data-class="animated fadeInDown" style="color:#0066FF" ;>HISTORIQUE</h2>
+						</div>
+
+						<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+						<div class="clearfix">
+							<button class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-right">
+								Afficher plus</button>
+						</div>
+					</div>
+					<!--End Historique-->
+
+
+
 					<div id="dialog">
 						<!-- Bonne transmission-->
-						<div data-position-to="window" id="Bpopup" data-overlay-theme="b" data-theme="b" data-dismissible="false"
-							style="max-width:400px; min-width: 400px;">
-							<div data-role="header" data-theme="a">
+						<div data-position-to="window" id="Bpopup" data-overlay-theme="b" data-theme="b"
+							data-dismissible="false" style="max-width:400px; min-width: 400px;">
+							<div data-role="header" data-theme="a"
+								class="Popup">
 								<h3>Information</h3>
 							</div>
 							<div role="main" class="ui-content">
 								<p>La commande à bien été transmise</p>
-								
+
 							</div>
 						</div>
 
 						<!-- Mauvaise transmission-->
-						<div data-position-to="window" data-transition="pop" id="Mpopup"
-							data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
-							<div data-role="header" data-theme="a">
+						<div data-position-to="window" data-transition="pop" id="Mpopup" data-overlay-theme="b"
+							data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
+							<div data-role="header" data-theme="a"
+							class="Popup">
 								<h3>Information</h3>
 							</div>
 							<div role="main" class="ui-content" data-theme="a">
 								<p>La commande n'a pas été transmise</p>
-								
+
 							</div>
 						</div>
 
 						<!-- Erreur transmission-->
-						<div data-position-to="window" data-transition="pop" id="AbcVD"
-							data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
-							<div data-role="header" data-theme="a">
+						<div data-position-to="window" data-transition="pop" id="AbcVD" data-overlay-theme="b"
+							data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
+							<div data-role="header" data-theme="a"
+							class="Popup">
 								<h3>Information</h3>
 							</div>
 							<div role="main" class="ui-content">
-								<p>Erreur ACK</p>>
-								
+								<p>Erreur ACK</p>
+
 							</div>
 						</div>
 						<div role="dialog" id="dialog"></div>
@@ -820,15 +869,26 @@
 									data: jsonString,
 									dataType: 'html',
 									success: function (codeRecu) {
-										if (codeRecu == 207) {
-											$("#Bpopup").fadeIn(400).delay(800).fadeOut(400)
+										if (codeRecu == "ACK") {
+											$("#Bpopup").fadeIn(200).delay(3000).fadeOut(400)
 
 										}
-										else if (codeRecu == 285)
-											$("#Mpopup").fadeIn(400).delay(800).fadeOut(400);
+										else if (codeRecu == "NACK")
+											$("#Mpopup").fadeIn(200).delay(3000).fadeOut(400);
 										else
-											$("#AbcVD").fadeIn(400).delay(800).fadeOut(400);
-										
+											$("#AbcVD").fadeIn(200).delay(3000).fadeOut(400);
+
+									}
+								});
+							});
+							$("#").on("click", function () {
+								$.ajax({
+									type: 'GET',
+									url: '',
+									data: jsonString,
+									dataType: 'html',
+									success: function (codeRecu) {
+
 									}
 								});
 							});
@@ -885,136 +945,136 @@
                     ======================================
         -->
 
-<div data-role="page" id="pageMatrice" data-theme="b">
-    <div id="header" class="general">
-        <img id="imgCnes" src="images/cnes.png" />
-    </div>
+	<div data-role="page" id="pageMatrice" data-theme="b">
+		<div id="header" class="general">
+			<img id="imgCnes" src="images/cnes.png" />
+		</div>
 
-    <div class="general body">
-        <table id="tableMatrice">
-            <thead>
-                <tr>
-                    <th data-priority="1">Instrument</th>
-                    <th data-priority="2">Moyenne des mesures en °C</th>
-                    <th data-priority="3">Etat camera IR</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Camera Thermique</td>
-                    <td id="tempMoyenne"></td>
-                    <td id="CameraIR"></td>
-                    <td id="arrMatrice"></td>
-                </tr>
-            </tbody>
-        </table>
+		<div class="general body">
+			<table id="tableMatrice">
+				<thead>
+					<tr>
+						<th data-priority="1">Instrument</th>
+						<th data-priority="2">Moyenne des mesures en °C</th>
+						<th data-priority="3">Etat camera IR</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Camera Thermique</td>
+						<td id="tempMoyenne"></td>
+						<td id="CameraIR"></td>
+						<td id="arrMatrice"></td>
+					</tr>
+				</tbody>
+			</table>
 
-        <table id="matrice">
-            <thead>
-                <tr>
-                    <th id="entete" COLSPAN=8>Caméra thermique</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr id="ligne1">
-                    <td id="pixel0"></td>
-                    <td id="pixel1"></td>
-                    <td id="pixel2"></td>
-                    <td id="pixel3"></td>
-                    <td id="pixel4"></td>
-                    <td id="pixel5"></td>
-                    <td id="pixel6"></td>
-                    <td id="pixel7"></td>
-                </tr>
-                <tr id="ligne2">
-                    <td id="pixel8"></td>
-                    <td id="pixel9"></td>
-                    <td id="pixel10"></td>
-                    <td id="pixel11"></td>
-                    <td id="pixel12"></td>
-                    <td id="pixel13"></td>
-                    <td id="pixel14"></td>
-                    <td id="pixel15"></td>
-                </tr>
-                <tr id="ligne3">
-                    <td id="pixel16"></td>
-                    <td id="pixel17"></td>
-                    <td id="pixel18"></td>
-                    <td id="pixel19"></td>
-                    <td id="pixel20"></td>
-                    <td id="pixel21"></td>
-                    <td id="pixel22"></td>
-                    <td id="pixel23"></td>
-                </tr>
-                <tr id="ligne4">
-                    <td id="pixel24"></td>
-                    <td id="pixel25"></td>
-                    <td id="pixel26"></td>
-                    <td id="pixel27"></td>
-                    <td id="pixel28"></td>
-                    <td id="pixel29"></td>
-                    <td id="pixel30"></td>
-                    <td id="pixel31"></td>
-                </tr>
-                <tr id="ligne5">
-                    <td id="pixel32"></td>
-                    <td id="pixel33"></td>
-                    <td id="pixel34"></td>
-                    <td id="pixel35"></td>
-                    <td id="pixel36"></td>
-                    <td id="pixel37"></td>
-                    <td id="pixel38"></td>
-                    <td id="pixel39"></td>
-                </tr>
-                <tr id="ligne6">
-                    <td id="pixel40"></td>
-                    <td id="pixel41"></td>
-                    <td id="pixel42"></td>
-                    <td id="pixel43"></td>
-                    <td id="pixel44"></td>
-                    <td id="pixel45"></td>
-                    <td id="pixel46"></td>
-                    <td id="pixel47"></td>
-                </tr>
-                <tr id="ligne7">
-                    <td id="pixel48"></td>
-                    <td id="pixel49"></td>
-                    <td id="pixel50"></td>
-                    <td id="pixel51"></td>
-                    <td id="pixel52"></td>
-                    <td id="pixel53"></td>
-                    <td id="pixel54"></td>
-                    <td id="pixel55"></td>
-                </tr>
-                <tr id="ligne8">
-                    <td id="pixel56"></td>
-                    <td id="pixel57"></td>
-                    <td id="pixel58"></td>
-                    <td id="pixel59"></td>
-                    <td id="pixel60"></td>
-                    <td id="pixel61"></td>
-                    <td id="pixel62"></td>
-                    <td id="pixel63"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-        <div data-role="navbar" data-grid="" data-iconpos="left">
-            <ul id="menu">
-                <li><a href="#pageEtat">Etat</a></li>
-                <li><a href="#pageInstruments"> Instruments</a>
-                    <ul>
-                        <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-                        <li><a href="#pageCamera">Caméra</a></li>
-                        <li><a href="#pageMatrice">Matrice</a></li>
-                    </ul>
-                </li>
-                <li><a href="#pageCommande">Commande</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+			<table id="matrice">
+				<thead>
+					<tr>
+						<th id="entete" COLSPAN=8>Caméra thermique</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id="ligne1">
+						<td id="pixel0"></td>
+						<td id="pixel1"></td>
+						<td id="pixel2"></td>
+						<td id="pixel3"></td>
+						<td id="pixel4"></td>
+						<td id="pixel5"></td>
+						<td id="pixel6"></td>
+						<td id="pixel7"></td>
+					</tr>
+					<tr id="ligne2">
+						<td id="pixel8"></td>
+						<td id="pixel9"></td>
+						<td id="pixel10"></td>
+						<td id="pixel11"></td>
+						<td id="pixel12"></td>
+						<td id="pixel13"></td>
+						<td id="pixel14"></td>
+						<td id="pixel15"></td>
+					</tr>
+					<tr id="ligne3">
+						<td id="pixel16"></td>
+						<td id="pixel17"></td>
+						<td id="pixel18"></td>
+						<td id="pixel19"></td>
+						<td id="pixel20"></td>
+						<td id="pixel21"></td>
+						<td id="pixel22"></td>
+						<td id="pixel23"></td>
+					</tr>
+					<tr id="ligne4">
+						<td id="pixel24"></td>
+						<td id="pixel25"></td>
+						<td id="pixel26"></td>
+						<td id="pixel27"></td>
+						<td id="pixel28"></td>
+						<td id="pixel29"></td>
+						<td id="pixel30"></td>
+						<td id="pixel31"></td>
+					</tr>
+					<tr id="ligne5">
+						<td id="pixel32"></td>
+						<td id="pixel33"></td>
+						<td id="pixel34"></td>
+						<td id="pixel35"></td>
+						<td id="pixel36"></td>
+						<td id="pixel37"></td>
+						<td id="pixel38"></td>
+						<td id="pixel39"></td>
+					</tr>
+					<tr id="ligne6">
+						<td id="pixel40"></td>
+						<td id="pixel41"></td>
+						<td id="pixel42"></td>
+						<td id="pixel43"></td>
+						<td id="pixel44"></td>
+						<td id="pixel45"></td>
+						<td id="pixel46"></td>
+						<td id="pixel47"></td>
+					</tr>
+					<tr id="ligne7">
+						<td id="pixel48"></td>
+						<td id="pixel49"></td>
+						<td id="pixel50"></td>
+						<td id="pixel51"></td>
+						<td id="pixel52"></td>
+						<td id="pixel53"></td>
+						<td id="pixel54"></td>
+						<td id="pixel55"></td>
+					</tr>
+					<tr id="ligne8">
+						<td id="pixel56"></td>
+						<td id="pixel57"></td>
+						<td id="pixel58"></td>
+						<td id="pixel59"></td>
+						<td id="pixel60"></td>
+						<td id="pixel61"></td>
+						<td id="pixel62"></td>
+						<td id="pixel63"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+			<div data-role="navbar" data-grid="" data-iconpos="left">
+				<ul id="menu">
+					<li><a href="#pageEtat">Etat</a></li>
+					<li><a href="#pageInstruments"> Instruments</a>
+						<ul>
+							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+							<li><a href="#pageCamera">Caméra</a></li>
+							<li><a href="#pageMatrice">Matrice</a></li>
+						</ul>
+					</li>
+					<li><a href="#pageCommande">Commande</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>

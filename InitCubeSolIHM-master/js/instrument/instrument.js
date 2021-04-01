@@ -1,14 +1,14 @@
 class Instrument {
-  constructor(nom, role, identifiant) {
+  constructor(nom, role, id) {
     this.nom = nom;
     this.role = role;
-    this.identifiant = identifiant;
+    this.id = id;
     this.listeTypesMesure = new Array();
     console.log("Création d'un Instrument nommé " + this.nom);
   }
 
-  addTypeMesure(nomMesure, unite, valMin, valMax){
-    this.listeTypesMesure.push(new TypeMesure(nomMesure, unite, valMin, valMax));
+  addTypeMesure(nom, description, unite, valMin, valMax){
+    this.listeTypesMesure.push(new TypeMesure(nom, description, unite, valMin, valMax));
   }
 
   genererJSON() {

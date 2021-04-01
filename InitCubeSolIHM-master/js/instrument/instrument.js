@@ -1,8 +1,9 @@
 class Instrument {
-  constructor(nom, role, id) {
+  constructor(nom, role, identifiant, image) {
     this.nom = nom;
     this.role = role;
-    this.id = id;
+    this.identifiant = identifiant;
+    this.image=image;
     this.listeTypesMesure = new Array();
     console.log("Création d'un Instrument nommé " + this.nom);
   }

@@ -2,25 +2,6 @@
 //var matrice = new CMatrice(camera);
 
 $(document).ready(function () {
-  /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
-  let gestionnaireCommandes = new GestionnaireCommandes();
-  $("#btnCommande").click(function () {
-    gestionnaireCommandes.genererCommande();
-    console.log(
-      "Commande format JSON" +
-        gestionnaireCommandes.listeCommandes[
-          gestionnaireCommandes.listeCommandes.length - 1
-        ].genererJSON()
-    );
-  });
-
-  /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
-  let gestionnaireInstruments = new GestionnaireInstruments();
-  $("#Ajouter").click(function () {
-    var add = $('#test').clone();
-    add.find('.champ');
-    add.appendTo('#new');
-
 /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
     let gestionnaireCommandes = new GestionnaireCommandes();
     $('#btnCommande').click(function () {
@@ -29,13 +10,7 @@ $(document).ready(function () {
     })
 
 /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
-    let gestionnaireInstruments = new GestionnaireInstruments("../initcube.xml");
-    gestionnaireInstruments.recupererFichierConf();
-    $('#Envoyer').click(function () {
-        gestionnaireInstruments.ajouterInstrument();
-        gestionnaireInstruments.recapFormInstrument();
-    })
-    $("#stop :input").prop("disabled", true);
+    let gestionnaireInstruments = new GestionnaireInstruments();
 
 /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
@@ -87,39 +62,6 @@ $(document).ready(function () {
             document.getElementById("CameraIR").innerHTML = "ON";
         }
     });
-    var addRecap = $('#addRecap').clone();
-    addRecap.find('.rajout');
-    addRecap.appendTo('#addRecap');
-  });/*
-  $("#Supprimer").click(function () {
-    var add = $('#new').bind();
-    add.find('.champ');
-    add.appendTo('#new');
-
-    var addRecap = $('#addRecap').bind();
-    addRecap.find('.rajout');
-    addRecap.appendTo('#addRecap');
-  });*/
-
-  $("#stop :input").prop("disabled", true);
-
-  $("#EnvoieRecap").click(function () {
-    gestionnaireInstruments.ajouterInstrument();
-    gestionnaireInstruments.recapFormInstrument();
-
-    let form_data = $("#testForm").serializeArray();
-    console.log(form_data);
-    let jsonString = JSON.stringify(form_data);
-    $.ajax({
-      url: "cgi-bin/addInstrument.cgi",
-      type: "POST",
-      data: jsonString,
-      dataType: "html",
-      success: function (codeRecu) {
-        console.log(" " + codeRecu);
-      },
-    });
-  });
 
   source.addEventListener("instrument", function (evt) {
     var instru = JSON.parse(evt.data);

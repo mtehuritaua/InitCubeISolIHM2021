@@ -16,12 +16,19 @@ $(document).ready(function () {
     gestionnaireInstruments.recupererFichierConf();
     $('#Envoyer').click(function () {
         gestionnaireInstruments.ajouterInstrument();
+        gestionnaireInstruments.recapFormInstrument();
     })
+    $("#stop :input").prop("disabled", true);
 
 /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
     let segmentVol1 = new SegmentVol("../initcube.xml");
 
+    segmentVol.genererMenuInstruments();
+
+    segmentVol.chargerInstruments();
+    
+    
 /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");
     let graphBattTension = new Graphique("graphique", "Etat", "Batterie", "Tension", "V");

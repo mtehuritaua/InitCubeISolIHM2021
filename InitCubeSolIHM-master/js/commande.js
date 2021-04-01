@@ -13,3 +13,4 @@ class Commande {
         let cmd = JSON.stringify({ CMD: { ID: this.idSatellite, TYPE: this.typeCommande, INSTRUMENT: this.instrument, TYPEMEASURE: this.typeMesure } });
         return cmd;
     }
+}

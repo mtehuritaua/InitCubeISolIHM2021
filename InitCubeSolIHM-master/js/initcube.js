@@ -11,6 +11,7 @@ $(document).ready(function () {
 
 /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireInstruments = new GestionnaireInstruments();
+    gestionnaireInstruments.enregistrerInstrument();
     gestionnaireInstruments.bloquerEcriture();
     gestionnaireInstruments.ajouterTypeMesure();
     

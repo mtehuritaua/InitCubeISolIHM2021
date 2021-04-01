@@ -29,8 +29,6 @@
 	<script type="text/javascript" src="js/initcube.js"></script>
 </head>
 
-
-
 <body>
 	<!--
     	   ======================================
@@ -185,11 +183,6 @@
 						<label for="valMax">Renseignez le seuil Max:</label>
 						<input type="text" name="valMax" id="valMax" class="champs" />
 					</fieldset>
-	
-					<form enctype="multipart/form-data" action="file_news_upload.php" method="post">
-						<label for="image">Télécharger l'image (PNG, JPG, JPEG):</label>
-						     <input type="file" name="image" id="image" accept=".png, .jpg, .jpeg" />
-					</form>
 				</form>
 			</div>
 			<!-- Bouton Ajouter Mesure-->
@@ -203,7 +196,7 @@
 		</div>
 		<br />
 		<a href="#popupRecap" data-rel="popup" data-position-to="window"
-			class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left "
+			class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer"
 			data-transition="pop">Envoyer</a>
 	
 		<a href="#pageInstruments" type="reset" name="cancel"

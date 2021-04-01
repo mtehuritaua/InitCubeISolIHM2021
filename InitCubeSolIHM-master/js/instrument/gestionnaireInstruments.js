@@ -28,9 +28,7 @@ class GestionnaireInstruments {
 
   /*Reprise des données pour faire pop up récapitulatif*/
   recapFormInstrument() {
-    var instrumentCourant = this.listeInstruments[
-      this.listeInstruments.length - 1
-    ];
+    var instrumentCourant = this.listeInstruments[this.listeInstruments.length - 1];
     $("#popNom").val(instrumentCourant.nom);
     $("#popRole").val(instrumentCourant.role);
     $("#popIdentifiant").val(instrumentCourant.identifiant);
@@ -40,14 +38,15 @@ class GestionnaireInstruments {
     $("#popValMax").val(instrumentCourant.listeTypesMesure[0].valMax);
   }
 
+   /*Bloquer écriture récapitulatif*/
   bloquerEcriture() {
-    /*Bloquer écriture récapitulatif*/
     $("#bloqueInput :input").prop("disabled", true);
   }
 
   /*Envoyer Trame JSON du nouvel instrument pour sauvegarder dans la base de donnée*/
   enregistrerInstrument() {
     $("#EnvoieRecap").click(function () {
+      let gestionnaireInstruments = new GestionnaireInstruments();
       gestionnaireInstruments.ajouterInstrument();
       gestionnaireInstruments.recapFormInstrument();
 

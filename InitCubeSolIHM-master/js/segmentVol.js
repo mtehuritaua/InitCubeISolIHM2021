@@ -59,6 +59,6 @@ class SegmentVol {
 
     genererMenuInstruments() {
         console.log("Nouvel Instrument du fichier : initcube.xml");
-        $("#Instrument").append("<div class=\"Instrument_1\">  <a href=\"#pageMagnetometre\"> <img src=\"images/Magnétomètre.png\" alt=\"Magnétomètre\" /> <br/> <span> Instrument </span> </a> </div>");
+        $("#Instrument").append("<div class=\"Instrument_1\">  <a href=\"#pageMagnetometre\"> <img src=\"images/Magnétomètre.png\" alt=\"Magnétomètre\" /> <br/> <span> " +this.listeInstruments[0].nom + " </span> </a> </div>");
     }
 }

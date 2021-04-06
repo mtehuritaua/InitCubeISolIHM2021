@@ -10,7 +10,7 @@ class Commande {
 
     }
     genererJSON() {
-        let cmd = JSON.stringify({ CMD: { ID: this.idSatellite, TYPE: this.typeCommande, INSTRUMENT: this.instrument, TYPEMEASURE: this.typeMesure } });
+        console.log("JSON fabriqué automatiquement : " + JSON.stringify(this));
         return cmd;
     }
 }

@@ -14,14 +14,18 @@ class GestionnaireCommandes {
                 url: 'cgi-bin/main',
                 dataType: 'html',
                 success: function (codeRecu) {
+                    $("#textHC").text(codeRecu);
                     var test = JSON.parse(codeRecu);
-                    test.ID
+                    
+                    //console.log(codeRecu);
+                    //document.getElementById("#textHC").innerHTML = test.
                 }
             });
         });
     }
     afficherHistorique() {
 
-        this.historique.forEach( => console.log())
+        //this.historique.forEach( => console.log())
         $("#textHC").text("Afficher Historique");
-    
+    }
+}

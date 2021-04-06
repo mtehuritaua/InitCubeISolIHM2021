@@ -2,34 +2,28 @@
 //var matrice = new CMatrice(camera);
 
 $(document).ready(function () {
-
-
-    /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
+/*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
     let gestionnaireCommandes = new GestionnaireCommandes();
     $('#btnCommande').click(function () {
         gestionnaireCommandes.genererCommande();
         console.log("Commande format JSON" + gestionnaireCommandes.listeCommandes[gestionnaireCommandes.listeCommandes.length - 1].genererJSON());
     })
-    gestionnaireCommandes.afficherHistorique();
+    
     gestionnaireCommandes.getHistorique();
 
-    /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
-    let gestionnaireInstruments = new GestionnaireInstruments("../initcube.xml");
-    gestionnaireInstruments.recupererFichierConf();
-    $('#Envoyer').click(function () {
-        gestionnaireInstruments.ajouterInstrument();
-        gestionnaireInstruments.recapFormInstrument();
-    })
-    $("#stop :input").prop("disabled", true);
-
-    /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
+/*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
+    let gestionnaireInstruments = new GestionnaireInstruments();
+    gestionnaireInstruments.enregistrerInstrument();
+    gestionnaireInstruments.bloquerEcriture();
+    gestionnaireInstruments.ajouterTypeMesure();
+    
+/*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
-    let segmentVol1 = new SegmentVol("../initcube.xml");
 
     segmentVol.genererMenuInstruments();
-
-
-    /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
+    segmentVol.chargerInstruments();
+    
+/*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");
     let graphBattTension = new Graphique("graphique", "Etat", "Batterie", "Tension", "V");
     let graphBattCourant = new Graphique("graphique", "Etat", "Batterie", "Courant", "A");
@@ -71,30 +65,40 @@ $(document).ready(function () {
         }
     });
 
-    source.addEventListener("instrument", function (evt) {
-        var instru = JSON.parse(evt.data);
-        var camera = new CCamera();
-        var matrice = new CMatrice(camera);
-        switch (instru.instrument.type) {
-            case "matrice":
-                camera.setPixel(instru.instrument.mesure);
-                matrice.majMatrice();
-                break;
-            case "magneto":
-                graphMagnetoBX.ajouterMesure(instru.instrument.date, instru.instrument.mesure.ValeurMagnetoBX);
-                graphMagnetoBY.ajouterMesure(instru.instrument.date, instru.instrument.mesure.ValeurMagnetoBY);
-                graphMagnetoBZ.ajouterMesure(instru.instrument.date, instru.instrument.mesure.ValeurMagnetoBZ);
+  source.addEventListener("instrument", function (evt) {
+    var instru = JSON.parse(evt.data);
+    var camera = new CCamera();
+    var matrice = new CMatrice(camera);
+    switch (instru.instrument.type) {
+      case "matrice":
+        camera.setPixel(instru.instrument.mesure);
+        matrice.majMatrice();
+        break;
+      case "magneto":
+        graphMagnetoBX.ajouterMesure(
+          instru.instrument.date,
+          instru.instrument.mesure.ValeurMagnetoBX
+        );
+        graphMagnetoBY.ajouterMesure(
+          instru.instrument.date,
+          instru.instrument.mesure.ValeurMagnetoBY
+        );
+        graphMagnetoBZ.ajouterMesure(
+          instru.instrument.date,
+          instru.instrument.mesure.ValeurMagnetoBZ
+        );
 
-                document.getElementById("ValeurMagnetoBX").innerHTML = instru.instrument.mesure.ValeurMagnetoBX + " μT";
-                document.getElementById("ValeurMagnetoBY").innerHTML = instru.instrument.mesure.ValeurMagnetoBY + " μT";
-                document.getElementById("ValeurMagnetoBZ").innerHTML = instru.instrument.mesure.ValeurMagnetoBZ + " μT";
+        document.getElementById("ValeurMagnetoBX").innerHTML =
+          instru.instrument.mesure.ValeurMagnetoBX + " μT";
+        document.getElementById("ValeurMagnetoBY").innerHTML =
+          instru.instrument.mesure.ValeurMagnetoBY + " μT";
+        document.getElementById("ValeurMagnetoBZ").innerHTML =
+          instru.instrument.mesure.ValeurMagnetoBZ + " μT";
 
-
-                break;
-            default:
-                console.log("Erreur d'identification de l'instrument");
-                console.log(instru.instrument.type);
-        }
-    });
-
+        break;
+      default:
+        console.log("Erreur d'identification de l'instrument");
+        console.log(instru.instrument.type);
+    }
+  });
 });

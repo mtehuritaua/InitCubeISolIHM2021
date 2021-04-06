@@ -169,7 +169,7 @@
 	
 					<button class="ui-btn ui-icon-plus ui-btn-icon-left ui-btn-inline" id="Ajouter">Ajouter Mesure</button>
 					<!--<button class="ui-btn ui-icon-minus ui-btn-icon-left ui-btn-inline" id="Suprimer">Suprimer Mesure</button>-->
-					<fieldset id="test">
+					<fieldset id="clone">
 						<legend style="color:#ffffff">Type de Mesure</legend>
 						<label for="mesure">Renseignez la mesure:</label>
 						<input type="text" name="nomMesure" id="nomMesure" class="champs" />
@@ -218,21 +218,22 @@
 						<input type="text" name="identifiant" id="popIdentifiant" />
 						<label for="role">Role:</label>
 						<input type="text" name="role" id="popRole" />
-						
+					
 						<fieldset id="addRecap">
 							<legend style="color:#000000">Type de Mesure</legend>
 							<label for="mesure">Mesure:</label>
 							<input type="text" name="mesure" id="popNomMesure" class="rajout" />
-	
+					
 							<label for="unite">Unité:</label>
 							<input type="text" name="unite" id="popUnite" class="rajout" />
-	
+					
 							<label for="valMin">Seuil Min:</label>
 							<input type="text" name="valMin" id="popValMin" class="rajout" />
-							
+					
 							<label for="valMax">Seuil Max:</label>
 							<input type="text" name="valMax" id="popValMax" class="rajout" />
 						</fieldset>
+						<fieldset id="newRecap" class="newRecap"></fieldset>
 					</fieldset>
 						<form enctype="multipart/form-data" action="file_news_upload.php" method="post">
 							<label for="image">Télécharger l'image (PNG, JPG, JPEG):</label>
@@ -242,6 +243,7 @@
 
 					<button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check"
 						id="EnvoieRecap">Envoyer</button>
+						
 					<a href="#" data-rel="back" type="reset" name="cancel"
 						class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
 				</div>

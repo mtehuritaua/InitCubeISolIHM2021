@@ -11,10 +11,7 @@ $(document).ready(function () {
 
 /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireInstruments = new GestionnaireInstruments();
-    gestionnaireInstruments.enregistrerInstrument();
-    gestionnaireInstruments.bloquerEcriture();
-    gestionnaireInstruments.ajouterTypeMesure();
-    
+        
 /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
 

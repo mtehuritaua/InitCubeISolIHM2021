@@ -241,3 +241,41 @@ span {
     margin: auto;
     text-align: left;
 }
+
+#Bpopup {
+    border: solid rgb(63, 63, 63);
+    border-width: 1px;
+    position: absolute;
+    margin-left: 39.5%;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: black;
+    text-align: center;
+}
+
+#Mpopup {
+    border: solid rgb(63, 63, 63);
+    border-width: 1px;
+    position: absolute;
+    margin-left: 39.5%;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: black;
+    text-align: center;
+}
+
+#AbcVD {
+    border: solid rgb(63, 63, 63);
+    border-width: 1px;
+    position: absolute;
+    margin-left: 39.5%;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: black;
+    text-align: center;
+}
+
+.Popup {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}

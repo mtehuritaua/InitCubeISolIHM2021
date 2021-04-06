@@ -13,3 +13,4 @@ class Commande {
         console.log("JSON fabriqué automatiquement : " + JSON.stringify(this));
         return cmd;
     }
+}

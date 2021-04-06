@@ -1,50 +1,51 @@
-:root{
+:root {
     font-size: 16px;
     font-family: 'Titillium Web';
     --text-primary: #FFFFFF;
-
     --bg-primary: #252525;
     --bg-secondary: #2a2a2a;
-    --bg-nav:#333333;
+    --bg-nav: #333333;
 }
 
+
 /* ----------------------- Zone HTML ----------------------- */
-.general{
+
+.general {
     background-color: #252525;
     margin: 0;
     padding: 0;
 }
 
-html{
+html {
     height: 100%;
 }
 
-#imgCnes{
+#imgCnes {
     top: 6px;
     left: 20px;
     width: 240px;
     height: 60px;
 }
 
-#header{
+#header {
     position: relative;
     background-color: #1D1D1D;
 }
 
-.body{
+.body {
     position: relative;
     height: 100%;
     background-color: #252525;
-
 }
+
 .sub {
     display: none;
-  }
+}
 
 
 /* ----------------------- Zone Etat ----------------------- */
 
-h2{
+h2 {
     border: 0px;
     display: block;
     color: #555;
@@ -56,12 +57,12 @@ h2{
     text-align: center;
 }
 
-#bandeauInfoUtile{
+#bandeauInfoUtile {
     box-sizing: border-box;
 }
 
-#tableEtat{
-    background-color:#2a2a2a; 
+#tableEtat {
+    background-color: #2a2a2a;
     display: table;
     border: 0px;
     border-collapse: collapse;
@@ -70,14 +71,14 @@ h2{
     padding: 0px;
 }
 
-#graphique{
+#graphique {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.graphe{
+.graphe {
     width: 450px;
     margin: 10px;
     /*margin-left: 10px;
@@ -86,32 +87,35 @@ h2{
 }
 
 
-
 /* ----------------------- Zone Instruments ----------------------- */
 
-#Instrument{
+#Instrument {
     font-size: 23px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .Instrument_1 {
-    position:relative;
-    top:200px; 
-    height:400px;
+    position: relative;
+    top: 200px;
+    height: 400px;
     width: 20%;
-    z-index:2;
+    z-index: 2;
     margin: auto;
 }
+
 img {
     width: 300px;
     height: 250px;
-    max-width: 100%;        
+    max-width: 100%;
 }
+
 span {
     color: #fff;
 }
+
 
 /* ----------------------- Zone Camera ----------------------- */
 
@@ -122,6 +126,7 @@ span {
     height: 195px;
     padding: 20px;
 }
+
 #slideshow>div {
     position: absolute;
     top: 10px;
@@ -130,50 +135,58 @@ span {
     bottom: 10px;
 }
 
+
 /* ----------------------- Zone Magnetometre | Matrice | Caméra ----------------------- */
-#menu, #menu ul {
+
+#menu,
+#menu ul {
     text-align: center;
 }
+
 #menu li {
-    display:inline-block;
+    display: inline-block;
     position: relative;
 }
+
 #menu ul {
-    position:absolute;
-    width:100%;
+    position: absolute;
+    width: 100%;
 }
+
 #menu li:hover ul {
-    top:-35px;
+    top: -35px;
     height: 110px;
 }
+
+
 /* ----------------------- Zone Magnetometre ----------------------- */
 
-#graphMagneto{
+#graphMagneto {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-#imgMagneto{
+#imgMagneto {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-#donnesMagneto{
+#donnesMagneto {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    column-count:2;
-    moz-column-count:2;
-    webkit-column-count:2;
+    column-count: 2;
+    moz-column-count: 2;
+    webkit-column-count: 2;
 }
 
-#tableMagneto{
-    background-color:#2a2a2a; 
+#tableMagneto {
+    background-color: #2a2a2a;
     display: table;
     border: 0px;
     border-collapse: collapse;
@@ -182,13 +195,14 @@ span {
     padding: 0px;
 }
 
+
 /* ----------------------- Zone Matrice ----------------------- */
 
 #matrice {
     margin: auto;
 }
 
-#matrice > tbody > tr > td {
+#matrice>tbody>tr>td {
     width: 60px;
     height: 60px;
     text-align: center;
@@ -197,6 +211,7 @@ span {
     border-color: rgb(0, 0, 0);
     border-image: initial;
 }
+
 
 /* ----------------------- Zone Commande ----------------------- */
 
@@ -220,7 +235,14 @@ span {
     width: 100%;
 }
 
-#Bpopup{
+.outer-div {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    text-align: left;
+}
+
+#Bpopup {
     border: solid rgb(63, 63, 63);
     border-width: 1px;
     position: absolute;
@@ -231,19 +253,7 @@ span {
     text-align: center;
 }
 
-#Mpopup{
-    border: solid rgb(63, 63, 63);
-    border-width: 1px;
-    position: absolute;
-    margin-left: 39.5%;
-    background-color: #2a2a2a;
-    border-radius: 10px;
-    box-shadow: black;
-    text-align: center;
-
-}
-
-#AbcVD{
+#Mpopup {
     border: solid rgb(63, 63, 63);
     border-width: 1px;
     position: absolute;
@@ -254,7 +264,18 @@ span {
     text-align: center;
 }
 
-.Popup{
-    border-top-left-radius: 10px; 
+#AbcVD {
+    border: solid rgb(63, 63, 63);
+    border-width: 1px;
+    position: absolute;
+    margin-left: 39.5%;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: black;
+    text-align: center;
+}
+
+.Popup {
+    border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }

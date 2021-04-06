@@ -26,74 +26,80 @@
 	<script type="text/javascript" src="js/segmentVol.js"></script>
 	<script type="text/javascript" src="js/commande.js"></script>
 	<script type="text/javascript" src="js/gestionnaireCommandes.js"></script>
+	<script type="text/javascript" src="js/Commande/ajaxEnvoyerCommande.js"></script>
+	<script type="text/javascript" src="js/Commande/gestionnaireCommandes.js"></script>
+	<script src="assets/js/jquery-1.11.2.min.js"></script>
+	<script src="assets/js/jquery.serializeToJSON.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script type="text/javascript" src="js/initcube.js"></script>
 </head>
 
 <body>
-	<!--
+    <!--
     	   ======================================
                 	   	Page Etat
     	   ======================================
     	-->
-	<div data-role="page" id="pageEtat" class="general" data-theme="b">
-		<div data-role="header" class="general">
-			<img id="imgCnes" src="images/cnes.png" />
-		</div>
+    <div data-role="page" id="pageEtat" class="general" data-theme="b">
+        <div data-role="header" class="general">
+            <img id="imgCnes" src="images/cnes.png" />
+        </div>
 
-		<div class="general body">
-			<div id="bandeauInfoUtile">
-				<h2>Centre de contrôle des missions</h2>
-				<table id="tableEtat" class="ui-body-b ui-shadow">
-					<thead id="nomInfo">
-						<tr>
-							<th>Niveau de charge de la batterie</th>
-							<th>Tension en sortie</th>
-							<th>Courant en sortie</th>
-							<th>RAM utilisée en %</th>
-							<th>Ram disponible</th>
-							<th>Stockage libre en %</th>
-							<th>Stockage libre en Mo</th>
-						</tr>
-					</thead>
-					<tbody id="info">
-						<tr>
-							<td id="ChargeBatterie"></td>
-							<td id="TensionSortie"></td>
-							<td id="CourantSortie"></td>
-							<td id="RamUse%"></td>
-							<td id="RamDispo"></td>
-							<td id="StockLibre%"></td>
-							<td id="StockLibreMo"></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<br />
-			<div id="graphique"></div>
-		</div>
-		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-			<div data-role="navbar" data-grid="" data-iconpos="left">
-				<ul id="menu">
-					<li><a href="#pageEtat">Etat</a></li>
-					<li><a href="#pageInstruments"> Instruments</a>
-						<ul>
-							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-							<li><a href="#pageCamera">Caméra</a></li>
-							<li><a href="#pageMatrice">Matrice</a></li>
-						</ul>
-					</li>
-					<li><a href="#pageCommande">Commande</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+        <div class="general body">
+            <div id="bandeauInfoUtile">
+                <h2>Centre de contrôle des missions</h2>
+                <table id="tableEtat" class="ui-body-b ui-shadow">
+                    <thead id="nomInfo">
+                        <tr>
+                            <th>Niveau de charge de la batterie</th>
+                            <th>Tension en sortie</th>
+                            <th>Courant en sortie</th>
+                            <th>RAM utilisée en %</th>
+                            <th>Ram disponible</th>
+                            <th>Stockage libre en %</th>
+                            <th>Stockage libre en Mo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="info">
+                        <tr>
+                            <td id="ChargeBatterie"></td>
+                            <td id="TensionSortie"></td>
+                            <td id="CourantSortie"></td>
+                            <td id="RamUse%"></td>
+                            <td id="RamDispo"></td>
+                            <td id="StockLibre%"></td>
+                            <td id="StockLibreMo"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <div id="graphique"></div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+            <div data-role="navbar" data-grid="" data-iconpos="left">
+                <ul id="menu">
+                    <li><a href="#pageEtat">Etat</a></li>
+                    <li><a href="#pageInstruments"> Instruments</a>
+                        <ul>
+                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+                            <li><a href="#pageCamera">Caméra</a></li>
+                            <li><a href="#pageMatrice">Matrice</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#pageCommande">Commande</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-	<!-- 
+    <!-- 
             ======================================
                         Page Instruments
             ======================================
         -->
-<div data-role="page" id="pageInstruments" data-theme="b">
+    <div data-role="page" id="pageInstruments" data-theme="b">
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
             <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
@@ -145,7 +151,7 @@
         </div>
     </div>
 
-	<!-- 
+    <!-- 
 	            ======================================
 	                        Page Formulaire Ajout Instrument
 	            ==============================================
@@ -272,321 +278,308 @@
                     ======================================
         -->
 
-	<div data-role="page" id="pageCamera" data-theme="b">
-		<div id="header" class="general">
-			<img id="imgCnes" src="images/cnes.png" />
-		</div>
+    <div data-role="page" id="pageCamera" data-theme="b">
+        <div id="header" class="general">
+            <img id="imgCnes" src="images/cnes.png" />
+        </div>
 
-		<div class="general body">
-			<div id="slideshow">
-				<div>
-					<img src="images/planete.jpg" width="300" height="300">
-				</div>
-				<div>
-					<img src="images/ihm_camera.jpg" width="300" height="260">
-				</div>
-				<div>
-					<img src="images/planete1.jpg" width="300" height="260">
-				</div>
-			</div>
-			<script>
-				$("#slideshow > div:gt(0)").hide();
+        <div class="general body">
+            <div id="slideshow">
+                <div>
+                    <img src="images/planete.jpg" width="300" height="300">
+                </div>
+                <div>
+                    <img src="images/ihm_camera.jpg" width="300" height="260">
+                </div>
+                <div>
+                    <img src="images/planete1.jpg" width="300" height="260">
+                </div>
+            </div>
+            <script>
+                $("#slideshow > div:gt(0)").hide();
 
-				setInterval(function () {
-					$('#slideshow > div:first')
-						.fadeOut(1000)
-						.next()
-						.fadeIn(1000)
-						.end()
-						.appendTo('#slideshow');
-				}, 3000);
-			</script>
-			<table id="tableCamera">
-				<tr>
-					<th><mark>Info Caméra : </mark></th>
-					<td id="InfoCamera1"></td>
-				</tr>
-				<tr>
-					<th><mark>Info Caméra : </mark></th>
-					<td id="InfoCamera2"></td>
-				</tr>
-			</table>
-		</div>
+                setInterval(function() {
+                    $('#slideshow > div:first')
+                        .fadeOut(1000)
+                        .next()
+                        .fadeIn(1000)
+                        .end()
+                        .appendTo('#slideshow');
+                }, 3000);
+            </script>
+            <table id="tableCamera">
+                <tr>
+                    <th><mark>Info Caméra : </mark></th>
+                    <td id="InfoCamera1"></td>
+                </tr>
+                <tr>
+                    <th><mark>Info Caméra : </mark></th>
+                    <td id="InfoCamera2"></td>
+                </tr>
+            </table>
+        </div>
 
-		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-			<div data-role="navbar" data-grid="" data-iconpos="left">
-				<ul id="menu">
-					<li><a href="#pageEtat">Etat</a></li>
-					<li><a href="#pageInstruments"> Instruments</a>
-						<ul>
-							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-							<li><a href="#pageCamera">Caméra</a></li>
-							<li><a href="#pageMatrice">Matrice</a></li>
-						</ul>
-					</li>
-					<li><a href="#pageCommande">Commande</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!--
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+            <div data-role="navbar" data-grid="" data-iconpos="left">
+                <ul id="menu">
+                    <li><a href="#pageEtat">Etat</a></li>
+                    <li><a href="#pageInstruments"> Instruments</a>
+                        <ul>
+                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+                            <li><a href="#pageCamera">Caméra</a></li>
+                            <li><a href="#pageMatrice">Matrice</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#pageCommande">Commande</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--
                         ======================================
                                     page Magnetometre
                         ======================================
         -->
-	<div data-role="page" id="pageMagnetometre" data-theme="b">
-		<div id="header" class="general">
-			<img id="imgCnes" src="images/cnes.png" />
-		</div>
+    <div data-role="page" id="pageMagnetometre" data-theme="b">
+        <div id="header" class="general">
+            <img id="imgCnes" src="images/cnes.png" />
+        </div>
 
-		<div class="general body">
+        <div class="general body">
 
-			<!--Valeur et graphique-->
-			<div id="donnesMagneto">
-				<table id="tableMagneto">
-					<tr>
-						<th class="valeurMagneto">
-							<center>Valeur BX (μT)</center>
-						</th>
-						<th class="valeurMagneto">
-							<center>Valeur BY (μT)</center>
-						</th>
-						<th class="valeurMagneto">
-							<center>Valeur BZ (μT)</center>
-						</th>
-					</tr>
-					<tr>
-						<td id="ValeurMagnetoBX"></td>
-						<td id="ValeurMagnetoBY"></td>
-						<td id="ValeurMagnetoBZ"></td>
-					</tr>
-				</table>
-			</div>
-			<br />
-			<div id="graphMagneto"></div>
-		</div>
+            <!--Valeur et graphique-->
+            <div id="donnesMagneto">
+                <table id="tableMagneto">
+                    <tr>
+                        <th class="valeurMagneto">
+                            <center>Valeur BX (μT)</center>
+                        </th>
+                        <th class="valeurMagneto">
+                            <center>Valeur BY (μT)</center>
+                        </th>
+                        <th class="valeurMagneto">
+                            <center>Valeur BZ (μT)</center>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td id="ValeurMagnetoBX"></td>
+                        <td id="ValeurMagnetoBY"></td>
+                        <td id="ValeurMagnetoBZ"></td>
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <div id="graphMagneto"></div>
+        </div>
 
-		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-			<div data-role="navbar" data-grid="" data-iconpos="left">
-				<ul id="menu">
-					<li><a href="#pageEtat">Etat</a></li>
-					<li><a href="#pageInstruments"> Instruments</a>
-						<ul>
-							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-							<li><a href="#pageCamera">Caméra</a></li>
-							<li><a href="#pageMatrice">Matrice</a></li>
-						</ul>
-					</li>
-					<li><a href="#pageCommande">Commande</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!--
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+            <div data-role="navbar" data-grid="" data-iconpos="left">
+                <ul id="menu">
+                    <li><a href="#pageEtat">Etat</a></li>
+                    <li><a href="#pageInstruments"> Instruments</a>
+                        <ul>
+                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+                            <li><a href="#pageCamera">Caméra</a></li>
+                            <li><a href="#pageMatrice">Matrice</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#pageCommande">Commande</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--
                 ======================================
                         page Commande nouveau formulaire 
                 ======================================
 -->
-	<div data-role="page" id="formulaireCommande" data-theme="b">
-		<div id="header" class="general">
-			<img id="imgCnes" src="images/cnes.png" />
-		</div>
-		<div data-role="fieldcontain">
-			<label for="liste"> Identifiant du satellite :</label>
-			<select style="color:#0066FF" name="liste" id="IdSatellite">
+    <div data-role="page" id="formulaireCommande" data-theme="b">
+        <div id="header" class="general">
+            <img id="imgCnes" src="images/cnes.png" />
+        </div>
+        <div data-role="fieldcontain">
+            <label for="liste"> Identifiant du satellite :</label>
+            <select style="color:#0066FF" name="liste" id="IdSatellite">
 				<option value="1"> 1 </option>
 				<option value="2"> 2 </option>
 			</select>
-		</div>
-		<div data-role="fieldcontain">
-			<label for="liste"> Type de commande :</label>
-			<select style="color:#0066FF" name="liste" id="TypeCommande">
+        </div>
+        <div data-role="fieldcontain">
+            <label for="liste"> Type de commande :</label>
+            <select style="color:#0066FF" name="liste" id="TypeCommande">
 				<option value="MISSION">Mission</option>
 				<option value="MEASURE">Mesure</option>
 				<option value="STATUS">Status</option>
 				<option value="DEPLOY">Déploiement</option>
 				<option value="SURVIVAL">Orientation du Cubesat</option>
 			</select>
-		</div>
-		<div data-role="fieldcontain">
-			<label for="liste"> Instruments :</label>
-			<select style="color:#0066FF" name="liste" id="Instru">
+        </div>
+        <div data-role="fieldcontain">
+            <label for="liste"> Instruments :</label>
+            <select style="color:#0066FF" name="liste" id="Instru">
 				<option value="CAM_THERM">Caméra</option>
 				<option value="MAGNETOMETRE">Magnétomètre</option>
 			</select>
-		</div>
-		<div data-role="fieldcontain">
-			<label for="liste"> Type de mesure :</label>
-			<select style="color:#0066FF" name="liste" id="TypeMesure">
+        </div>
+        <div data-role="fieldcontain">
+            <label for="liste"> Type de mesure :</label>
+            <select style="color:#0066FF" name="liste" id="TypeMesure">
 				<option value="TEMPERATURE">Température en °C</option>
 				<option value="PIX">Pixels de la caméra</option>
 			</select>
-		</div>
-		<div data-role="fieldcontain">
-			<label for="DateEtHeure"> Date et heure :</label>
-			<input name="date" class="form-control" type="datetime-local">
-		</div>
-		<!-- Bouton valider et annuler -->
+        </div>
+        <div data-role="fieldcontain">
+            <label for="DateEtHeure"> Date et heure :</label>
+            <input name="date" class="form-control" type="datetime-local">
+        </div>
+        <!-- Bouton valider et annuler -->
 
-		<div class="clearfix">
-			<button type="submit" id="btnCommande" class="btn btn-primary pull-right">Valider</button>
-		</div>
+        <div class="clearfix">
+            <button type="submit" id="btnCommande" class="btn btn-primary pull-right">Valider</button>
+        </div>
 
-		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-			<div data-role="navbar" data-grid="" data-iconpos="left">
-				<ul id="menu">
-					<li><a href="#pageEtat">Etat</a></li>
-					<li><a href="#pageInstruments"> Instruments</a>
-						<ul>
-							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-							<li><a href="#pageCamera">Caméra</a></li>
-							<li><a href="#pageMatrice">Matrice</a></li>
-						</ul>
-					</li>
-					<li><a href="#pageCommande">Commande</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+            <div data-role="navbar" data-grid="" data-iconpos="left">
+                <ul id="menu">
+                    <li><a href="#pageEtat">Etat</a></li>
+                    <li><a href="#pageInstruments"> Instruments</a>
+                        <ul>
+                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+                            <li><a href="#pageCamera">Caméra</a></li>
+                            <li><a href="#pageMatrice">Matrice</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#pageCommande">Commande</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 
 
-	<!--
+    <!--
 			======================================
 						page Commande
 			======================================
 		-->
-	<div data-role="page" id="pageCommande" data-theme="b">
+    <div data-role="page" id="pageCommande" data-theme="b">
 
 
-		<meta charset="utf-8">
+        <meta charset="utf-8">
 
-		<title>GESTION DE COMMANDES </title>
+        <title>GESTION DE COMMANDES </title>
 
-		<!-- Favicons (just the basics for now, check out http://realfavicongenerator.net/ for all available) -->
-		<link rel="shortcut icon" href="images/cnes1.png">
-		<link rel="icon" type="image/png" href="images/cnes1.png">
-		<link rel="h" type="image/png" href="images/cnes.png">
+        <!-- Favicons (just the basics for now, check out http://realfavicongenerator.net/ for all available) -->
+        <link rel="shortcut icon" href="images/cnes1.png">
+        <link rel="icon" type="image/png" href="images/cnes1.png">
+        <link rel="h" type="image/png" href="images/cnes.png">
 
-		<!-- Web fonts -->
-		<link rel="stylesheet"
-			href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700&Open+Sans:300,400,600,700">
+        <!-- Web fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700&Open+Sans:300,400,600,700">
 
-		<!-- Bootstrap and Ares CSS -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/animate.min.css">
-		<link rel="stylesheet" href="css/ares.css">
-
+        <!-- Bootstrap and Ares CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="css/ares.css">
 
 
-		<!-- Page Container -->
-		<!-- Available Classes: 'modern-sf', 'vintage-sf', 'interstellar-sf' -->
-		<div id="page-container" class="modern-sf">
-			<!-- Header -->
-			<div data-role="header" class="general">
-				<img id="imgCnes" src="images/cnes.png" />
-			</div>
-			<!-- END Header -->
 
-			<!-- Main Content -->
-			<main id="page-main">
+        <!-- Page Container -->
+        <!-- Available Classes: 'modern-sf', 'vintage-sf', 'interstellar-sf' -->
+        <div id="page-container" class="modern-sf">
+            <!-- Header -->
+            <div data-role="header" class="general">
+                <img id="imgCnes" src="images/cnes.png" />
+            </div>
+            <!-- END Header -->
 
-				<!-- Columns -->
-				<div class="row">
+            <!-- Main Content -->
+            <main id="page-main">
+
+                <!-- Columns -->
+                <div class="row">
 
 
-					<!-- Animated Circles Column -->
-					<div class="col-lg-6 col-lg-push-3 overflow-hidden push-20">
-						<div class="circles push-50">
-							<div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn">
-								<span class="circle circle-0"></span>
-							</div>
-							<div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn"
-								data-timeout="100">
-								<span class="circle circle-1"></span>
-							</div>
-							<div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn"
-								data-timeout="200">
-								<span class="circle circle-2"></span>
-							</div>
-							<div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn"
-								data-timeout="300">
-								<span class="circle circle-3"></span>
-							</div>
-							<div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn"
-								data-timeout="400">
-								<span class="circle circle-4"></span>
-							</div>
-							<div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn"
-								data-timeout="500">
-								<span class="circle circle-5"></span>
-							</div>
-							<div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn"
-								data-timeout="600">
-								<span class="circle circle-6"></span>
-							</div>
+                    <!-- Animated Circles Column -->
+                    <div class="col-lg-6 col-lg-push-3 overflow-hidden push-20">
+                        <div class="circles push-50">
+                            <div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn">
+                                <span class="circle circle-0"></span>
+                            </div>
+                            <div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="100">
+                                <span class="circle circle-1"></span>
+                            </div>
+                            <div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="200">
+                                <span class="circle circle-2"></span>
+                            </div>
+                            <div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="300">
+                                <span class="circle circle-3"></span>
+                            </div>
+                            <div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="400">
+                                <span class="circle circle-4"></span>
+                            </div>
+                            <div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="500">
+                                <span class="circle circle-5"></span>
+                            </div>
+                            <div class="visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="600">
+                                <span class="circle circle-6"></span>
+                            </div>
 
-							<span class="circle circles-main-content visibility-hidden" data-toggle="appear"
-								data-class="animated fadeIn" data-timeout="100">
+                            <span class="circle circles-main-content visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="100">
 								<img id="imgCnes" src="images/cnes.png" height="100" width="300>
 										<span class=" text-crystal="eee"></span>
-							</span>
-						</div>
-					</div>
-					<!-- END Animated Circles Column -->
+                            </span>
+                        </div>
+                    </div>
+                    <!-- END Animated Circles Column -->
 
-					<!-- Left Column -->
-					<div class="col-sm-6 col-lg-3 col-lg-pull-6">
-						<a href="#formulaireCommande" class="ui-btn ui-btn-inline">Remplir le formulaire</a>
-						<!-- Environment -->
-						<div class="block">
+                    <!-- Left Column -->
+                    <div class="col-sm-6 col-lg-3 col-lg-pull-6">
+                        <a href="#formulaireCommande" class="ui-btn ui-btn-inline">Remplir le formulaire</a>
+                        <!-- Environment -->
+                        <div class="block">
 
-							<div class="block-header overflow-hidden">
-								<h2 class="block-title visibility-hidden" data-toggle="appear"
-									data-class="animated fadeInDown" style="color:#0066FF" ;>CENTRE DE COMMANDE</h2>
-							</div>
-
-
-							<meta charset="utf-8">
-							<meta http-equiv="X-UA-Compatible" content="IE=edge">
-							<link
-								href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
-								rel="stylesheet">
-							<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-							<script type="text/javascript" src="assets/js/date.js"></script>
-							<link rel="stylesheet" href="css/siteCssZ.css">
-							<!--<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>-->
-							<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-							<script src="assets/js/ajax.js"></script>
-
-							<html>
-							<div class="block-content">
-								<script>
-									$(function () {
-										console.log("La page a été chargée en entier.");
-									});
-
-									$(document).ready(function () {
-										$("#TypeMeasure").hide("slow");
-										$("#DateHeure").hide("slow");
-										$("#test1").hide("slow");
-										$("#BORD").hide("slow");
-										$("#BATT").hide("slow");
-										$("#INST").hide("slow");
-										//$("#instrument").hide("slow");
-										$("#REBOOT").hide();
-										$("#demo-desktop").hide();
-
-									});
-								</script>
+                            <div class="block-header overflow-hidden">
+                                <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown" style="color:#0066FF" ;>CENTRE DE COMMANDE</h2>
+                            </div>
 
 
-								<form id="myForm">
-									<div class="form-group">
-										<label class="control-label"
-											title="Sets the Controller and Class to get data from" style="color:#0066FF"
-											;>Type de Commande</label>
-										<select style="color:#0066FF" id="typeCmd" name="CMD.TYPE_CMD">
+                            <meta charset="utf-8">
+                            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                            <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+                            <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+                            <script type="text/javascript" src="assets/js/date.js"></script>
+                            <link rel="stylesheet" href="css/siteCssZ.css">
+                            <!--<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>-->
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                            <script src="assets/js/ajax.js"></script>
+
+                            <html>
+                            <div class="block-content">
+                                <script>
+                                    $(function() {
+                                        console.log("La page a été chargée en entier.");
+                                    });
+
+                                    $(document).ready(function() {
+                                        $("#TypeMeasure").hide("slow");
+                                        $("#DateHeure").hide("slow");
+                                        $("#test1").hide("slow");
+                                        $("#BORD").hide("slow");
+                                        $("#BATT").hide("slow");
+                                        $("#INST").hide("slow");
+                                        //$("#instrument").hide("slow");
+                                        $("#REBOOT").hide();
+                                        $("#demo-desktop").hide();
+
+                                    });
+                                </script>
+
+
+                                <form id="myForm">
+                                    <div class="form-group">
+                                        <label class="control-label" title="Sets the Controller and Class to get data from" style="color:#0066FF" ;>Type de Commande</label>
+                                        <select style="color:#0066FF" id="typeCmd" name="CMD.TYPE_CMD">
 											<option value="default" aria-checked="true">--Choisir un type de
 												commande--</option>
 											<option radio value="MISSION" aria-checked="true"> Mission </option>
@@ -601,14 +594,14 @@
 											</option>
 										</select>
 
-									</div>
+                                    </div>
 
-									<select style="color:#0066FF" id="instrument" name="CMD.INSTRUMENT">
+                                    <select style="color:#0066FF" id="instrument" name="CMD.INSTRUMENT">
 										<option radio value="default">-- Instrument -- </option>
 										<option radio value="CAMERA">Caméra</option>
 										<option radio value="MAGNETOMETRE">Magnétomètre</option>
 									</select>
-									<!--<select id="BORD" name="CMD.BORD">
+                                    <!--<select id="BORD" name="CMD.BORD">
 														<option radio value="BORD"> BORD </option>
 														<option radio value="ODB">Ordinateur de bord</option>
 														<option radio value="SMo">Stockage SD libre en Mo</option>
@@ -642,12 +635,12 @@
 														<option radio value="DT">Date du dernier redémarrage</option>
 														<option radio value="N"> Nombre de redémarrage</option>           
 													</select>-->
-									<select style="color:#0066FF" id="TypeMeasure" name="CMD.TYPE_MEASURE">
+                                    <select style="color:#0066FF" id="TypeMeasure" name="CMD.TYPE_MEASURE">
 										<option radio value="default">-- Type de mesure -- </option>
 										<option radio value="IMAGE"> Température en °C</option>
 										<option radio value="IMAGE_IR"> Pixels de la caméra IR</option>
 									</select>
-									<select style="color:#0066FF" id="DateHeure" name="CMD.DATE_HEURE">
+                                    <select style="color:#0066FF" id="DateHeure" name="CMD.DATE_HEURE">
 										<option value="default"> date et heure </option>
 										<input name="date" class="form-control" type="datetime-local">
 									</select>
@@ -789,9 +782,9 @@
 								data-class="animated fadeInDown" style="color:#0066FF" ;>HISTORIQUE</h2>
 						</div>
 
-						<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+						<textarea cols="40" rows="8" name="textarea" id="textHC"></textarea>
 						<div class="clearfix">
-							<button class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-right">
+							<button id="btnHC" class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-right">
 								Afficher plus</button>
 						</div>
 					</div>
@@ -841,55 +834,6 @@
 						<div role="dialog" id="dialog"></div>
 
 					</div>
-
-					<script src="assets/js/jquery-1.11.2.min.js"></script>
-					<script src="assets/js/jquery.serializeToJSON.js"></script>
-					<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-					<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-					<script type="text/javascript">
-
-						$(document).ready(function () {
-							$("#Bpopup").hide();
-							$("#Mpopup").hide();
-							$("#AbcVD").hide();
-
-							$("#btnSerialize").on("click", function () {
-								var commande = $("#myForm").serializeArray({
-								});
-								console.log(commande);
-								var jsonString = JSON.stringify(commande);
-
-								$.ajax({
-									type: 'GET',
-									url: 'cgi-bin/cgi_1',
-									data: jsonString,
-									dataType: 'html',
-									success: function (codeRecu) {
-										if (codeRecu == "ACK") {
-											$("#Bpopup").fadeIn(200).delay(3000).fadeOut(400)
-
-										}
-										else if (codeRecu == "NACK")
-											$("#Mpopup").fadeIn(200).delay(3000).fadeOut(400);
-										else
-											$("#AbcVD").fadeIn(200).delay(3000).fadeOut(400);
-
-									}
-								});
-							});
-							$("#").on("click", function () {
-								$.ajax({
-									type: 'GET',
-									url: '',
-									data: jsonString,
-									dataType: 'html',
-									success: function (codeRecu) {
-
-									}
-								});
-							});
-						});
-					</script>
 				</div>
 				<!--End Colons-->
 
@@ -941,136 +885,136 @@
                     ======================================
         -->
 
-	<div data-role="page" id="pageMatrice" data-theme="b">
-		<div id="header" class="general">
-			<img id="imgCnes" src="images/cnes.png" />
-		</div>
+    <div data-role="page" id="pageMatrice" data-theme="b">
+        <div id="header" class="general">
+            <img id="imgCnes" src="images/cnes.png" />
+        </div>
 
-		<div class="general body">
-			<table id="tableMatrice">
-				<thead>
-					<tr>
-						<th data-priority="1">Instrument</th>
-						<th data-priority="2">Moyenne des mesures en °C</th>
-						<th data-priority="3">Etat camera IR</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Camera Thermique</td>
-						<td id="tempMoyenne"></td>
-						<td id="CameraIR"></td>
-						<td id="arrMatrice"></td>
-					</tr>
-				</tbody>
-			</table>
+        <div class="general body">
+            <table id="tableMatrice">
+                <thead>
+                    <tr>
+                        <th data-priority="1">Instrument</th>
+                        <th data-priority="2">Moyenne des mesures en °C</th>
+                        <th data-priority="3">Etat camera IR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Camera Thermique</td>
+                        <td id="tempMoyenne"></td>
+                        <td id="CameraIR"></td>
+                        <td id="arrMatrice"></td>
+                    </tr>
+                </tbody>
+            </table>
 
-			<table id="matrice">
-				<thead>
-					<tr>
-						<th id="entete" COLSPAN=8>Caméra thermique</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr id="ligne1">
-						<td id="pixel0"></td>
-						<td id="pixel1"></td>
-						<td id="pixel2"></td>
-						<td id="pixel3"></td>
-						<td id="pixel4"></td>
-						<td id="pixel5"></td>
-						<td id="pixel6"></td>
-						<td id="pixel7"></td>
-					</tr>
-					<tr id="ligne2">
-						<td id="pixel8"></td>
-						<td id="pixel9"></td>
-						<td id="pixel10"></td>
-						<td id="pixel11"></td>
-						<td id="pixel12"></td>
-						<td id="pixel13"></td>
-						<td id="pixel14"></td>
-						<td id="pixel15"></td>
-					</tr>
-					<tr id="ligne3">
-						<td id="pixel16"></td>
-						<td id="pixel17"></td>
-						<td id="pixel18"></td>
-						<td id="pixel19"></td>
-						<td id="pixel20"></td>
-						<td id="pixel21"></td>
-						<td id="pixel22"></td>
-						<td id="pixel23"></td>
-					</tr>
-					<tr id="ligne4">
-						<td id="pixel24"></td>
-						<td id="pixel25"></td>
-						<td id="pixel26"></td>
-						<td id="pixel27"></td>
-						<td id="pixel28"></td>
-						<td id="pixel29"></td>
-						<td id="pixel30"></td>
-						<td id="pixel31"></td>
-					</tr>
-					<tr id="ligne5">
-						<td id="pixel32"></td>
-						<td id="pixel33"></td>
-						<td id="pixel34"></td>
-						<td id="pixel35"></td>
-						<td id="pixel36"></td>
-						<td id="pixel37"></td>
-						<td id="pixel38"></td>
-						<td id="pixel39"></td>
-					</tr>
-					<tr id="ligne6">
-						<td id="pixel40"></td>
-						<td id="pixel41"></td>
-						<td id="pixel42"></td>
-						<td id="pixel43"></td>
-						<td id="pixel44"></td>
-						<td id="pixel45"></td>
-						<td id="pixel46"></td>
-						<td id="pixel47"></td>
-					</tr>
-					<tr id="ligne7">
-						<td id="pixel48"></td>
-						<td id="pixel49"></td>
-						<td id="pixel50"></td>
-						<td id="pixel51"></td>
-						<td id="pixel52"></td>
-						<td id="pixel53"></td>
-						<td id="pixel54"></td>
-						<td id="pixel55"></td>
-					</tr>
-					<tr id="ligne8">
-						<td id="pixel56"></td>
-						<td id="pixel57"></td>
-						<td id="pixel58"></td>
-						<td id="pixel59"></td>
-						<td id="pixel60"></td>
-						<td id="pixel61"></td>
-						<td id="pixel62"></td>
-						<td id="pixel63"></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-			<div data-role="navbar" data-grid="" data-iconpos="left">
-				<ul id="menu">
-					<li><a href="#pageEtat">Etat</a></li>
-					<li><a href="#pageInstruments"> Instruments</a>
-						<ul>
-							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-							<li><a href="#pageCamera">Caméra</a></li>
-							<li><a href="#pageMatrice">Matrice</a></li>
-						</ul>
-					</li>
-					<li><a href="#pageCommande">Commande</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+            <table id="matrice">
+                <thead>
+                    <tr>
+                        <th id="entete" COLSPAN=8>Caméra thermique</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="ligne1">
+                        <td id="pixel0"></td>
+                        <td id="pixel1"></td>
+                        <td id="pixel2"></td>
+                        <td id="pixel3"></td>
+                        <td id="pixel4"></td>
+                        <td id="pixel5"></td>
+                        <td id="pixel6"></td>
+                        <td id="pixel7"></td>
+                    </tr>
+                    <tr id="ligne2">
+                        <td id="pixel8"></td>
+                        <td id="pixel9"></td>
+                        <td id="pixel10"></td>
+                        <td id="pixel11"></td>
+                        <td id="pixel12"></td>
+                        <td id="pixel13"></td>
+                        <td id="pixel14"></td>
+                        <td id="pixel15"></td>
+                    </tr>
+                    <tr id="ligne3">
+                        <td id="pixel16"></td>
+                        <td id="pixel17"></td>
+                        <td id="pixel18"></td>
+                        <td id="pixel19"></td>
+                        <td id="pixel20"></td>
+                        <td id="pixel21"></td>
+                        <td id="pixel22"></td>
+                        <td id="pixel23"></td>
+                    </tr>
+                    <tr id="ligne4">
+                        <td id="pixel24"></td>
+                        <td id="pixel25"></td>
+                        <td id="pixel26"></td>
+                        <td id="pixel27"></td>
+                        <td id="pixel28"></td>
+                        <td id="pixel29"></td>
+                        <td id="pixel30"></td>
+                        <td id="pixel31"></td>
+                    </tr>
+                    <tr id="ligne5">
+                        <td id="pixel32"></td>
+                        <td id="pixel33"></td>
+                        <td id="pixel34"></td>
+                        <td id="pixel35"></td>
+                        <td id="pixel36"></td>
+                        <td id="pixel37"></td>
+                        <td id="pixel38"></td>
+                        <td id="pixel39"></td>
+                    </tr>
+                    <tr id="ligne6">
+                        <td id="pixel40"></td>
+                        <td id="pixel41"></td>
+                        <td id="pixel42"></td>
+                        <td id="pixel43"></td>
+                        <td id="pixel44"></td>
+                        <td id="pixel45"></td>
+                        <td id="pixel46"></td>
+                        <td id="pixel47"></td>
+                    </tr>
+                    <tr id="ligne7">
+                        <td id="pixel48"></td>
+                        <td id="pixel49"></td>
+                        <td id="pixel50"></td>
+                        <td id="pixel51"></td>
+                        <td id="pixel52"></td>
+                        <td id="pixel53"></td>
+                        <td id="pixel54"></td>
+                        <td id="pixel55"></td>
+                    </tr>
+                    <tr id="ligne8">
+                        <td id="pixel56"></td>
+                        <td id="pixel57"></td>
+                        <td id="pixel58"></td>
+                        <td id="pixel59"></td>
+                        <td id="pixel60"></td>
+                        <td id="pixel61"></td>
+                        <td id="pixel62"></td>
+                        <td id="pixel63"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+            <div data-role="navbar" data-grid="" data-iconpos="left">
+                <ul id="menu">
+                    <li><a href="#pageEtat">Etat</a></li>
+                    <li><a href="#pageInstruments"> Instruments</a>
+                        <ul>
+                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+                            <li><a href="#pageCamera">Caméra</a></li>
+                            <li><a href="#pageMatrice">Matrice</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#pageCommande">Commande</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

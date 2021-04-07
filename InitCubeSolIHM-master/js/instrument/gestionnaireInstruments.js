@@ -40,18 +40,20 @@ class GestionnaireInstruments {
     $("#popNom").val(instrumentCourant.nom);
     $("#popRole").val(instrumentCourant.role);
     $("#popIdentifiant").val(instrumentCourant.identifiant);
+    /*
     $("#popNomMesure").val(instrumentCourant.listeTypesMesure[0].nom);
     $("#popUnite").val(instrumentCourant.listeTypesMesure[0].unite);
     $("#popValMin").val(instrumentCourant.listeTypesMesure[0].valMin);
-    $("#popValMax").val(instrumentCourant.listeTypesMesure[0].valMax);
+    $("#popValMax").val(instrumentCourant.listeTypesMesure[0].valMax);*/
 
-    /*faire boucle pour + type mesure
-    listeInstruments.forEach((element) => {
+    //faire boucle pour + type mesure
+    this.listeInstruments.forEach((element) =>  {
       $("#popNomMesure").val(element.nom);
       $("#popUnite").val(element.unite);
       $("#popValMin").val(element.valMin);
       $("#popValMax").val(element.valMax);
-    });*/
+      console.log("Mesure: " + element);
+    });
   }
 
    /*Bloquer écriture récapitulatif*/

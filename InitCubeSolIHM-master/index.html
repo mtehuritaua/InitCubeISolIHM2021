@@ -163,11 +163,11 @@
 	
 		<!--  création d'un formulaire jQuery Mobile -->
 		<div class="ui-grid-b">
-			<div class="ui-block-b" id="form">
-				<form action="#" method="post">
+			<div class="ui-block-b" >
+				<form action="#" method="post" id="form">
 					<legend style="color:#ffffff">Nouvel Instrument</legend>
 					<label for="nom">Renseignez le nom:</label>
-					<input type="text" name="nom" id="nom" />
+					<input type="text" name="nom" id="nom" class="champs"/>
 					<label for="identifiant">Renseignez le identifiant:</label>
 					<input name="identifiant" id="identifiant" class="champs" />
 					<label for="role">Renseignez le role:</label>
@@ -205,8 +205,9 @@
 			class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer"
 			data-transition="pop">Envoyer</a>
 	
-		<a href="#pageInstruments" type="reset" name="cancel"
-			class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
+		<a href="#pageInstruments" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete" id="Annuler">Annuler</a>
+
+		<button type="button" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-forward" class="reset">Reset</button>
 	
 		<!--  fin du formulaire jQuery Mobile -->
 	

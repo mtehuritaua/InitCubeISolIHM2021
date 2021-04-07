@@ -6,24 +6,32 @@ class GestionnaireInstruments {
         this.type +
         '"></canvas></div>'
     );
+
+    let gestionnaireCourant = this;
     this.listeInstruments = new Array();
+    
+    gestionnaireCourant.bloquerEcriture();
+    gestionnaireCourant.ajouterTypeMesure();
+    
+    $("#Envoyer").click(function () {
+      gestionnaireCourant.ajouterInstrument();
+      gestionnaireCourant.recapFormInstrument();
+    });
+
+    $("#EnvoieRecap").click(function () {
+      gestionnaireCourant.envoyerTrameJSON();
+    });
   }
 
   /*Créer un nouvel instrument*/
   ajouterInstrument() {
-    this.listeInstruments.push(
-      new Instrument($("#nom").val(), $("#role").val(), $("#identifiant").val())
-    );
+    this.listeInstruments.push(new Instrument($("#nom").val(), $("#role").val(), $("#identifiant").val()));
     this.listeInstruments[this.listeInstruments.length - 1].addTypeMesure(
       $("#nomMesure").val(),
       $("#unite").val(),
       $("#valMin").val(),
       $("#valMax").val()
     );
-    /*console.log(
-      "Generer trame JSON" +
-        this.listeInstruments[this.listeInstruments.length - 1].genererJSON()
-    );*/
   }
 
   /*Reprise des données pour faire pop up récapitulatif*/
@@ -36,6 +44,14 @@ class GestionnaireInstruments {
     $("#popUnite").val(instrumentCourant.listeTypesMesure[0].unite);
     $("#popValMin").val(instrumentCourant.listeTypesMesure[0].valMin);
     $("#popValMax").val(instrumentCourant.listeTypesMesure[0].valMax);
+
+    /*faire boucle pour + type mesure
+    listeInstruments.forEach((element) => {
+      $("#popNomMesure").val(element.nom);
+      $("#popUnite").val(element.unite);
+      $("#popValMin").val(element.valMin);
+      $("#popValMax").val(element.valMax);
+    });*/
   }
 
    /*Bloquer écriture récapitulatif*/
@@ -44,37 +60,28 @@ class GestionnaireInstruments {
   }
 
   /*Envoyer Trame JSON du nouvel instrument pour sauvegarder dans la base de donnée*/
-  enregistrerInstrument() {
-    $("#EnvoieRecap").click(function () {
-      let gestionnaireInstruments = new GestionnaireInstruments();
-      gestionnaireInstruments.ajouterInstrument();
-      gestionnaireInstruments.recapFormInstrument();
-
-      let form_data = $("#testForm").serializeArray();
-      console.log(form_data);
-      let jsonString = JSON.stringify(form_data);
+  envoyerTrameJSON() {
       $.ajax({
         url: "cgi-bin/addInstrument.cgi",
         type: "POST",
-        data: jsonString,
+        data: this.listeInstruments[this.listeInstruments.length - 1].genererJSON(),
         dataType: "html",
         success: function (codeRecu) {
           console.log(" " + codeRecu);
         },
       });
-    });
   }
-
+   
+  /*Ajouter un nouveau formulaire de mesure*/
   ajouterTypeMesure() {
-    /*Ajouter un nouveau formulaire de mesure*/
     $("#Ajouter").click(function () {
-      var add = $("#test").clone();
+      var add = $("#clone").clone();
       add.find(".champ");
       add.appendTo("#new");
 
       var addRecap = $("#addRecap").clone();
       addRecap.find(".rajout");
-      addRecap.appendTo("#addRecap");
+      addRecap.appendTo("#newRecap");
     }); /*
     $("#Supprimer").click(function () {
       var add = $("#new").remove();

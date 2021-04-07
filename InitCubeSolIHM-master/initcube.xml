@@ -46,6 +46,7 @@
 		</etat>
 		<typeMesure>
 			<nom>temperature</nom>
+			<description>Température de l'objet mesuré</description>
 			<unite>°C</unite>
 			<valMin>-40</valMin>
 			<valMax>+90</valMax>
@@ -55,25 +56,25 @@
 		<description>
 			<id>124BCD</id>
 			<nom>magnétomètre</nom>
-			<role>mesurer un champ magnétique</role>
+			<role>Mesurer un champ magnétique</role>
 		</description>
 		<typeMesure>
 			<nom>BX</nom>
-			<description>champ magnetique suivant X </description>
+			<description>Champ magnetique suivant X </description>
 			<unite>μT</unite>
 			<valMin>0</valMin>
 			<valMax>+100</valMax>
 		</typeMesure>
 		<typeMesure>
 			<nom>BY</nom>
-			<description>champ magnetique suivant Y </description>
+			<description>Champ magnetique suivant Y </description>
 			<unite>μT</unite>
 			<valMin>0</valMin>
 			<valMax>+100</valMax>
 		</typeMesure>
 		<typeMesure>
 			<nom>BZ</nom>
-			<description>champ magnetique suivant Z </description>
+			<description>Champ magnetique suivant Z </description>
 			<unite>μT</unite>
 			<valMin>0</valMin>
 			<valMax>+100</valMax>

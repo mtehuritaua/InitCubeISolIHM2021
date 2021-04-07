@@ -14,10 +14,11 @@ class GestionnaireCommandes {
                 url: 'cgi-bin/main',
                 dataType: 'html',
                 success: function(codeRecu) {
-                    $("#textHC").text(codeRecu);
-                    var test = JSON.parse(codeRecu);
 
-                    //console.log(codeRecu);
+                    var test = JSON.parse(codeRecu);
+                    //test.CMD = new Commande(test.ID, test.TYPE, test.TYPEMEASURE);
+                    $("#textHC").text(test.CMD);
+                    console.log(test);
                     //document.getElementById("#textHC").innerHTML = test.
                 }
             });

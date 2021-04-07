@@ -5,8 +5,8 @@ $(document).ready(function () {
 
     $("#btnSerialize").on("click", function () {
         var commande = $("#myForm").serializeArray({
-        });
-        console.log(commande);
+        });        
+        
         var jsonString = JSON.stringify(commande);
 
         $.ajax({

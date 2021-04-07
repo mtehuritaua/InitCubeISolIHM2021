@@ -12,7 +12,8 @@ class Instrument {
   }
 
   genererJSON() {
-    var textjson = JSON.stringify(this);/*{
+    var textjson = JSON.stringify(this);
+    console.log("JSON fabriqué automatiquement : " + textjson);/*{
       "Instrument": {
         "nom": this.nom,
         "typeMesure": [

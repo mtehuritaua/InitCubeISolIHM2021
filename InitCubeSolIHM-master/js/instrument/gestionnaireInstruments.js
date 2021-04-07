@@ -1,6 +1,6 @@
 class GestionnaireInstruments {
   constructor() {
-    console.log('<canvas id="instru' + this.type + this.source + '"></canvas>');
+   // console.log('<canvas id="instru' + this.type + this.source + '"></canvas>');
     $("#instru").append(
       '<div class="instruments"><canvas id="instru' +
         this.type +
@@ -12,6 +12,7 @@ class GestionnaireInstruments {
     
     gestionnaireCourant.bloquerEcriture();
     gestionnaireCourant.ajouterTypeMesure();
+    gestionnaireCourant.resetForm();
     
     $("#Envoyer").click(function () {
       gestionnaireCourant.ajouterInstrument();
@@ -40,6 +41,7 @@ class GestionnaireInstruments {
     $("#popNom").val(instrumentCourant.nom);
     $("#popRole").val(instrumentCourant.role);
     $("#popIdentifiant").val(instrumentCourant.identifiant);
+   
     /*
     $("#popNomMesure").val(instrumentCourant.listeTypesMesure[0].nom);
     $("#popUnite").val(instrumentCourant.listeTypesMesure[0].unite);
@@ -47,7 +49,7 @@ class GestionnaireInstruments {
     $("#popValMax").val(instrumentCourant.listeTypesMesure[0].valMax);*/
 
     //faire boucle pour + type mesure
-    this.listeInstruments.forEach((element) =>  {
+    this.listeInstruments.forEach(function(element) {
       $("#popNomMesure").val(element.nom);
       $("#popUnite").val(element.unite);
       $("#popValMin").val(element.valMin);
@@ -84,12 +86,23 @@ class GestionnaireInstruments {
       var addRecap = $("#addRecap").clone();
       addRecap.find(".rajout");
       addRecap.appendTo("#newRecap");
-    }); /*
-    $("#Supprimer").click(function () {
-      var add = $("#new").remove();
-      add.find(".champ");
-      add.appendTo("#test");
+    }); 
+    /*$("#Supprimer").click(function () {
+      //$("div").empty("#form_2");
+      $(this).parents("div:first").remove("#form_2");
+    });*/
+  }
 
-  });*/
+  /*Réinitialiser la page quand on clique sur bouton Annuler / Reset / EnvoieRecap*/ 
+  resetForm(){
+    $("#reset").click(function () {
+      $("#form").trigger("reset");
+    });
+    $("#Annuler").click(function () {
+      $("#form").trigger("reset");
+    });
+    $("#EnvoieRecap").click(function () {
+      $("#form").trigger("reset");
+    });
   }
 }

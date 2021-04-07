@@ -13,10 +13,6 @@ $(document).ready(function () {
 
 /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireInstruments = new GestionnaireInstruments();
-
-    /*$(".reset").click(function(){
-      $("#form").trigger("reset");
-    });*/
         
 /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");

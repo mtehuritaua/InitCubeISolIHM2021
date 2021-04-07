@@ -1,10 +1,10 @@
 class Commande {
-    constructor(idSatellite, typeCommande, instrument, typeMesure) {
+    constructor(idSatellite, typeCommande, typeMesure) {
         this.idSatellite = idSatellite;
         this.typeCommande = typeCommande;
-        this.instrument = instrument;
+        //this.instrument = instrument;
         this.typeMesure = typeMesure;
-        console.log("Instanciation d'une commande " + idSatellite + " " + typeCommande + " " + instrument + " " + typeMesure);
+        console.log("Instanciation d'une commande " + idSatellite + " " + typeCommande + " " + typeMesure);
     }
     setDate(date) {
 

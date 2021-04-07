@@ -8,15 +8,15 @@ class GestionnaireCommandes {
         this.listeCommandes.push(new Commande($('#IdSatellite').val(), $('#TypeCommande').val(), $('#Instru').val(), $('#TypeMesure').val()));
     }
     getHistorique() {
-        $(document).ready(function () {
+        $(document).ready(function() {
             $.ajax({
                 type: 'GET',
                 url: 'cgi-bin/main',
                 dataType: 'html',
-                success: function (codeRecu) {
+                success: function(codeRecu) {
                     $("#textHC").text(codeRecu);
                     var test = JSON.parse(codeRecu);
-                    
+
                     //console.log(codeRecu);
                     //document.getElementById("#textHC").innerHTML = test.
                 }

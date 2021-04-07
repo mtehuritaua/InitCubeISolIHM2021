@@ -10,7 +10,8 @@ class Commande {
 
     }
     genererJSON() {
-        console.log("JSON fabriqué automatiquement : " + JSON.stringify(this));
+        var cmd = JSON.stringify(this);
+        console.log("JSON fabriqué automatiquement : " + cmd);
         return cmd;
     }
 }

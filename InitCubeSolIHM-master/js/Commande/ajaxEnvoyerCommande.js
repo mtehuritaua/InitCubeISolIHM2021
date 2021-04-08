@@ -3,8 +3,8 @@ $(document).ready(function () {
     $("#Mpopup").hide();
     $("#AbcVD").hide();
 
-    $("#btnSerialize").on("click", function () {
-        var commande = $("#myForm").serializeArray({
+    $("#btnCommande").on("click", function () {
+        var commande = $("#formulaireCommande").serializeArray({
         });        
         
         var jsonString = JSON.stringify(commande);

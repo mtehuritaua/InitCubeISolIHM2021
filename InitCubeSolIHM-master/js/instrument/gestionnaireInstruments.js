@@ -11,7 +11,7 @@ class GestionnaireInstruments {
     this.listeInstruments = new Array();
     
     gestionnaireCourant.bloquerEcriture();
-    gestionnaireCourant.ajouterTypeMesure();
+    gestionnaireCourant.ajouterFormTypeMesure();
     gestionnaireCourant.resetForm();
     
     $("#Envoyer").click(function () {
@@ -27,12 +27,16 @@ class GestionnaireInstruments {
   /*Créer un nouvel instrument*/
   ajouterInstrument() {
     this.listeInstruments.push(new Instrument($("#nom").val(), $("#role").val(), $("#identifiant").val()));
-    this.listeInstruments[this.listeInstruments.length - 1].addTypeMesure(
-      $("#nomMesure").val(),
-      $("#unite").val(),
-      $("#valMin").val(),
-      $("#valMax").val()
-    );
+   
+    //for each a faire
+    this.listeInstruments[this.listeInstruments.length - 1].forEach(function(element){
+      this.listeInstruments[this.listeInstruments.length - 1].addTypeMesure(
+        $("#nomMesure").val(),
+        $("#unite").val(),
+        $("#valMin").val(),
+        $("#valMax").val()
+      );
+    });
   }
 
   /*Reprise des données pour faire pop up récapitulatif*/
@@ -48,8 +52,8 @@ class GestionnaireInstruments {
     $("#popValMin").val(instrumentCourant.listeTypesMesure[0].valMin);
     $("#popValMax").val(instrumentCourant.listeTypesMesure[0].valMax);*/
 
-    //faire boucle pour + type mesure
-    this.listeInstruments.forEach(function(element) {
+    /*faire boucle pour + type mesure*/
+    this.instrumentCourant.listeTypesMesure.forEach(function(element) {
       $("#popNomMesure").val(element.nom);
       $("#popUnite").val(element.unite);
       $("#popValMin").val(element.valMin);
@@ -77,21 +81,24 @@ class GestionnaireInstruments {
   }
    
   /*Ajouter un nouveau formulaire de mesure*/
-  ajouterTypeMesure() {
+
+  //Mettre nouveau id pour chaque type mesure ajouter
+  ajouterFormTypeMesure() {
     $("#Ajouter").click(function () {
-      var add = $("#clone").clone();
-      add.find(".champ");
+      var cloneCount = 1;
+      var add = $("#clone").clone().attr('id', 'id'+ cloneCount++);
       add.appendTo("#new");
 
-      var addRecap = $("#addRecap").clone();
-      addRecap.find(".rajout");
+      var addRecap = $("#addRecap").clone().attr('id', 'id'+ cloneCount++);
       addRecap.appendTo("#newRecap");
     }); 
-    /*$("#Supprimer").click(function () {
-      //$("div").empty("#form_2");
-      $(this).parents("div:first").remove("#form_2");
-    });*/
   }
+
+  /*supprimerFormTypeMesure(){
+    $("#Supprimer").click(function () {
+      $('form').remove();
+    });
+  }*/
 
   /*Réinitialiser la page quand on clique sur bouton Annuler / Reset / EnvoieRecap*/ 
   resetForm(){

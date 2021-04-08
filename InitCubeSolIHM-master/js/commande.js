@@ -4,7 +4,7 @@ class Commande {
         this.typeCommande = typeCommande;
         this.instrument = instrument;
         this.typeMesure = typeMesure;
-        console.log("Instanciation d'une commande " + idSatellite + " " + typeCommande +  " " + instrument + " " + typeMesure);
+        console.log("Instanciation d'une commande " + idSatellite + " " + typeCommande + " " + instrument + " " + typeMesure);
     }
     setDate(date) {
 

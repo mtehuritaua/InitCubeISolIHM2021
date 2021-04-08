@@ -7,8 +7,26 @@ class GestionnaireCommandes {
     genererCommande() {
         this.listeCommandes.push(new Commande($('#IdSatellite').val(), $('#TypeCommande').val(), $('#Instru').val(), $('#TypeMesure').val()));
     }
+    transmettreDerniereCommande() {
+        $.ajax({
+            type: 'GET',
+            url: 'cgi-bin/cgi_1',
+            data: this.listeCommandes[this.listeCommandes.lenght - 1].genererJSON(),
+            dataType: 'json',
+            success: function(codeRecu) {
+                if (codeRecu == "ACK") {
+                    $("#Bpopup").fadeIn(200).delay(3000).fadeOut(400)
+
+                } else if (codeRecu == "NACK")
+                    $("#Mpopup").fadeIn(200).delay(3000).fadeOut(400);
+                else
+                    $("#AbcVD").fadeIn(200).delay(3000).fadeOut(400);
+
+            }
+        });
+    }
     getHistorique() {
-        $(document).ready(function () {
+        $(document).ready(function() {
             $.ajax({
                 type: 'GET',
                 url: 'cgi-bin/main',
@@ -19,7 +37,7 @@ class GestionnaireCommandes {
                     
                     tramesJson.forEach(function(element){
                         var test = $.parseJSON(element);   
-                        historique.push(new Commande(test.CMD.ID, test.CMD.TYPE, , test.CMD.TYPEMEASURE))
+                        historique.push(new Commande(test.CMD.ID, test.CMD.TYPE,0 , test.CMD.TYPEMEASURE))
                     });
                     //document.getElementById("#textHC").innerHTML = test.
                 }
@@ -31,4 +49,5 @@ class GestionnaireCommandes {
         //this.historique.forEach( => console.log())
         $("#textHC").text("Afficher Historique");
     }
+
 }

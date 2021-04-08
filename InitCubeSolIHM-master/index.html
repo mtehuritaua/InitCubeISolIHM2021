@@ -101,7 +101,7 @@
     <div data-role="page" id="pageInstruments" data-theme="b">
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
-            <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+           <!--  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>-->
         </div>
 
         <div data-role="main" class="general body">
@@ -162,34 +162,44 @@
 	
 		<!--  création d'un formulaire jQuery Mobile -->
 		<div class="ui-grid-b">
-			<div class="ui-block-b" id="form">
-				<form action="#" method="post">
-					<legend style="color:#ffffff">Nouvel Instrument</legend>
-					<label for="nom">Renseignez le nom:</label>
-					<input type="text" name="nom" id="nom" />
-					<label for="identifiant">Renseignez le identifiant:</label>
-					<input name="identifiant" id="identifiant" class="champs" />
-					<label for="role">Renseignez le role:</label>
-					<input name="role" id="role" class="champs" />
-	
-					<button class="ui-btn ui-icon-plus ui-btn-icon-left ui-btn-inline" id="Ajouter">Ajouter Mesure</button>
-					<!--<button class="ui-btn ui-icon-minus ui-btn-icon-left ui-btn-inline" id="Suprimer">Suprimer Mesure</button>-->
-					<fieldset id="clone">
-						<legend style="color:#ffffff">Type de Mesure</legend>
-						<label for="mesure">Renseignez la mesure:</label>
-						<input type="text" name="nomMesure" id="nomMesure" class="champs" />
-	
-						<label for="unite">Renseignez l'unité':</label>
-						<input type="text" name="unite" id="unite" class="champs" />
-	
-						<label for="valMin">Renseignez le seuil Min:</label>
-						<input type="text" name="valMin" id="valMin" class="champs" />
-	
-						<label for="valMax">Renseignez le seuil Max:</label>
-						<input type="text" name="valMax" id="valMax" class="champs" />
-					</fieldset>
-				</form>
-			</div>
+            <div class="ui-block-b">
+                <form action="#" method="post" id="form">
+                    <legend style="color:#ffffff">Nouvel Instrument</legend>
+                    <label for="nom">Renseignez le nom:</label>
+                    <input type="text" name="nom" id="nom" class="champs" />
+                    <label for="identifiant">Renseignez le identifiant:</label>
+                    <input name="identifiant" id="identifiant" class="champs" />
+                    <label for="role">Renseignez le role:</label>
+                    <input name="role" id="role" class="champs" />
+            
+                    <button class="ui-btn ui-icon-plus ui-btn-icon-left ui-btn-inline" id="Ajouter">Ajouter Mesure</button>
+                    <button class="ui-btn ui-icon-minus ui-btn-icon-left ui-btn-inline" id="Suprimer">Suprimer Mesure</button>
+                    <fieldset id="clone">
+                        <legend style="color:#ffffff">Type de Mesure</legend>
+                        <label for="mesure">Renseignez la mesure:</label>
+                        <input type="text" name="nomMesure" id="nomMesure" class="champs" />
+            
+                        <label for="unite">Renseignez l'unité':</label>
+                        <input type="text" name="unite" id="unite" class="champs" />
+            
+                        <label for="valMin">Renseignez le seuil Min:</label>
+                        <input type="text" name="valMin" id="valMin" class="champs" />
+            
+                        <label for="valMax">Renseignez le seuil Max:</label>
+                        <input type="text" name="valMax" id="valMax" class="champs" />
+                    </fieldset>
+                </form>
+                <a href="#popupRecap" data-rel="popup" data-position-to="window"
+                    class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer"
+                    data-transition="pop">Envoyer</a>
+            
+                <a href="#pageInstruments" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete"
+                    id="Annuler">Annuler</a>
+            
+                <button type="reset" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-forward" id="reset">Reset</button>
+            </div>
+            <!--  fin du formulaire jQuery Mobile -->
+
 			<!-- Bouton Ajouter Mesure-->
 			<div class="ui-block-b" id="form_2">
 				<form action="#" method="post">
@@ -200,15 +210,7 @@
 			<!-- Fin Ajouter Mesure-->
 		</div>
 		<br />
-		<a href="#popupRecap" data-rel="popup" data-position-to="window"
-			class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer"
-			data-transition="pop">Envoyer</a>
-	
-		<a href="#pageInstruments" type="reset" name="cancel"
-			class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
-	
-		<!--  fin du formulaire jQuery Mobile -->
-	
+
 		<!-- Récap formulaire instrument-->
 		<div data-role="popup" id="popupRecap" data-theme="a" class="ui-corner-all">
 			<form action="#" method="post" id="testForm">
@@ -244,7 +246,6 @@
 							<label for="image">Télécharger l'image (PNG, JPG, JPEG):</label>
 							<input type="file" name="image" id="image" accept=".png, .jpg, .jpeg" />
 						</form>
-					
 
 					<button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check"
 						id="EnvoieRecap">Envoyer</button>
@@ -547,7 +548,7 @@
                             <meta http-equiv="X-UA-Compatible" content="IE=edge">
                             <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
                             <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-                            <script type="text/javascript" src="assets/js/date.js"></script>
+                            <!-- <script type="text/javascript" src="assets/js/date.js"></script>-->
                             <link rel="stylesheet" href="css/siteCssZ.css">
                             <!--<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>-->
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

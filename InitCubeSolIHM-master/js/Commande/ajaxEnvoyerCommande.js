@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     $("#Bpopup").hide();
     $("#Mpopup").hide();
     $("#AbcVD").hide();
@@ -14,12 +14,11 @@ $(document).ready(function () {
             url: 'cgi-bin/cgi_1',
             data: jsonString,
             dataType: 'html',
-            success: function (codeRecu) {
+            success: function(codeRecu) {
                 if (codeRecu == "ACK") {
                     $("#Bpopup").fadeIn(200).delay(3000).fadeOut(400)
 
-                }
-                else if (codeRecu == "NACK")
+                } else if (codeRecu == "NACK")
                     $("#Mpopup").fadeIn(200).delay(3000).fadeOut(400);
                 else
                     $("#AbcVD").fadeIn(200).delay(3000).fadeOut(400);

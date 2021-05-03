@@ -24,28 +24,33 @@ class GestionnaireCommandes {
     }
 
     getHistorique() {
-        $(document).ready(function() {
-            $.ajax({
-                type: 'GET',
-                url: 'cgi-bin/main',
-                dataType: 'html',
-                success: function(codeRecu) {
-                    var tramesJson = new Array();
-                    tramesJson = codeRecu.split('\n');
+        // $(document).ready(function() {
+        let ths = this;
+        $.ajax({
+            type: 'GET',
+            url: 'cgi-bin/main',
+            dataType: 'html',
+            success: function(codeRecu) {
+                var tramesJson = new Array();
+                tramesJson = codeRecu.split('\n');
 
-                    tramesJson.forEach(function(element) {
-                        var test = $.parseJSON(element);
-                        historique.push(new Commande(test.CMD.ID, test.CMD.TYPE, 0, test.CMD.TYPEMEASURE))
-                    });
-                    //document.getElementById("#textHC").innerHTML = test.
-                }
-            });
+                tramesJson.forEach(function(element) {
+                    var parse = $.parseJSON(element);
+                    $("#listeHC").append('<li>' + parse.CMD.ID + '</li>');
+                    ths.historique.push(new Commande(parse.CMD.ID, parse.CMD.TYPE, "0", parse.CMD.TYPEMEASURE));
+                });
+            }
         });
+        //});
     }
-    afficherHistorique() {
 
-        //this.historique.forEach( => console.log())
-        $("#textHC").text("Afficher Historique");
+    afficherHistorique() { //Affiche l'objet de type commande dans le tableau historique
+        let ths = this;
+        ths.historique.forEach(function(element) {
+            $("#listeHC").append('<li>' + element.genererJSON + '</li>');
+            //$("#listeHC").append(element.genererJSON);
+            //$("#listeHC").append('</li>');
+        })
     }
 
 }

@@ -3,9 +3,8 @@ $(document).ready(function() {
     $("#Mpopup").hide();
     $("#AbcVD").hide();
 
-    $("#btnCommande").on("click", function() {
-        var commande = $("#formulaireCommande").serializeArray({});
-
+    $("#btnSerialize").on("click", function() {
+        var commande = $("#myForm").serializeArray({});
         var jsonString = JSON.stringify(commande);
 
         $.ajax({
@@ -27,7 +26,7 @@ $(document).ready(function() {
                 $("#Mpopup").fadeIn(200).delay(3000).fadeOut(400);
             else
                 $("#AbcVD").fadeIn(200).delay(3000).fadeOut(400);
-
         }
     });
+
 });

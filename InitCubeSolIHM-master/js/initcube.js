@@ -6,6 +6,7 @@ $(document).ready(function() {
     let gestionnaireCommandes = new GestionnaireCommandes();
     $('#btnCommande').click(function() {
         gestionnaireCommandes.genererCommande();
+        gestionnaireCommandes.transmettreDerniereCommande();
         console.log("Commande format JSON" + gestionnaireCommandes.listeCommandes[gestionnaireCommandes.listeCommandes.length - 1].genererJSON());
     })
 

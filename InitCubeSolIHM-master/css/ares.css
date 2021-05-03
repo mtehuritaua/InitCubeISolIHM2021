@@ -3,8 +3,11 @@
 * @author pixelcave - https://pixelcave.com
 */
 
+
 /* Bootstrap Overwrite/Extend */
-html, body {
+
+html,
+body {
     height: 100%;
 }
 
@@ -18,7 +21,13 @@ body {
     background-repeat: no-repeat;
 }
 
-h1, h2, h3, .h1, .h2, .h3, .heading {
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3,
+.heading {
     font-family: 'Raleway', sans-serif;
     margin: 0;
     color: #e8f4ff;
@@ -134,7 +143,9 @@ a.link-sf:active:before {
     background-color: rgba(98, 208, 240, .1);
 }
 
+
 /* Main Layout */
+
 #page-container {
     min-width: 320px;
 }
@@ -178,7 +189,9 @@ a.link-sf:active:before {
     padding: 50px 20px 1px;
 }
 
+
 /* Blocks */
+
 .block {
     margin-bottom: 20px;
     background-color: rgba(0, 0, 0, .15);
@@ -225,7 +238,9 @@ a.link-sf:active:before {
     margin-bottom: 15px;
 }
 
+
 /* Circles */
+
 .circles {
     position: relative;
     left: 50%;
@@ -357,7 +372,6 @@ a.link-sf:active:before {
     from {
         -webkit-transform: rotate(0deg);
     }
-
     to {
         -webkit-transform: rotate(360deg);
     }
@@ -367,7 +381,6 @@ a.link-sf:active:before {
     from {
         transform: rotate(0deg);
     }
-
     to {
         transform: rotate(360deg);
     }
@@ -377,7 +390,6 @@ a.link-sf:active:before {
     from {
         -webkit-transform: rotate(0deg);
     }
-
     to {
         -webkit-transform: rotate(-360deg);
     }
@@ -387,13 +399,14 @@ a.link-sf:active:before {
     from {
         transform: rotate(0deg);
     }
-
     to {
         transform: rotate(-360deg);
     }
 }
 
+
 /* Easy Pie Chart */
+
 .pie-chart {
     position: relative;
     display: inline-block;
@@ -415,7 +428,7 @@ a.link-sf:active:before {
     transition: transform .12s ease-out;
 }
 
-.pie-chart > span {
+.pie-chart>span {
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);
@@ -427,32 +440,101 @@ a.link-sf:active:before {
     text-align: center;
 }
 
+
 /* Helpers */
-.font-s12 { font-size: 12px !important; }
-.font-s13 { font-size: 13px !important; }
-.font-s14 { font-size: 14px !important; }
-.font-s16 { font-size: 16px !important; }
-.font-s18 { font-size: 18px !important; }
-.font-s20 { font-size: 20px !important; }
-.font-s24 { font-size: 24px !important; }
-.font-s36 { font-size: 36px !important; }
-.font-s48 { font-size: 48px !important; }
-.font-s64 { font-size: 64px !important; }
 
-.font-w200 { font-weight: 200 !important; }
-.font-w300 { font-weight: 300 !important; }
-.font-w400 { font-weight: 400 !important; }
-.font-w600 { font-weight: 600 !important; }
-.font-w700 { font-weight: 700 !important; }
+.font-s12 {
+    font-size: 12px !important;
+}
 
-.push-5 { margin-bottom: 5px; }
-.push-10 { margin-bottom: 10px; }
-.push-20 { margin-bottom: 20px; }
-.push-30 { margin-bottom: 30px; }
-.push-40 { margin-bottom: 40px; }
-.push-50 { margin-bottom: 50px; }
+.font-s13 {
+    font-size: 13px !important;
+}
 
-.items-push > div { margin-bottom: 30px; }
+.font-s14 {
+    font-size: 14px !important;
+}
 
-.overflow-hidden { overflow: hidden; }
-.visibility-hidden { visibility: hidden; }
+.font-s16 {
+    font-size: 16px !important;
+}
+
+.font-s18 {
+    font-size: 18px !important;
+}
+
+.font-s20 {
+    font-size: 20px !important;
+}
+
+.font-s24 {
+    font-size: 24px !important;
+}
+
+.font-s36 {
+    font-size: 36px !important;
+}
+
+.font-s48 {
+    font-size: 48px !important;
+}
+
+.font-s64 {
+    font-size: 64px !important;
+}
+
+.font-w200 {
+    font-weight: 200 !important;
+}
+
+.font-w300 {
+    font-weight: 300 !important;
+}
+
+.font-w400 {
+    font-weight: 400 !important;
+}
+
+.font-w600 {
+    font-weight: 600 !important;
+}
+
+.font-w700 {
+    font-weight: 700 !important;
+}
+
+.push-5 {
+    margin-bottom: 5px;
+}
+
+.push-10 {
+    margin-bottom: 10px;
+}
+
+.push-20 {
+    margin-bottom: 20px;
+}
+
+.push-30 {
+    margin-bottom: 30px;
+}
+
+.push-40 {
+    margin-bottom: 40px;
+}
+
+.push-50 {
+    margin-bottom: 50px;
+}
+
+.items-push>div {
+    margin-bottom: 30px;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.visibility-hidden {
+    visibility: hidden;
+}

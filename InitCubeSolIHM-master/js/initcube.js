@@ -10,6 +10,7 @@ $(document).ready(function() {
     })
 
     gestionnaireCommandes.getHistorique();
+    gestionnaireCommandes.afficherHistorique();
 
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireInstruments = new GestionnaireInstruments();

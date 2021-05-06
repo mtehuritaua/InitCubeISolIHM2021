@@ -11,10 +11,11 @@ class GestionnaireCommandes {
     }
 
     transmettreDerniereCommande() {
+        let gestCourant = this;
         $.ajax({
-            type: 'GET',
+            type: 'POST',
             url: 'cgi-bin/cgi_1',
-            data: this.listeCommandes[this.listeCommandes.lenght - 1].genererJSON(),
+            data: gestCourant.listeCommandes[gestCourant.listeCommandes.length - 1].genererJSON(),
             dataType: 'json',
             success: function(codeRecu) {
                 popup(codeRecu)
@@ -25,7 +26,7 @@ class GestionnaireCommandes {
 
     getHistorique() {
         // $(document).ready(function() {
-        let ths = this;
+        let gestCourant = this;
         $.ajax({
             type: 'GET',
             url: 'cgi-bin/main',
@@ -37,7 +38,7 @@ class GestionnaireCommandes {
                 tramesJson.forEach(function(element) {
                     var parse = $.parseJSON(element);
                     $("#listeHC").append('<li>' + parse.CMD.ID + '</li>');
-                    ths.historique.push(new Commande(parse.CMD.ID, parse.CMD.TYPE, "0", parse.CMD.TYPEMEASURE));
+                    gestCourant.historique.push(new Commande(parse.CMD.ID, parse.CMD.TYPE, "0", parse.CMD.TYPEMEASURE));
                 });
             }
         });

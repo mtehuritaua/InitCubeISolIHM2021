@@ -39,12 +39,16 @@ class GestionnaireCommandes {
 
                 tramesJson.forEach(function (element) {
                     var parse = $.parseJSON(element);
-                    $("#listeHC").append('<li>' + parse.CMD.ID + '</li>');
+                    //$("#listeHC").append('<li>' + element + '</li>');
                     ths.historique.push(new Commande(parse.CMD.ID, parse.CMD.TYPE, "0" , parse.CMD.TYPEMEASURE));
                 });
             }
         });
         //});
+    }
+
+    addToHistorique(commande){
+
     }
 
     afficherHistorique() { //Affiche l'objet de type commande dans le tableau historique

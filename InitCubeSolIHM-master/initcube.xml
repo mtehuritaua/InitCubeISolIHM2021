@@ -35,7 +35,7 @@
 	<instrument>
 		<description>
 			<id>123BCD</id>
-			<nom>camera infrarouge</nom>
+			<nom>Camera infrarouge</nom>
 			<role>mesurer une temperature</role>
 		</description>		
 		<etat>
@@ -55,7 +55,7 @@
   	<instrument>
 		<description>
 			<id>124BCD</id>
-			<nom>magnétomètre</nom>
+			<nom>Magnétomètre</nom>
 			<role>Mesurer un champ magnétique</role>
 		</description>
 		<typeMesure>

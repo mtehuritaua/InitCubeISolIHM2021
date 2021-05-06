@@ -3,9 +3,8 @@ $(document).ready(function() {
     $("#Mpopup").hide();
     $("#AbcVD").hide();
 
-    $("#btnSerialize").on("click", function () {
-        var commande = $("#myForm").serializeArray({
-        });        
+    $("#btnSerialize").on("click", function() {
+        var commande = $("#myForm").serializeArray({});
         var jsonString = JSON.stringify(commande);
 
         $.ajax({
@@ -16,9 +15,10 @@ $(document).ready(function() {
             success: function(codeRecu) {
                 popup(codeRecu)
             }
+
         });
 
-        function popup(value){
+        function popup(value) {
             if (value == "ACK") {
                 $("#Bpopup").fadeIn(200).delay(3000).fadeOut(400)
 

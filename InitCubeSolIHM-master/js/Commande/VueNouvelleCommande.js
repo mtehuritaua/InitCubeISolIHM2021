@@ -1,11 +1,17 @@
 class VueNouvelleCommande {
-    constructor(gestionnaireCommande) {
-        this.gestionnaireCommande = gestionnaireCommande;
+    constructor(gestionnaireCommandes) {
+        let vueCommande = this;
+        this.gestionnaireCommandes = gestionnaireCommandes;
+        $('#btnCommande').click(function() {
+            vueCommande.onClickEnvoyerCommande();
+        });
     }
 
     onClickEnvoyerCommande() {
-        gestionnaireCommandes.genererCommande($('#IdSatellite').val(), $('#TypeCommande').val(), $('#Instru').val(), $('#TypeMesure').val());
-        var retour = gestionnaireCommandes.transmettreDerniereCommande();
+        let vueCommande = this;
+        console.log(" valeurs du formulaire :" + " " + $('#IdSatellite').val() + " " + $('#TypeCommande').val());
+        vueCommande.gestionnaireCommandes.genererCommande($('#IdSatellite').val(), $('#TypeCommande').val(), $('#Instru').val(), $('#TypeMesure').val());
+        var retour = vueCommande.gestionnaireCommandes.transmettreDerniereCommande();
         this.popup(retour);
     }
 
@@ -17,5 +23,4 @@ class VueNouvelleCommande {
         else
             $("#AbcVD").fadeIn(200).delay(3000).fadeOut(400);
     }
-}
 }

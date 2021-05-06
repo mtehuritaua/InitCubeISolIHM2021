@@ -3,35 +3,36 @@
 <html>
 
 <head>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
-	<script type="text/javascript" src="js/graphique.js"></script>
-	<link rel="stylesheet" href="css/siteCssZ.css">
-	<link href="css/jquery-ui.css" rel="stylesheet">
-	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
-	<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script type="text/javascript" src="js/resizeGraphic.js"></script>
-	<script type="text/javascript" src="js/canvasjs.min.js"></script>
-	<script type="text/javascript" src="js/matrice/CCamera.js"></script>
-	<script type="text/javascript" src="js/matrice/CMatrice.js"></script>
-	<script type="text/javascript" src="js/instrument/gestionnaireInstruments.js"></script>
-	<script type="text/javascript" src="js/instrument/IHMInstument.js"></script>
-	<script type="text/javascript" src="js/instrument/instrument.js"></script>
-	<script type="text/javascript" src="js/instrument/Mesure.js"></script>
-	<script type="text/javascript" src="js/instrument/TypeMesure.js"></script>
-	<script type="text/javascript" src="js/segmentVol.js"></script>
-	<script type="text/javascript" src="js/commande.js"></script>
-	<script type="text/javascript" src="js/gestionnaireCommandes.js"></script>
-	<script type="text/javascript" src="js/Commande/ajaxEnvoyerCommande.js"></script>
-	<script src="assets/js/jquery-1.11.2.min.js"></script>
-	<script src="assets/js/jquery.serializeToJSON.js"></script>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script type="text/javascript" src="js/initcube.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+    <script type="text/javascript" src="js/graphique.js"></script>
+    <link rel="stylesheet" href="css/siteCssZ.css">
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/resizeGraphic.js"></script>
+    <script type="text/javascript" src="js/canvasjs.min.js"></script>
+    <script type="text/javascript" src="js/matrice/CCamera.js"></script>
+    <script type="text/javascript" src="js/matrice/CMatrice.js"></script>
+    <script type="text/javascript" src="js/instrument/gestionnaireInstruments.js"></script>
+    <script type="text/javascript" src="js/instrument/IHMInstument.js"></script>
+    <script type="text/javascript" src="js/instrument/instrument.js"></script>
+    <script type="text/javascript" src="js/instrument/Mesure.js"></script>
+    <script type="text/javascript" src="js/instrument/TypeMesure.js"></script>
+    <script type="text/javascript" src="js/segmentVol.js"></script>
+    <script type="text/javascript" src="js/commande.js"></script>
+    <script type="text/javascript" src="js/gestionnaireCommandes.js"></script>
+    <script type="text/javascript" src="js/Commande/ajaxEnvoyerCommande.js"></script>
+    <script type="text/javascript" src="js/Commande/VueNouvelleCommande.js"></script>
+    <script src="assets/js/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/jquery.serializeToJSON.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/initcube.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 
@@ -102,7 +103,7 @@
     <div data-role="page" id="pageInstruments" data-theme="b">
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
-           <!--  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>-->
+            <!--  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>-->
         </div>
 
         <div data-role="main" class="general body">
@@ -156,13 +157,13 @@
 	                        Page Formulaire Ajout Instrument
 	            ==============================================
 	        -->
-	<div data-role="page" id="pageFormulaire" data-theme="b">
-		<div id="header" class="general">
-			<img id="imgCnes" src="images/cnes.png" />
-		</div>
-	
-		<!--  création d'un formulaire jQuery Mobile -->
-		<div class="ui-grid-b">
+    <div data-role="page" id="pageFormulaire" data-theme="b">
+        <div id="header" class="general">
+            <img id="imgCnes" src="images/cnes.png" />
+        </div>
+
+        <!--  création d'un formulaire jQuery Mobile -->
+        <div class="ui-grid-b">
             <div class="ui-block-b">
                 <form action="#" method="post" id="form">
                     <legend style="color:#ffffff">Nouvel Instrument</legend>
@@ -172,108 +173,103 @@
                     <input name="identifiant" id="identifiant" class="champs" />
                     <label for="role">Renseignez le role:</label>
                     <input name="role" id="role" class="champs" />
-            
+
                     <button type="button" class="ui-btn ui-icon-plus ui-btn-icon-left ui-btn-inline" id="Ajouter">Ajouter Mesure</button>
                     <!--<button type="button" class="ui-btn ui-icon-minus ui-btn-icon-left ui-btn-inline" id="Suprimer">Suprimer Mesure</button>-->
                     <fieldset id="clone">
                         <legend style="color:#ffffff">Type de Mesure</legend>
                         <label for="mesure">Renseignez la mesure:</label>
                         <input type="text" name="nomMesure" id="nomMesure" class="champs" />
-            
+
                         <label for="unite">Renseignez l'unité':</label>
                         <input type="text" name="unite" id="unite" class="champs" />
-            
+
                         <label for="valMin">Renseignez le seuil Min:</label>
                         <input type="text" name="valMin" id="valMin" class="champs" />
-            
+
                         <label for="valMax">Renseignez le seuil Max:</label>
                         <input type="text" name="valMax" id="valMax" class="champs" />
                     </fieldset>
                 </form>
-                <a href="#popupRecap" data-rel="popup" data-position-to="window"
-                    class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer"
-                    data-transition="pop">Envoyer</a>
-            
-                <a href="#pageInstruments" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete"
-                    id="Annuler">Annuler</a>
-            
+                <a href="#popupRecap" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer" data-transition="pop">Envoyer</a>
+
+                <a href="#pageInstruments" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete" id="Annuler">Annuler</a>
+
                 <button type="reset" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-forward" id="reset">Reset</button>
             </div>
             <!--  fin du formulaire jQuery Mobile -->
 
-			<!-- Bouton Ajouter Mesure-->
-			<div class="ui-block-b" id="form_2">
-				<fieldset id="new" class="new">
+            <!-- Bouton Ajouter Mesure-->
+            <div class="ui-block-b" id="form_2">
+                <fieldset id="new" class="new">
 
-			    </fieldset>
-			</div>
-			<!-- Fin Ajouter Mesure-->
-		</div>
-		<br />
+                </fieldset>
+            </div>
+            <!-- Fin Ajouter Mesure-->
+        </div>
+        <br />
 
-		<!-- Récap formulaire instrument-->
-		<div data-role="popup" id="popupRecap" data-theme="a" class="ui-corner-all">
-			<form action="#" method="post" id="testForm">
-				<div style="padding:20px 30px;">
-					<h3>Veuillez vérifier les informations </h3>
+        <!-- Récap formulaire instrument-->
+        <div data-role="popup" id="popupRecap" data-theme="a" class="ui-corner-all">
+            <form action="#" method="post" id="testForm">
+                <div style="padding:20px 30px;">
+                    <h3>Veuillez vérifier les informations </h3>
 
-					<fieldset id="bloqueInput">
-						<legend style="color:#000000">Nouvel Instrument</legend>
-						<label for="nom">Nom:</label>
-						<input type="text" name="nom" id="popNom" />
-						<label for="identifiant">Identifiant:</label>
-						<input type="text" name="identifiant" id="popIdentifiant" />
-						<label for="role">Role:</label>
-						<input type="text" name="role" id="popRole" />
-					
-						<fieldset id="addRecap">
-							<legend style="color:#000000">Type de Mesure</legend>
-							<label for="mesure">Mesure:</label>
-							<input type="text" name="mesure" id="popNomMesure" class="rajout" />
-					
-							<label for="unite">Unité:</label>
-							<input type="text" name="unite" id="popUnite" class="rajout" />
-					
-							<label for="valMin">Seuil Min:</label>
-							<input type="text" name="valMin" id="popValMin" class="rajout" />
-					
-							<label for="valMax">Seuil Max:</label>
-							<input type="text" name="valMax" id="popValMax" class="rajout" />
-						</fieldset>
-						<fieldset id="newRecap" class="newRecap"></fieldset>
-					</fieldset>
-						<form enctype="multipart/form-data" action="file_news_upload.php" method="post">
-							<label for="image">Télécharger l'image (PNG, JPG, JPEG):</label>
-							<input type="file" name="image" id="image" accept=".png, .jpg, .jpeg" />
-						</form>
+                    <fieldset id="bloqueInput">
+                        <legend style="color:#000000">Nouvel Instrument</legend>
+                        <label for="nom">Nom:</label>
+                        <input type="text" name="nom" id="popNom" />
+                        <label for="identifiant">Identifiant:</label>
+                        <input type="text" name="identifiant" id="popIdentifiant" />
+                        <label for="role">Role:</label>
+                        <input type="text" name="role" id="popRole" />
 
-					<button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check"
-						id="EnvoieRecap">Envoyer</button>
-						
-					<a href="#" data-rel="back" type="reset" name="cancel"
-						class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
-				</div>
-			</form>
-		</div>
-		<!-- fin récap-->
-	
-		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-			<div data-role="navbar" data-grid="" data-iconpos="left">
-				<ul id="menu">
-					<li><a href="#pageEtat">Etat</a></li>
-					<li><a href="#pageInstruments"> Instruments</a>
-						<ul>
-							<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-							<li><a href="#pageCamera">Caméra</a></li>
-							<li><a href="#pageMatrice">Matrice</a></li>
-						</ul>
-					</li>
-					<li><a href="#pageCommande">Commande</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!--               ======================================
+                        <fieldset id="addRecap">
+                            <legend style="color:#000000">Type de Mesure</legend>
+                            <label for="mesure">Mesure:</label>
+                            <input type="text" name="mesure" id="popNomMesure" class="rajout" />
+
+                            <label for="unite">Unité:</label>
+                            <input type="text" name="unite" id="popUnite" class="rajout" />
+
+                            <label for="valMin">Seuil Min:</label>
+                            <input type="text" name="valMin" id="popValMin" class="rajout" />
+
+                            <label for="valMax">Seuil Max:</label>
+                            <input type="text" name="valMax" id="popValMax" class="rajout" />
+                        </fieldset>
+                        <fieldset id="newRecap" class="newRecap"></fieldset>
+                    </fieldset>
+                    <form enctype="multipart/form-data" action="file_news_upload.php" method="post">
+                        <label for="image">Télécharger l'image (PNG, JPG, JPEG):</label>
+                        <input type="file" name="image" id="image" accept=".png, .jpg, .jpeg" />
+                    </form>
+
+                    <button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check" id="EnvoieRecap">Envoyer</button>
+
+                    <a href="#" data-rel="back" type="reset" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
+                </div>
+            </form>
+        </div>
+        <!-- fin récap-->
+
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+            <div data-role="navbar" data-grid="" data-iconpos="left">
+                <ul id="menu">
+                    <li><a href="#pageEtat">Etat</a></li>
+                    <li><a href="#pageInstruments"> Instruments</a>
+                        <ul>
+                            <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+                            <li><a href="#pageCamera">Caméra</a></li>
+                            <li><a href="#pageMatrice">Matrice</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#pageCommande">Commande</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--               ======================================
                                 page Camera
                     ======================================
         -->
@@ -644,140 +640,139 @@
 										<option value="default"> date et heure </option>
 										<input name="date" class="form-control" type="datetime-local">
 									</select>
-									<script>
-										$(document).ready(function () {
-											$("#typeCmd").change(function () {
-												switch ($(this).val()) {
-													case 'MISSION':
-														//COMMANDE MESURE CACHEE
-														$("#instrument").show();
-														$("#TypeMeasure").show();
-														$("#DateHeure").show();
-														$("#BORD").hide();
-														$("#BATT").hide();
-														$("#INST").hide();
-														$("#REBOOT").hide();
-														//Le reste est à définir
-														break;
-													case 'MEASURE':
-														//COMMANDE MESURE OUVERT
-														$("#instrument").show();
-														$("#TypeMeasure").show();
-														$("#DateHeure").show();
-														$("#BORD").hide();
-														$("#BATT").hide();
-														$("#INST").hide();
-														$("#REBOOT").hide();
-														break;
-													case 'STATUS':
-														//COMMANDE MESURE CACHEE
-														$("#instrument").hide();
-														$("#TypeMeasure").hide();
-														$("#DateHeure").hide();
-														$("#BORD").show();
-														$("#BATT").show();
-														$("#INST").show();
-														$("#STATUS").show();
-														$("#REBOOT").show();
-														//Le reste est à définir
-														break;
-													case 'DEPLOY':
-														//COMMANDE MESURE CACHEE
-														$("#instrument").hide();
-														$("#TypeMeasure").hide();
-														$("#DateHeure").hide();
-														$("#BORD").hide();
-														$("#BATT").hide();
-														$("#INST").hide();
-														$("#REBOOT").hide();
-														//Le reste est à définir
-														break;
-													case 'SURVIVAL':
-														//COMMANDE MESURE CACHEE
-														$("#instrument").hide();
-														$("#TypeMeasure").hide();
-														$("#DateHeure").hide();
-														$("#BORD").hide();
-														$("#BATT").hide();
-														$("#INST").hide();
-														$("#REBOOT").hide();
-														//Le reste est à définir
-														break;
-													case 'EMPTY':
-														//COMMANDE MESURE CACHEE
-														$("#instrument").hide();
-														$("#TypeMeasure").hide();
-														$("#DateHeure").hide();
-														$("#BORD").hide();
-														$("#BATT").hide();
-														$("#INST").hide();
-														$("#REBOOT").hide();
-														//Le reste est à définir
-														break;
-													case 'SAVE':
-														//COMMANDE MESURE CACHEE
-														$("#instrument").hide();
-														$("#TypeMeasure").hide();
-														$("#DateHeure").hide();
-														$("#BORD").hide();
-														$("#BATT").hide();
-														$("#INST").hide();
-														$("#REBOOT").hide();
-														//Le reste est à définir
-														break;
-													case 'MEETING':
-														//COMMANDE MESURE CACHEE
-														$("#instrument").hide();
-														$("#TypeMeasure").hide();
-														$("#DateHeure").hide();
-														$("#BORD").hide();
-														$("#BATT").hide();
-														$("#INST").hide();
-														$("#REBOOT").hide();
-														//Le reste est à définir
-														break;
-													case 'DATE':
-														//COMMANDE MESURE CACHEE
-														$("#instrument").hide();
-														$("#TypeMeasure").hide();
-														$("#DateHeure").hide();
-														$("#BORD").hide();
-														$("#BATT").hide();
-														$("#INST").hide();
-														$("#REBOOT").hide();
-														//Le reste est à définir
-														break;
-													default:
-														//COMMANDE MESURE CACHEE
-														$("#instrument").hide();
-														$("#TypeMeasure").hide();
-														$("#DateHeure").hide();
-														$("#BORD").hide();
-														$("#BATT").hide();
-														$("#INST").hide();
-														$("#REBOOT").hide();
-													//Le reste est à définir
-												}
-											});
-										});
-									</script>
-								</form>
+                                    <script>
+                                        $(document).ready(function() {
+                                            $("#typeCmd").change(function() {
+                                                switch ($(this).val()) {
+                                                    case 'MISSION':
+                                                        //COMMANDE MESURE CACHEE
+                                                        $("#instrument").show();
+                                                        $("#TypeMeasure").show();
+                                                        $("#DateHeure").show();
+                                                        $("#BORD").hide();
+                                                        $("#BATT").hide();
+                                                        $("#INST").hide();
+                                                        $("#REBOOT").hide();
+                                                        //Le reste est à définir
+                                                        break;
+                                                    case 'MEASURE':
+                                                        //COMMANDE MESURE OUVERT
+                                                        $("#instrument").show();
+                                                        $("#TypeMeasure").show();
+                                                        $("#DateHeure").show();
+                                                        $("#BORD").hide();
+                                                        $("#BATT").hide();
+                                                        $("#INST").hide();
+                                                        $("#REBOOT").hide();
+                                                        break;
+                                                    case 'STATUS':
+                                                        //COMMANDE MESURE CACHEE
+                                                        $("#instrument").hide();
+                                                        $("#TypeMeasure").hide();
+                                                        $("#DateHeure").hide();
+                                                        $("#BORD").show();
+                                                        $("#BATT").show();
+                                                        $("#INST").show();
+                                                        $("#STATUS").show();
+                                                        $("#REBOOT").show();
+                                                        //Le reste est à définir
+                                                        break;
+                                                    case 'DEPLOY':
+                                                        //COMMANDE MESURE CACHEE
+                                                        $("#instrument").hide();
+                                                        $("#TypeMeasure").hide();
+                                                        $("#DateHeure").hide();
+                                                        $("#BORD").hide();
+                                                        $("#BATT").hide();
+                                                        $("#INST").hide();
+                                                        $("#REBOOT").hide();
+                                                        //Le reste est à définir
+                                                        break;
+                                                    case 'SURVIVAL':
+                                                        //COMMANDE MESURE CACHEE
+                                                        $("#instrument").hide();
+                                                        $("#TypeMeasure").hide();
+                                                        $("#DateHeure").hide();
+                                                        $("#BORD").hide();
+                                                        $("#BATT").hide();
+                                                        $("#INST").hide();
+                                                        $("#REBOOT").hide();
+                                                        //Le reste est à définir
+                                                        break;
+                                                    case 'EMPTY':
+                                                        //COMMANDE MESURE CACHEE
+                                                        $("#instrument").hide();
+                                                        $("#TypeMeasure").hide();
+                                                        $("#DateHeure").hide();
+                                                        $("#BORD").hide();
+                                                        $("#BATT").hide();
+                                                        $("#INST").hide();
+                                                        $("#REBOOT").hide();
+                                                        //Le reste est à définir
+                                                        break;
+                                                    case 'SAVE':
+                                                        //COMMANDE MESURE CACHEE
+                                                        $("#instrument").hide();
+                                                        $("#TypeMeasure").hide();
+                                                        $("#DateHeure").hide();
+                                                        $("#BORD").hide();
+                                                        $("#BATT").hide();
+                                                        $("#INST").hide();
+                                                        $("#REBOOT").hide();
+                                                        //Le reste est à définir
+                                                        break;
+                                                    case 'MEETING':
+                                                        //COMMANDE MESURE CACHEE
+                                                        $("#instrument").hide();
+                                                        $("#TypeMeasure").hide();
+                                                        $("#DateHeure").hide();
+                                                        $("#BORD").hide();
+                                                        $("#BATT").hide();
+                                                        $("#INST").hide();
+                                                        $("#REBOOT").hide();
+                                                        //Le reste est à définir
+                                                        break;
+                                                    case 'DATE':
+                                                        //COMMANDE MESURE CACHEE
+                                                        $("#instrument").hide();
+                                                        $("#TypeMeasure").hide();
+                                                        $("#DateHeure").hide();
+                                                        $("#BORD").hide();
+                                                        $("#BATT").hide();
+                                                        $("#INST").hide();
+                                                        $("#REBOOT").hide();
+                                                        //Le reste est à définir
+                                                        break;
+                                                    default:
+                                                        //COMMANDE MESURE CACHEE
+                                                        $("#instrument").hide();
+                                                        $("#TypeMeasure").hide();
+                                                        $("#DateHeure").hide();
+                                                        $("#BORD").hide();
+                                                        $("#BATT").hide();
+                                                        $("#INST").hide();
+                                                        $("#REBOOT").hide();
+                                                        //Le reste est à définir
+                                                }
+                                            });
+                                        });
+                                    </script>
+                                </form>
 
-							</div>
-							<div class="clearfix">
-								<button type="button" id="btnSerialize"
-									class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-right">Valider</button>
-							</div>
-						</div>
-
+                            </div>
+                            <div class="clearfix">
+                                <button type="button" id="btnSerialize" class="ui-btn ui-corner-all ui-icon-check ui-btn-icon-right">Valider</button>
+                            </div>
+                        </div>
 
 
-					</div>
-					<!--End Left Colons-->
 
-					<!--Historique-->
-					<div class="col-sm-6 col-lg-3 col-lg-pull-6; block" style="margin-top: 3%;">
-						<!--<div class="block-header overflow-hidden">
+                    </div>
+                    <!--End Left Colons-->
+
+                    <!--Historique-->
+                    <div class="col-sm-6 col-lg-3 col-lg-pull-6; block" style="margin-top: 3%;">
+                        <!--<div class="block-header overflow-hidden">
 							<h2 class="block-title visibility-hidden" data-toggle="appear"
 								data-class="animated fadeInDown" style="color:#0066FF" ;>HISTORIQUE</h2>
 						</div>
@@ -786,103 +781,95 @@
 							<button id="btnHC" class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-right">
 								Afficher plus</button>
 						</div> -->
-                        <h2 class="block-title visibility-hidden" data-toggle="appear"
-								data-class="animated fadeInDown" style="color:#0066FF" ;>HISTORIQUE</h2>
+                        <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown" style="color:#0066FF" ;>HISTORIQUE</h2>
                         <ul id="listeHC">
                             <li>Liste:</li>
                         </ul>
-					</div>
-					<!--End Historique-->
+                    </div>
+                    <!--End Historique-->
 
 
 
-					<div id="dialog">
-						<!-- Bonne transmission-->
-						<div data-position-to="window" id="Bpopup" data-overlay-theme="b" data-theme="b"
-							data-dismissible="false" style="max-width:400px; min-width: 400px;">
-							<div data-role="header" data-theme="a"
-								class="Popup">
-								<h3>Information</h3>
-							</div>
-							<div role="main" class="ui-content">
-								<p>La commande à bien été transmise</p>
+                    <div id="dialog">
+                        <!-- Bonne transmission-->
+                        <div data-position-to="window" id="Bpopup" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
+                            <div data-role="header" data-theme="a" class="Popup">
+                                <h3>Information</h3>
+                            </div>
+                            <div role="main" class="ui-content">
+                                <p>La commande à bien été transmise</p>
 
-							</div>
-						</div>
+                            </div>
+                        </div>
 
-						<!-- Mauvaise transmission-->
-						<div data-position-to="window" data-transition="pop" id="Mpopup" data-overlay-theme="b"
-							data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
-							<div data-role="header" data-theme="a"
-							class="Popup">
-								<h3>Information</h3>
-							</div>
-							<div role="main" class="ui-content" data-theme="a">
-								<p>La commande n'a pas été transmise</p>
+                        <!-- Mauvaise transmission-->
+                        <div data-position-to="window" data-transition="pop" id="Mpopup" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
+                            <div data-role="header" data-theme="a" class="Popup">
+                                <h3>Information</h3>
+                            </div>
+                            <div role="main" class="ui-content" data-theme="a">
+                                <p>La commande n'a pas été transmise</p>
 
-							</div>
-						</div>
+                            </div>
+                        </div>
 
-						<!-- Erreur transmission-->
-						<div data-position-to="window" data-transition="pop" id="AbcVD" data-overlay-theme="b"
-							data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
-							<div data-role="header" data-theme="a"
-							class="Popup">
-								<h3>Information</h3>
-							</div>
-							<div role="main" class="ui-content">
-								<p>Erreur ACK</p>
+                        <!-- Erreur transmission-->
+                        <div data-position-to="window" data-transition="pop" id="AbcVD" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
+                            <div data-role="header" data-theme="a" class="Popup">
+                                <h3>Information</h3>
+                            </div>
+                            <div role="main" class="ui-content">
+                                <p>Erreur ACK</p>
 
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--End Colons-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Colons-->
 
 
-				<!--Footer-->
-				<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false"
-					data-theme="b">
-					<div data-role="navbar" data-grid="" data-iconpos="left">
-						<ul id="menu">
-							<li><a href="#pageEtat">Etat</a></li>
-							<li><a href="#pageInstruments"> Instruments</a>
-								<ul>
-									<li><a href="#pageMagnetometre"> Magnétomètre</a></li>
-									<li><a href="#pageCamera">Caméra</a></li>
-									<li><a href="#pageMatrice">Matrice</a></li>
-								</ul>
-							</li>
-							<li><a href="#pageCommande">Commande</a></li>
-						</ul>
-					</div>
-				</div>
-				<!--End Footer-->
+                <!--Footer-->
+                <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+                    <div data-role="navbar" data-grid="" data-iconpos="left">
+                        <ul id="menu">
+                            <li><a href="#pageEtat">Etat</a></li>
+                            <li><a href="#pageInstruments"> Instruments</a>
+                                <ul>
+                                    <li><a href="#pageMagnetometre"> Magnétomètre</a></li>
+                                    <li><a href="#pageCamera">Caméra</a></li>
+                                    <li><a href="#pageMatrice">Matrice</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#pageCommande">Commande</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--End Footer-->
 
-			</main>
-			<!--End Main-->
+            </main>
+            <!--End Main-->
 
-		</div>
-		<!--End Page Container-->
+        </div>
+        <!--End Page Container-->
 
-		<!-- Scripts -->
-		<script src="assets/js/core/jquery.min.js"></script>
-		<script src="assets/js/plugins/jquery.appear.min.js"></script>
-		<script src="assets/js/plugins/jquery.countTo.min.js"></script>
-		<script src="assets/js/plugins/jquery.easypiechart.min.js"></script>
-		<script src="assets/js/ares.js"></script>
-		<script>
-			jQuery(function () {
-				// Init page helpers (Appear + CountTo + Easy Pie Chart plugins)
-				Ares.initHelpers(['appear', 'appear-countTo', 'easy-pie-chart']);
-			});
-		</script>
+        <!-- Scripts -->
+        <script src="assets/js/core/jquery.min.js"></script>
+        <script src="assets/js/plugins/jquery.appear.min.js"></script>
+        <script src="assets/js/plugins/jquery.countTo.min.js"></script>
+        <script src="assets/js/plugins/jquery.easypiechart.min.js"></script>
+        <script src="assets/js/ares.js"></script>
+        <script>
+            jQuery(function() {
+                // Init page helpers (Appear + CountTo + Easy Pie Chart plugins)
+                Ares.initHelpers(['appear', 'appear-countTo', 'easy-pie-chart']);
+            });
+        </script>
 
-	</div>
-	<!--End Page Commande-->
+    </div>
+    <!--End Page Commande-->
 
 
-	<!--                ======================================
+    <!--                ======================================
                                 page Matrice
                     ======================================
         -->

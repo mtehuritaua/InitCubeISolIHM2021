@@ -17,10 +17,8 @@ $(document).ready(function() {
 
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireInstruments = new GestionnaireInstruments();
+    let IHM_Instrument = new IHMInstrument();
 
-    /*$(".reset").click(function(){
-      $("#form").trigger("reset");
-    });*/
 
     /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");

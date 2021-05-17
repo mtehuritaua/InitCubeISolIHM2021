@@ -7,7 +7,7 @@ class GestionnaireInstruments {
         '"></canvas></div>'
     );
 
-    let gestionnaireCourant = this;
+    let gestionnaireCourant = this; //Créer variable car sinon certaine ne sont pas définie
     this.listeInstruments = new Array();
     
     gestionnaireCourant.bloquerEcriture();
@@ -28,15 +28,15 @@ class GestionnaireInstruments {
   ajouterInstrument() {
     this.listeInstruments.push(new Instrument($("#nom").val(), $("#role").val(), $("#identifiant").val()));
    
-    //for each a faire
-    this.listeInstruments[this.listeInstruments.length - 1].forEach(function(element){
+    /*for each a faire
+    this.listeInstruments[this.listeInstruments.length - 1].forEach(function(element){*/
       this.listeInstruments[this.listeInstruments.length - 1].addTypeMesure(
         $("#nomMesure").val(),
         $("#unite").val(),
         $("#valMin").val(),
         $("#valMax").val()
       );
-    });
+ //   });
   }
 
   /*Reprise des données pour faire pop up récapitulatif*/
@@ -52,7 +52,7 @@ class GestionnaireInstruments {
     $("#popValMin").val(instrumentCourant.listeTypesMesure[0].valMin);
     $("#popValMax").val(instrumentCourant.listeTypesMesure[0].valMax);*/
 
-    /*faire boucle pour + type mesure*/
+    /*faire boucle pour créer plusieurs type mesure*/
     this.instrumentCourant.listeTypesMesure.forEach(function(element) {
       $("#popNomMesure").val(element.nom);
       $("#popUnite").val(element.unite);
@@ -86,19 +86,13 @@ class GestionnaireInstruments {
   ajouterFormTypeMesure() {
     $("#Ajouter").click(function () {
       var cloneCount = 1;
-      var add = $("#clone").clone().attr('id', 'id'+ cloneCount++);
+      var add = $("#clone").clone().attr('id', $("#clone")[0].id+ cloneCount++)
       add.appendTo("#new");
 
       var addRecap = $("#addRecap").clone().attr('id', 'id'+ cloneCount++);
       addRecap.appendTo("#newRecap");
     }); 
   }
-
-  /*supprimerFormTypeMesure(){
-    $("#Supprimer").click(function () {
-      $('form').remove();
-    });
-  }*/
 
   /*Réinitialiser la page quand on clique sur bouton Annuler / Reset / EnvoieRecap*/ 
   resetForm(){

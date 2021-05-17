@@ -11,10 +11,11 @@ class GestionnaireCommandes {
     }
 
     transmettreDerniereCommande() {
+        let gestCourant = this;
         $.ajax({
-            type: 'GET',
+            type: 'POST',
             url: 'cgi-bin/cgi_1',
-            data: this.listeCommandes[this.listeCommandes.lenght - 1].genererJSON(),
+            data: gestCourant.listeCommandes[gestCourant.listeCommandes.length - 1].genererJSON(),
             dataType: 'json',
             success: function (codeRecu) {
                 popup(codeRecu)

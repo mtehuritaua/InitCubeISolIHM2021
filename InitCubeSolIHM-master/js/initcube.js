@@ -12,15 +12,13 @@ $(document).ready(function() {
         console.log("Commande format JSON" + gestionnaireCommandes.listeCommandes[gestionnaireCommandes.listeCommandes.length - 1].genererJSON());
     })*/
 
-    gestionnaireCommandes.getHistorique();
-    gestionnaireCommandes.afficherHistorique();
+    gestionnaireCommandes.getHistorique(); //charge l'historique
+    gestionnaireCommandes.afficherHistorique(); //affiche l'historique
 
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireInstruments = new GestionnaireInstruments();
+    let IHM_Instrument = new IHMInstrument();
 
-    /*$(".reset").click(function(){
-      $("#form").trigger("reset");
-    });*/
 
     /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");

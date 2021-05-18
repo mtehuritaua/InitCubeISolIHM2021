@@ -14,19 +14,7 @@ class Instrument {
 
   genererJSON() {
     var textjson = JSON.stringify(this);
-    console.log("JSON fabriqué automatiquement : " + textjson);/*{
-      "Instrument": {
-        "nom": this.nom,
-        "typeMesure": [
-          {
-            "nom": this.listeTypesMesure[0].nom,
-            "unite": this.listeTypesMesure[0].unite,
-            "valMin": this.listeTypesMesure[0].valMin,
-            "valMax": this.listeTypesMesure[0].valMax,
-          },
-        ],
-      },
-    }*/
+    console.log("JSON fabriqué automatiquement : " + textjson);
     return textjson;
   }
 }

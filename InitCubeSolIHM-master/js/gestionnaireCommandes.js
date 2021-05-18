@@ -23,7 +23,7 @@ class GestionnaireCommandes {
             }
         });
     }
-
+/*
     getHistorique() {
         $(document).ready(function () {
             let ths = this;
@@ -47,7 +47,7 @@ class GestionnaireCommandes {
             });
 
         });
-    }
+    }*/
 
     addToHistorique(commande) {
         let ths = this;

@@ -1,6 +1,7 @@
 class Instrument {
-  constructor(nom, role, identifiant) {
+  constructor(nom, ref, role, identifiant) {
     this.nom = nom;
+    this.ref = ref;
     this.role = role;
     this.identifiant = identifiant;
     this.listeTypesMesure = new Array();

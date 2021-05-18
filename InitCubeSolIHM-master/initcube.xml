@@ -35,6 +35,7 @@
 	<instrument>
 		<description>
 			<id>123BCD</id>
+			<ref>Matrice</ref>
 			<nom>Camera infrarouge</nom>
 			<role>mesurer une temperature</role>
 		</description>		
@@ -45,8 +46,18 @@
 			<erreur></erreur>
 		</etat>
 		<typeMesure>
+			<code>TC</code>
 			<nom>temperature</nom>
 			<description>Température de l'objet mesuré</description>
+			<unite>°C</unite>
+			<valMin>-40</valMin>
+			<valMax>+90</valMax>
+		</typeMesure>
+		<typeMesure>
+			<code>PIX</code>
+			<type></type>
+			<nom>matrice</nom>
+			<description>Matrice d'une température de l'objet mesuré</description>
 			<unite>°C</unite>
 			<valMin>-40</valMin>
 			<valMax>+90</valMax>
@@ -55,10 +66,12 @@
   	<instrument>
 		<description>
 			<id>124BCD</id>
+			<ref>Magnetometre</ref>
 			<nom>Magnétomètre</nom>
 			<role>Mesurer un champ magnétique</role>
 		</description>
 		<typeMesure>
+			<code>BX</code>
 			<nom>BX</nom>
 			<description>Champ magnetique suivant X </description>
 			<unite>μT</unite>

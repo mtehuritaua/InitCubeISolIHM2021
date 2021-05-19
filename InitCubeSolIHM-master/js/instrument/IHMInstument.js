@@ -1,8 +1,8 @@
 class IHMInstrument {
   constructor() {
       // attributs
-    this.nbTypesMesure = 0;
-    this.nbTypesMesureRecap = 0;
+    this.nbTypesMesure = 1;
+    this.nbTypesMesureRecap = 1;
     let gestionnaireCourant = this; //Créer variable car sinon certaine ne sont pas définie
 
     gestionnaireCourant.bloquerEcriture();
@@ -32,11 +32,16 @@ class IHMInstrument {
   ajouterFormTypeMesure() {
     let gestionnaireCourant = this;
     $("#Ajouter").click(function () {
-      var add = $("#clone").clone().attr("id", $("#clone")[0].id + gestionnaireCourant.nbTypesMesure++);
+      var add = $("#typeMesure0").clone().prop("id", 'typeMesure' + gestionnaireCourant.nbTypesMesure++);
+      add.find('input').val('');
       add.appendTo("#new");
 
       //clone dans recap
+<<<<<<< HEAD
       var addRecap = $("#addRecap").clone().attr("id",$("#addRecap")[0].id + gestionnaireCourant.nbTypesMesureRecap++);
+=======
+      var addRecap = $("#addRecap0").clone().prop("id", 'addRecap' + gestionnaireCourant.nbTypesMesureRecap++);
+>>>>>>> 06d6144002ec41d5d155d8655c2a2c4e827fcf7e
       addRecap.appendTo("#newRecap");
     });
   }

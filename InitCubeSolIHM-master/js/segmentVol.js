@@ -31,16 +31,20 @@ class SegmentVol {
 
             var id = $(this).find('description').find('id').text();
             console.log("l'identifiant de l'instrument : " + id);
+            var ref = $(this).find('description').find('ref').text();
+            console.log("l'identifiant de l'instrument : " + ref);
             var nom = $(this).find('description').find('nom').text();
             console.log("nom de l'instrument : " + nom);
             var role = $(this).find('description').find('role').text();
             console.log("role de l'instrument : " + role);
 
-            segmentVolCourant.listeInstruments.push(new Instrument(nom, role, id));
+            segmentVolCourant.listeInstruments.push(new Instrument(nom, ref, role, id));
             
             $(this).find('typeMesure').each(
             function(){
 
+                var code = $(this).find('code').text();
+                console.log("nom du type de mesure : " + code);
                 var nom = $(this).find('nom').text();
                 console.log("nom du type de mesure : " + nom);
                 var description = $(this).find('description').text();
@@ -52,7 +56,7 @@ class SegmentVol {
                 var valMax = $(this).find('valMax').text();
                 console.log("valMax du type de mesure : " + valMax);
 
-                segmentVolCourant.listeInstruments[segmentVolCourant.listeInstruments.length-1].addTypeMesure(nom,description,unite,valMin,valMax);
+                segmentVolCourant.listeInstruments[segmentVolCourant.listeInstruments.length-1].addTypeMesure(code,nom,description,unite,valMin,valMax);
             });
             console.log("caracteristique de l'instrument trouve dans le fichier de conf : ");
             console.log(segmentVolCourant.listeInstruments[segmentVolCourant.listeInstruments.length-1].genererJSON());
@@ -62,7 +66,7 @@ class SegmentVol {
     genererMenuInstruments() {
         console.log("Nouvel Instrument du fichier : initcube.xml");
         for(var i = 0;i<this.listeInstruments.length;i++){
-            $("#Instrument").append('<div class="Instrument_1"><a href="#pageMagnetometre"><img src="images/'+this.listeInstruments[i].nom+'.png"/><br/><span>'+this.listeInstruments[i].nom+'</span></a></div>');
+            $("#Instrument").append('<div class="Instrument_1"><a href="#page'+this.listeInstruments[i].ref+'"><img src="images/'+this.listeInstruments[i].ref+'.png"/><br/><span>'+this.listeInstruments[i].nom+'</span></a></div>');
         }
         
     }

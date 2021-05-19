@@ -112,20 +112,20 @@
 
             <div id="Instrument" class="general">
 
-                <div class="Instrument_1">
+                <!--<div class="Instrument_1">
                     <a href="#pageMagnetometre"> <img src="images/Magnétomètre.png" alt="Magnétomètre" /> <br />
                         <span>Magnétomètre</span> </a>
                 </div>
 
                 <div class="Instrument_1">
-                    <a href="#pageCamera"> <img src="images/Caméra.png" alt="Caméra" /> <br /> <span> Caméra </span>
+                    <a href="#pageCamera"> <img src="images/Camera infrarouge.png" alt="Caméra" /> <br /> <span> Caméra </span>
                     </a>
                 </div>
 
                 <div class="Instrument_1">
                     <a href="#pageMatrice"> <img src="images/Matrice.png" alt="Matrice" /> <br /> <span> Matrice </span>
                     </a>
-                </div>
+                </div>-->
 
             </div>
 
@@ -163,9 +163,9 @@
         </div>
 
         <!--  création d'un formulaire jQuery Mobile -->
-        <div class="ui-grid-b">
-            <div class="ui-block-b">
-                <form action="#" method="post" id="form">
+        <form action="#" method="post" id="form">
+            <div class="ui-grid-b">
+                <div class="ui-block-b">
                     <legend style="color:#ffffff">Nouvel Instrument</legend>
                     <label for="nom">Nom:</label>
                     <input type="text" name="nom" id="nom" class="champs" />
@@ -173,39 +173,42 @@
                     <input name="identifiant" id="identifiant" class="champs" />
                     <label for="role">Rôle:</label>
                     <input name="role" id="role" class="champs" />
-
-                    <button type="button" class="ui-btn ui-icon-plus ui-btn-icon-left ui-btn-inline" id="Ajouter">Ajouter Mesure</button>
-                    <fieldset id="clone">
+                    
+                    <fieldset id="typeMesure0">
                         <legend style="color:#ffffff">Type de Mesure</legend>
+
                         <label for="mesure">Mesure:</label>
-                        <input type="text" name="nomMesure" id="nomMesure" class="champs" />
+                        <input type="text" name="nomMesure" class="TypeMesure" />
             
-                        <label for="unite">Unité':</label>
-                        <input type="text" name="unite" id="unite" class="champs" />
+                        <label for="unite">Unité:</label>
+                        <input type="text" name="unite" class="TypeMesure" />
             
                         <label for="valMin">Seuil Min:</label>
-                        <input type="text" name="valMin" id="valMin" class="champs" />
+                        <input type="text" name="valMin" class="TypeMesure" />
             
                         <label for="valMax">Seuil Max:</label>
-                        <input type="text" name="valMax" id="valMax" class="champs" />
+                        <input type="text" name="valMax" class="TypeMesure" />
                     </fieldset>
-                </form>
-                <a href="#popupRecap" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer" data-transition="pop">Envoyer</a>
+                
+                    <a href="#popupRecap" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer" data-transition="pop">Envoyer</a>
 
-                <a href="#pageInstruments" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete" id="Annuler">Annuler</a>
+                    <a href="#pageInstruments" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete" id="Annuler">Annuler</a>
 
-                <button type="reset" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-forward" id="reset">Reset</button>
+                    <button type="reset" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-forward" id="reset">Reset</button>
+                    <button type="button" class="ui-btn ui-icon-plus ui-btn-icon-left ui-btn-inline" id="Ajouter">Ajouter Mesure</button>
+                </div>
+                <!--  fin du formulaire jQuery Mobile -->
+
+                <!-- Bouton Ajouter Mesure-->
+                <div class="ui-block-b" id="form_2">
+                    <fieldset id="new" class="new">
+
+                    </fieldset>
+                </div>
+                <!-- Fin Ajouter Mesure-->
             </div>
-            <!--  fin du formulaire jQuery Mobile -->
-
-            <!-- Bouton Ajouter Mesure-->
-            <div class="ui-block-b" id="form_2">
-                <fieldset id="new" class="new">
-
-                </fieldset>
-            </div>
-            <!-- Fin Ajouter Mesure-->
-        </div>
+        </form>
+        
         <br />
 
         <!-- Récap formulaire instrument-->
@@ -223,19 +226,19 @@
                         <label for="role">Role:</label>
                         <input type="text" name="role" id="popRole" />
 
-                        <fieldset id="addRecap">
+                        <fieldset id="addRecap0">
                             <legend style="color:#000000">Type de Mesure</legend>
                             <label for="mesure">Mesure:</label>
-                            <input type="text" name="mesure" id="popNomMesure" class="rajout" />
+                            <input type="text" name="mesure" class="rajout" />
 
                             <label for="unite">Unité:</label>
-                            <input type="text" name="unite" id="popUnite" class="rajout" />
+                            <input type="text" name="unite" class="rajout" />
 
                             <label for="valMin">Seuil Min:</label>
-                            <input type="text" name="valMin" id="popValMin" class="rajout" />
+                            <input type="text" name="valMin" class="rajout" />
 
                             <label for="valMax">Seuil Max:</label>
-                            <input type="text" name="valMax" id="popValMax" class="rajout" />
+                            <input type="text" name="valMax" class="rajout" />
                         </fieldset>
                         <fieldset id="newRecap" class="newRecap"></fieldset>
                     </fieldset>

@@ -80,6 +80,7 @@
 		</typeMesure>
 		<typeMesure>
 			<nom>BY</nom>
+			<code>BY</code>
 			<description>Champ magnetique suivant Y </description>
 			<unite>μT</unite>
 			<valMin>0</valMin>
@@ -87,6 +88,7 @@
 		</typeMesure>
 		<typeMesure>
 			<nom>BZ</nom>
+			<code>BZ</code>
 			<description>Champ magnetique suivant Z </description>
 			<unite>μT</unite>
 			<valMin>0</valMin>

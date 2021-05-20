@@ -39,7 +39,7 @@ class GestionnaireCommandes {
                         var parse = $.parseJSON(element);
                         //$("#listeHC").append('<li>'+element+'</li>');
                         //ths.historique.push(element);
-                        const p //= new Commande(parse.CMD.ID, parse.CMD.TYPE, parse.CMD.TYPEMEASURE, parse.CMD.TYPEMEASURE)
+                        const p; //= new Commande(parse.CMD.ID, parse.CMD.TYPE, parse.CMD.TYPEMEASURE, parse.CMD.TYPEMEASURE)
                         ths.addToHistorique(new Commande(parse.CMD.ID, parse.CMD.TYPE, parse.CMD.TYPEMEASURE, parse.CMD.TYPEMEASURE))
                         //$("#listeHC").append('<li>'+p.genererJSON+'</li>');
                     });

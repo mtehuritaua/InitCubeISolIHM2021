@@ -32,7 +32,7 @@ class SegmentVol {
             var id = $(this).find('description').find('id').text();
             console.log("l'identifiant de l'instrument : " + id);
             var ref = $(this).find('description').find('ref').text();
-            console.log("l'identifiant de l'instrument : " + ref);
+            console.log("référence de l'instrument : " + ref);
             var nom = $(this).find('description').find('nom').text();
             console.log("nom de l'instrument : " + nom);
             var role = $(this).find('description').find('role').text();
@@ -44,7 +44,7 @@ class SegmentVol {
             function(){
 
                 var code = $(this).find('code').text();
-                console.log("nom du type de mesure : " + code);
+                console.log("code du type de mesure : " + code);
                 var nom = $(this).find('nom').text();
                 console.log("nom du type de mesure : " + nom);
                 var description = $(this).find('description').text();

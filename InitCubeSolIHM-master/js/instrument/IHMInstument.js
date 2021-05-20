@@ -37,11 +37,7 @@ class IHMInstrument {
       add.appendTo("#new");
 
       //clone dans recap
-<<<<<<< HEAD
-      var addRecap = $("#addRecap").clone().attr("id",$("#addRecap")[0].id + gestionnaireCourant.nbTypesMesureRecap++);
-=======
       var addRecap = $("#addRecap0").clone().prop("id", 'addRecap' + gestionnaireCourant.nbTypesMesureRecap++);
->>>>>>> 06d6144002ec41d5d155d8655c2a2c4e827fcf7e
       addRecap.appendTo("#newRecap");
     });
   }

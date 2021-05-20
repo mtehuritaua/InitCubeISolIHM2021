@@ -12,47 +12,43 @@ class GestionnaireInstruments {
     
     $("#Envoyer").click(function () {
       gestionnaireCourant.ajouterInstrument(); //stocker donnée dans instance instrument
-      gestionnaireCourant.ajouterTypesMesure();// ajouterTypesMesure à l'instrument
       gestionnaireCourant.recapFormInstrument();// -> construire recap a partir des données avant
     });
 
     $("#EnvoieRecap").click(function () {
       gestionnaireCourant.envoyerTrameJSON();
+      location.href="#pageInstruments";
     });
   }
 
   /*Créer un nouvel instrument + stocke les données dans une instance*/
   ajouterInstrument() {
-    let instrument = new Instrument($("#nom").val(), $("#role").val(), $("#identifiant").val());
+    let instrument = new Instrument($("#nom").val(), $("#identifiant").val(), $("#role").val(), $("#ref").val() );
 
     $('[id^="typeMesure"]').each(function() {
       instrument.addTypeMesure(
         $(this).find('input[name="nomMesure"]').val(),
+        $(this).find('input[name="codeMesure"]').val(),
         $(this).find('input[name="unite"]').val(),
         $(this).find('input[name="valMin"]').val(),
         $(this).find('input[name="valMax"]').val()
       );
     });
-
     this.listeInstruments.push(instrument);
     console.log(this.listeInstruments);
-  }
-
-  /*Permet de l'ajouter à l'instrument*/
-  ajouterTypesMesure(){
-
   }
 
   /*Reprise des données pour faire pop up récapitulatif à partir des précedentes données*/ 
   recapFormInstrument() {
     var instrumentCourant = this.listeInstruments[this.listeInstruments.length - 1];
     $("#popNom").val(instrumentCourant.nom);
-    $("#popRole").val(instrumentCourant.role);
+    $("#popRef").val(instrumentCourant.ref);
     $("#popIdentifiant").val(instrumentCourant.identifiant);
+    $("#popRole").val(instrumentCourant.role);
 
-    // faire boucle pour créer plusieurs type mesure
     instrumentCourant.listeTypesMesure.forEach(function(element, index) {
-      $('#addRecap' + index).find('input[name="mesure"]').val(element.nom);
+      $('#addRecap' + index).find('input[name="nomMesure"]').val(element.nom);
+      $('#addRecap' + index).find('input[name="codeMesure"]').val(element.code);
       $('#addRecap' + index).find('input[name="unite"]').val(element.unite);
       $('#addRecap' + index).find('input[name="valMin"]').val(element.valMin);
       $('#addRecap' + index).find('input[name="valMax"]').val(element.valMax);
@@ -62,10 +58,11 @@ class GestionnaireInstruments {
 
   /*Envoyer Trame JSON du nouvel instrument pour sauvegarder dans la base de donnée*/
   envoyerTrameJSON() {
+    let gestionnaireCourant = this; 
     $.ajax({
-      url: "cgi-bin/addInstrument.cgi",
+      url: "cgi-bin/cgi_1",
       type: "POST",
-      data: this.listeInstruments[this.listeInstruments.length - 1].genererJSON(),
+      data: gestionnaireCourant.listeInstruments[gestionnaireCourant.listeInstruments.length - 1].genererJSON(),
       dataType: "html",
       success: function (codeRecu) {
         console.log(" " + codeRecu);

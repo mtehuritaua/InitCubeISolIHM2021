@@ -38,13 +38,13 @@
 			<ref>Matrice</ref>
 			<nom>Camera infrarouge</nom>
 			<role>mesurer une temperature</role>
-		</description>		
+		</description>	
 		<etat>
 			<actif>true</actif>			
 			<temperature unite="°C" SeuilALerteHaut="90" SeuilALerteBas="-50">25</temperature>
 			<courant unite="mA" SeuilALerte="1500">200</courant>	
 			<erreur></erreur>
-		</etat>
+		</etat>	
 		<typeMesure>
 			<code>TC</code>
 			<nom>temperature</nom>

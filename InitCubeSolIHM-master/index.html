@@ -24,8 +24,8 @@
     <script type="text/javascript" src="js/instrument/Mesure.js"></script>
     <script type="text/javascript" src="js/instrument/TypeMesure.js"></script>
     <script type="text/javascript" src="js/segmentVol.js"></script>
-    <script type="text/javascript" src="js/commande.js"></script>
-    <script type="text/javascript" src="js/gestionnaireCommandes.js"></script>
+    <script type="text/javascript" src="js/Commande/commande.js"></script>
+    <script type="text/javascript" src="js/Commande/gestionnaireCommandes.js"></script>
     <script type="text/javascript" src="js/Commande/ajaxEnvoyerCommande.js"></script>
     <script type="text/javascript" src="js/Commande/VueNouvelleCommande.js"></script>
     <script src="assets/js/jquery-1.11.2.min.js"></script>
@@ -419,8 +419,8 @@
         </div>
         <div data-role="fieldcontain">
             <label for="liste"> Type de mesure :</label>
-            <select style="color:#0066FF" name="liste" id="TypeMesure">
-				<option value="TEMPERATURE">Température en °C</option>
+            <select style="color:#0066FF" name="liste" id="code">
+				<option value="TC">Température en °C</option>
 				<option value="PIX">Pixels de la caméra</option>
 			</select>
         </div>

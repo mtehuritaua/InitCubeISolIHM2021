@@ -5,7 +5,7 @@ class Instrument {
     this.role = role;
     this.identifiant = identifiant;
     this.listeTypesMesure = new Array();
-    console.log("Création d'un Instrument nommé " + this.nom);
+   // console.log("Création d'un Instrument nommé " + this.nom);
   }
 
   addTypeMesure(nom, code, unite, valMin, valMax){

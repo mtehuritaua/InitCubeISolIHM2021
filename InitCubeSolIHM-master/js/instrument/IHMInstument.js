@@ -1,5 +1,6 @@
 class IHMInstrument {
   constructor() {
+
       // attributs
     this.nbTypesMesure = 1;
     this.nbTypesMesureRecap = 1;
@@ -65,15 +66,7 @@ choixInstrument() {
       });
     }
     
-    /* Remplir tous les champs qui ont la classe champs dans le formulaire */
-    Verifier_formulaire(formulaire){
-      $("#Envoyer").click(function () {
-        if ($(".champs").value==""){
-          alert ("Vous avez oublié de remplir le champs obligatoire");
-        }else{
-          alert ("Le champs obligatoire est bien rempli, on soumet le formulaire");
-          formulaire.submit();
-        }
-      });
-    }
+    /* Bloque l'envoie du formulaire tant que les champs voulu ne sont pas remplis */
+    
+    
 }

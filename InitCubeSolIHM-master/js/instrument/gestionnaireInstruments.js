@@ -60,7 +60,7 @@ class GestionnaireInstruments {
   envoyerTrameJSON() {
     let gestionnaireCourant = this; 
     $.ajax({
-      url: "cgi-bin/cgi_1",
+      url: "cgi-bin/cgiAjoutInsturment.cgi",
       type: "POST",
       data: gestionnaireCourant.listeInstruments[gestionnaireCourant.listeInstruments.length - 1].genererJSON(),
       dataType: "html",

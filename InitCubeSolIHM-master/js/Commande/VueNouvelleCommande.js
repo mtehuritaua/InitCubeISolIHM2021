@@ -9,7 +9,7 @@ class VueNouvelleCommande {
 
     onClickEnvoyerCommande() {
         let vueCommande = this;
-        console.log(" valeurs du formulaire :" + " " + $('#IdSatellite').val() + " " + $('#TypeCommande').val());
+       // console.log(" valeurs du formulaire :" + " " + $('#IdSatellite').val() + " " + $('#TypeCommande').val());
         vueCommande.gestionnaireCommandes.genererCommande($('#IdSatellite').val(), $('#TypeCommande').val(), $('#Instru').val(), $('#TypeMesure').val());
         var retour = vueCommande.gestionnaireCommandes.transmettreDerniereCommande();
         this.popup(retour);

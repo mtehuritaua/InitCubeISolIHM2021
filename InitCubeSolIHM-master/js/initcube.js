@@ -18,8 +18,7 @@ $(document).ready(function() {
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireInstruments = new GestionnaireInstruments();
     let IHM_Instrument = new IHMInstrument();
-
-
+    
     /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
 

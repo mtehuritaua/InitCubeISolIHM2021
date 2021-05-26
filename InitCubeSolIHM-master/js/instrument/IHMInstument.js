@@ -34,13 +34,13 @@ choixInstrument() {
   /*Réinitialiser la page quand on clique sur bouton Annuler / Reset / EnvoieRecap + IHM*/
   resetForm() {
     $("#reset").click(function () {
-      $("#form").trigger("reset");
+      $("#formulaire").trigger("reset");
     });
     $("#Annuler").click(function () {
-      $("#form").trigger("reset");
+      $("#formulaire").trigger("reset");
     });
     $("#EnvoieRecap").click(function () {
-      $("#form").trigger("reset");
+      $("#formulaire").trigger("reset");
     });
   }
 

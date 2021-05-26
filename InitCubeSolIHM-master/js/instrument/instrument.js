@@ -12,6 +12,7 @@ class Instrument {
     this.listeTypesMesure.push(new TypeMesure(nom, code, unite, valMin, valMax));
   }
 
+  /*Genere une trame JSON avec toutes les données entrée dans le formulaire */
   genererJSON() {
     var textjson = JSON.stringify(this);
     console.log("JSON fabriqué automatiquement : " + textjson);

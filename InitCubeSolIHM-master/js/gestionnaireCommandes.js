@@ -28,38 +28,30 @@ class GestionnaireCommandes {
         $(document).ready(function () {
             let ths = this;
             $.ajax({
-                type: 'GET',
-                url: 'cgi-bin/main',
-                dataType: 'html',
+                type: 'GET',                                  //Type méthode envoie.
+                url: 'cgi-bin/main',                          //Localisation du cgi.
+                dataType: 'html',                             //Type de retour.
                 success: function (codeRecu) {
-                    var tramesJson = new Array();
-                    tramesJson = codeRecu.split('\n');
-
-                    tramesJson.forEach(function (element) {
-                        var parse = $.parseJSON(element);
-                        //$("#listeHC").append('<li>'+element+'</li>');
-                        //ths.historique.push(element);
-                        const p //= new Commande(parse.CMD.ID, parse.CMD.TYPE, parse.CMD.TYPEMEASURE, parse.CMD.TYPEMEASURE)
-                        ths.addToHistorique(new Commande(parse.CMD.ID, parse.CMD.TYPE, parse.CMD.TYPEMEASURE, parse.CMD.TYPEMEASURE))
-                        //$("#listeHC").append('<li>'+p.genererJSON+'</li>');
+                    var tramesJson = new Array();             // Creation tableau tramesJson.
+                    tramesJson = codeRecu;
+                    $('#listeHC').append('<li>'+tramesJson+'</li>')     // Séparation du code reçu a chaque '\n'.
+                    tramesJson.forEach(function (element) {   //Parcour chaque element du tableau.
+                        var parse = $.parseJSON(element)      //Permet d'obetenir grace a la variable parse.
+                   
+                        ths.historique.push(new Commande(test.CMD.ID, test.CMD.TYPE,0 , test.CMD.TYPEMEASURE))
+                        //Ajoute une instanciation de commande dans le tableau historique.
                     });
                 }
             });
-
         });
     }
 
-    addToHistorique(commande) {
-        let ths = this;
-        ths.historique.push(commande);
-    }
+    afficherHistorique() {                                                      
+        this.historique.forEach(function (commande) { //Parcour chaque element du tableau.
+            $('#listeHC').append('<li><a href = "#listeHC">' + commande.idSatellite + ' ' + commande.typeCommande
+                + ' ' + commande.instrument + ' ' + commande.typeMesure + '</a></li>');
 
-    afficherHistorique() { //Affiche l'objet de type commande dans le tableau historique
-        let ths = this;
-        ths.historique.forEach(function (element) {
-            
-        })
-        $("#listeHC").append('<li>test</li>');
+        });
     }
 
 }

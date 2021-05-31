@@ -1,4 +1,4 @@
-
+/*
 $.validator.addMethod("textOnly", 
     function(value, element) {  // un car n'est pas alphanumérique
         return !/[^a-zA-Z0-9]/.test(value);
@@ -63,4 +63,4 @@ $(document).ready(function () {
             error.appendTo(element.parent().next());
         }
     });
-});
+});*/

@@ -26,6 +26,7 @@
     <script type="text/javascript" src="js/instrument/gestionnaireInstruments.js"></script>
     <script type="text/javascript" src="js/instrument/vueInstrumentPotentiels.js"></script>
     <script type="text/javascript" src="js/instrument/vueNouvelleInstrument.js"></script>  
+    <script type="text/javascript" src="js/instrument/vueInstrumentsExistant.js"></script> 
     <script type="text/javascript" src="js/instrument/Mesure.js"></script>
     <script type="text/javascript" src="js/instrument/TypeMesure.js"></script>
     <script type="text/javascript" src="js/instrument/formulaire.js"></script>
@@ -35,6 +36,7 @@
     <script type="text/javascript" src="js/Commande/gestionnaireCommandes.js"></script>
     <script type="text/javascript" src="js/Commande/ajaxEnvoyerCommande.js"></script>
     <script type="text/javascript" src="js/Commande/VueNouvelleCommande.js"></script>
+    <script type="text/javascript" src="js/Commande/VueHistorique.js"></script>
 
     <script type="text/javascript" src="assets/js/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.serializeToJSON.js"></script>
@@ -786,12 +788,12 @@
                             <h3 style="color:#ffffff"> Instruments sur le cubesat:</h3>
                         </div>
                         <div style="padding:10px" class="ui-controlgroup-controls ui-shadow">
-                            <div id="instrumentExitant"> </div>
-                            <input type="checkbox" name="Magnetometre" id="choixMagnetometre">
+                            <div id="instrumentExistant"> </div>
+                              <!--<input type="checkbox" name="Magnetometre" id="choixMagnetometre">
                             <label for="choixMagnetometre">Magnetometre</label>
     
                             <input type="checkbox" name="Camera" id="choixCamera">
-                            <label for="choixCamera">Camera Infrarouge</label>
+                            <label for="choixCamera">Camera Infrarouge</label>-->
                         </div>
                     </div>
                 </div>
@@ -802,7 +804,7 @@
                         <div role="heading" class="ui-controlgroup-label">
                             <h3 style="color:#ffffff"> Instruments Potentiels:</h3>
                         </div>
-                        <div style="padding:10px" class="ui-controlgroup-controls ui-shadow">
+                        <div style="padding:10px" class="ui-controlgroup-controls ui-shadow" >
                             <div id="instrumentPotentiels"> </div>
                         </div>
                     </div>

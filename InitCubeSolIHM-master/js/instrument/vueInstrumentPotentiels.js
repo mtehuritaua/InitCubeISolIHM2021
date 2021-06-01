@@ -9,16 +9,17 @@ class VueInstrumentPotentiels {
   genererListeInstruments() {
     let gestionnaireCourant = this;
 
-    for (var i = 0; i < this.gestionnaireInstru.listeInstruments.length; i++) {    
+    for (var i = 0; i < this.gestionnaireInstru.listeInstruments.length; i++) {   
+      var instruPotentiels = gestionnaireCourant.gestionnaireInstru.listeInstruments[i].nom; 
         $("#instrumentPotentiels").append(
         '<input name="' +
-        gestionnaireCourant.gestionnaireInstru.listeInstruments[i].nom +
+        instruPotentiels +
           '" id="choix ' +
-          gestionnaireCourant.gestionnaireInstru.listeInstruments[i].nom +
+          instruPotentiels +
           '" type="checkbox"> <label for="choix' +
-          gestionnaireCourant.gestionnaireInstru.listeInstruments[i].nom +
+          instruPotentiels +
           '" > '+
-          gestionnaireCourant.gestionnaireInstru.listeInstruments[i].nom +
+          instruPotentiels +
           '</label>'
       );
     }

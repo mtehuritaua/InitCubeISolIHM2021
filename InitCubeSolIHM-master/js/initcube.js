@@ -2,6 +2,11 @@
 //var matrice = new CMatrice(camera);
 
 $(document).ready(function() {
+
+    /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
+    let segmentVol = new SegmentVol("../initcube.xml");
+    segmentVol.genererMenuInstruments();
+    
     /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
     let gestionnaireCommandes = new GestionnaireCommandes();
     let vueNouvelleCommande = new VueNouvelleCommande(gestionnaireCommandes);
@@ -13,13 +18,9 @@ $(document).ready(function() {
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireConfiguration = new GestionnaireConfiguration();
     let vueNvelleInstrument = new VueNouvelleInstrument();
-    let vueInstruPotentiels = new VueInstrumentPotentiels(gestionnaireConfiguration.gestionnaireInstruments);    
-    
-    /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
-    let segmentVol = new SegmentVol("../initcube.xml");
-
-    segmentVol.genererMenuInstruments();
-    segmentVol.chargerInstruments();
+    let vueInstruPotentiels = new VueInstrumentPotentiels(gestionnaireConfiguration.gestionnaireInstruments);  
+    let vueInstruExistant = new VueInstrumentsExistant(segmentVol);   
+       
 
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");

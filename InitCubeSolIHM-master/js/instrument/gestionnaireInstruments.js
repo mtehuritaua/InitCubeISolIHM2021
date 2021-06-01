@@ -14,13 +14,13 @@ class GestionnaireInstruments {
     });
     $("#EnvoieRecap").click(function () {
       gestionnaireCourant.envoyerTrameJSON();
-      location.href = "#pageInstruments";
+      location.href = "#pageConfiguration";
     });
   }
 
   /*Créer un nouvel instrument + stocke les données dans une instance*/
   ajouterInstrument() {
-    let instrument = new Instrument($("#nom").val(), $("#identifiant").val(), $("#role").val(), $("#ref").val());
+    let instrument = new Instrument($("#nom").val(), $("#identifiant").val(), $("#ref").val(), $("#adresse").val(), $("#role").val());
 
     $('[id^="typeMesure"]').each(function () {
       instrument.addTypeMesure(
@@ -39,8 +39,9 @@ class GestionnaireInstruments {
   recapFormInstrument() {
     var instrumentCourant = this.listeInstruments[this.listeInstruments.length - 1];
     $("#popNom").val(instrumentCourant.nom);
-    $("#popRef").val(instrumentCourant.ref);
     $("#popIdentifiant").val(instrumentCourant.identifiant);
+    $("#popRef").val(instrumentCourant.ref);
+    $("#popAdresse").val(instrumentCourant.adresse);
     $("#popRole").val(instrumentCourant.role);
 
     instrumentCourant.listeTypesMesure.forEach(function (element, index) {
@@ -98,13 +99,23 @@ class GestionnaireInstruments {
   envoyerTrameJSON() {
     let gestionnaireCourant = this;
     $.ajax({
-      url: "cgi-bin/cgiAjouterInsturment",
+      url: "cgi-bin/cgiAjouterInstrument.cgi",
       type: "POST",
       data: gestionnaireCourant.listeInstruments[gestionnaireCourant.listeInstruments.length - 1].genererJSON(),
       dataType: "html",
       success: function (codeRecu) {
         console.log(" " + codeRecu);
+        //popup(codeRecu);
       },
     });
   }
+/*
+  popup(value) {
+    if (value == "ACK") {
+      $("#bienTransmis").fadeIn(200).delay(3000).fadeOut(400)
+    } else if (value == "NACK")
+      $("#malTransmis").fadeIn(200).delay(3000).fadeOut(400);
+    else
+      $("#erreurTransmis").fadeIn(200).delay(3000).fadeOut(400);
+  }*/
 }

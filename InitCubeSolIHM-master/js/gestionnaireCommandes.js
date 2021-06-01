@@ -2,7 +2,7 @@ class GestionnaireCommandes {
     constructor() {
         this.listeCommandes = new Array();
         this.historique = new Array();
-        console.log("Instanciation de la classe gestionnaireCommandes");
+        //console.log("Instanciation de la classe gestionnaireCommandes");
     }
     genererCommande(idSatellite, typeCommande, instrument, typeMesure) {
         this.listeCommandes.push(new Commande(idSatellite, typeCommande, instrument, typeMesure));

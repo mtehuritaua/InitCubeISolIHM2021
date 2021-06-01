@@ -10,9 +10,8 @@ $(document).ready(function() {
 
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireConfiguration = new GestionnaireConfiguration();
-    let IHM_Instrument = new IHMInstrument();
-    let vueInstruPotentiels = new VueInstrumentPotentiels(gestionnaireConfiguration.gestionnaireInstruments);
-    
+    let vueNvelleInstrument = new VueNouvelleInstrument();
+    let vueInstruPotentiels = new VueInstrumentPotentiels(gestionnaireConfiguration.gestionnaireInstruments);    
     
     /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");

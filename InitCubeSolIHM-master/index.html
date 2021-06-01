@@ -31,8 +31,8 @@
     <script type="text/javascript" src="js/instrument/formulaire.js"></script>
     
     <script type="text/javascript" src="js/segmentVol.js"></script>
-    <script type="text/javascript" src="js/commande.js"></script>
-    <script type="text/javascript" src="js/gestionnaireCommandes.js"></script>
+    <script type="text/javascript" src="js/Commande/commande.js"></script>
+    <script type="text/javascript" src="js/Commande/gestionnaireCommandes.js"></script>
     <script type="text/javascript" src="js/Commande/ajaxEnvoyerCommande.js"></script>
     <script type="text/javascript" src="js/Commande/VueNouvelleCommande.js"></script>
 
@@ -532,8 +532,8 @@
         </div>
         <div data-role="fieldcontain">
             <label for="liste"> Type de mesure :</label>
-            <select style="color:#0066FF" name="liste" id="TypeMesure">
-				<option value="TEMPERATURE">Température en °C</option>
+            <select style="color:#0066FF" name="liste" id="code">
+				<option value="TC">Température en °C</option>
 				<option value="PIX">Pixels de la caméra</option>
 			</select>
         </div>
@@ -688,12 +688,14 @@
 
                     <!--Historique-->
                     <div class="col-sm-6 col-lg-2 col-lg-pull-6; block" style="margin-top: 3%;">
-                        <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown"
-                            style="color:#0066FF" ;>HISTORIQUE</h2>
-                        <ul id="listeHC">
-                        </ul>
-                    </div>
-                    
+                        <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown" 
+                        style="color:#0066FF" ;>HISTORIQUE</h2>
+                        <ul id="listeHC"></ul>
+                     </div>
+                    <!--End Historique-->
+
+
+
                     <div id="dialog">
                         <!-- Bonne transmission-->
                         <div data-position-to="window" id="Bpopup" data-overlay-theme="b" data-theme="b" data-dismissible="false"

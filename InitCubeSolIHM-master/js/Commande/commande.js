@@ -1,17 +1,19 @@
 class Commande {
-    constructor(idSatellite, typeCommande, instrument, typeMesure) {
+    constructor(idSatellite, typeCommande, instrument, code) {
         this.idSatellite = idSatellite;
         this.typeCommande = typeCommande;
         this.instrument = instrument;
-        this.typeMesure = typeMesure;
-        console.log("Instanciation d'une commande " + idSatellite + " " + typeCommande + " " + instrument + " " + typeMesure);
+        this.code = code;
+        console.log("Instanciation d'une commande " + idSatellite + " " + typeCommande + " " + instrument + " " + code);
     }
     setDate(date) {
 
     }
+
     genererJSON() {
-        var cmd = JSON.stringify(this);
+        var cmd = "{ \"CMD\" : " + JSON.stringify(this) + "}";
         console.log("JSON fabriqué automatiquement : " + cmd);
         return cmd;
     }
+    
 }

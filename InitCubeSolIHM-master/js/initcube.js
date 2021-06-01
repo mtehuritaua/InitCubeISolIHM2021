@@ -5,8 +5,10 @@ $(document).ready(function() {
     /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
     let gestionnaireCommandes = new GestionnaireCommandes();
     let vueNouvelleCommande = new VueNouvelleCommande(gestionnaireCommandes);
-    //  gestionnaireCommandes.getHistorique(); //charge l'historique
-    //gestionnaireCommandes.afficherHistorique(); //affiche l'historique
+    let vueHistorique = new VueHistorique(gestionnaireCommandes);
+    
+    gestionnaireCommandes.getHistorique(); //charge l'historique
+    vueHistorique.afficherHistorique(); //affiche l'historique
 
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireConfiguration = new GestionnaireConfiguration();

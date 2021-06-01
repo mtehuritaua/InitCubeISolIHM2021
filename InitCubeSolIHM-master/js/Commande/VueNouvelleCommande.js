@@ -9,8 +9,8 @@ class VueNouvelleCommande {
 
     onClickEnvoyerCommande() {
         let vueCommande = this;
-       // console.log(" valeurs du formulaire :" + " " + $('#IdSatellite').val() + " " + $('#TypeCommande').val());
-        vueCommande.gestionnaireCommandes.genererCommande($('#IdSatellite').val(), $('#TypeCommande').val(), $('#Instru').val(), $('#TypeMesure').val());
+        console.log(" valeurs du formulaire :" + " " + $('#IdSatellite').val() + " " + $('#TypeCommande').val());
+        vueCommande.gestionnaireCommandes.genererCommande($('#IdSatellite').val(), $('#TypeCommande').val(), $('#Instru').val(), $('#code').val());
         var retour = vueCommande.gestionnaireCommandes.transmettreDerniereCommande();
         this.popup(retour);
     }

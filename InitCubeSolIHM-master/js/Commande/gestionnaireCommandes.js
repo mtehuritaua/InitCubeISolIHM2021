@@ -25,28 +25,34 @@ class GestionnaireCommandes {
     }
 
     getHistorique() {
-        $(document).ready(function () {
-            let ths = this;
-            $.ajax({
-                type: 'GET',                                  //Type méthode envoie.
-                url: 'cgi-bin/main',                          //Localisation du cgi.
-                dataType: 'html',                             //Type de retour.
-                success: function (codeRecu) {
-                    var tramesJson = new Array();             // Creation tableau tramesJson.
-                    tramesJson = codeRecu;
-                    $('#listeHC').append('<li>'+tramesJson+'</li>')     // Séparation du code reçu a chaque '\n'.
-                    tramesJson.forEach(function (element) {   //Parcour chaque element du tableau.
-                        var parse = $.parseJSON(element)      //Permet d'obetenir grace a la variable parse.
-                   
-                        ths.historique.push(new Commande(test.CMD.ID, test.CMD.TYPE,0 , test.CMD.TYPEMEASURE))
-                        //Ajoute une instanciation de commande dans le tableau historique.
-                    });
-                }
-            });
+        console.log("Entrée dans getHistorique()");
+        let gestionnaireCourant = this;
+
+        $.ajax({
+            type: 'GET',                                  //Type méthode envoie.
+            url: 'cgi-bin/main',                            //Localisation du cgi.
+            async: false,
+            dataType: 'html',                             //Type de retour.
+            success: function (codeRecu) {
+                var tramesJson = new Array();             // Creation tableau tramesJson.
+                tramesJson = codeRecu.split(/\r?\n/);          // Séparation du code reçu a chaque '\n'.
+
+                tramesJson.forEach(function (test) {
+                    //Parcour chaque element du tableau.
+                    var commande = $.parseJSON(test)      //Permet d'obetenir grace a la variable parse.
+
+                    gestionnaireCourant.historique.push(new Commande(commande.CMD.ID, commande.CMD.TYPE, 0, commande.CMD.TYPEMEASURE))
+                    //Ajoute une instanciation de commande dans le tableau historique.
+                });
+            }
         });
+
     }
 
-    afficherHistorique() {                                                      
+    afficherHistorique() {
+       
+        console.log("Entrée dans afficherHisotrique()");
+        
         this.historique.forEach(function (commande) { //Parcour chaque element du tableau.
             $('#listeHC').append('<li><a href = "#listeHC">' + commande.idSatellite + ' ' + commande.typeCommande
                 + ' ' + commande.instrument + ' ' + commande.typeMesure + '</a></li>');

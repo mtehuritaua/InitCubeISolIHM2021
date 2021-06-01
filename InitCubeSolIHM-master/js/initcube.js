@@ -5,15 +5,10 @@ $(document).ready(function() {
     /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
     let gestionnaireCommandes = new GestionnaireCommandes();
     let vueNouvelleCommande = new VueNouvelleCommande(gestionnaireCommandes);
-    //à effacer si c'est resté en vert
-    /*$('#btnCommande').click(function() {
-        gestionnaireCommandes.genererCommande();
-        gestionnaireCommandes.transmettreDerniereCommande();
-        console.log("Commande format JSON" + gestionnaireCommandes.listeCommandes[gestionnaireCommandes.listeCommandes.length - 1].genererJSON());
-    })*/
-
+    let vueHistorique = new VueHistorique(gestionnaireCommandes);
+    
     gestionnaireCommandes.getHistorique(); //charge l'historique
-     gestionnaireCommandes.afficherHistorique(); //affiche l'historique
+    vueHistorique.afficherHistorique(); //affiche l'historique
 
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireInstruments = new GestionnaireInstruments();

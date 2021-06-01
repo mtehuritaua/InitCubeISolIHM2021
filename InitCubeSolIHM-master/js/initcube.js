@@ -11,10 +11,11 @@ $(document).ready(function() {
     vueHistorique.afficherHistorique(); //affiche l'historique
 
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
-    let gestionnaireInstruments = new GestionnaireInstruments();
+    let gestionnaireConfiguration = new GestionnaireConfiguration();
     let IHM_Instrument = new IHMInstrument();
-
-
+    let vueInstruPotentiels = new VueInstrumentPotentiels(gestionnaireConfiguration.gestionnaireInstruments);
+    
+    
     /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
 

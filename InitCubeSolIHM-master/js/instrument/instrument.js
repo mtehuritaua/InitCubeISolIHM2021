@@ -5,13 +5,14 @@ class Instrument {
     this.role = role;
     this.identifiant = identifiant;
     this.listeTypesMesure = new Array();
-    console.log("Création d'un Instrument nommé " + this.nom);
+   // console.log("Création d'un Instrument nommé " + this.nom);
   }
 
   addTypeMesure(nom, code, unite, valMin, valMax){
     this.listeTypesMesure.push(new TypeMesure(nom, code, unite, valMin, valMax));
   }
 
+  /*Genere une trame JSON avec toutes les données entrée dans le formulaire */
   genererJSON() {
     var textjson = JSON.stringify(this);
     console.log("JSON fabriqué automatiquement : " + textjson);

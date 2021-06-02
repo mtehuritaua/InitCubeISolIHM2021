@@ -6,21 +6,22 @@ $(document).ready(function() {
     /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
     segmentVol.genererMenuInstruments();
-    
+
     /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
     let gestionnaireCommandes = new GestionnaireCommandes();
     let vueNouvelleCommande = new VueNouvelleCommande(gestionnaireCommandes);
     let vueHistorique = new VueHistorique(gestionnaireCommandes);
-    
+    let testUnit = new TestUnitaire(segmentVol);
+
     gestionnaireCommandes.getHistorique(); //charge l'historique
     vueHistorique.afficherHistorique(); //affiche l'historique
 
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireConfiguration = new GestionnaireConfiguration();
     let vueNvelleInstrument = new VueNouvelleInstrument();
-    let vueInstruPotentiels = new VueInstrumentPotentiels(gestionnaireConfiguration.gestionnaireInstruments);  
-    let vueInstruExistant = new VueInstrumentsExistant(segmentVol);   
-       
+    let vueInstruPotentiels = new VueInstrumentPotentiels(gestionnaireConfiguration.gestionnaireInstruments);
+    let vueInstruExistant = new VueInstrumentsExistant(segmentVol);
+
 
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");

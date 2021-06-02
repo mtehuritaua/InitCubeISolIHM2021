@@ -2,6 +2,7 @@ class GestionnaireCommandes {
     constructor() {
         this.listeCommandes = new Array();
         this.historique = new Array();
+        this.datehistorique = new Array();
         console.log("Instanciation de la classe gestionnaireCommandes");
     }
     genererCommande(idSatellite, typeCommande, instrument, code) {
@@ -17,7 +18,7 @@ class GestionnaireCommandes {
             url: 'cgi-bin/cgi_1',
             data: gestCourant.listeCommandes[gestCourant.listeCommandes.length - 1].genererJSON(),
             dataType: 'json',
-            success: function (codeRecu) {
+            success: function(codeRecu) {
                 popup(codeRecu)
 
             }
@@ -29,19 +30,20 @@ class GestionnaireCommandes {
         let gestionnaireCourant = this;
 
         $.ajax({
-            type: 'GET',                                  //Type méthode envoie.
-            url: 'cgi-bin/main',                            //Localisation du cgi.
+            type: 'GET', //Type méthode envoie.
+            url: 'cgi-bin/main', //Localisation du cgi.
             async: false,
-            dataType: 'html',                             //Type de retour.
-            success: function (codeRecu) {
-                var tramesJson = new Array();             // Creation tableau tramesJson.
-                tramesJson = codeRecu.split(/\r?\n/);          // Séparation du code reçu a chaque '\n'.
+            dataType: 'html', //Type de retour.
+            success: function(codeRecu) {
+                var tramesJson = new Array(); // Creation tableau tramesJson.
+                tramesJson = codeRecu.split(/\r?\n/); // Séparation du code reçu a chaque '\n'.
 
-                tramesJson.forEach(function (test) {
+                tramesJson.forEach(function(test) {
                     //Parcour chaque element du tableau.
                     var commande = $.parseJSON(test)      //Permet d'obetenir grace a la variable parse.
-
+                    
                     gestionnaireCourant.historique.push(new Commande(commande.CMD.ID, commande.CMD.TYPE, 0, commande.CMD.TYPEMEASURE))
+                    gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setDateEnvoi(commande.DATE);// = c;//.setDate(commande.DATE);
                     //Ajoute une instanciation de commande dans le tableau historique.
                 });
             }
@@ -49,15 +51,5 @@ class GestionnaireCommandes {
 
     }
 
-    afficherHistorique() {
-       
-        console.log("Entrée dans afficherHisotrique()");
-        
-        this.historique.forEach(function (commande) { //Parcour chaque element du tableau.
-            $('#listeHC').append('<li><a href = "#listeHC">' + commande.idSatellite + ' ' + commande.typeCommande
-                + ' ' + commande.instrument + ' ' + commande.typeMesure + '</a></li>');
-
-        });
-    }
 
 }

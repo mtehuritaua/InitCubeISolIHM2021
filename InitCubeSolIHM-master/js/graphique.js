@@ -1,14 +1,14 @@
 class Graphique {
     constructor(idBalise,type, source, grandeur, unite) {
-        console.log("instanciation du graphique de type "+type+" de la source "+source);
+       // console.log("instanciation du graphique de type "+type+" de la source "+source);
         this.idBalise = idBalise;
         this.type = type;
         this.source = source;
         this.grandeur = grandeur;
         this.unite = unite;
-        console.log("<canvas id=\"graphique"+this.type+this.source+this.grandeur+"\"></canvas>");
+       // console.log("<canvas id=\"graphique"+this.type+this.source+this.grandeur+"\"></canvas>");
         $("#"+idBalise).append("<div class=\"graphe\"><canvas id=\"graphique"+this.type+this.source+this.grandeur+"\"></canvas></div>");
-        console.log("graphique"+this.type+this.source)+this.grandeur;
+        //console.log("graphique"+this.type+this.source)+this.grandeur;
         let identifiant = "graphique"+this.type+this.source+this.grandeur;
         this.ctx = document.getElementById(identifiant).getContext('2d');//$("#graphique"+type+source).getContext("2d");
         this.chart = new Chart(this.ctx,

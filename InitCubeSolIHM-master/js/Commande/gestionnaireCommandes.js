@@ -11,54 +11,53 @@ class GestionnaireCommandes {
     }
 
     transmettreDerniereCommande() {
-            let gestCourant = this;
-            $.ajax({
-                type: 'POST',
-                url: 'cgi-bin/cgi_1',
-                data: gestCourant.listeCommandes[gestCourant.listeCommandes.length - 1].genererJSON(),
-                dataType: 'json',
-                success: function(codeRecu) {
+        let gestCourant = this;
+        $.ajax({
+            type: 'POST',
+            url: 'cgi-bin/cgi_1',
+            data: gestCourant.listeCommandes[gestCourant.listeCommandes.length - 1].genererJSON(),
+            dataType: 'json',
+            success: function(codeRecu) {
+                popup(codeRecu)
 
-                }
-            });
-        }
-        /*
-            getHistorique() {
-                $(document).ready(function () {
-                    let ths = this;
-                    $.ajax({
-                        type: 'GET',
-                        url: 'cgi-bin/main',
-                        dataType: 'html',
-                        success: function (codeRecu) {
-                            var tramesJson = new Array();
-                            tramesJson = codeRecu.split('\n');
-
-                            tramesJson.forEach(function (element) {
-                                var parse = $.parseJSON(element);
-                                //$("#listeHC").append('<li>'+element+'</li>');
-                                //ths.historique.push(element);
-                                const p; //= new Commande(parse.CMD.ID, parse.CMD.TYPE, parse.CMD.TYPEMEASURE, parse.CMD.TYPEMEASURE)
-                                ths.addToHistorique(new Commande(parse.CMD.ID, parse.CMD.TYPE, parse.CMD.TYPEMEASURE, parse.CMD.TYPEMEASURE))
-                                //$("#listeHC").append('<li>'+p.genererJSON+'</li>');
-                            });
-                        }
-                    });
-
-                });
-            }*/
-
-    addToHistorique(commande) {
-        let ths = this;
-        ths.historique.push(commande);
+            }
+        });
     }
 
-    afficherHistorique() { //Affiche l'objet de type commande dans le tableau historique
-        let ths = this;
-        ths.historique.forEach(function(element) {
+    getHistorique() {
+        console.log("Entrée dans getHistorique()");
+        let gestionnaireCourant = this;
 
-        })
-        $("#listeHC").append('<li>test</li>');
+        $.ajax({
+            type: 'GET', //Type méthode envoie.
+            url: 'cgi-bin/main', //Localisation du cgi.
+            async: false,
+            dataType: 'html', //Type de retour.
+            success: function(codeRecu) {
+                var tramesJson = new Array(); // Creation tableau tramesJson.
+                tramesJson = codeRecu.split(/\r?\n/); // Séparation du code reçu a chaque '\n'.
+
+                tramesJson.forEach(function(test) {
+                    //Parcour chaque element du tableau.
+                    var commande = $.parseJSON(test) //Permet d'obetenir grace a la variable parse.
+
+                    gestionnaireCourant.historique.push(new Commande(commande.CMD.ID, commande.CMD.TYPE, 0, commande.CMD.TYPEMEASURE))
+                        //Ajoute une instanciation de commande dans le tableau historique.
+                });
+            }
+        });
+
+    }
+
+    afficherHistorique() {
+
+        console.log("Entrée dans afficherHisotrique()");
+
+        this.historique.forEach(function(commande) { //Parcour chaque element du tableau.
+            $('#listeHC').append('<li><a href = "#listeHC">' + commande.idSatellite + ' ' + commande.typeCommande +
+                ' ' + commande.instrument + ' ' + commande.typeMesure + '</a></li>');
+
+        });
     }
 
 }

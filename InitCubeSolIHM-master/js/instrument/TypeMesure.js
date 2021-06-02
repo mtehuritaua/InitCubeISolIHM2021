@@ -6,6 +6,6 @@ class TypeMesure {
         this.unite = unite;
         this.valMax = valMax;
         this.valMin = valMin;
-        console.log("Création d'un TypeMesure nommé " + this.nom);
+       // console.log("Création d'un TypeMesure nommé " + this.nom);
     }
 }

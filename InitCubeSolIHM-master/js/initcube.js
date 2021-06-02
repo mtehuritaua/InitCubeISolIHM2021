@@ -5,26 +5,22 @@ $(document).ready(function() {
 
     /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
-
     segmentVol.genererMenuInstruments();
 
     /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
     let gestionnaireCommandes = new GestionnaireCommandes();
     let vueNouvelleCommande = new VueNouvelleCommande(gestionnaireCommandes);
+    let vueHistorique = new VueHistorique(gestionnaireCommandes);
     let testUnit = new TestUnitaire(segmentVol);
-    //à effacer si c'est resté en vert
-    /*$('#btnCommande').click(function() {
-        gestionnaireCommandes.genererCommande();
-        gestionnaireCommandes.transmettreDerniereCommande();
-        console.log("Commande format JSON" + gestionnaireCommandes.listeCommandes[gestionnaireCommandes.listeCommandes.length - 1].genererJSON());
-    })*/
 
-    //  gestionnaireCommandes.getHistorique(); //charge l'historique
-    //gestionnaireCommandes.afficherHistorique(); //affiche l'historique
+    gestionnaireCommandes.getHistorique(); //charge l'historique
+    vueHistorique.afficherHistorique(); //affiche l'historique
 
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
-    let gestionnaireInstruments = new GestionnaireInstruments();
-    let IHM_Instrument = new IHMInstrument();
+    let gestionnaireConfiguration = new GestionnaireConfiguration();
+    let vueNvelleInstrument = new VueNouvelleInstrument();
+    let vueInstruPotentiels = new VueInstrumentPotentiels(gestionnaireConfiguration.gestionnaireInstruments);
+    let vueInstruExistant = new VueInstrumentsExistant(segmentVol);
 
 
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/

@@ -15,4 +15,5 @@ class Commande {
         console.log("JSON fabriqué automatiquement : " + cmd);
         return cmd;
     }
+    
 }

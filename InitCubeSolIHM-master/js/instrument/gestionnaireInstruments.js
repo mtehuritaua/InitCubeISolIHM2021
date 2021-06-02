@@ -26,6 +26,7 @@ class GestionnaireInstruments {
       instrument.addTypeMesure(
         $(this).find('input[name="nomMesure"]').val(),
         $(this).find('input[name="codeMesure"]').val(),
+        $(this).find('input[name="description"]').val(),
         $(this).find('input[name="unite"]').val(),
         $(this).find('input[name="valMin"]').val(),
         $(this).find('input[name="valMax"]').val()
@@ -47,6 +48,7 @@ class GestionnaireInstruments {
     instrumentCourant.listeTypesMesure.forEach(function (element, index) {
       $('#addRecap' + index).find('input[name="nomMesure"]').val(element.nom);
       $('#addRecap' + index).find('input[name="codeMesure"]').val(element.code);
+      $('#addRecap' + index).find('input[name="description"]').val(element.description);
       $('#addRecap' + index).find('input[name="unite"]').val(element.unite);
       $('#addRecap' + index).find('input[name="valMin"]').val(element.valMin);
       $('#addRecap' + index).find('input[name="valMax"]').val(element.valMax);

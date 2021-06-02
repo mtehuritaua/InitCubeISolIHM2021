@@ -28,10 +28,8 @@
     <script type="text/javascript" src="js/Commande/gestionnaireCommandes.js"></script>
     <script type="text/javascript" src="js/Commande/ajaxEnvoyerCommande.js"></script>
     <script type="text/javascript" src="js/Commande/VueNouvelleCommande.js"></script>
-    <script src="assets/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/Commande/testUnitaire.js"></script>
     <script src="assets/js/jquery.serializeToJSON.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="js/initcube.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
@@ -90,70 +88,38 @@
         </div>
     </div>
 
- <!-- 
+    <!-- 
             ======================================
                         Page Choix Instruments
             ======================================
         -->
 
-        <div data-role="page" id="pageConfiguration" data-theme="b">
-            <div id="header" class="general">
-                <img id="imgCnes" src="images/cnes.png" />
-                <!--  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>-->
-            </div>
-    
-            <div data-role="main" class="general body">
-                <form id="Configuration"> 
-                    <div data-role="controlgroup" data-iconpos="right">
-                        <legend style="color:#ffffff"> Veuillez choisir votre instrument:</legend>
-                        <br/>
-                        <input type="checkbox" name="Magnetometre" id="choixMagnetometre">
-                        <label for="choixMagnetometre">Magnetometre</label>
-                        <br/>
-                        <input type="checkbox" name="Matrice" id="choixMatrice">
-                        <label for="choixMatrice">Matrice</label>
-                        <br/>
-                        <input type="checkbox" name="Camera" id="choixCamera">
-                        <label for="choixCamera">Camera</label>
-                        <br/>
-
-                        <button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check" id="EnvoyerInstrument">Envoyer</button>
-                        <button type="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check" id="Annuler">Annuler</button>
-                        <a href="#pageFormulaire" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-left">Ajouter un Instrument</a>
-                    </div>
-                </form>
-    
-                <div id="schemaSyno">
-                    <script type="text/javascript" src="js/schemaSyno/mainSchema.js"></script>
-                    <script type="text/javascript" src="js/schemaSyno/Rectangle.js"></script>
-                </div>
-            </div>
-    
-            <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-                <div data-role="navbar" data-grid="" data-iconpos="left">
-                    <ul id="menu">
-                        <li><a href="#pageEtat">Etat</a></li>
-                        <li><a href="#pageInstruments"> Instruments</a></li>
-                        <li><a href="#pageCommande">Commande</a></li>
-                        <li><a href="#pageConfiguration"> Configuration</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    <!-- 
-            ======================================
-                        Page Instruments
-            ======================================
-        -->
-    <div data-role="page" id="pageInstruments" data-theme="b">
+    <div data-role="page" id="pageConfiguration" data-theme="b">
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
+            <!--  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>-->
         </div>
 
         <div data-role="main" class="general body">
+            <form id="Configuration">
+                <div data-role="controlgroup" data-iconpos="right">
+                    <legend style="color:#ffffff"> Veuillez choisir votre instrument:</legend>
+                    <br/>
+                    <input type="checkbox" name="Magnetometre" id="choixMagnetometre">
+                    <label for="choixMagnetometre">Magnetometre</label>
+                    <br/>
+                    <input type="checkbox" name="Matrice" id="choixMatrice">
+                    <label for="choixMatrice">Matrice</label>
+                    <br/>
+                    <input type="checkbox" name="Camera" id="choixCamera">
+                    <label for="choixCamera">Camera</label>
+                    <br/>
 
-            <div id="Instrument" class="general">  </div>
+                    <button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check" id="EnvoyerInstrument">Envoyer</button>
+                    <button type="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check" id="Annuler">Annuler</button>
+                    <a href="#pageFormulaire" class="ui-btn ui-btn-inline ui-icon-plus ui-btn-icon-left">Ajouter un Instrument</a>
+                </div>
+            </form>
 
             <div id="schemaSyno">
                 <script type="text/javascript" src="js/schemaSyno/mainSchema.js"></script>
@@ -172,7 +138,39 @@
             </div>
         </div>
     </div>
-    
+
+    <!-- 
+            ======================================
+                        Page Instruments
+            ======================================
+        -->
+    <div data-role="page" id="pageInstruments" data-theme="b">
+        <div id="header" class="general">
+            <img id="imgCnes" src="images/cnes.png" />
+        </div>
+
+        <div data-role="main" class="general body">
+
+            <div id="Instrument" class="general"> </div>
+
+            <div id="schemaSyno">
+                <script type="text/javascript" src="js/schemaSyno/mainSchema.js"></script>
+                <script type="text/javascript" src="js/schemaSyno/Rectangle.js"></script>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+            <div data-role="navbar" data-grid="" data-iconpos="left">
+                <ul id="menu">
+                    <li><a href="#pageEtat">Etat</a></li>
+                    <li><a href="#pageInstruments"> Instruments</a></li>
+                    <li><a href="#pageCommande">Commande</a></li>
+                    <li><a href="#pageConfiguration"> Configuration</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <!-- 
 	            ======================================
 	                        Page Formulaire Ajout Instrument
@@ -185,9 +183,9 @@
 
         <!--  création d'un formulaire jQuery Mobile -->
         <form action="#" method="post" id="form">
-        
+
             <div class="ui-grid-a">
-        
+
                 <div class="ui-block-a">
                     <div class="ui-bar"></div>
                     <legend style="color:#ffffff">Nouvel Instrument</legend>
@@ -199,47 +197,45 @@
                     <input name="ref" id="ref" class="champs" />
                     <label for="role">Rôle:</label>
                     <input name="role" id="role" class="champs" />
-                    <a href="#popupRecap" data-rel="popup" data-position-to="window"
-                        class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer"
-                        data-transition="pop">Envoyer</a>
-        
-                    <a href="#pageInstruments" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete"
-                        id="Annuler">Annuler</a>
-        
+                    <a href="#popupRecap" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer" data-transition="pop">Envoyer</a>
+
+                    <a href="#pageInstruments" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete" id="Annuler">Annuler</a>
+
                     <button type="reset" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-forward" id="reset">Reset</button>
                     <button type="button" class="ui-btn ui-icon-plus ui-btn-icon-left ui-btn-inline" id="Ajouter">Ajouter
                         Mesure</button>
                     <button type="button" class="ui-btn ui-icon-minus ui-btn-icon-left ui-btn-inline" id="Supprimer">Supprimer
                         Mesure</button>
                 </div>
-        
+
                 <div class="ui-block-b">
                     <div class="ui-bar">
                         <div id="typeMesure0">
                             <legend style="color:#ffffff">Type de Mesure</legend>
-        
+
                             <label for="mesure">Mesure:</label>
                             <input type="text" name="nomMesure" class="champs" />
-        
+
                             <label for="codeMesure">Code Commande:</label>
                             <input type="text" name="codeMesure" class="champs" />
-        
+
                             <label for="unite">Unité:</label>
                             <input type="text" name="unite" class="TypeMesure" />
-        
+
                             <label for="valMin">Seuil Min:</label>
                             <input type="text" name="valMin" class="TypeMesure" />
-        
+
                             <label for="valMax">Seuil Max:</label>
                             <input type="text" name="valMax" class="TypeMesure" />
                         </div>
                         <div id="new" class="new"> </div>
                     </div>
                 </div>
-            </div><!-- /grid-c -->
+            </div>
+            <!-- /grid-c -->
         </form>
-    
-    <br/>
+
+        <br/>
 
         <!-- Récap formulaire instrument-->
         <div data-role="popup" id="popupRecap" data-theme="a" class="ui-corner-all">

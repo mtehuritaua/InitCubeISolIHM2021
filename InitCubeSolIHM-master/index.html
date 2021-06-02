@@ -112,29 +112,23 @@
         </div>
 
         <div data-role="main" class="general body">
-            <div id="Instrument" class="general">
-                <!--Insertion du menu de chaque instrument ICI-->
+            <div id="Instrument" class="general"> </div>
+            <div id="schemaSyno">
+                <script type="text/javascript" src="js/schemaSyno/mainSchema.js"></script>
+                <script type="text/javascript" src="js/schemaSyno/Rectangle.js"></script>
             </div>
         </div>
 
-        <div id="Instrument" class="general"> </div>
-
-        <div id="schemaSyno">
-            <script type="text/javascript" src="js/schemaSyno/mainSchema.js"></script>
-            <script type="text/javascript" src="js/schemaSyno/Rectangle.js"></script>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+            <div data-role="navbar" data-grid="" data-iconpos="left">
+                <ul id="menu">
+                    <li><a href="#pageEtat">Etat</a></li>
+                    <li><a href="#pageInstruments"> Instruments</a></li>
+                    <li><a href="#pageCommande">Commande</a></li>
+                    <li><a href="#pageConfiguration"> Configuration</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-
-    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
-        <div data-role="navbar" data-grid="" data-iconpos="left">
-            <ul id="menu">
-                <li><a href="#pageEtat">Etat</a></li>
-                <li><a href="#pageInstruments"> Instruments</a></li>
-                <li><a href="#pageCommande">Commande</a></li>
-                <li><a href="#pageConfiguration"> Configuration</a></li>
-            </ul>
-        </div>
-    </div>
     </div>
 
     <!-- 
@@ -625,7 +619,7 @@
                         <div class="block">
 
                             <div class="block-header overflow-hidden">
-                                <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown" style="color:#0066FF" ;>CENTRE DE COMMANDE</h2>
+                                <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown" style="color:#ffffff">CENTRE DE COMMANDE</h2>
                             </div>
 
                             <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -660,10 +654,7 @@
                                     </div>
                                     <div data-role="fieldcontain">
                                         <label for="liste"> Instruments :</label>
-                                        <select style="color:#000000" name="liste" id="Instru">
-                                            <option value="CAM_THERM">Caméra</option>
-                                            <option value="MAGNETOMETRE">Magnétomètre</option>
-                                        </select>
+                                        <select style="color:#000000" name="liste" id="instru"></select>
                                     </div>
                                     <div data-role="fieldcontain">
                                         <label for="liste"> Type de mesure :</label>
@@ -686,7 +677,7 @@
 
                     <!--Historique-->
                     <div class="col-sm-6 col-lg-2 col-lg-pull-6; block" style="margin-top: 3%;">
-                        <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown" style="color:#0066FF" ;>HISTORIQUE</h2>
+                        <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown" style="color:#0066FF">HISTORIQUE</h2>
                         <ul id="listeHC"></ul>
                     </div>
                     <!--End Historique-->

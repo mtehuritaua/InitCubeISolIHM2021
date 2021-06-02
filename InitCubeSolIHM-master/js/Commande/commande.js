@@ -4,10 +4,11 @@ class Commande {
         this.typeCommande = typeCommande;
         this.instrument = instrument;
         this.code = code;
+        this.dateEnvoi = "0000/00/00 00:00:00";
         console.log("Instanciation d'une commande " + idSatellite + " " + typeCommande + " " + instrument + " " + code);
     }
-    setDate(date) {
-
+    setDateEnvoi(date) {
+        this.dateEnvoi = date;
     }
 
     genererJSON() {

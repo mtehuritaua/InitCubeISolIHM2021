@@ -2,9 +2,16 @@
 //var matrice = new CMatrice(camera);
 
 $(document).ready(function() {
+
+    /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
+    let segmentVol = new SegmentVol("../initcube.xml");
+
+    segmentVol.genererMenuInstruments();
+
     /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
     let gestionnaireCommandes = new GestionnaireCommandes();
     let vueNouvelleCommande = new VueNouvelleCommande(gestionnaireCommandes);
+    let testUnit = new TestUnitaire(segmentVol);
     //à effacer si c'est resté en vert
     /*$('#btnCommande').click(function() {
         gestionnaireCommandes.genererCommande();
@@ -12,19 +19,13 @@ $(document).ready(function() {
         console.log("Commande format JSON" + gestionnaireCommandes.listeCommandes[gestionnaireCommandes.listeCommandes.length - 1].genererJSON());
     })*/
 
-  //  gestionnaireCommandes.getHistorique(); //charge l'historique
+    //  gestionnaireCommandes.getHistorique(); //charge l'historique
     //gestionnaireCommandes.afficherHistorique(); //affiche l'historique
 
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireInstruments = new GestionnaireInstruments();
     let IHM_Instrument = new IHMInstrument();
 
-
-    /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
-    let segmentVol = new SegmentVol("../initcube.xml");
-
-    segmentVol.genererMenuInstruments();
-    segmentVol.chargerInstruments();
 
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");

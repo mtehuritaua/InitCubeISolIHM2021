@@ -1,22 +1,22 @@
 class TestUnitaire {
-    constructor() {
-        let segVol = new SegmentVol();
-        let gestCom = new GestionnaireCommandes();
-        let vNCommande = new VueNouvelleCommande(gestCom);
+    constructor(segVol) {
+        this.segmentVol = segVol;
+        this.gestCom = new GestionnaireCommandes();
+        let vNCommande = new VueNouvelleCommande(this.gestCom);
+        this.genererIntrumentsForm();
     }
 
-
     genererIntrumentsForm() {
-        console.log("test du formulaire dynamique");
-        for (var i = 0; i < this.listeInstruments.length; i++) {
-            $("Instru").append('<option value ="' + SegmentVol.listeInstruments[i].ref + '">' + SegmentVol.listeInstruments[i].nom + '"</option>"');
+        let testUni = this;
+        for (var i = 0; i < this.segmentVol.listeInstruments.length; i++) {
+            $("#instru").append('<option value ="' + testUni.segmentVol.listeInstruments[i].ref + '">' + testUni.segmentVol.listeInstruments[i].nom + '</option>');
         }
     }
 
-    genererTypeM() {
+    /*genererTypeM() {
         for (var i = 0; this.listeInstruments.length; i++) {
             $("code").append('<option value ="' + SegmentVol.listeInstruments[i].code + '">' + SegmentVol.listeInstruments[i].nom + '"</option>"');
         }
-    }
-}
+
+    }*/
 }

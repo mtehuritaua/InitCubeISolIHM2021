@@ -17,6 +17,9 @@ $(document).ready(function () {
             ref: {
                 minlength: 4, maxlength: 15, textOnly: true, required: true
             },
+             adresse: {
+                minlength: 4, maxlength: 4, textOnly: true, required: true
+            },
             role: {
                 textOnly: true, required: true
             },
@@ -43,6 +46,11 @@ $(document).ready(function () {
                 minlength: "Au moins 4 caractères",
                 maxlength: "Au max 15 caractères",
                 required: "Entrez une référence."
+            },
+            adresse: {
+                minlength: "Au moins 4 caractères",
+                maxlength: "Au max 4 caractères",
+                required: "Entrez une adresse I2C commençant par 0x."
             },
             role: {
                 required: "Entrez le role."

@@ -18,7 +18,7 @@ class GestionnaireCommandes {
             url: 'cgi-bin/cgi_1',
             data: gestCourant.listeCommandes[gestCourant.listeCommandes.length - 1].genererJSON(),
             dataType: 'json',
-            success: function (codeRecu) {
+            success: function(codeRecu) {
                 popup(codeRecu)
 
             }
@@ -30,15 +30,15 @@ class GestionnaireCommandes {
         let gestionnaireCourant = this;
 
         $.ajax({
-            type: 'GET',                                  //Type méthode envoie.
-            url: 'cgi-bin/main',                            //Localisation du cgi.
+            type: 'GET', //Type méthode envoie.
+            url: 'cgi-bin/main', //Localisation du cgi.
             async: false,
-            dataType: 'html',                             //Type de retour.
-            success: function (codeRecu) {
-                var tramesJson = new Array();             // Creation tableau tramesJson.
-                tramesJson = codeRecu.split(/\r?\n/);          // Séparation du code reçu a chaque '\n'.
+            dataType: 'html', //Type de retour.
+            success: function(codeRecu) {
+                var tramesJson = new Array(); // Creation tableau tramesJson.
+                tramesJson = codeRecu.split(/\r?\n/); // Séparation du code reçu a chaque '\n'.
 
-                tramesJson.forEach(function (test) {
+                tramesJson.forEach(function(test) {
                     //Parcour chaque element du tableau.
                     var commande = $.parseJSON(test)      //Permet d'obetenir grace a la variable parse.
                     

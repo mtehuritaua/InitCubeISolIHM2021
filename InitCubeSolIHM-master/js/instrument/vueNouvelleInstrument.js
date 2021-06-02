@@ -1,4 +1,4 @@
-class IHMInstrument {
+class VueNouvelleInstrument {
   constructor() {
     // attributs
     this.nbTypesMesure = 1;
@@ -14,14 +14,15 @@ class IHMInstrument {
 
   /*Choisis l'instrument dans la page configuration*/
   choisirInstrument() {
-    $("EnvoyerInsturment").click(function () {
+    $("EnvoyerConf").click(function () {
+      location.href = "#pageMagnetometre";
       if ($("choixMagnetometre").attr("checked") == true) {
         location.href = "#pageMagnetometre";
-        $("choixMagnetometre").attr("checked", false);
+       // $("choixMagnetometre").attr("checked", false);
       }
       else if ($("choixCamera").attr("checked") == true) {
         location.href = "#pageCamera";
-        $("choixCamera").attr("checked", false);
+       // $("choixCamera").attr("checked", false);
       }
     });
   }
@@ -44,7 +45,7 @@ class IHMInstrument {
     });
   }
 
-  //Mettre nouveau id pour chaque type mesure ajouter + IHM
+  //Mettre nouveau id pour chaque type mesure ajouter 
   ajouterFormTypeMesure() {
     let gestionnaireCourant = this;
     $("#Ajouter").click(function () {

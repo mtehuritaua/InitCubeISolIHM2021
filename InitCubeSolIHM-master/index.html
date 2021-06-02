@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
-    <script type="text/javascript" src="js/graphique.js"></script>
     <link rel="stylesheet" href="css/siteCssZ.css">
-    <link rel="stylesheet" href="css/jquery-ui.css" >
-    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui.css" >    
+
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>    
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--<script type="text/javascript" src="js/jquery.validate.min.js"></script>-->
 
+    <script type="text/javascript" src="js/graphique.js"></script>
     <script type="text/javascript" src="js/resizeGraphic.js"></script>
     <script type="text/javascript" src="js/canvasjs.min.js"></script>
     <script type="text/javascript" src="js/matrice/CCamera.js"></script>
@@ -29,7 +30,6 @@
     <script type="text/javascript" src="js/instrument/vueInstrumentsExistant.js"></script> 
     <script type="text/javascript" src="js/instrument/Mesure.js"></script>
     <script type="text/javascript" src="js/instrument/TypeMesure.js"></script>
-    <script type="text/javascript" src="js/instrument/formulaire.js"></script>
     
     <script type="text/javascript" src="js/segmentVol.js"></script>
     <script type="text/javascript" src="js/Commande/commande.js"></script>
@@ -40,10 +40,11 @@
 
     <script type="text/javascript" src="assets/js/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.serializeToJSON.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="js/initcube.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+   <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
 </head>
 
 <body>
@@ -111,12 +112,13 @@
         </div>
 
         <div data-role="main" class="general body">
-            <div id="Instrument" class="general"> <!--Insertion du menu de chaque instrument ICI-->  </div>
-        </div>
 
-        <div id="schemaSyno">
-            <script type="text/javascript" src="js/schemaSyno/mainSchema.js"></script>
-            <script type="text/javascript" src="js/schemaSyno/Rectangle.js"></script>
+            <div id="Instrument" class="general">  </div>
+
+            <div id="schemaSyno">
+                <script type="text/javascript" src="js/schemaSyno/mainSchema.js"></script>
+                <script type="text/javascript" src="js/schemaSyno/Rectangle.js"></script>
+            </div>
         </div>
 
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
@@ -140,11 +142,28 @@
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
         </div>
+        <!--Bouton en haut de la page-->
+        <div class="ui-grid-d">
+            <div class="ui-block-a"><a href="#popupRecap" data-rel="popup" data-position-to="window"
+                    class="ui-btn ui-icon-check ui-btn-icon-left " id="Envoyer"
+                    data-transition="pop">Envoyer</a></div>
+            <div class="ui-block-b">
+                <a href="#pageConfiguration" name="cancel" class="ui-btn  ui-btn-icon-left ui-icon-delete"
+                    id="Annuler">Annuler</a>
+            </div>
+            <div class="ui-block-c"> <button type="reset" class="ui-btn  ui-btn-icon-left ui-icon-forward"
+                    id="reset">Reset</button></div>
+            <div class="ui-block-d"><button type="button" class="ui-btn ui-icon-plus ui-btn-icon-left "
+                    id="Ajouter">Ajouter
+                    Mesure</button></div>
+            <div class="ui-block-e"><button type="button" class="ui-btn ui-icon-minus ui-btn-icon-left "
+                    id="Supprimer">Supprimer
+                    Mesure</button></div>
+        </div>
     
         <!--  création d'un formulaire -->
         <form action="#" method="post" id="formulaire">
             <div class="ui-grid-a">
-    
                 <div class="ui-block-a">
                     <div class="ui-bar"></div>
                     <legend style="color:#ffffff">Nouvel Instrument</legend>
@@ -158,19 +177,6 @@
                     <input name="adresse" id="adresse" />
                     <label for="role">Rôle:</label>
                     <input name="role" id="role" />
-    
-                    <a href="#popupRecap" data-rel="popup" data-position-to="window"
-                        class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-check ui-btn-icon-left " id="Envoyer"
-                        data-transition="pop">Envoyer</a>
-                    <a href="#pageConfiguration" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete"
-                        id="Annuler">Annuler</a>
-                    <button type="reset" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-forward"
-                        id="reset">Reset</button>
-                    <button type="button" class="ui-btn ui-icon-plus ui-btn-icon-left ui-btn-inline" id="Ajouter">Ajouter
-                        Mesure</button>
-                    <button type="button" class="ui-btn ui-icon-minus ui-btn-icon-left ui-btn-inline"
-                        id="Supprimer">Supprimer
-                        Mesure</button>
                 </div>
     
                 <div class="ui-block-b">
@@ -181,6 +187,8 @@
                             <input type="text" name="nomMesure" id="nomMesure" />
                             <label for="codeMesure">Code Commande:</label>
                             <input type="text" name="codeMesure" id="codeMesure" />
+                            <label for="description">Description:</label>
+                            <input type="text" name="description" id="description" />
                             <label for="unite">Unité:</label>
                             <input type="text" name="unite" id="unite" />
                             <label for="valMin">Seuil Min:</label>
@@ -219,6 +227,8 @@
                             <input type="text" name="nomMesure" class="rajout" />
                             <label for="codeMesure">Code Commande:</label>
                             <input type="text" name="codeMesure" class="rajout" />
+                            <label for="description">Description:</label>
+                            <input type="text" name="description" class="rajout" />
                             <label for="unite">Unité:</label>
                             <input type="text" name="unite" class="rajout" />
                             <label for="valMin">Seuil Min:</label>
@@ -235,21 +245,18 @@
                 </div>
             </form>
         </div>
-        <!-- Message réponse apres envoie du formulaire-->        
+        <!-- Message réponse apres envoie du formulaire       
         <div id="transmission">
-            <!-- Bonne transmission-->
             <div data-role="popup" id="bienTransmis" data-theme="a" data-dismissible="false" style="padding:20px 50px;">
                 <p>Le formulaire à bien été transmise</p>
             </div>
-            <!-- Mauvaise transmission-->
             <div data-role="popup" id="malTransmis" data-theme="a" data-dismissible="false" style="padding:20px 50px;">
                 <p>Le formulaire n'a pas été transmis</p>
             </div>
-            <!-- Erreur transmission-->
             <div data-role="popup" id="erreurTransmis" data-theme="a" data-dismissible="false" style="padding:20px 50px;">
                 <p>Erreur </p>
             </div>
-        </div>
+        </div>--> 
     
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
             <div data-role="navbar" data-grid="" data-iconpos="left">

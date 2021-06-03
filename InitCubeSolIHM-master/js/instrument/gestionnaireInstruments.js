@@ -1,13 +1,8 @@
 class GestionnaireInstruments {
   constructor() {
-     // console.log('<canvas id="instru' + this.type + this.source + '"></canvas>');
-     $("#instru").append(
-      '<div class="instruments"><canvas id="instru' +
-        this.type +
-        '"></canvas></div>'
-    );
     let gestionnaireCourant = this; //Créer variable car sinon certaine ne sont pas définie
     this.listeInstruments = new Array();
+    
     $("#Envoyer").click(function () {
       gestionnaireCourant.ajouterInstrument(); //stocker donnée dans instance instrument
       gestionnaireCourant.recapFormInstrument();// -> construire recap a partir des données avant
@@ -26,6 +21,7 @@ class GestionnaireInstruments {
       instrument.addTypeMesure(
         $(this).find('input[name="nomMesure"]').val(),
         $(this).find('input[name="codeMesure"]').val(),
+        $(this).find('input[name="description"]').val(),
         $(this).find('input[name="unite"]').val(),
         $(this).find('input[name="valMin"]').val(),
         $(this).find('input[name="valMax"]').val()
@@ -47,6 +43,7 @@ class GestionnaireInstruments {
     instrumentCourant.listeTypesMesure.forEach(function (element, index) {
       $('#addRecap' + index).find('input[name="nomMesure"]').val(element.nom);
       $('#addRecap' + index).find('input[name="codeMesure"]').val(element.code);
+      $('#addRecap' + index).find('input[name="description"]').val(element.description);
       $('#addRecap' + index).find('input[name="unite"]').val(element.unite);
       $('#addRecap' + index).find('input[name="valMin"]').val(element.valMin);
       $('#addRecap' + index).find('input[name="valMax"]').val(element.valMax);
@@ -54,7 +51,7 @@ class GestionnaireInstruments {
     });
   }
 
-  /*Liste les instruments potentiels */
+  /*Liste les instruments potentiels qu'on peut ajouter au segment vol */
   listerInstrumentsPotentiels() {
     let gestionnaireCourant = this;
     $.ajax({
@@ -80,12 +77,13 @@ class GestionnaireInstruments {
   /*Ajouter la liste des instruments*/
   addToListeInstruments(instrumentJSON) {
     var instrumentParse = $.parseJSON(instrumentJSON);
-    let instrument = new Instrument(instrumentParse.nom, instrumentParse.ref, instrumentParse.role, instrumentParse.identifiant);
+    let instrument = new Instrument(instrumentParse.nom, instrumentParse.identifiant, instrumentParse.ref, instrumentParse.adresse, instrumentParse.role );
 
     instrumentParse.listeTypesMesure.forEach(function (element) {
       instrument.addTypeMesure(
         element.nom,
         element.code,
+        element.description,
         element.unite,
         element.valMax,
         element.valMin

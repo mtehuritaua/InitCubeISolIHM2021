@@ -8,7 +8,7 @@ class TestUnitaire {
 
     genererIntrumentsForm() {
         let testUni = this;
-        for (var i = 0; i < this.segmentVol.listeInstruments.length; i++) {
+        for (var i = 0; i < testUni.segmentVol.listeInstruments.length; i++) {
             $("#instru").append('<option value ="' + testUni.segmentVol.listeInstruments[i].ref + '">' + testUni.segmentVol.listeInstruments[i].nom + '</option>');
         }
     }

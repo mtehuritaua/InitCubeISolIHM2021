@@ -9,8 +9,8 @@ class Instrument {
    // console.log("Création d'un Instrument nommé " + this.nom);
   }
 
-  addTypeMesure(nom, code, unite, valMin, valMax){
-    this.listeTypesMesure.push(new TypeMesure(nom, code, unite, valMin, valMax));
+  addTypeMesure(nom, code, description, unite, valMin, valMax){
+    this.listeTypesMesure.push(new TypeMesure(nom, code, description, unite, valMin, valMax));
   }
 
   /*Genere une trame JSON avec toutes les données entrée dans le formulaire */

@@ -17,10 +17,9 @@ $(document).ready(function() {
     vueHistorique.afficherHistorique(); //affiche l'historique
 
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
-    let gestionnaireConfiguration = new GestionnaireConfiguration();
+    let gestionnaireConfiguration = new GestionnaireConfiguration(segmentVol);
     let vueNvelleInstrument = new VueNouvelleInstrument();
-    let vueInstruPotentiels = new VueInstrumentPotentiels(gestionnaireConfiguration.gestionnaireInstruments);
-    let vueInstruExistant = new VueInstrumentsExistant(segmentVol);
+    let vueConfSV = new VueConfigurationSV(gestionnaireConfiguration);
 
 
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
@@ -38,7 +37,7 @@ $(document).ready(function() {
     let graphMagnetoBZ = new Graphique("graphMagneto", "Magnetometre", "ValeurBZ", "Valeur", "μT");
 
     /*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
-    var source = new EventSource("cgi-bin/cubeEventServer.cgi");
+    var source = new EventSource("cgi-bin/cubeEventServer.cgi");//modifier nom cgi: cgiDiffuserTM.cgi (TéléMesure)
     source.addEventListener("etat", function(event) {
         var obj = JSON.parse(event.data);
         document.getElementById("ChargeBatterie").innerHTML = obj.batterie.niveauDeCharge + " %";

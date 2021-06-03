@@ -5,26 +5,10 @@ class VueNouvelleInstrument {
     this.nbTypesMesureRecap = 1;
     let gestionnaireCourant = this; //Créer variable car sinon certaine ne sont pas définie
 
-    gestionnaireCourant.choisirInstrument();
     gestionnaireCourant.bloquerEcriture();
     gestionnaireCourant.ajouterFormTypeMesure();
     gestionnaireCourant.resetForm();
     gestionnaireCourant.supprimerFormTypeMesure();
-  }
-
-  /*Choisis l'instrument dans la page configuration*/
-  choisirInstrument() {
-    $("EnvoyerConf").click(function () {
-      location.href = "#pageMagnetometre";
-      if ($("choixMagnetometre").attr("checked") == true) {
-        location.href = "#pageMagnetometre";
-       // $("choixMagnetometre").attr("checked", false);
-      }
-      else if ($("choixCamera").attr("checked") == true) {
-        location.href = "#pageCamera";
-       // $("choixCamera").attr("checked", false);
-      }
-    });
   }
 
   /*Bloquer écriture récapitulatif + IHM */

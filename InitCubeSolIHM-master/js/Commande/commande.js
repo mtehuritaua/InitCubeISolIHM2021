@@ -5,10 +5,16 @@ class Commande {
         this.instrument = instrument;
         this.code = code;
         this.dateEnvoi = "0000/00/00 00:00:00";
+        this.reponse = "0";
         console.log("Instanciation d'une commande " + idSatellite + " " + typeCommande + " " + instrument + " " + code);
     }
+
     setDateEnvoi(date) {
         this.dateEnvoi = date;
+    }
+
+    setReponse(resultat) {
+        this.reponse = resultat;
     }
 
     genererJSON() {
@@ -16,5 +22,5 @@ class Commande {
         console.log("JSON fabriqué automatiquement : " + cmd);
         return cmd;
     }
-    
+
 }

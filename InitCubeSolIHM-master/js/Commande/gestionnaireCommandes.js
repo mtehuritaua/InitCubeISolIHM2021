@@ -1,10 +1,12 @@
 class GestionnaireCommandes {
-    constructor() {
+    constructor(segVol) {
+        this.segmentVol = segVol;
         this.listeCommandes = new Array();
         this.historique = new Array();
         this.datehistorique = new Array();
         console.log("Instanciation de la classe gestionnaireCommandes");
     }
+
     genererCommande(idSatellite, typeCommande, instrument, code) {
         this.listeCommandes.push(new Commande(idSatellite, typeCommande, instrument, code));
         //ajout de cette ligne dans VueNouvelleCommande
@@ -19,8 +21,7 @@ class GestionnaireCommandes {
             data: gestCourant.listeCommandes[gestCourant.listeCommandes.length - 1].genererJSON(),
             dataType: 'json',
             success: function(codeRecu) {
-                popup(codeRecu)
-
+                return (codeRecu);
             }
         });
     }
@@ -40,10 +41,10 @@ class GestionnaireCommandes {
 
                 tramesJson.forEach(function(test) {
                     //Parcour chaque element du tableau.
-                    var commande = $.parseJSON(test)      //Permet d'obetenir grace a la variable parse.
-                    
+                    var commande = $.parseJSON(test) //Permet d'obetenir grace a la variable parse.
+
                     gestionnaireCourant.historique.push(new Commande(commande.CMD.ID, commande.CMD.TYPE, 0, commande.CMD.TYPEMEASURE))
-                    gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setDateEnvoi(commande.DATE);// = c;//.setDate(commande.DATE);
+                    gestionnaireCourant.historique[gestionnaireCourant.historique.length - 1].setDateEnvoi(commande.DATE); // = c;//.setDate(commande.DATE);
                     //Ajoute une instanciation de commande dans le tableau historique.
                 });
             }

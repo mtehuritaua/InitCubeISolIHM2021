@@ -8,7 +8,8 @@ class GestionnaireInstruments {
       gestionnaireCourant.recapFormInstrument();// -> construire recap a partir des données avant
     });
     $("#EnvoieRecap").click(function () {
-      gestionnaireCourant.envoyerTrameJSON();
+      gestionnaireCourant.transmettreTrameJSON();
+      gestionnaireCourant.transmettreImage();
       location.href = "#pageConfiguration";
     });
   }
@@ -94,7 +95,7 @@ class GestionnaireInstruments {
   }
 
   /*Envoyer Trame JSON du nouvel instrument pour sauvegarder dans la base de donnée*/
-  envoyerTrameJSON() {
+  transmettreTrameJSON() {
     let gestionnaireCourant = this;
     $.ajax({
       url: "cgi-bin/cgiAjouterInstrument.cgi",
@@ -107,13 +108,14 @@ class GestionnaireInstruments {
       },
     });
   }
+
+  transmettreImage(){
+
+  }
 /*
   popup(value) {
-    if (value == "ACK") {
+    if (value == "OK") {
       $("#bienTransmis").fadeIn(200).delay(3000).fadeOut(400)
-    } else if (value == "NACK")
-      $("#malTransmis").fadeIn(200).delay(3000).fadeOut(400);
-    else
-      $("#erreurTransmis").fadeIn(200).delay(3000).fadeOut(400);
+    }
   }*/
 }

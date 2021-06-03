@@ -71,21 +71,6 @@ h2 {
     padding: 0px;
 }
 
-#graphique {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.graphe {
-    width: 450px;
-    margin: 10px;
-    /*margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 20px;*/
-}
-
 
 /* ----------------------- Zone Instruments ----------------------- */
 
@@ -161,21 +146,21 @@ span {
 
 /* ----------------------- Zone Magnetometre ----------------------- */
 
-#graphMagneto {
+/*#graphMagneto {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-}
+}*/
 
-#imgMagneto {
+/*#imgMagneto {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-}
+}*/
 
-#donnesMagneto {
+/*#donnesMagneto {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -193,8 +178,44 @@ span {
     width: 100%;
     margin: 10px;
     padding: 0px;
+}*/
+
+
+/* ----------------------- Zone Vue Instrument ----------------------- */
+
+.typesMesures {
+    text-align: center;
 }
 
+.mesuresInstrument {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-count: 2;
+}
+
+.tableInstrument {
+    background-color: #2a2a2a;
+    display: table;
+    border: 0px;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px;
+    padding: 0px;
+}
+
+.graphiques {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.graphe {
+    width: 450px;
+    margin: 10px;
+}
 
 /* ----------------------- Zone Matrice ----------------------- */
 

@@ -23,6 +23,7 @@
     <script type="text/javascript" src="js/instrument/instrument.js"></script>
     <script type="text/javascript" src="js/instrument/Mesure.js"></script>
     <script type="text/javascript" src="js/instrument/TypeMesure.js"></script>
+    <script type="text/javascript" src="js/instrument/vueInstrument.js"></script>
     <script type="text/javascript" src="js/segmentVol.js"></script>
     <script type="text/javascript" src="js/Commande/commande.js"></script>
     <script type="text/javascript" src="js/Commande/gestionnaireCommandes.js"></script>
@@ -76,7 +77,7 @@
                 </table>
             </div>
             <br />
-            <div id="graphique"></div>
+            <div id="graphique" class="graphiques"></div>
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
             <div data-role="navbar" data-grid="" data-iconpos="left">
@@ -363,14 +364,13 @@
                                     page Magnetometre
                         ======================================
         -->
-    <div data-role="page" id="pageMagnetometre" data-theme="b">
+    <!--<div data-role="page" id="pageMagnetometre" data-theme="b">
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
         </div>
-
+    
         <div class="general body">
-
-            <!--Valeur et graphique-->
+    
             <div id="donnesMagneto">
                 <table id="tableMagneto">
                     <tr>
@@ -394,7 +394,7 @@
             <br />
             <div id="graphMagneto"></div>
         </div>
-
+    
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
             <div data-role="navbar" data-grid="" data-iconpos="left">
                 <ul id="menu">
@@ -405,7 +405,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div>-->
     <!--
                 ======================================
                         page Commande nouveau formulaire 
@@ -885,7 +885,7 @@
                     ======================================
         -->
 
-    <div data-role="page" id="pageMatrice" data-theme="b">
+    <div data-role="page" id="pageCamInfra" data-theme="b">
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
         </div>

@@ -5,16 +5,7 @@ $(document).ready(function() {
     /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
     let gestionnaireCommandes = new GestionnaireCommandes();
     let vueNouvelleCommande = new VueNouvelleCommande(gestionnaireCommandes);
-    //à effacer si c'est resté en vert
-    /*$('#btnCommande').click(function() {
-        gestionnaireCommandes.genererCommande();
-        gestionnaireCommandes.transmettreDerniereCommande();
-        console.log("Commande format JSON" + gestionnaireCommandes.listeCommandes[gestionnaireCommandes.listeCommandes.length - 1].genererJSON());
-    })*/
-
-  //  gestionnaireCommandes.getHistorique(); //charge l'historique
-    //gestionnaireCommandes.afficherHistorique(); //affiche l'historique
-
+    
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireInstruments = new GestionnaireInstruments();
     let IHM_Instrument = new IHMInstrument();
@@ -24,8 +15,12 @@ $(document).ready(function() {
     let segmentVol = new SegmentVol("../initcube.xml");
 
     segmentVol.genererMenuInstruments();
-    segmentVol.chargerInstruments();
-
+    
+    let vueInstruments = new Array();
+    segmentVol.listeInstruments.forEach(function (element, index) {
+        vueInstruments[index] = new VueInstrument(segmentVol.listeInstruments[index]);
+    });
+    
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");
     let graphBattTension = new Graphique("graphique", "Etat", "Batterie", "Tension", "V");
@@ -36,9 +31,9 @@ $(document).ready(function() {
     let graphStockLibreM = new Graphique("graphique", "Etat", "Stockage", "Disponible", "Mo");
 
     /*--------------------------------------Graphiques de la page Magnétomètre-----------------------------------------*/
-    let graphMagnetoBX = new Graphique("graphMagneto", "Magnetometre", "ValeurBX", "Valeur", "μT");
-    let graphMagnetoBY = new Graphique("graphMagneto", "Magnetometre", "ValeurBY", "Valeur", "μT");
-    let graphMagnetoBZ = new Graphique("graphMagneto", "Magnetometre", "ValeurBZ", "Valeur", "μT");
+    //let graphMagnetoBX = new Graphique("graphMagnetometre", "Magnetometre", "ValeurBX", "Valeur", "μT");
+    //let graphMagnetoBY = new Graphique("graphMagnetometre", "Magnetometre", "ValeurBY", "Valeur", "μT");
+    //let graphMagnetoBZ = new Graphique("graphMagnetometre", "Magnetometre", "ValeurBZ", "Valeur", "μT");
 
     /*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
     var source = new EventSource("cgi-bin/cubeEventServer.cgi");

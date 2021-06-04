@@ -37,7 +37,7 @@ class VueNouvelleCommande {
 
     popup(value) {
         if (value == "ACK") {
-            $("#Bpopup").fadeIn(200).delay(3000).fadeOut(400)
+            $("#Bpopup").fadeIn(200).delay(3000).fadeOut(400);
         } else if (value == "NACK")
             $("#Mpopup").fadeIn(200).delay(3000).fadeOut(400);
         else

@@ -4,6 +4,7 @@ class GestionnaireConfiguration {
     this.gestionnaireInstruments = new GestionnaireInstruments();
     let gestionnaireCourant = this;
     gestionnaireCourant.gestionnaireInstruments.listerInstrumentsPotentiels();
+    
   }
 
   /*Genere une trame JSON avec toutes les données de la page configuration */
@@ -21,8 +22,8 @@ class GestionnaireConfiguration {
       url: "cgi-bin/cgiConfigurerSV.cgi",
       data: gestionnaireCourant.genererConfigurationJSON(),
       dataType: "html",
-      success: function (reponse) {
-        console.log(": " + reponse);
+      success: function (code) {
+        console.log(": " + code);
       },
     });
   }

@@ -6,6 +6,7 @@ class VueInstrumentPotentiels {
     gestionnaireCourant.genererListeInstruments();
   }
 
+  /*Récupere la liste instrument de la classe gestionnaireInstrument*/
   genererListeInstruments() {
     let gestionnaireCourant = this;
 

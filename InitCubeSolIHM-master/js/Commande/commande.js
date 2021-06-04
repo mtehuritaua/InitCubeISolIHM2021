@@ -5,7 +5,7 @@ class Commande {
         this.refInstrument = refInstrument;
         this.code = code;
         this.dateEnvoi = "0000/00/00 00:00:00";
-        this.reponse = "non"
+        this.reponse = "non";
         console.log("Instanciation d'une commande " + idSatellite + " " + typeCommande + " " + refInstrument + " " + code);
     }
     setDateEnvoi(date) {

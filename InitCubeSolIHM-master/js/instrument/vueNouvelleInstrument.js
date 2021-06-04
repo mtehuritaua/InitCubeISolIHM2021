@@ -1,6 +1,5 @@
 class VueNouvelleInstrument {
   constructor() {
-    // attributs
     this.nbTypesMesure = 1;
     this.nbTypesMesureRecap = 1;
     let gestionnaireCourant = this; //Créer variable car sinon certaine ne sont pas définie

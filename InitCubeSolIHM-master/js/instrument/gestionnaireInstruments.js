@@ -8,7 +8,8 @@ class GestionnaireInstruments {
       gestionnaireCourant.recapFormInstrument();// -> construire recap a partir des données avant
     });
     $("#EnvoieRecap").click(function () {
-      gestionnaireCourant.envoyerTrameJSON();
+      gestionnaireCourant.transmettreTrameJSON();
+      gestionnaireCourant.transmettreImage();
       location.href = "#pageConfiguration";
     });
   }
@@ -65,9 +66,9 @@ class GestionnaireInstruments {
         //console.log("Reponse: " + reponse);
         // console.log("TrameJSON: " + tramesJson);
 
-        tramesJson.forEach(function (element) {
-          gestionnaireCourant.addToListeInstruments(element);
-          //console.log(" " + element);
+        tramesJson.forEach(function (element, index) {
+          gestionnaireCourant.addToListeInstruments(element, index);
+          console.log(" " + index);
         });
 
       }
@@ -94,7 +95,7 @@ class GestionnaireInstruments {
   }
 
   /*Envoyer Trame JSON du nouvel instrument pour sauvegarder dans la base de donnée*/
-  envoyerTrameJSON() {
+  transmettreTrameJSON() {
     let gestionnaireCourant = this;
     $.ajax({
       url: "cgi-bin/cgiAjouterInstrument.cgi",
@@ -103,17 +104,21 @@ class GestionnaireInstruments {
       dataType: "html",
       success: function (codeRecu) {
         console.log(" " + codeRecu);
-        //popup(codeRecu);
+        popupAjoutInstrument(codeRecu);
       },
     });
   }
-/*
-  popup(value) {
-    if (value == "ACK") {
+  /*Popup de confirmation de la reception du formulaire*/
+  popupAjoutInstrument(value) {
+    if (value == "OK") {
       $("#bienTransmis").fadeIn(200).delay(3000).fadeOut(400)
-    } else if (value == "NACK")
-      $("#malTransmis").fadeIn(200).delay(3000).fadeOut(400);
-    else
-      $("#erreurTransmis").fadeIn(200).delay(3000).fadeOut(400);
-  }*/
+    }
+  }
+
+  /*création d'une requete ajax afin de récuperer l'image du formulaire*/
+  transmettreImage(){
+
+  }
+
+  
 }

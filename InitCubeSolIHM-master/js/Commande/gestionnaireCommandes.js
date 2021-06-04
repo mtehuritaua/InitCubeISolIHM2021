@@ -29,7 +29,7 @@ class GestionnaireCommandes {
 
         $.ajax({
             type: 'GET', //Type méthode envoie.
-            url: 'cgi-bin/main', //Localisation du cgi.
+            url: 'cgi-bin/cgiHistoriqueCMD', //Localisation du cgi.
             async: false,
             dataType: 'html', //Type de retour.
             success: function(codeRecu) {
@@ -41,7 +41,8 @@ class GestionnaireCommandes {
                     var commande = $.parseJSON(test) //Permet d'obetenir grace a la variable parse.
 
                     gestionnaireCourant.historique.push(new Commande(commande.CMD.ID, commande.CMD.TYPE, 0, commande.CMD.TYPEMEASURE))
-                    gestionnaireCourant.historique[gestionnaireCourant.historique.length - 1].setDateEnvoi(commande.DATE); // = c;//.setDate(commande.DATE);
+                    gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setDateEnvoi(commande.CMD.DATE);// = c;//.setDate(commande.DATE);
+                    gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setReponse(commande.CMD.REPONSE);// = c;//.setDate(commande.DATE);
                     //Ajoute une instanciation de commande dans le tableau historique.
                 });
             }

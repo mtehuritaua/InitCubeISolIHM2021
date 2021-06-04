@@ -2,7 +2,7 @@ class GestionnaireInstruments {
   constructor() {
     let gestionnaireCourant = this; //Créer variable car sinon certaine ne sont pas définie
     this.listeInstruments = new Array();
-    
+
     $("#Envoyer").click(function () {
       gestionnaireCourant.ajouterInstrument(); //stocker donnée dans instance instrument
       gestionnaireCourant.recapFormInstrument();// -> construire recap a partir des données avant
@@ -32,7 +32,7 @@ class GestionnaireInstruments {
     console.log(this.listeInstruments);
   }
 
-  /*Reprise des données pour faire pop up récapitulatif à partir des précedentes données*/ 
+  /*Reprise des données pour faire pop up récapitulatif à partir des précedentes données*/
   recapFormInstrument() {
     var instrumentCourant = this.listeInstruments[this.listeInstruments.length - 1];
     $("#popNom").val(instrumentCourant.nom);
@@ -78,7 +78,7 @@ class GestionnaireInstruments {
   /*Ajouter la liste des instruments*/
   addToListeInstruments(instrumentJSON) {
     var instrumentParse = $.parseJSON(instrumentJSON);
-    let instrument = new Instrument(instrumentParse.nom, instrumentParse.identifiant, instrumentParse.ref, instrumentParse.adresse, instrumentParse.role );
+    let instrument = new Instrument(instrumentParse.nom, instrumentParse.identifiant, instrumentParse.ref, instrumentParse.adresse, instrumentParse.role);
 
     instrumentParse.listeTypesMesure.forEach(function (element) {
       instrument.addTypeMesure(
@@ -92,6 +92,18 @@ class GestionnaireInstruments {
     });
     this.listeInstruments.push(instrument);
     console.log(this.listeInstruments);
+  }
+
+  /*Recupere les identifiant de chaque instrument*/
+  getInstrumentNumberByID(id) {
+    console.log("Entree dans getInstrumentById(). Taille du tableau " + this.listeInstruments.length + " identifiant : "+id);
+    for (var i = 0 ; i < this.listeInstruments.length;i++) {
+      console.log("identifiant de l'instrument "+i+" trouvé dans la liste : "+this.listeInstruments[i].id);
+      if(this.listeInstruments[i].identifiant == id){
+          console.log("numéro de correspondant à "+id+" : "+i);
+          return i;
+        }
+    }
   }
 
   /*Envoyer Trame JSON du nouvel instrument pour sauvegarder dans la base de donnée*/
@@ -116,9 +128,9 @@ class GestionnaireInstruments {
   }
 
   /*création d'une requete ajax afin de récuperer l'image du formulaire*/
-  transmettreImage(){
+  transmettreImage() {
 
   }
 
-  
+
 }

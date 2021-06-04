@@ -34,7 +34,7 @@
 	</etat>
 	<instrument>
 		<description>
-			<id>THE</id>
+			<id>123BCD</id>
 			<ref>Matrice</ref>
 			<nom>Camera infrarouge</nom>
 			<role>mesurer une temperature</role>
@@ -63,9 +63,10 @@
 			<valMax>+90</valMax>
 		</typeMesure>
   	</instrument>
+	  
   	<instrument>
 		<description>
-			<id>MAG</id>
+			<id>124BCD</id>
 			<ref>Magnetometre</ref>
 			<nom>Magnétomètre</nom>
 			<role>Mesurer un champ magnétique</role>

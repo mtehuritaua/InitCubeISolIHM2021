@@ -48,11 +48,11 @@ class SegmentVol {
 
       $(this)
         .find("typeMesure")
-        .each(function () {
-          var code = $(this).find("code").text();
-          //console.log("code du type de mesure : " + code);
+        .each(function () {          
           var nom = $(this).find("nom").text();
           //console.log("nom du type de mesure : " + nom);
+          var code = $(this).find("code").text();
+          //console.log("code du type de mesure : " + code);
           var description = $(this).find("description").text();
           //console.log("description du type de mesure : " + description);
           var unite = $(this).find("unite").text();
@@ -63,7 +63,7 @@ class SegmentVol {
           //console.log("valMax du type de mesure : " + valMax);
           segmentVolCourant.listeInstruments[
             segmentVolCourant.listeInstruments.length - 1
-          ].addTypeMesure(code, nom, description, unite, valMin, valMax);
+          ].addTypeMesure(nom, code, description, unite, valMin, valMax);
         });
       // console.log("caracteristique de l'instrument trouve dans le fichier de conf : ");
       // console.log(segmentVolCourant.listeInstruments[segmentVolCourant.listeInstruments.length-1].genererJSON());

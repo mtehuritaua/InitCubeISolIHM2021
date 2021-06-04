@@ -822,13 +822,19 @@
         <div data-role="popup" id="popupConfirmation" data-theme="a" class="ui-corner-all" data-dismissible="false">
             <form>
                 <div style="padding:10px 20px;">
-                    <h3>Etes vous sur de vouloir modifier la configuration du serveur ?</h3>
+                    <h3>Etes vous sûr de vouloir modifier la configuration du segment vol ?</h3>
                     <button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check"
                         id="EnvoyerConf">Oui</button>
                     <a href="#" data-rel="back" type="reset" name="cancel"
                         class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Non</a>
                 </div>
             </form>
+        </div>
+        <!-- Message réponse apres envoie du formulaire      -->
+        <div id="transmission">
+            <div data-role="popup" id="bienRecu" data-theme="a" data-dismissible="false" style="padding:20px 50px;">
+                <p>La configuration a bien été enregistrée</p>
+            </div>
         </div>
 
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">

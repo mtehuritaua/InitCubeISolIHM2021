@@ -16,6 +16,8 @@ $(document).ready(function() {
     gestionnaireCommandes.getHistorique(); //charge l'historique
     vueHistorique.afficherHistorique(); //affiche l'historique
 
+
+    
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireConfiguration = new GestionnaireConfiguration(segmentVol);
     let vueNvelleInstrument = new VueNouvelleInstrument();

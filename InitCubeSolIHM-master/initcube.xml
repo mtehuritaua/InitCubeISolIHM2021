@@ -35,7 +35,7 @@
 	<instrument>
 		<description>
 			<id>123BCD</id>
-			<ref>Matrice</ref>
+			<ref>CamInfra</ref>
 			<nom>Camera infrarouge</nom>
 			<role>mesurer une temperature</role>
 		</description>	

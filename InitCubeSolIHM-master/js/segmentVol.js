@@ -27,7 +27,7 @@ class SegmentVol {
         let segmentVolCourant = this;
 
         this.fichierConf.find('instrument').each(
-            function () {
+            function() {
 
                 var nom = $(this).find('description').find('nom').text();
                 //console.log("nom de l'instrument : " + nom);
@@ -43,7 +43,7 @@ class SegmentVol {
                 segmentVolCourant.listeInstruments.push(new Instrument(nom, id, ref, adresse, role));
 
                 $(this).find('typeMesure').each(
-                    function () {
+                    function() {
 
                         var code = $(this).find('code').text();
                         //console.log("code du type de mesure : " + code);

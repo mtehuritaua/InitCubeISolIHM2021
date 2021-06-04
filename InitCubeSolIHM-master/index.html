@@ -377,7 +377,7 @@
                         ======================================
             -->
 
-    <div data-role="page" id="pageMatrice" data-theme="b">
+    <div data-role="page" id="pageCamInfra" data-theme="b">
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
         </div>
@@ -490,6 +490,9 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="clearfix">
+            <label>Faire une nouvelle mesure :<button type="button" id="btnCamInfra">Valider</button></label>
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
             <div data-role="navbar" data-grid="" data-iconpos="left">
@@ -623,17 +626,20 @@
                                             <label for="liste"> Identifiant du satellite :</label>
                                             <select style="color:#000000" name="liste" id="idSatellite">
                                             <option value="1"> 1 </option>
-                                            <option value="2"> 2 </option>
                                         </select>
                                         </div>
                                         <div data-role="fieldcontain">
                                             <label for="liste"> Type de commande :</label>
                                             <select style="color:#000000" name="liste" id="typeCommande">
-                                            <option value="MISSION">Mission</option>
-                                            <option value="MEASURE">Mesure</option>
-                                            <option value="STATUS">Status</option>
-                                            <option value="DEPLOY">Déploiement</option>
-                                            <option value="SURVIVAL">Orientation du Cubesat</option>
+                                            <option value="MISSION">MISSION</option>
+                                            <option value="MEASURE">MEASURE</option>
+                                            <option value="STATUS">STATUS</option>
+                                            <option value="DEPLOY">DEPLOY</option>
+                                            <option value="SURVIVAL">SURVIVAL</option>
+                                            <option value="EMPTY">EMPTY</option>
+                                            <option value="SAVE">SAVE</option>
+                                            <option value="MEETING">MEETING</option>
+                                            <option value="DATE">DATE</option>
                                         </select>
                                         </div>
                                         <div data-role="fieldcontain">
@@ -650,7 +656,7 @@
                                             <input name="date" class="form-control" type="datetime-local">
                                         </div>
                                         <div class="clearfix">
-                                            <button type="submit" id="btnCommande" class="btn btn-primary pull-right">Valider</button>
+                                            <button type="submit" id="btnCommande" class="btn btn-primary">Valider</button>
                                         </div>
                                     </form>
                                 </div>

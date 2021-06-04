@@ -34,7 +34,7 @@
 	</etat>
 	<instrument>
 		<description>
-			<id>123BCD</id>
+			<id>THE</id>
 			<ref>Matrice</ref>
 			<nom>Camera infrarouge</nom>
 			<role>mesurer une temperature</role>
@@ -45,9 +45,9 @@
 			<courant unite="mA" SeuilALerte="1500">200</courant>	
 			<erreur></erreur>
 		</etat>	
-		<typeMesure>
-			<code>TC</code>
+		<typeMesure>			
 			<nom>temperature</nom>
+			<code>TC</code>
 			<description>Température de l'objet mesuré</description>
 			<unite>°C</unite>
 			<valMin>-40</valMin>
@@ -65,7 +65,7 @@
   	</instrument>
   	<instrument>
 		<description>
-			<id>124BCD</id>
+			<id>MAG</id>
 			<ref>Magnetometre</ref>
 			<nom>Magnétomètre</nom>
 			<role>Mesurer un champ magnétique</role>

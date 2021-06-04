@@ -8,14 +8,14 @@ class VueConfigurationSV{
     let gestionnaireCourant = this;
     
     $("#EnvoyerConf").click(function () {
-      //recupere /modifie la liste des instruments du SV 
+     // gestionnaireCourant.viderListeInstrumentSV();//recupere /modifie la liste des instruments du SV 
       gestionnaireCourant.gestionnaireConfiguration.transmettreConfSV();
-      $("#popupTest").append('<p> "Configuration enregistrée" </p>').fadeIn(200).delay(3000).fadeOut(400);
     });
     
     gestionnaireCourant.deplacerInstrument();
   }
 
+  /*Permet de déplacer les instrument d'une liste à une autre*/
   deplacerInstrument() {
     $("#removeListe").click(function () {
       return !$('#instrumentExistant div :checked').closest('div').appendTo('#instrumentPotentiels');
@@ -24,5 +24,10 @@ class VueConfigurationSV{
     $("#addListe").click(function () {
       return !$('#instrumentPotentiels div :checked').closest('div').appendTo('#instrumentExistant');
     });
+  }
+
+  /*Permet de vider la liste des instrument du Segment Vol*/
+  viderListeInstrumentSV(){
+   //$("#").empty(); Efface les valeurs entrer, avant son utilisation 
   }
 }

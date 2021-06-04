@@ -66,9 +66,9 @@ class GestionnaireInstruments {
         //console.log("Reponse: " + reponse);
         // console.log("TrameJSON: " + tramesJson);
 
-        tramesJson.forEach(function (element) {
-          gestionnaireCourant.addToListeInstruments(element);
-          //console.log(" " + element);
+        tramesJson.forEach(function (element, index) {
+          gestionnaireCourant.addToListeInstruments(element, index);
+          console.log(" " + index);
         });
 
       }
@@ -104,18 +104,21 @@ class GestionnaireInstruments {
       dataType: "html",
       success: function (codeRecu) {
         console.log(" " + codeRecu);
-        //popup(codeRecu);
+        popupAjoutInstrument(codeRecu);
       },
     });
   }
-
-  transmettreImage(){
-
-  }
-/*
-  popup(value) {
+  /*Popup de confirmation de la reception du formulaire*/
+  popupAjoutInstrument(value) {
     if (value == "OK") {
       $("#bienTransmis").fadeIn(200).delay(3000).fadeOut(400)
     }
-  }*/
+  }
+
+  /*création d'une requete ajax afin de récuperer l'image du formulaire*/
+  transmettreImage(){
+
+  }
+
+  
 }

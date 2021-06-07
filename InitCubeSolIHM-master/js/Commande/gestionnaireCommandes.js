@@ -12,15 +12,17 @@ class GestionnaireCommandes {
 
     transmettreDerniereCommande() {
         let gestCourant = this;
+        var resultat;
         $.ajax({
             type: 'POST',
             url: 'cgi-bin/cgiTransmettreCMD.cgi',
             data: gestCourant.listeCommandes[gestCourant.listeCommandes.length - 1].genererJSON(),
             dataType: 'json',
             success: function(codeRecu) {
-                return (codeRecu);
+                resultat = codeRecu;
             }
         });
+        return resultat;
     }
 
     getHistorique() {

@@ -18,6 +18,7 @@ class GestionnaireCommandes {
             data: gestCourant.listeCommandes[gestCourant.listeCommandes.length - 1].genererJSON(),
             dataType: 'json',
             success: function(codeRecu) {
+                alert(codeRecu);
                 return (codeRecu);
             }
         });
@@ -31,7 +32,6 @@ class GestionnaireCommandes {
             type: 'GET', //Type méthode envoie.
             url: 'cgi-bin/cgiHistoriqueCMD.cgi', //Localisation du cgi.
             async: false,
-            data: "3",
             dataType: 'html', //Type de retour.
             success: function(codeRecu) {
                 var tramesJson = new Array(); // Creation tableau tramesJson.

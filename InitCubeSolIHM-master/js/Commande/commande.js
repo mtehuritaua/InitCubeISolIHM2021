@@ -13,7 +13,7 @@ class Commande {
     }
 
     genererJSON() {
-        var cmd = "{ \"CMD\" : " + JSON.stringify(this) + "}";
+        var cmd = "{\"CMD\":" + JSON.stringify(this) + "}";
         console.log("JSON fabriqué automatiquement : " + cmd);
         return cmd;
     }

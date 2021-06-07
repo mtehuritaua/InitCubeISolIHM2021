@@ -12,7 +12,6 @@ class GestionnaireCommandes {
 
     transmettreDerniereCommande() {
         let gestCourant = this;
-        var valeurRetour;
         $.ajax({
             type: 'POST',
             url: 'cgi-bin/cgiTransmettreCMD.cgi',
@@ -20,10 +19,10 @@ class GestionnaireCommandes {
             async: false,
             dataType: 'json',
             success: function(codeRecu) {
-                valeurRetour = codeRecu;
+                return codeRecu;
             }
         });
-        return valeurRetour;
+        
     }
 
     getHistorique() {

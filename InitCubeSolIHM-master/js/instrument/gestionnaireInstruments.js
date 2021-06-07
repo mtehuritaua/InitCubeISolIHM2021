@@ -9,7 +9,7 @@ class GestionnaireInstruments {
     });
     $("#EnvoieRecap").click(function () {
       gestionnaireCourant.transmettreTrameJSON();
-      gestionnaireCourant.transmettreImage();
+      //gestionnaireCourant.transmettreImage();
       location.href = "#pageConfiguration";
     });
   }
@@ -68,7 +68,7 @@ class GestionnaireInstruments {
 
         tramesJson.forEach(function (element, index) {
           gestionnaireCourant.addToListeInstruments(element, index);
-          console.log(" " + element);
+         // console.log(" " + element);
         });
 
       }
@@ -113,24 +113,25 @@ class GestionnaireInstruments {
       url: "cgi-bin/cgiAjouterInstrument.cgi",
       type: "POST",
       data: gestionnaireCourant.listeInstruments[gestionnaireCourant.listeInstruments.length - 1].genererJSON(),
-      dataType: "html",
+      dataType: "json",
       success: function (codeRecu) {
-        console.log(" " + codeRecu);
-        popupAjoutInstrument(codeRecu);
+        console.log("Code Recu:" + codeRecu);
+       // popupAjoutInstrument(codeRecu);
       },
+      error: function (codeRecu){
+        console.log("Erreur:" + codeRecu);
+      }
     });
   }
-  /*Popup de confirmation de la reception du formulaire*/
+  /*Popup de confirmation de la reception du formulaire
   popupAjoutInstrument(value) {
     if (value == "OK") {
       $("#bienTransmis").fadeIn(200).delay(3000).fadeOut(400)
     }
-  }
+  }*/
 
   /*création d'une requete ajax afin de récuperer l'image du formulaire*/
   transmettreImage() {
 
   }
-
-
 }

@@ -35,6 +35,7 @@
 	<instrument>
 		<description>
 			<id>123BCD</id>
+			<adresse>0x69</adresse>
 			<ref>CamInfra</ref>
 			<nom>Camera infrarouge</nom>
 			<role>mesurer une temperature</role>
@@ -55,7 +56,6 @@
 		</typeMesure>
 		<typeMesure>
 			<code>PIX</code>
-			<type></type>
 			<nom>matrice</nom>
 			<description>Matrice d'une température de l'objet mesuré</description>
 			<unite>°C</unite>
@@ -67,6 +67,7 @@
   	<instrument>
 		<description>
 			<id>124BCD</id>
+			<adresse>0x0C</adresse>
 			<ref>Magnetometre</ref>
 			<nom>Magnétomètre</nom>
 			<role>Mesurer un champ magnétique</role>

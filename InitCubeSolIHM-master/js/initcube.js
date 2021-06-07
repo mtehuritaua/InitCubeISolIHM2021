@@ -23,7 +23,13 @@ $(document).ready(function() {
     let vueNvelleInstrument = new VueNouvelleInstrument();
     let vueConfSV = new VueConfigurationSV(gestionnaireConfiguration);
 
-
+    segmentVol.genererMenuInstruments();
+    
+    let vueInstruments = new Array();
+    segmentVol.listeInstruments.forEach(function (element, index) {
+        vueInstruments[index] = new VueInstrument(segmentVol.listeInstruments[index]);
+    });
+    
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");
     let graphBattTension = new Graphique("graphique", "Etat", "Batterie", "Tension", "V");
@@ -34,9 +40,9 @@ $(document).ready(function() {
     let graphStockLibreM = new Graphique("graphique", "Etat", "Stockage", "Disponible", "Mo");
 
     /*--------------------------------------Graphiques de la page Magnétomètre-----------------------------------------*/
-    let graphMagnetoBX = new Graphique("graphMagneto", "Magnetometre", "ValeurBX", "Valeur", "μT");
-    let graphMagnetoBY = new Graphique("graphMagneto", "Magnetometre", "ValeurBY", "Valeur", "μT");
-    let graphMagnetoBZ = new Graphique("graphMagneto", "Magnetometre", "ValeurBZ", "Valeur", "μT");
+    //let graphMagnetoBX = new Graphique("graphMagnetometre", "Magnetometre", "ValeurBX", "Valeur", "μT");
+    //let graphMagnetoBY = new Graphique("graphMagnetometre", "Magnetometre", "ValeurBY", "Valeur", "μT");
+    //let graphMagnetoBZ = new Graphique("graphMagnetometre", "Magnetometre", "ValeurBZ", "Valeur", "μT");
 
     /*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
     var source = new EventSource("cgi-bin/cubeEventServer.cgi");//modifier nom cgi: cgiDiffuserTM.cgi (TéléMesure)

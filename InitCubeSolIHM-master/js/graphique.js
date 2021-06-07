@@ -1,6 +1,6 @@
 class Graphique {
     constructor(idBalise,type, source, grandeur, unite) {
-       // console.log("instanciation du graphique de type "+type+" de la source "+source);
+        //console.log("instanciation du graphique de type "+type+" de la source "+source);
         this.idBalise = idBalise;
         this.type = type;
         this.source = source;

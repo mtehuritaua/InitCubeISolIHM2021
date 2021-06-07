@@ -110,19 +110,23 @@ class GestionnaireInstruments {
   transmettreTrameJSON() {
     let gestionnaireCourant = this;
     $.ajax({
-      url: "cgi-bin/cgiAjouterInstrument.cgi",
       type: "POST",
+      url: "cgi-bin/cgiAjouterInstrument.cgi",      
       data: gestionnaireCourant.listeInstruments[gestionnaireCourant.listeInstruments.length - 1].genererJSON(),
+      async: false,
       dataType: "json",
       success: function (codeRecu) {
         console.log("Code Recu:" + codeRecu);
+        return codeRecu;
        // popupAjoutInstrument(codeRecu);
       },
       error: function (codeRecu){
         console.log("Erreur:" + codeRecu);
+        return codeRecu;
       }
     });
   }
+  
   /*Popup de confirmation de la reception du formulaire
   popupAjoutInstrument(value) {
     if (value == "OK") {

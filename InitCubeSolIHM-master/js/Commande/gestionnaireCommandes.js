@@ -23,7 +23,7 @@ class GestionnaireCommandes {
                 alert(codeRecu);
                 retour = codeRecu;
             }
-            error: function(){
+            Error: function(){
                 alert("probleme");
             }
             

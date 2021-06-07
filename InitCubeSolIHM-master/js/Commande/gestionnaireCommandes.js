@@ -20,8 +20,10 @@ class GestionnaireCommandes {
             async: false,
             dataType: 'json',
             success: function(codeRecu) {
+                alert(codeRecu);
                 retour = codeRecu;
             }
+            
         });
         return retour;
     }

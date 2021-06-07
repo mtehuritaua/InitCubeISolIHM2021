@@ -144,19 +144,14 @@
         </div>
         <!--Bouton en haut de la page-->
         <div class="ui-grid-d">
-            <div class="ui-block-a"><a href="#popupRecap" data-rel="popup" data-position-to="window"
-                    class="ui-btn ui-icon-check ui-btn-icon-left " id="Envoyer" data-transition="pop">Envoyer</a></div>
+            <div class="ui-block-a"><a href="#popupRecap" data-rel="popup" data-position-to="window" class="ui-btn ui-icon-check ui-btn-icon-left " id="Envoyer" data-transition="pop">Envoyer</a></div>
             <div class="ui-block-b">
-                <a href="#pageConfiguration" name="cancel" class="ui-btn  ui-btn-icon-left ui-icon-delete"
-                    id="Annuler">Annuler</a>
+                <a href="#pageConfiguration" name="cancel" class="ui-btn  ui-btn-icon-left ui-icon-delete" id="Annuler">Annuler</a>
             </div>
-            <div class="ui-block-c"> <button type="reset" class="ui-btn  ui-btn-icon-left ui-icon-forward"
-                    id="reset">Reset</button></div>
-            <div class="ui-block-d"><button type="button" class="ui-btn ui-icon-plus ui-btn-icon-left "
-                    id="Ajouter">Ajouter
+            <div class="ui-block-c"> <button type="reset" class="ui-btn  ui-btn-icon-left ui-icon-forward" id="reset">Reset</button></div>
+            <div class="ui-block-d"><button type="button" class="ui-btn ui-icon-plus ui-btn-icon-left " id="Ajouter">Ajouter
                     Mesure</button></div>
-            <div class="ui-block-e"><button type="button" class="ui-btn ui-icon-minus ui-btn-icon-left "
-                    id="Supprimer">Supprimer
+            <div class="ui-block-e"><button type="button" class="ui-btn ui-icon-minus ui-btn-icon-left " id="Supprimer">Supprimer
                     Mesure</button></div>
         </div>
 
@@ -193,7 +188,7 @@
                             <input type="text" name="codeMesure" id="codeMesure" />
                             <label for="description">Description:</label>
                             <input type="text" name="description" id="description" />
-                          <!--  RAJOUTER UN CHAMPS DANS LE FORMULAIRE (MATRICE, IMAGE, NORMAL (menu déroulant)) -->
+                            <!--  RAJOUTER UN CHAMPS DANS LE FORMULAIRE (MATRICE, IMAGE, NORMAL (menu déroulant)) -->
                             <label for="unite">Unité:</label>
                             <input type="text" name="unite" id="unite" />
                             <label for="valMin">Seuil Min:</label>
@@ -242,11 +237,9 @@
                             <input type="text" name="valMax" />
                         </div>
                     </div>
-                    <button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check"
-                        id="EnvoieRecap">Envoyer</button>
+                    <button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check" id="EnvoieRecap">Envoyer</button>
 
-                    <a href="#" data-rel="back" type="reset" name="cancel"
-                        class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
+                    <a href="#" data-rel="back" type="reset" name="cancel" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
                 </div>
             </form>
         </div>
@@ -293,7 +286,7 @@
             <script>
                 $("#slideshow > div:gt(0)").hide();
 
-                setInterval(function () {
+                setInterval(function() {
                     $('#slideshow > div:first')
                         .fadeOut(1000)
                         .next()
@@ -379,7 +372,7 @@
                         ======================================
             -->
 
-    <div data-role="page" id="pageMatrice" data-theme="b">
+    <div data-role="page" id="pageCamInfra" data-theme="b">
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
         </div>
@@ -493,6 +486,9 @@
                 </tbody>
             </table>
         </div>
+        <div class="clearfix">
+            <label>Faire une nouvelle mesure :<button type="button" id="btnCamInfra">Valider</button></label>
+        </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
             <div data-role="navbar" data-grid="" data-iconpos="left">
                 <ul id="menu">
@@ -588,8 +584,7 @@
         <link rel="h" type="image/png" href="images/cnes.png">
 
         <!-- Web fonts -->
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700&Open+Sans:300,400,600,700">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700&Open+Sans:300,400,600,700">
 
         <!-- Bootstrap and Ares CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -606,14 +601,11 @@
                         <div class="block">
 
                             <div class="block-header overflow-hidden">
-                                <h2 class="block-title visibility-hidden" data-toggle="appear"
-                                    data-class="animated fadeInDown" style="color:#ffffff">CENTRE DE COMMANDE</h2>
+                                <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown" style="color:#ffffff">CENTRE DE COMMANDE</h2>
                             </div>
 
                             <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                            <link
-                                href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
-                                rel="stylesheet">
+                            <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
                             <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
                             <!-- <script type="text/javascript" src="assets/js/date.js"></script>-->
                             <link rel="stylesheet" href="css/siteCssZ.css">
@@ -629,17 +621,20 @@
                                         <label for="liste"> Identifiant du satellite :</label>
                                         <select style="color:#000000" name="liste" id="idSatellite">
                                             <option value="1"> 1 </option>
-                                            <option value="2"> 2 </option>
                                         </select>
                                     </div>
                                     <div data-role="fieldcontain">
                                         <label for="liste"> Type de commande :</label>
                                         <select style="color:#000000" name="liste" id="typeCommande">
-                                            <option value="MISSION">Mission</option>
-                                            <option value="MEASURE">Mesure</option>
-                                            <option value="STATUS">Status</option>
-                                            <option value="DEPLOY">Déploiement</option>
-                                            <option value="SURVIVAL">Orientation du Cubesat</option>
+                                            <option value="MISSION">MISSION</option>
+                                            <option value="MEASURE">MEASURE</option>
+                                            <option value="STATUS">STATUS</option>
+                                            <option value="DEPLOY">DEPLOY</option>
+                                            <option value="SURVIVAL">SURVIVAL</option>
+                                            <option value="EMPTY">EMPTY</option>
+                                            <option value="SAVE">SAVE</option>
+                                            <option value="MEETING">MEETING</option>
+                                            <option value="DATE">DATE</option>
                                         </select>
                                     </div>
                                     <div data-role="fieldcontain">
@@ -656,101 +651,94 @@
                                         <input name="date" class="form-control" type="datetime-local">
                                     </div>
                                     <div class="clearfix">
-                                        <button type="submit" id="btnCommande"
-                                            class="btn btn-primary pull-right">Valider</button>
+                                        <button type="submit" id="btnCommande" class="btn btn-primary">Valider</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!--DétailHistorique-->
-                    <div class="col-md-4">
-                        <div class="block">
-                            <h2 class="block-title visibility-hidden" data-toggle="appear"
-                                data-class="animated fadeInDown" style="color:#0066FF" ;>Détail Commande</h2>
-                            <p id="listeDHC"></p>
+                <!--DétailHistorique-->
+                <div class="col-md-4">
+                    <div class="block">
+                        <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown" style="color:#0066FF" ;>Détail Commande</h2>
+                        <p id="listeDHC"></p>
+                    </div>
+                    <div class="block">
+                        <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown" style="color:#0066FF" ;>Résultat</h2>
+                        <div id="comResu"></div>
+                    </div>
+                </div>
+                <!--End DétailHistorique-->
+
+                <!--Historique-->
+                <div class="col-md-4">
+                    <div class="block">
+                        <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown" style="color:#0066FF" ;>Historique</h2>
+                        <ul id="listeHC"></ul>
+                    </div>
+                </div>
+                <!--End Historique-->
+
+
+
+                <div id="dialog">
+                    <!-- Bonne transmission-->
+                    <div data-position-to="window" id="Bpopup" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
+                        <div data-role="header" data-theme="a" class="Popup">
+                            <h3>Information</h3>
                         </div>
-                        <div class="block">
-                            <h2 class="block-title visibility-hidden" data-toggle="appear"
-                                data-class="animated fadeInDown" style="color:#0066FF" ;>Résultat</h2>
-                            <div id="comResu"></div>
+                        <div role="main" class="ui-content">
+                            <p>La commande à bien été transmise</p>
                         </div>
                     </div>
-                    <!--End DétailHistorique-->
-
-                    <!--Historique-->
-                    <div class="col-md-4">
-                        <div class="block">
-                            <h2 class="block-title visibility-hidden" data-toggle="appear"
-                                data-class="animated fadeInDown" style="color:#0066FF" ;>Historique</h2>
-                            <ul id="listeHC"></ul>
+                    <!-- Mauvaise transmission-->
+                    <div data-position-to="window" data-transition="pop" id="Mpopup" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
+                        <div data-role="header" data-theme="a" class="Popup">
+                            <h3>Information</h3>
+                        </div>
+                        <div role="main" class="ui-content" data-theme="a">
+                            <p>La commande n'a pas été transmise</p>
                         </div>
                     </div>
-                    <!--End Historique-->
-
-
-
-                    <div id="dialog">
-                        <!-- Bonne transmission-->
-                        <div data-position-to="window" id="Bpopup" data-overlay-theme="b" data-theme="b"
-                            data-dismissible="false" style="max-width:400px; min-width: 400px;">
-                            <div data-role="header" data-theme="a" class="Popup">
-                                <h3>Information</h3>
-                            </div>
-                            <div role="main" class="ui-content">
-                                <p>La commande à bien été transmise</p>
-                            </div>
+                    <!-- Erreur transmission-->
+                    <div data-position-to="window" data-transition="pop" id="AbcVD" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
+                        <div data-role="header" data-theme="a" class="Popup">
+                            <h3>Information</h3>
                         </div>
-                        <!-- Mauvaise transmission-->
-                        <div data-position-to="window" data-transition="pop" id="Mpopup" data-overlay-theme="b"
-                            data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
-                            <div data-role="header" data-theme="a" class="Popup">
-                                <h3>Information</h3>
-                            </div>
-                            <div role="main" class="ui-content" data-theme="a">
-                                <p>La commande n'a pas été transmise</p>
-                            </div>
-                        </div>
-                        <!-- Erreur transmission-->
-                        <div data-position-to="window" data-transition="pop" id="AbcVD" data-overlay-theme="b"
-                            data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
-                            <div data-role="header" data-theme="a" class="Popup">
-                                <h3>Information</h3>
-                            </div>
-                            <div role="main" class="ui-content">
-                                <p>Erreur ACK</p>
-                            </div>
+                        <div role="main" class="ui-content">
+                            <p>Erreur ACK</p>
                         </div>
                     </div>
                 </div>
-
-                <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false"
-                    data-theme="b">
-                    <div data-role="navbar" data-grid="" data-iconpos="left">
-                        <ul id="menu">
-                            <li><a href="#pageEtat">Etat</a></li>
-                            <li><a href="#pageInstruments"> Instruments</a></li>
-                            <li><a href="#pageCommande">Commande</a></li>
-                            <li><a href="#pageConfiguration"> Configuration</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </main>
         </div>
 
-        <!-- Scripts -->
-        <script src="assets/js/core/jquery.min.js"></script>
-        <script src="assets/js/plugins/jquery.appear.min.js"></script>
-        <script src="assets/js/plugins/jquery.countTo.min.js"></script>
-        <script src="assets/js/plugins/jquery.easypiechart.min.js"></script>
-        <script src="assets/js/ares.js"></script>
-        <script>
-            jQuery(function () {
-                // Init page helpers (Appear + CountTo + Easy Pie Chart plugins)
-                Ares.initHelpers(['appear', 'appear-countTo', 'easy-pie-chart']);
-            });
-        </script>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+            <div data-role="navbar" data-grid="" data-iconpos="left">
+                <ul id="menu">
+                    <li><a href="#pageEtat">Etat</a></li>
+                    <li><a href="#pageInstruments"> Instruments</a></li>
+                    <li><a href="#pageCommande">Commande</a></li>
+                    <li><a href="#pageConfiguration"> Configuration</a></li>
+                </ul>
+            </div>
+        </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/core/jquery.min.js"></script>
+    <script src="assets/js/plugins/jquery.appear.min.js"></script>
+    <script src="assets/js/plugins/jquery.countTo.min.js"></script>
+    <script src="assets/js/plugins/jquery.easypiechart.min.js"></script>
+    <script src="assets/js/ares.js"></script>
+    <script>
+        jQuery(function() {
+            // Init page helpers (Appear + CountTo + Easy Pie Chart plugins)
+            Ares.initHelpers(['appear', 'appear-countTo', 'easy-pie-chart']);
+        });
+    </script>
     </div>
 
     <!-- 
@@ -768,8 +756,7 @@
             <div class="ui-grid-b">
                 <!-- Liste instrument deja sur le segment vol-->
                 <div class="ui-block-a">
-                    <div data-role="controlgroup" data-enhanced="true"
-                        class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-b ui-corner-all">
+                    <div data-role="controlgroup" data-enhanced="true" class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-b ui-corner-all">
                         <div role="heading" class="ui-controlgroup-label">
                             <h3 style="color:#ffffff"> Instruments sur le cubesat</h3>
                         </div>
@@ -782,19 +769,16 @@
 
                 <div class="ui-block-b">
                     <div class="ui-block-a">
-                        <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l"
-                            id="addListe">Ajouter</button>
+                        <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l" id="addListe">Ajouter</button>
                     </div>
                     <div class="ui-block-b">
-                        <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r"
-                            id="removeListe">Enlever</button>
+                        <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r" id="removeListe">Enlever</button>
                     </div>
                 </div>
                 <!--Liste instrument potentiels -->
                 <div class="ui-block-c">
                     <div class="ui-block-a">
-                        <div data-role="controlgroup" data-enhanced="true"
-                            class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-b ui-corner-all">
+                        <div data-role="controlgroup" data-enhanced="true" class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-b ui-corner-all">
                             <div role="heading" class="ui-controlgroup-label">
                                 <h3 style="color:#ffffff"> Instruments Potentiels</h3>
                             </div>
@@ -806,12 +790,10 @@
 
                 </div>
                 <div class="ui-block-a">
-                    <a href="#popupConfirmation" data-rel="popup" data-position-to="window"
-                        class="ui-btn  ui-btn-icon-left ui-icon-check " data-transition="pop">Envoyer</a>
+                    <a href="#popupConfirmation" data-rel="popup" data-position-to="window" class="ui-btn  ui-btn-icon-left ui-icon-check " data-transition="pop">Envoyer</a>
                 </div>
                 <div class="ui-block-b">
-                    <a href="#pageEtat" name="cancelConf" class="ui-btn  ui-btn-icon-left ui-icon-delete"
-                        id="AnnulerConf">Annuler</a>
+                    <a href="#pageEtat" name="cancelConf" class="ui-btn  ui-btn-icon-left ui-icon-delete" id="AnnulerConf">Annuler</a>
                 </div>
                 <div class="ui-block-c"> <a href="#pageFormulaire" class="ui-btn  ui-icon-plus ui-btn-icon-left">Ajouter
                         un

@@ -15,8 +15,8 @@ CgiCommandeClient::~CgiCommandeClient() {
 }
 
 void CgiCommandeClient::transmettreEntete() {
-    cout << "Content-Type: text/html\r\n\r\n";
-    cout << "Cache-Control: no-cache\r\n\r\n";
+    cout << "Content-Type: text/html" << endl << endl;
+    //cout << "Cache-Control: no-cache\r\n\r\n";
 }
 
 void CgiCommandeClient::recupererCommande() {
@@ -26,16 +26,19 @@ void CgiCommandeClient::recupererCommande() {
 void CgiCommandeClient::transmettreCommande(){
     com->envoyerMessage(commande);
     if(attendreAck() == true){
-        cout << "ACK" << endl;
+        cout << "ACK" ;
+
     }
     else{
-        cout << "NACK" << endl;
+        cout << "NACK";
     }
 }
 
 bool CgiCommandeClient::attendreAck(){
     com->recevoirDonnees();
-    if(com->getBuffer() == "ACK" ){
+    string test = com->getBuffer();
+    if(test == "ACK" ){
+       
         return true;
     }
     else{

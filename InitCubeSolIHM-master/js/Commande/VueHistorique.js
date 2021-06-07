@@ -33,6 +33,9 @@ class VueHistorique {
         Type de la commande</div></div><div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].typeCommande + '\
         </div></div>');
         $('#listeDHC').append('<div class="ui-grid-a"><div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px">\
+        Type de la commande</div></div><div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].refInstrument + '\
+        </div></div>');
+        $('#listeDHC').append('<div class="ui-grid-a"><div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px">\
         Code de la commande</div></div><div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].code + '\
         </div></div>');
         $('#listeDHC').append('<div class="ui-grid-a"><div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px">\

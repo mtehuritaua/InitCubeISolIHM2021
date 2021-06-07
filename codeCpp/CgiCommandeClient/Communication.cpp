@@ -23,12 +23,6 @@ Communication::Communication(string adresse,string port){
 	}*/
 }
 
-//La méthode lancerInitCubeServeur() démarre le serveur InitCibeServeur
-void Communication::lancerInitCubeServeur() {
-	//usleep(5000000);	
-	system("../InitCubeServeur/InitCubeServeur&");
-}
-
 //La méthode connexion tente de se connecter au serveur InitCubeServeur
 int Communication::connexion() {
 	//Declaration des variables.
@@ -72,7 +66,7 @@ Communication::~Communication() {
 
 void Communication::envoyerMessage(string m){
 	for (int i=0; i<2000; i++)
-         buffer[i] = 0;
+         buffer[i] = '\0';
 	strcpy(buffer, m.c_str());
     send(socket_id, buffer, sizeof(buffer), 0);
 }

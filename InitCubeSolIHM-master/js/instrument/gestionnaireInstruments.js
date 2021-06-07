@@ -64,11 +64,11 @@ class GestionnaireInstruments {
         var tramesJson = new Array();
         tramesJson = reponse.split('\n');
         //console.log("Reponse: " + reponse);
-        // console.log("TrameJSON: " + tramesJson);
+         //console.log("TrameJSON: " + tramesJson);
 
         tramesJson.forEach(function (element, index) {
           gestionnaireCourant.addToListeInstruments(element, index);
-          //console.log(" " + index);
+          console.log(" " + element);
         });
 
       }
@@ -91,14 +91,14 @@ class GestionnaireInstruments {
       );
     });
     this.listeInstruments.push(instrument);
-    console.log(this.listeInstruments);
+    //console.log(this.listeInstruments);
   }
 
   /*Recupere les identifiant de chaque instrument*/
   getInstrumentNumberByID(id) {
    // console.log("Entree dans getInstrumentById(). Taille du tableau " + this.listeInstruments.length + " identifiant : "+id);
     for (var i = 0 ; i < this.listeInstruments.length;i++) {
-      console.log("identifiant de l'instrument "+i+" trouvé dans la liste : "+this.listeInstruments[i].id);
+      //console.log("identifiant de l'instrument "+i+" trouvé dans la liste : "+this.listeInstruments[i].id);
       if(this.listeInstruments[i].identifiant == id){
           //console.log("numéro de correspondant à "+id+" : "+i);
           return i;
@@ -115,7 +115,7 @@ class GestionnaireInstruments {
       data: gestionnaireCourant.listeInstruments[gestionnaireCourant.listeInstruments.length - 1].genererJSON(),
       dataType: "html",
       success: function (codeRecu) {
-       // console.log(" " + codeRecu);
+        console.log(" " + codeRecu);
         popupAjoutInstrument(codeRecu);
       },
     });

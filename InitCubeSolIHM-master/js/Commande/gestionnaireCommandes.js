@@ -43,8 +43,8 @@ class GestionnaireCommandes {
                     //Parcour chaque element du tableau.
                     var commande = $.parseJSON(test) //Permet d'obetenir grace a la variable parse.
 
-                    gestionnaireCourant.historique.push(new Commande(commande.CMD.ID, commande.CMD.TYPE, 0, commande.CMD.TYPEMEASURE))
-                    gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setDateEnvoi(commande.CMD.DATE);// = c;//.setDate(commande.DATE);
+                    gestionnaireCourant.historique.push(new Commande(commande.CMD.ID, commande.CMD.typeCommande, commande.CMD.refInstrument, commande.CMD.code))
+                    gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setDateEnvoi(commande.CMD.dateEnvoi);// = c;//.setDate(commande.DATE);
                     gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setReponse(commande.CMD.REPONSE);// = c;//.setDate(commande.DATE);
                     //Ajoute une instanciation de commande dans le tableau historique.
                 });

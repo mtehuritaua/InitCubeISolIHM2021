@@ -22,8 +22,6 @@ $(document).ready(function() {
     let gestionnaireConfiguration = new GestionnaireConfiguration(segmentVol);
     let vueNvelleInstrument = new VueNouvelleInstrument();
     let vueConfSV = new VueConfigurationSV(gestionnaireConfiguration);
-
-    segmentVol.genererMenuInstruments();
     
     let vueInstruments = new Array();
     segmentVol.listeInstruments.forEach(function (element, index) {

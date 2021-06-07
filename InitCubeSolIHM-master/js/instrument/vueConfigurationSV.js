@@ -60,8 +60,6 @@ class VueConfigurationSV{
       var numero = this.gestionnaireConfiguration.gestionnaireInstruments.getInstrumentNumberByID(listeInstruSV[i].identifiant);
       console.log("Numéro de l'instrument dans genererListeInstruSV() : "+ numero);
       $('#instrument'+ numero).appendTo('#instrumentExistant');
-
-      //return !$('#instrumentPotentiels div :checked').closest('div').appendTo('#instrumentExistant');
     }
   }
 }

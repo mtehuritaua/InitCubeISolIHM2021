@@ -29,7 +29,7 @@ class GestionnaireInstruments {
       );
     });
     this.listeInstruments.push(instrument);
-    console.log(this.listeInstruments);
+    //console.log(this.listeInstruments);
   }
 
   /*Reprise des données pour faire pop up récapitulatif à partir des précedentes données*/
@@ -48,7 +48,7 @@ class GestionnaireInstruments {
       $('#addRecap' + index).find('input[name="unite"]').val(element.unite);
       $('#addRecap' + index).find('input[name="valMin"]').val(element.valMin);
       $('#addRecap' + index).find('input[name="valMax"]').val(element.valMax);
-      console.log("Mesure: " + element);
+      //console.log("Mesure: " + element);
     });
   }
 
@@ -68,7 +68,7 @@ class GestionnaireInstruments {
 
         tramesJson.forEach(function (element, index) {
           gestionnaireCourant.addToListeInstruments(element, index);
-          console.log(" " + index);
+          //console.log(" " + index);
         });
 
       }
@@ -96,11 +96,11 @@ class GestionnaireInstruments {
 
   /*Recupere les identifiant de chaque instrument*/
   getInstrumentNumberByID(id) {
-    console.log("Entree dans getInstrumentById(). Taille du tableau " + this.listeInstruments.length + " identifiant : "+id);
+   // console.log("Entree dans getInstrumentById(). Taille du tableau " + this.listeInstruments.length + " identifiant : "+id);
     for (var i = 0 ; i < this.listeInstruments.length;i++) {
       console.log("identifiant de l'instrument "+i+" trouvé dans la liste : "+this.listeInstruments[i].id);
       if(this.listeInstruments[i].identifiant == id){
-          console.log("numéro de correspondant à "+id+" : "+i);
+          //console.log("numéro de correspondant à "+id+" : "+i);
           return i;
         }
     }
@@ -115,7 +115,7 @@ class GestionnaireInstruments {
       data: gestionnaireCourant.listeInstruments[gestionnaireCourant.listeInstruments.length - 1].genererJSON(),
       dataType: "html",
       success: function (codeRecu) {
-        console.log(" " + codeRecu);
+       // console.log(" " + codeRecu);
         popupAjoutInstrument(codeRecu);
       },
     });

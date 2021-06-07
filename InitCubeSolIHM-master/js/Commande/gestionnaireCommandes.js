@@ -14,7 +14,7 @@ class GestionnaireCommandes {
         let gestCourant = this;
         $.ajax({
             type: 'POST',
-            url: 'cgi-bin/cgi_1',
+            url: 'cgi-bin/cgiTransmettreCMD.cgi',
             data: gestCourant.listeCommandes[gestCourant.listeCommandes.length - 1].genererJSON(),
             dataType: 'json',
             success: function(codeRecu) {
@@ -29,7 +29,7 @@ class GestionnaireCommandes {
 
         $.ajax({
             type: 'GET', //Type méthode envoie.
-            url: 'cgi-bin/cgiHistoriqueCMD', //Localisation du cgi.
+            url: 'cgi-bin/cgiHistoriqueCMD.cgi', //Localisation du cgi.
             async: false,
             dataType: 'html', //Type de retour.
             success: function(codeRecu) {

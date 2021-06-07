@@ -2,8 +2,6 @@ class VueConfigurationSV{
   constructor(gestConf) {
     this.gestionnaireConfiguration = gestConf;
 
-    this.vueInstruSV = new VueInstrumentsSV(this.gestionnaireConfiguration.segmentVol);
-
     let gestionnaireCourant = this;
     this.genererListeInstrumentsPotentiels();
     this.genererListeInstrumentsSV();

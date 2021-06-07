@@ -10,11 +10,12 @@ class GestionnaireConfiguration {
   /*Genere une trame JSON avec toutes les données de la page configuration */
   genererConfigurationJSON() {
     let gestionnaireCourant = this;
-    var conf = JSON.stringify(gestionnaireCourant.segmentVol.listeInstruments);
-    console.log("JSON fabriqué: " + conf);
+    var conf = "{ \"ConfInstru\" : " + JSON.stringify(gestionnaireCourant.segmentVol.listeInstruments) + "}";
+    console.log("Configuration segment vol: " + conf);
     return conf;
   }
 
+  /*Création d'une requete ajax afin d'envoyer les données au script cgi suivant*/
   transmettreConfSV() {
     let gestionnaireCourant = this;
     $.ajax({
@@ -24,7 +25,14 @@ class GestionnaireConfiguration {
       dataType: "html",
       success: function (code) {
         console.log(": " + code);
+        popupReception(code);
       },
     });
+  }
+  /*Popup de confirmation de la reception du formulaire*/
+  popupReception(value) {
+    if (value == "OK") {
+      $("#bienRecu").fadeIn(200).delay(3000).fadeOut(400)
+    }
   }
 }

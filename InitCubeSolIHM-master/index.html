@@ -160,7 +160,7 @@
                     Mesure</button></div>
         </div>
 
-        <!--  création d'un formulaire -->
+        <!--  création duformulaire -->
         <form action="#" method="post" id="formulaire">
             <div class="ui-grid-a">
                 <div class="ui-block-a">
@@ -193,6 +193,7 @@
                             <input type="text" name="codeMesure" id="codeMesure" />
                             <label for="description">Description:</label>
                             <input type="text" name="description" id="description" />
+                            <!--  RAJOUTER UN CHAMPS DANS LE FORMULAIRE (MATRICE, IMAGE, NORMAL (menu déroulant)) -->
                             <label for="unite">Unité:</label>
                             <input type="text" name="unite" id="unite" />
                             <label for="valMin">Seuil Min:</label>
@@ -249,18 +250,12 @@
                 </div>
             </form>
         </div>
-        <!-- Message réponse apres envoie du formulaire       
+        <!-- Message réponse apres envoie du formulaire      -->
         <div id="transmission">
             <div data-role="popup" id="bienTransmis" data-theme="a" data-dismissible="false" style="padding:20px 50px;">
                 <p>Le formulaire à bien été transmise</p>
             </div>
-            <div data-role="popup" id="malTransmis" data-theme="a" data-dismissible="false" style="padding:20px 50px;">
-                <p>Le formulaire n'a pas été transmis</p>
-            </div>
-            <div data-role="popup" id="erreurTransmis" data-theme="a" data-dismissible="false" style="padding:20px 50px;">
-                <p>Erreur </p>
-            </div>
-        </div>-->
+        </div>
 
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
             <div data-role="navbar" data-grid="" data-iconpos="left">
@@ -384,7 +379,7 @@
                         ======================================
             -->
 
-    <div data-role="page" id="pageMatrice" data-theme="b">
+    <div data-role="page" id="pageCamInfra" data-theme="b">
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
         </div>
@@ -497,6 +492,9 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="clearfix">
+            <label>Faire une nouvelle mesure :<button type="button" id="btnCamInfra">Valider</button></label>
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
             <div data-role="navbar" data-grid="" data-iconpos="left">
@@ -634,17 +632,20 @@
                                         <label for="liste"> Identifiant du satellite :</label>
                                         <select style="color:#000000" name="liste" id="idSatellite">
                                             <option value="1"> 1 </option>
-                                            <option value="2"> 2 </option>
                                         </select>
                                     </div>
                                     <div data-role="fieldcontain">
                                         <label for="liste"> Type de commande :</label>
                                         <select style="color:#000000" name="liste" id="typeCommande">
-                                            <option value="MISSION">Mission</option>
-                                            <option value="MEASURE">Mesure</option>
-                                            <option value="STATUS">Status</option>
-                                            <option value="DEPLOY">Déploiement</option>
-                                            <option value="SURVIVAL">Orientation du Cubesat</option>
+                                            <option value="MISSION">MISSION</option>
+                                            <option value="MEASURE">MEASURE</option>
+                                            <option value="STATUS">STATUS</option>
+                                            <option value="DEPLOY">DEPLOY</option>
+                                            <option value="SURVIVAL">SURVIVAL</option>
+                                            <option value="EMPTY">EMPTY</option>
+                                            <option value="SAVE">SAVE</option>
+                                            <option value="MEETING">MEETING</option>
+                                            <option value="DATE">DATE</option>
                                         </select>
                                     </div>
                                     <div data-role="fieldcontain">
@@ -661,8 +662,7 @@
                                         <input name="date" class="form-control" type="datetime-local">
                                     </div>
                                     <div class="clearfix">
-                                        <button type="submit" id="btnCommande"
-                                            class="btn btn-primary pull-right">Valider</button>
+                                        <button type="submit" id="btnCommande" class="btn btn-primary">Valider</button>
                                     </div>
                                 </form>
                             </div>
@@ -745,6 +745,8 @@
                 </div>
             </main>
         </div>
+        </main>
+    </div>
 
         <!-- Scripts -->
         <script src="assets/js/core/jquery.min.js"></script>
@@ -775,8 +777,7 @@
             <div class="ui-grid-b">
                 <!-- Liste instrument deja sur le segment vol-->
                 <div class="ui-block-a">
-                    <div data-role="controlgroup" data-enhanced="true"
-                        class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-b ui-corner-all">
+                    <div data-role="controlgroup" data-enhanced="true" class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-b ui-corner-all">
                         <div role="heading" class="ui-controlgroup-label">
                             <h3 style="color:#ffffff"> Instruments sur le cubesat</h3>
                         </div>
@@ -786,20 +787,9 @@
                     </div>
                 </div>
                 <!--Btn deplacement des instrument à gauche ou droite -->
+
                 <div class="ui-block-b">
-                    <div class="ui-block-a">
-                        <div data-role="controlgroup" data-enhanced="true"
-                            class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-b ui-corner-all">
-                            <div role="heading" class="ui-controlgroup-label">
-                                <h3 style="color:#ffffff"> Instruments sur le cubesat</h3>
-                            </div>
-                            <div style="padding:10px" class="ui-controlgroup-controls ui-shadow">
-                                <div id="instrumentExistant"> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Btn deplacement des instrument à gauche ou droite -->
-                    <div class="ui-block-b">
+                    <div class="ui-grid-a">
                         <div class="ui-block-a">
                             <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l"
                                 id="addListe">Ajouter</button>
@@ -810,27 +800,54 @@
                         </div>
                     </div>
                 </div>
-                <div class="ui-block-a">
-                    <a href="#popupTest" data-rel="popup" data-position-to="window"
-                        class="ui-btn  ui-btn-icon-left ui-icon-check " id="EnvoyerConf"
-                        data-transition="pop">Envoyer</a>
+                <!--Liste instrument potentiels -->
+                <div class="ui-block-c">
+                    <div class="ui-block-a">
+                        <div data-role="controlgroup" data-enhanced="true"
+                            class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-b ui-corner-all">
+                            <div role="heading" class="ui-controlgroup-label">
+                                <h3 style="color:#ffffff"> Instruments Potentiels</h3>
+                            </div>
+                            <div style="padding:10px" class="ui-controlgroup-controls ui-shadow">
+                                <div id="instrumentPotentiels"> </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="ui-block-b">
-                    <a href="#pageEtat" name="cancelConf" class="ui-btn  ui-btn-icon-left ui-icon-delete"
-                        id="AnnulerConf">Annuler</a>
-                </div>
-                <div class="ui-block-c"> <a href="#pageFormulaire" class="ui-btn  ui-icon-plus ui-btn-icon-left">Ajouter
-                        un
-                        Instrument</a></div>
-                <!--<div class="ui-block-a">
-                    <h3 style="color:#ffffff">Description de l'instrument</h3>
-                    <div id="TEST"> 
-                                
-                    </div>                    
-                </div>-->
             </div>
-            <br />
         </form>
+        <!--Bouton Envoyer, Ajouter, Annuler-->
+        <div class="ui-grid-b">
+            <div class="ui-block-a">
+                <a href="#popupConfirmation" data-rel="popup" data-position-to="window"
+                    class="ui-btn  ui-btn-icon-left ui-icon-check " data-transition="pop">Envoyer</a>
+            </div>
+            <div class="ui-block-b">
+                <a href="#pageEtat" name="cancelConf" class="ui-btn  ui-btn-icon-left ui-icon-delete"
+                    id="AnnulerConf">Annuler</a>
+            </div>
+            <div class="ui-block-c"> <a href="#pageFormulaire" class="ui-btn  ui-icon-plus ui-btn-icon-left">Ajouter
+                    un
+                    Instrument</a></div>
+        </div>
+        <!--Pop up de confirmation avant envoie-->
+        <div data-role="popup" id="popupConfirmation" data-theme="a" class="ui-corner-all" data-dismissible="false">
+            <form>
+                <div style="padding:10px 20px;">
+                    <h3>Etes vous sûr de vouloir modifier la configuration du segment vol ?</h3>
+                    <button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check"
+                        id="EnvoyerConf">Oui</button>
+                    <a href="#" data-rel="back" type="reset" name="cancel"
+                        class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Non</a>
+                </div>
+            </form>
+        </div>
+        <!-- Message réponse apres envoie du formulaire      -->
+        <div id="transmission">
+            <div data-role="popup" id="bienRecu" data-theme="a" data-dismissible="false" style="padding:20px 50px;">
+                <p>La configuration a bien été enregistrée</p>
+            </div>
+        </div>
 
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
             <div data-role="navbar" data-grid="" data-iconpos="left">

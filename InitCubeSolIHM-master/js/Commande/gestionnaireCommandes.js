@@ -4,13 +4,10 @@ class GestionnaireCommandes {
         this.listeCommandes = new Array();
         this.historique = new Array();
         this.datehistorique = new Array();
-        console.log("Instanciation de la classe gestionnaireCommandes");
     }
 
-    genererCommande(idSatellite, typeCommande, instrument, code) {
-        this.listeCommandes.push(new Commande(idSatellite, typeCommande, instrument, code));
-        //ajout de cette ligne dans VueNouvelleCommande
-        //this.listeCommandes.push(new Commande($('#IdSatellite').val(), $('#TypeCommande').val(), $('#Instru').val(), $('#code').val()));
+    genererCommande(idSatellite, typeCommande, refInstrument, code) {
+        this.listeCommandes.push(new Commande(idSatellite, typeCommande, refInstrument, code));
     }
 
     transmettreDerniereCommande() {

@@ -14,7 +14,7 @@ class GestionnaireCommandes {
         let gestCourant = this;
         var retour;
         $.ajax({
-            type: 'POST',
+            type: 'GET',
             url: 'cgi-bin/cgiTransmettreCMD.cgi',
             data: gestCourant.listeCommandes[gestCourant.listeCommandes.length - 1].genererJSON(),
             async: false,

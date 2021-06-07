@@ -14,11 +14,10 @@ class GestionnaireCommandes {
         let gestCourant = this;
         $.ajax({
             type: 'POST',
-            url: 'cgi-bin/cgi_1',
+            url: 'cgi-bin/cgiTransmettreCMD.cgi',
             data: gestCourant.listeCommandes[gestCourant.listeCommandes.length - 1].genererJSON(),
             dataType: 'json',
             success: function(codeRecu) {
-                alert(codeRecu);
                 return (codeRecu);
             }
         });

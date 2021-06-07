@@ -31,6 +31,7 @@ class GestionnaireCommandes {
             type: 'GET', //Type méthode envoie.
             url: 'cgi-bin/cgiHistoriqueCMD.cgi', //Localisation du cgi.
             async: false,
+            data: 3,
             dataType: 'html', //Type de retour.
             success: function(codeRecu) {
                 var tramesJson = new Array(); // Creation tableau tramesJson.

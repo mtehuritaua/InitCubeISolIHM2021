@@ -30,7 +30,6 @@ class VueConfigurationSV{
   modifierListeInstrumentSV(){
     var liste = this.gestionnaireConfiguration.segmentVol.listeInstruments;
     liste.splice(0, liste.length);
-
   }
 
   /*Récupere la liste instrument de la classe gestionnaireInstrument*/

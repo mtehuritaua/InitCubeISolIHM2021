@@ -2,18 +2,19 @@
 //var matrice = new CMatrice(camera);
 
 $(document).ready(function() {
-    /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
-    let gestionnaireCommandes = new GestionnaireCommandes();
-    let vueNouvelleCommande = new VueNouvelleCommande(gestionnaireCommandes);
-    
-    /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
-    let gestionnaireInstruments = new GestionnaireInstruments();
-    let IHM_Instrument = new IHMInstrument();
 
+
+    /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
+    let gestionnaireCommandes = new GestionnaireCommandes(segmentVol);
+    let vueNouvelleCommande = new VueNouvelleCommande(gestionnaireCommandes);
+    let vueHistorique = new VueHistorique(gestionnaireCommandes);
+
+    gestionnaireCommandes.getHistorique(); //charge l'historique
+    vueHistorique.afficherHistorique(); //affiche l'historique
 
     /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
-    
+ 
     let vueInstruments = new Array();
     segmentVol.listeInstruments.forEach(function (element, index) {
         vueInstruments[index] = new VueInstrument(segmentVol.listeInstruments[index],gestionnaireCommandes); //Instanciation de la class VueInstrument
@@ -29,8 +30,12 @@ $(document).ready(function() {
         element.updateMesures("BY","2021-06-06 15:48:20","110");
         element.updateMesures("BZ","2021-06-06 15:48:20","100");
     });
-
     
+    /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
+    let gestionnaireConfiguration = new GestionnaireConfiguration(segmentVol);
+    let vueNvelleInstrument = new VueNouvelleInstrument();
+    let vueConfSV = new VueConfigurationSV(gestionnaireConfiguration);
+   
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");
     let graphBattTension = new Graphique("graphique", "Etat", "Batterie", "Tension", "V");
@@ -46,7 +51,7 @@ $(document).ready(function() {
     //let graphMagnetoBZ = new Graphique("graphMagnetometre", "Magnetometre", "ValeurBZ", "Valeur", "μT");
 
     /*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
-    var source = new EventSource("cgi-bin/cubeEventServer.cgi");
+    var source = new EventSource("cgi-bin/cubeEventServer.cgi");//modifier nom cgi: cgiDiffuserTM.cgi (TéléMesure)
     source.addEventListener("etat", function(event) {
         var obj = JSON.parse(event.data);
         document.getElementById("ChargeBatterie").innerHTML = obj.batterie.niveauDeCharge + " %";

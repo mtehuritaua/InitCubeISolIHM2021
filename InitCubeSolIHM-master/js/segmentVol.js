@@ -30,16 +30,17 @@ class SegmentVol {
         this.fichierConf.find('instrument').each(
         function () {
 
+            var nom = $(this).find('description').find('nom').text();
+            //console.log("nom de l'instrument : " + nom);
             var id = $(this).find('description').find('id').text();
             //console.log("l'identifiant de l'instrument : " + id);
             var ref = $(this).find('description').find('ref').text();
             //console.log("référence de l'instrument : " + ref);
-            var nom = $(this).find('description').find('nom').text();
-            //console.log("nom de l'instrument : " + nom);
-            var role = $(this).find('description').find('role').text();
-            //console.log("role de l'instrument : " + role);
+            
             var adresse = $(this).find('description').find('adresse').text();
             //console.log("adresse de l'instrument : " + adresse);
+            var role = $(this).find('description').find('role').text();
+            //console.log("role de l'instrument : " + role);
 
             segmentVolCourant.listeInstruments.push(new Instrument(nom, id, ref, adresse, role));
             

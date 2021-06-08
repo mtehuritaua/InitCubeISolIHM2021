@@ -7,7 +7,7 @@ class Graphique {
         this.source = source;
         this.grandeur = grandeur;
         this.unite = unite;
-        //console.log("<canvas id=\"graphique"+this.type+this.source+this.grandeur+"\"></canvas>");
+       // console.log("<canvas id=\"graphique"+this.type+this.source+this.grandeur+"\"></canvas>");
         $("#"+idBalise).append("<div class=\"graphe\"><canvas id=\"graphique"+this.type+this.source+this.grandeur+"\"></canvas></div>");
         //console.log("graphique"+this.type+this.source)+this.grandeur;
         let identifiant = "graphique"+this.type+this.source+this.grandeur;

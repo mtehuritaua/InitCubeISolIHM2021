@@ -310,5 +310,22 @@ span {
 }
 
 #listeHC {
+    
+    text-align: center;
     list-style: square;
+}
+
+.ui-bar-b{
+    background-color:#1D1D1D;
+    color:#fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:lighter;
+    border-color:#252525;
+    
+}
+
+/*------------------Page Configuration----------------*/
+#Configuration {
+    
+    text-align: center;
 }

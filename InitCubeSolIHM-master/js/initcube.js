@@ -3,6 +3,9 @@
 
 $(document).ready(function() {
 
+    /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
+    let segmentVol = new SegmentVol("../initcube.xml");
+    
 
     /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
     let gestionnaireCommandes = new GestionnaireCommandes(segmentVol);
@@ -12,9 +15,7 @@ $(document).ready(function() {
     gestionnaireCommandes.getHistorique(); //charge l'historique
     vueHistorique.afficherHistorique(); //affiche l'historique
 
-    /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
-    let segmentVol = new SegmentVol("../initcube.xml");
- 
+    /*--------------------------------------Partie pour la classe VueInstrument----------------------------------------*/
     let vueInstruments = new Array();
     segmentVol.listeInstruments.forEach(function (element, index) {
         vueInstruments[index] = new VueInstrument(segmentVol.listeInstruments[index],gestionnaireCommandes); //Instanciation de la class VueInstrument
@@ -30,6 +31,7 @@ $(document).ready(function() {
         element.updateMesures("BY","2021-06-06 15:48:20","110");
         element.updateMesures("BZ","2021-06-06 15:48:20","100");
     });
+
     
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireConfiguration = new GestionnaireConfiguration(segmentVol);

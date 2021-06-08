@@ -40,7 +40,7 @@ class GestionnaireCommandes {
             url: 'cgi-bin/cgiHistoriqueCMD.cgi', //Localisation du cgi.
             async: false,
             dataType: 'html', //Type de retour.
-            data: "2",
+            data: "10",
             success: function(codeRecu) {
                 var tramesJson = new Array(); // Creation tableau tramesJson.
                 tramesJson = codeRecu.split(/\r?\n/); // Séparation du code reçu a chaque '\n'.

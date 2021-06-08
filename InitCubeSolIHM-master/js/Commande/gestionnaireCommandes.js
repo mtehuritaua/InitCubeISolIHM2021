@@ -23,10 +23,10 @@ class GestionnaireCommandes {
                 alert(codeRecu);
                 retour = codeRecu;
             },
-            error: function(){
+            error: function() {
                 alert("probleme");
             }
-            
+
         });
         return retour;
     }
@@ -50,8 +50,8 @@ class GestionnaireCommandes {
                     var commande = $.parseJSON(test) //Permet d'obetenir grace a la variable parse.
 
                     gestionnaireCourant.historique.push(new Commande(commande.CMD.idSatellite, commande.CMD.typeCommande, commande.CMD.refInstrument, commande.CMD.code))
-                    gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setDateEnvoi(commande.CMD.dateEnvoi);// = c;//.setDate(commande.DATE);
-                    gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setReponse(commande.CMD.reponse);// = c;//.setDate(commande.DATE);
+                    gestionnaireCourant.historique[gestionnaireCourant.historique.length - 1].setDateEnvoi(commande.CMD.dateEnvoi); // = c;//.setDate(commande.DATE);
+                    gestionnaireCourant.historique[gestionnaireCourant.historique.length - 1].setReponse(commande.CMD.reponse); // = c;//.setDate(commande.DATE);
                     //Ajoute une instanciation de commande dans le tableau historique.
                 });
             }

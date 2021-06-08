@@ -3,11 +3,14 @@
 <html>
 
 <head>
+    <title>Centre De Contrôle De Mission - InitCube </title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="utf-8">
+    <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
     <link rel="stylesheet" href="css/siteCssZ.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
+
 
     <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
@@ -247,7 +250,7 @@
         <!-- Message réponse apres envoie du formulaire      -->
         <div id="transmission">
             <div data-role="popup" id="bienTransmis" data-theme="a" data-dismissible="false" style="padding:20px 50px;">
-                <p>Le formulaire à bien été transmise</p>
+                <p>Le formulaire a bien été transmise</p>
             </div>
         </div>
 
@@ -582,16 +585,6 @@
             <img id="imgCnes" src="images/cnes.png" />
         </div>
 
-        <title>GESTION DE COMMANDES </title>
-
-        <!-- Favicons (just the basics for now, check out http://realfavicongenerator.net/ for all available) -->
-        <link rel="shortcut icon" href="images/cnes1.png">
-        <link rel="icon" type="image/png" href="images/cnes1.png">
-        <link rel="h" type="image/png" href="images/cnes.png">
-
-        <!-- Web fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700&Open+Sans:300,400,600,700">
-
         <!-- Bootstrap and Ares CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/animate.min.css">
@@ -613,11 +606,8 @@
                             <meta http-equiv="X-UA-Compatible" content="IE=edge">
                             <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
                             <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-                            <!-- <script type="text/javascript" src="assets/js/date.js"></script>-->
                             <link rel="stylesheet" href="css/siteCssZ.css">
-                            <!--<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>-->
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                            <script src="assets/js/ajax.js"></script>
 
                             <html>
                             <!--Formulaire Commande -->
@@ -677,8 +667,6 @@
                     </div>
                     <!--End DétailHistorique-->
 
-
-
                     <!--Historique-->
                     <div class="col-md-4">
                         <div class="block">
@@ -687,8 +675,6 @@
                         </div>
                     </div>
                     <!--End Historique-->
-
-
 
                     <div id="dialog">
                         <!-- Bonne transmission-->
@@ -743,7 +729,7 @@
     <script src="assets/js/plugins/jquery.easypiechart.min.js"></script>
     <script src="assets/js/ares.js"></script>
     <script>
-        jQuery(function() {
+        jQuery(function () {
             // Init page helpers (Appear + CountTo + Easy Pie Chart plugins)
             Ares.initHelpers(['appear', 'appear-countTo', 'easy-pie-chart']);
         });
@@ -765,7 +751,8 @@
             <div class="ui-grid-b">
                 <!-- Liste instrument deja sur le segment vol-->
                 <div class="ui-block-a">
-                    <div data-role="controlgroup" data-enhanced="true" class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-b ui-corner-all">
+                    <div data-role="controlgroup" data-enhanced="true"
+                        class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-b ui-corner-all">
                         <div role="heading" class="ui-controlgroup-label">
                             <h3 style="color:#ffffff"> Instruments sur le cubesat</h3>
                         </div>
@@ -809,8 +796,7 @@
             <div class="ui-block-b">
                 <a href="#pageEtat" name="cancelConf" class="ui-btn  ui-btn-icon-left ui-icon-delete" id="AnnulerConf">Annuler</a>
             </div>
-            <div class="ui-block-c"> <a href="#pageFormulaire" class="ui-btn  ui-icon-plus ui-btn-icon-left">Ajouter
-                    un
+            <div class="ui-block-c"> <a href="#pageFormulaire" class="ui-btn  ui-icon-plus ui-btn-icon-left">Ajouter un
                     Instrument</a></div>
         </div>
         <!--Pop up de confirmation avant envoie-->
@@ -824,10 +810,12 @@
             </form>
         </div>
         <!-- Message réponse apres envoie du formulaire      -->
-        <div id="transmission">
-            <div data-role="popup" id="bienRecu" data-theme="a" data-dismissible="false" style="padding:20px 50px;">
-                <p>La configuration a bien été enregistrée</p>
-            </div>
+        <div data-role="popup" id="bienRecu" data-theme="a" class="ui-corner-all" data-dismissible="false">
+            <form>
+                <div style="padding:10px 20px;">
+                    <h3>La nouvelle configuration a bien été enregistré</h3>
+                </div>
+            </form>
         </div>
 
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">

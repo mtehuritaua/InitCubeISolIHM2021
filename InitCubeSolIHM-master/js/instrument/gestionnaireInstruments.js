@@ -5,7 +5,8 @@ class GestionnaireInstruments {
 
     $("#Envoyer").click(function () {
       gestionnaireCourant.ajouterInstrument(); //stocker donnée dans instance instrument
-      gestionnaireCourant.recapFormInstrument();// -> construire recap a partir des données avant
+      gestionnaireCourant.recapFormInstrument();// construire recap a partir des données avant
+      
     });
     $("#EnvoieRecap").click(function () {
       gestionnaireCourant.transmettreTrameJSON();
@@ -113,10 +114,10 @@ class GestionnaireInstruments {
       url: "cgi-bin/cgiAjouterInstrument.cgi",
       data: gestionnaireCourant.listeInstruments[gestionnaireCourant.listeInstruments.length - 1].genererJSON(),
       async: false,
-      dataType: "json",
+      dataType: "text",
       success: function (codeRecu) {
         console.log("Code Recu:" + codeRecu);
-        popupAjoutInstrument(codeRecu);
+        gestionnaireCourant.popupAjoutInstrument(codeRecu);
         return codeRecu;
       },
       error: function (codeRecu) {

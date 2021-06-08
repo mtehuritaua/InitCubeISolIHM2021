@@ -25,7 +25,7 @@ class GestionnaireConfiguration {
       dataType: "html",
       success: function (code) {
         console.log(": " + code);
-        popupReception(code);
+        gestionnaireCourant.popupReception(code);
       },
     });
   }

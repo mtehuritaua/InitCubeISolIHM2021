@@ -13,7 +13,6 @@ public:
     Communication(string adresse, string port);
     virtual ~Communication();
     int connexion();
-    void lancerInitCubeServeur();
     void envoyerMessage(string m);
     int recevoirDonnees();
     char* getBuffer();

@@ -488,8 +488,12 @@
                 </tbody>
             </table>
         </div>
-        <div class="clearfix">
-            <label>Faire une nouvelle mesure :<button type="button" id="btnCamInfra">Valider</button></label>
+        <br/>
+        <div class="ui-grid-b">
+            <div class="ui-block-a"></div>
+            <div class="ui-block-b">
+                <button type="button" id="btnCamInfra">Nouvelle mesure</button>
+            </div>
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
             <div data-role="navbar" data-grid="" data-iconpos="left">
@@ -619,13 +623,13 @@
                             <!--Formulaire Commande -->
                             <div class="block-content">
                                 <form id="myForm">
-                                    <div data-role="fieldcontain">
+                                    <div class="ui-field-contain">
                                         <label for="liste"> Identifiant du satellite :</label>
                                         <select style="color:#000000" name="liste" id="idSatellite">
                                             <option value="1"> 1 </option>
                                         </select>
                                     </div>
-                                    <div data-role="fieldcontain">
+                                    <div class="ui-field-contain">
                                         <label for="liste"> Type de commande :</label>
                                         <select style="color:#000000" name="liste" id="typeCommande">
                                             <option value="MISSION">MISSION</option>
@@ -639,16 +643,16 @@
                                             <option value="DATE">DATE</option>
                                         </select>
                                     </div>
-                                    <div data-role="fieldcontain">
+                                    <div class="ui-field-contain">
                                         <label for="liste"> Instruments :</label>
                                         <select style="color:#000000" name="liste" id="instru"></select>
 
                                     </div>
-                                    <div data-role="fieldcontain">
+                                    <div class="ui-field-contain">
                                         <label for="liste"> Type de mesure :</label>
                                         <select style="color:#000000" name="liste" id="code"></select>
                                     </div>
-                                    <div data-role="fieldcontain">
+                                    <div class="ui-field-contain">
                                         <label for="DateEtHeure"> Date et heure :</label>
                                         <input name="date" class="form-control" type="datetime-local">
                                     </div>

@@ -313,6 +313,7 @@ span {
     
     text-align: center;
     list-style: square;
+    overflow: auto;
 }
 
 .ui-bar-b{

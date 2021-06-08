@@ -24,7 +24,7 @@ class GestionnaireConfiguration {
       data: gestionnaireCourant.genererConfigurationJSON(),
       dataType: "html",
       success: function (code) {
-        console.log(": " + code);
+        console.log("Nouvelle Configuration: " + code);
         gestionnaireCourant.popupReception(code);
       },
     });

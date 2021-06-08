@@ -1,11 +1,12 @@
 class VueInstrument {
-    constructor(instrument){
+    constructor(instrument , gestCommandes){
         this.instrument = instrument;
+        this.gestionnaireCommandes = gestCommandes;
         this.graphiques = Array();
-        //this.chargerVueInstruments();
         this.chargerHeader();
         this.chargerVue();
         this.chargerFooter();
+        this.updateMesures();
     }
     
     /*chargerVueInstruments(){
@@ -26,9 +27,10 @@ class VueInstrument {
         });
     }*/
 
+    //chargerHeader permet de charger le header de la page
     chargerHeader(){
         $('body').append('<!--         ======================================  -->');
-        $('body').append(`<!--                 page vue${this.instrument.ref}    -->`);
+        $('body').append('<!--                 page vue'+this.instrument.ref+'    -->');
         $('body').append('<!--         ======================================  -->');
         $('body').append('<div data-role="page" id="page'+this.instrument.ref+'" data-theme="b">\
                             <div id="header" class="general">\
@@ -37,6 +39,7 @@ class VueInstrument {
                             <div id="vue'+this.instrument.ref+'" class="general body">');
     }
 
+    //chargerVue permet de charger la vue de la page
     chargerVue(){
         let vueCourante = this;
 
@@ -50,11 +53,12 @@ class VueInstrument {
         this.instrument.listeTypesMesure.forEach(function(element,index){
             $("#typesMesures"+vueCourante.instrument.ref).append('<th class="typesMesures">Valeur '+element.nom+' ('+element.unite+') </th>');
             $("#valeursMesures"+vueCourante.instrument.ref).append('<td id="valeur'+vueCourante.instrument.ref+element.code+'"></td>');
-            vueCourante.graphiques.push(new Graphique('graph'+vueCourante.instrument.ref+'',"Instrument",vueCourante.instrument.nom,element.nom,element.unite));
+            vueCourante.graphiques.push(new GraphiqueInstru('graph' + vueCourante.instrument.ref + '', element.code, "Instrument", vueCourante.instrument.nom, element.nom, element.unite));
         });
 
     }
 
+    //chargerFooter permet de charger le footer de la page
     chargerFooter(){
         $("#page"+this.instrument.ref).append('<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">\
                             <div data-role="navbar" data-grid="" data-iconpos="left">\
@@ -68,10 +72,23 @@ class VueInstrument {
                         </div>');
     }
 
-    updateMesures(){
-        
+    //Rafraichir les mesures du tableau
+    updateMesures(code, date, valeur) {
+        let vueCourante = this;
+        //mise à jour de la valeur de la mesure dans le tableau
+        $("#valeur" + vueCourante.instrument.ref + code).text(valeur);
+
+        //mise à jour du graphique, s'il y en a un
+        vueCourante.graphiques.forEach(function (element) {
+            //Si le code passé en paramètre correspond bien à celui de la mesure suive par ce graphique
+            //On ajoute la mesure sur le graphique
+            if (element.code === code) {
+                element.ajouterMesure(date, valeur);
+            }
+        });
     }
 
+    //Rafraichir les mesures du graphique
     updateGraphiques(){
 
     }

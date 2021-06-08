@@ -1,11 +1,7 @@
-//var camera = new CCamera;
-//var matrice = new CMatrice(camera);
-
 $(document).ready(function() {
 
     /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
-    segmentVol.genererMenuInstruments();
 
 
     /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
@@ -16,18 +12,29 @@ $(document).ready(function() {
     gestionnaireCommandes.getHistorique(); //charge l'historique
     vueHistorique.afficherHistorique(); //affiche l'historique
 
+    /*--------------------------------------Partie pour la classe VueInstrument----------------------------------------*/
+    let vueInstruments = new Array();
+    segmentVol.listeInstruments.forEach(function(element, index) {
+        vueInstruments[index] = new VueInstrument(segmentVol.listeInstruments[index], gestionnaireCommandes); //Instanciation de la class VueInstrument
+    });
 
-    
+    //test de mise à jour des mesures instruments
+    vueInstruments.forEach(function(element) {
+        element.updateMesures("BX", "2021-06-06 15:45:20", "52");
+        element.updateMesures("BY", "2021-06-06 15:45:20", "130");
+        element.updateMesures("BZ", "2021-06-06 15:45:20", "80");
+
+        element.updateMesures("BX", "2021-06-06 15:48:20", "60");
+        element.updateMesures("BY", "2021-06-06 15:48:20", "110");
+        element.updateMesures("BZ", "2021-06-06 15:48:20", "100");
+    });
+
+
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireConfiguration = new GestionnaireConfiguration(segmentVol);
     let vueNvelleInstrument = new VueNouvelleInstrument();
     let vueConfSV = new VueConfigurationSV(gestionnaireConfiguration);
-    
-    let vueInstruments = new Array();
-    segmentVol.listeInstruments.forEach(function (element, index) {
-        vueInstruments[index] = new VueInstrument(segmentVol.listeInstruments[index]);
-    });
-    
+
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");
     let graphBattTension = new Graphique("graphique", "Etat", "Batterie", "Tension", "V");
@@ -43,7 +50,7 @@ $(document).ready(function() {
     //let graphMagnetoBZ = new Graphique("graphMagnetometre", "Magnetometre", "ValeurBZ", "Valeur", "μT");
 
     /*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
-    var source = new EventSource("cgi-bin/cubeEventServer.cgi");//modifier nom cgi: cgiDiffuserTM.cgi (TéléMesure)
+    var source = new EventSource("cgi-bin/cubeEventServer.cgi"); //modifier nom cgi: cgiDiffuserTM.cgi (TéléMesure)
     source.addEventListener("etat", function(event) {
         var obj = JSON.parse(event.data);
         document.getElementById("ChargeBatterie").innerHTML = obj.batterie.niveauDeCharge + " %";
@@ -80,24 +87,24 @@ $(document).ready(function() {
                 matrice.majMatrice();
                 break;
             case "magneto":
-                graphMagnetoBX.ajouterMesure(
+                vueInstruments.graphMagnetometre.ajouterMesure(
                     instru.instrument.date,
-                    instru.instrument.mesure.ValeurMagnetoBX
+                    instru.instrument.mesure.ValeurMagnetometreBX
                 );
-                graphMagnetoBY.ajouterMesure(
+                vueInstruments.graphMagnetometre.ajouterMesure(
                     instru.instrument.date,
-                    instru.instrument.mesure.ValeurMagnetoBY
+                    instru.instrument.mesure.ValeurMagnetometreBY
                 );
-                graphMagnetoBZ.ajouterMesure(
+                vueInstruments.graphMagnetometre.ajouterMesure(
                     instru.instrument.date,
-                    instru.instrument.mesure.ValeurMagnetoBZ
+                    instru.instrument.mesure.ValeurMagnetometreBZ
                 );
 
-                document.getElementById("ValeurMagnetoBX").innerHTML =
+                document.getElementById("valeurMagnetometreBX").innerHTML =
                     instru.instrument.mesure.ValeurMagnetoBX + " μT";
-                document.getElementById("ValeurMagnetoBY").innerHTML =
+                document.getElementById("valeurMagnetometreBY").innerHTML =
                     instru.instrument.mesure.ValeurMagnetoBY + " μT";
-                document.getElementById("ValeurMagnetoBZ").innerHTML =
+                document.getElementById("valeurMagnetometreBZ").innerHTML =
                     instru.instrument.mesure.ValeurMagnetoBZ + " μT";
 
                 break;

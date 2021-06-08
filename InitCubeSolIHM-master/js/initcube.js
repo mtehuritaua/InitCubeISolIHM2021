@@ -1,6 +1,3 @@
-//var camera = new CCamera;
-//var matrice = new CMatrice(camera);
-
 $(document).ready(function() {
 
     /*-------------------------------------Segment Vol-----------------------------------------------------------------*/

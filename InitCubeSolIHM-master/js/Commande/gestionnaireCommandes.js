@@ -18,7 +18,7 @@ class GestionnaireCommandes {
             url: 'cgi-bin/cgiTransmettreCMD.cgi',
             data: gestCourant.listeCommandes[gestCourant.listeCommandes.length - 1].genererJSON(),
             async: false,
-            dataType: 'json',
+            dataType: 'text',
             success: function(codeRecu) {
                 alert(codeRecu);
                 retour = codeRecu;

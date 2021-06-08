@@ -3,7 +3,6 @@ class VueInstrument {
         this.instrument = instrument;
         this.gestionnaireCommandes = gestCommandes;
         this.graphiques = Array();
-        //this.chargerVueInstruments();
         this.chargerHeader();
         this.chargerVue();
         this.chargerFooter();

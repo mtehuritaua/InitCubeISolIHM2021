@@ -42,10 +42,8 @@ class VueNouvelleCommande {
     popup(value) {
         if (value == "ACK") {
             $("#Bpopup").fadeIn(200).delay(3000).fadeOut(400);
-        } else if (value == "NACK")
+        } else 
             $("#Mpopup").fadeIn(200).delay(3000).fadeOut(400);
-        else
-            $("#AbcVD").fadeIn(200).delay(3000).fadeOut(400);
     }
 
     onClickCMDMatrice() {

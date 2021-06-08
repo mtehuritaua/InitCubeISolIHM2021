@@ -314,6 +314,11 @@ span {
     text-align: center;
     list-style: square;
     overflow: auto;
+    height: 100%;
+}
+#blockHC{
+    overflow: auto;
+    height: 100%;  
 }
 
 .ui-bar-b{

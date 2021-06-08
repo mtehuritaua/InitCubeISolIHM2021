@@ -5,8 +5,10 @@ class SegmentVol {
         this.listeInstruments = new Array();
         this.fichierConf = this.recupererFichierConf();
         this.chargerInstruments();
+        this.genererMenuInstruments();
     }
 
+    //Cette méthode récupère le fichier XML avec une requete Ajax
     recupererFichierConf() {
         var fichier; 
         $.ajax({
@@ -21,6 +23,7 @@ class SegmentVol {
         return fichier;
     }
 
+    //chargerInstruments permet de récupérer les informations des instruments dans le fichier XML
     chargerInstruments(){
         let segmentVolCourant = this;
 
@@ -64,6 +67,7 @@ class SegmentVol {
         });
     }
 
+    //genererMenuInstruments ajoute les instruments au menu de la page instrument
     genererMenuInstruments() {
         //console.log("Nouvel Instrument du fichier : initcube.xml");
         for (var i = 0; i < this.listeInstruments.length; i++) {

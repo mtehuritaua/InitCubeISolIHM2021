@@ -69,7 +69,14 @@ h2 {
     width: 100%;
     margin: 0px;
     padding: 0px;
+    text-align: center;
 }
+
+th {
+    margin: 10px;
+    text-align: center;
+}
+
 
 
 /* ----------------------- Zone Instruments ----------------------- */
@@ -201,8 +208,9 @@ span {
     border: 0px;
     border-collapse: collapse;
     width: 100%;
-    margin: 10px;
+    margin: 0px;
     padding: 0px;
+    text-align: center;
 }
 
 .graphiques {

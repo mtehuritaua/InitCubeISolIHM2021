@@ -70,7 +70,6 @@ class GestionnaireInstruments {
           gestionnaireCourant.addToListeInstruments(element, index);
          // console.log(" " + element);
         });
-
       }
     });
   }
@@ -96,13 +95,13 @@ class GestionnaireInstruments {
 
   /*Recupere les identifiant de chaque instrument*/
   getInstrumentNumberByID(id) {
-   // console.log("Entree dans getInstrumentById(). Taille du tableau " + this.listeInstruments.length + " identifiant : "+id);
-    for (var i = 0 ; i < this.listeInstruments.length;i++) {
+    // console.log("Entree dans getInstrumentById(). Taille du tableau " + this.listeInstruments.length + " identifiant : "+id);
+    for (var i = 0; i < this.listeInstruments.length; i++) {
       //console.log("identifiant de l'instrument "+i+" trouvé dans la liste : "+this.listeInstruments[i].id);
-      if(this.listeInstruments[i].identifiant == id){
-          //console.log("numéro de correspondant à "+id+" : "+i);
-          return i;
-        }
+      if (this.listeInstruments[i].identifiant == id) {
+        //console.log("numéro de correspondant à "+id+" : "+i);
+        return i;
+      }
     }
   }
 
@@ -111,28 +110,28 @@ class GestionnaireInstruments {
     let gestionnaireCourant = this;
     $.ajax({
       type: "POST",
-      url: "cgi-bin/cgiAjouterInstrument.cgi",      
+      url: "cgi-bin/cgiAjouterInstrument.cgi",
       data: gestionnaireCourant.listeInstruments[gestionnaireCourant.listeInstruments.length - 1].genererJSON(),
       async: false,
       dataType: "json",
       success: function (codeRecu) {
         console.log("Code Recu:" + codeRecu);
+        popupAjoutInstrument(codeRecu);
         return codeRecu;
-       // popupAjoutInstrument(codeRecu);
       },
-      error: function (codeRecu){
+      error: function (codeRecu) {
         console.log("Erreur:" + codeRecu);
         return codeRecu;
       }
     });
   }
   
-  /*Popup de confirmation de la reception du formulaire
+  /*Popup de confirmation de la reception du formulaire*/
   popupAjoutInstrument(value) {
     if (value == "OK") {
       $("#bienTransmis").fadeIn(200).delay(3000).fadeOut(400)
     }
-  }*/
+  }
 
   /*création d'une requete ajax afin de récuperer l'image du formulaire*/
   transmettreImage() {

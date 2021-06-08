@@ -250,7 +250,7 @@
         <!-- Message réponse apres envoie du formulaire      -->
         <div id="transmission">
             <div data-role="popup" id="bienTransmis" data-theme="a" data-dismissible="false" style="padding:20px 50px;">
-                <p>Le formulaire à bien été transmise</p>
+                <p>Le formulaire a bien été transmise</p>
             </div>
         </div>
 
@@ -810,10 +810,12 @@
             </form>
         </div>
         <!-- Message réponse apres envoie du formulaire      -->
-        <div id="transmission">
-            <div data-role="popup" id="bienRecu" data-theme="a" data-dismissible="false" style="padding:20px 50px;">
-                <p>La configuration a bien été enregistrée</p>
-            </div>
+        <div data-role="popup" id="bienRecu" data-theme="a" class="ui-corner-all" data-dismissible="false">
+            <form>
+                <div style="padding:10px 20px;">
+                    <h3>La nouvelle configuration a bien été enregistré</h3>
+                </div>
+            </form>
         </div>
 
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">

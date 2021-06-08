@@ -314,6 +314,7 @@ span {
     text-align: center;
     list-style: square;
     overflow: auto;
+    overflow-y: scroll;
     height: 100%;
 }
 

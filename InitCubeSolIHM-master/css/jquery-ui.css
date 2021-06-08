@@ -10,7 +10,7 @@
 }
 /* Commande*/
 ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
-li { margin: 5px; padding: 5px; width: 150px; }
+li { margin: 5px; padding: 5px; /*width: 150px;*/ }
 #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px }
 #sortable { width: 172px; min-height: 200px; padding: 0.5em;margin: 10px; background-color:#4e7b92; vertical-align : middle; }
 #listeCommande {

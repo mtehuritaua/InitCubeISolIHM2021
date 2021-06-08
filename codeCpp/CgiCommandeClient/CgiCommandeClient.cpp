@@ -26,7 +26,9 @@ void CgiCommandeClient::recupererCommande() {
 
 void CgiCommandeClient::transmettreCommande(){
     com->envoyerMessage(commande);
-    if(attendreAck() == true){
+    com->recevoirDonnees();
+    string test = com->getBuffer();
+    if(test == "ACK" ){
         cout << "ACK" ;
 
     }
@@ -35,7 +37,8 @@ void CgiCommandeClient::transmettreCommande(){
     }
 }
 
-bool CgiCommandeClient::attendreAck(){
+
+/*bool CgiCommandeClient::attendreAck(){
     com->recevoirDonnees();
     string test = com->getBuffer();
     if(test == "ACK" ){

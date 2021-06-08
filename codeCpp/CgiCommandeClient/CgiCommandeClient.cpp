@@ -28,13 +28,7 @@ void CgiCommandeClient::transmettreCommande(){
     com->envoyerMessage(commande);
     com->recevoirDonnees();
     string test = com->getBuffer();
-    if(test == "ACK" ){
-        cout << "ACK" ;
-
-    }
-    else{
-        cout << "NACK";
-    }
+    cout << test;
 }
 
 

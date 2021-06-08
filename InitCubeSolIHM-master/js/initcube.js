@@ -13,13 +13,23 @@ $(document).ready(function() {
 
     /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
-
-    segmentVol.genererMenuInstruments();
     
     let vueInstruments = new Array();
     segmentVol.listeInstruments.forEach(function (element, index) {
-        vueInstruments[index] = new VueInstrument(segmentVol.listeInstruments[index]);
+        vueInstruments[index] = new VueInstrument(segmentVol.listeInstruments[index],gestionnaireCommandes); //Instanciation de la class VueInstrument
     });
+
+    //test de mise à jour des mesures instruments
+    vueInstruments.forEach(function(element) {
+        element.updateMesures("BX","2021-06-06 15:45:20","52");
+        element.updateMesures("BY","2021-06-06 15:45:20","130");
+        element.updateMesures("BZ","2021-06-06 15:45:20","80");
+
+        element.updateMesures("BX","2021-06-06 15:48:20","60");
+        element.updateMesures("BY","2021-06-06 15:48:20","110");
+        element.updateMesures("BZ","2021-06-06 15:48:20","100");
+    });
+
     
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");
@@ -73,24 +83,24 @@ $(document).ready(function() {
                 matrice.majMatrice();
                 break;
             case "magneto":
-                graphMagnetoBX.ajouterMesure(
+                vueInstruments.graphMagnetometre.ajouterMesure(
                     instru.instrument.date,
-                    instru.instrument.mesure.ValeurMagnetoBX
+                    instru.instrument.mesure.ValeurMagnetometreBX
                 );
-                graphMagnetoBY.ajouterMesure(
+                vueInstruments.graphMagnetometre.ajouterMesure(
                     instru.instrument.date,
-                    instru.instrument.mesure.ValeurMagnetoBY
+                    instru.instrument.mesure.ValeurMagnetometreBY
                 );
-                graphMagnetoBZ.ajouterMesure(
+                vueInstruments.graphMagnetometre.ajouterMesure(
                     instru.instrument.date,
-                    instru.instrument.mesure.ValeurMagnetoBZ
+                    instru.instrument.mesure.ValeurMagnetometreBZ
                 );
 
-                document.getElementById("ValeurMagnetoBX").innerHTML =
+                document.getElementById("valeurMagnetometreBX").innerHTML =
                     instru.instrument.mesure.ValeurMagnetoBX + " μT";
-                document.getElementById("ValeurMagnetoBY").innerHTML =
+                document.getElementById("valeurMagnetometreBY").innerHTML =
                     instru.instrument.mesure.ValeurMagnetoBY + " μT";
-                document.getElementById("ValeurMagnetoBZ").innerHTML =
+                document.getElementById("valeurMagnetometreBZ").innerHTML =
                     instru.instrument.mesure.ValeurMagnetoBZ + " μT";
 
                 break;

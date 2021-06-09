@@ -10,7 +10,8 @@ class Commande {
         //this.periodicite = "0";
         //this.duree = "0";
         //this.save = "false";
-        console.log("Instanciation d'une commande " + idSatellite + " " + typeCommande + " " + refInstrument + " " + code);
+        /* affichage console pour vérifier les attributs
+        console.log("Instanciation d'une commande " + idSatellite + " " + typeCommande + " " + refInstrument + " " + code);*/
     }
     setDateEnvoi(date) {
         this.dateEnvoi = date;

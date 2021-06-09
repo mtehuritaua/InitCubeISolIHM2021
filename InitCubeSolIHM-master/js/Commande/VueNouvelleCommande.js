@@ -4,6 +4,9 @@ class VueNouvelleCommande {
         this.gestionnaireCommandes = gestCommandes;
         this.remplirMDInstruments();
         this.remplirMDTypeMesure(0);
+        $("#Bpopup").hide();
+        $("#Mpopup").hide();
+        $("#AbcVD").hide();
         $("#choixInstru").hide();
         $("#choixCode").hide();
         $("#choixDate").hide();

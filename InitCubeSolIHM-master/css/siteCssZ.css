@@ -310,12 +310,15 @@ span {
 }
 
 #listeHC {
-    
+    font-size:medium; 
     text-align: center;
     list-style: square;
     overflow: auto;
     overflow-y: scroll;
     height: 100%;
+}
+#comResu, #listeDHC{
+    font-size:medium; 
 }
 
 .scroller {

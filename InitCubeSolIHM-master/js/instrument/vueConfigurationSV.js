@@ -30,11 +30,8 @@ class VueConfigurationSV{
     let liste = this.gestionnaireConfiguration.segmentVol.listeInstruments;
     liste.splice(0, liste.length);
 
-    console.log("modifier liste instru:" );
-
     $("#instrumentExistant :input").each(function (index){
       $(this).attr('id');
-      console.log("ID:" +$(this).attr('id') + "index:"+ index);
       gestCourant.gestionnaireConfiguration.segmentVol.listeInstruments[index] = gestCourant.gestionnaireConfiguration.gestionnaireInstruments.listeInstruments[$(this).attr('id')];
     })
   }

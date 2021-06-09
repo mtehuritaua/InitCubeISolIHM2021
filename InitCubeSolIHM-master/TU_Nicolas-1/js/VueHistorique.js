@@ -1,7 +1,6 @@
 class VueHistorique {
     constructor(gestCommande) {
         this.gestCommande = gestCommande;
-        this.afficherHistorique(); //Affiche l'historique
     }
 
     afficherHistorique() {

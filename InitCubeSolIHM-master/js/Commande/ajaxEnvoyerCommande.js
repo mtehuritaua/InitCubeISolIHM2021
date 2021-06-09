@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
     $("#Bpopup").hide();
     $("#Mpopup").hide();
     $("#AbcVD").hide();
@@ -29,4 +29,4 @@ $(document).ready(function() {
         }
     });
 
-});
+});*/

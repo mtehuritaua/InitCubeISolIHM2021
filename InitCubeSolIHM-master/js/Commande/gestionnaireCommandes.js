@@ -37,21 +37,31 @@ class GestionnaireCommandes {
 
         $.ajax({
             type: 'GET', //Type méthode envoie.
+<<<<<<< HEAD
             url: 'cgi-bin/cgiHistoriqueCMD.cgi', //Localisation du cgi.
+=======
+            url: 'cgi-bin/main', //Localisation du cgi.
+>>>>>>> test
             async: false,
             dataType: 'html', //Type de retour.
             data: "10",
             success: function(codeRecu) {
                 var tramesJson = new Array(); // Creation tableau tramesJson.
                 tramesJson = codeRecu.split(/\r?\n/); // Séparation du code reçu a chaque '\n'.
-
                 tramesJson.forEach(function(test) {
                     //Parcour chaque element du tableau.
                     var commande = $.parseJSON(test) //Permet d'obetenir grace a la variable parse.
 
                     gestionnaireCourant.historique.push(new Commande(commande.CMD.idSatellite, commande.CMD.typeCommande, commande.CMD.refInstrument, commande.CMD.code))
+<<<<<<< HEAD
                     gestionnaireCourant.historique[gestionnaireCourant.historique.length - 1].setDateEnvoi(commande.CMD.dateEnvoi); // = c;//.setDate(commande.DATE);
                     gestionnaireCourant.historique[gestionnaireCourant.historique.length - 1].setReponse(commande.CMD.reponse); // = c;//.setDate(commande.DATE);
+=======
+                    
+                    //constructor(idSatellite, typeCommande, refInstrument, code)
+                    gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setDateEnvoi(commande.CMD.dateEnvoi);
+                    gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setReponse(commande.CMD.reponse);
+>>>>>>> test
                     //Ajoute une instanciation de commande dans le tableau historique.
                 });
             }

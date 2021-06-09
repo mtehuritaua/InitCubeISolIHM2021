@@ -9,6 +9,7 @@ class VueConfigurationSV{
     $("#EnvoyerConf").click(function () {
       gestionnaireCourant.modifierListeInstrumentSV();
       gestionnaireCourant.gestionnaireConfiguration.transmettreConfSV();
+      location.href = "#pageConfiguration";
     });
     
     gestionnaireCourant.deplacerInstrument();
@@ -24,23 +25,29 @@ class VueConfigurationSV{
     });
   }
 
-  /*Permet de vider l'intérieure du tableau de la liste des instrument du Segment Vol*/
+  /*Permet de modifer l'intérieure du tableau de la liste des instrument du Segment Vol*/
   modifierListeInstrumentSV(){
-    var liste = this.gestionnaireConfiguration.segmentVol.listeInstruments;
+    let gestCourant = this;
+    let liste = this.gestionnaireConfiguration.segmentVol.listeInstruments;
     liste.splice(0, liste.length);
+
+    $("#instrumentExistant :input").each(function (index){
+      $(this).attr('id');
+      gestCourant.gestionnaireConfiguration.segmentVol.listeInstruments[index] = gestCourant.gestionnaireConfiguration.gestionnaireInstruments.listeInstruments[$(this).attr('id')];
+    })
   }
 
   /*Récupere la liste instrument de la classe gestionnaireInstrument*/
   genererListeInstrumentsPotentiels() {
     let gestionnaireCourant = this;
     for (var i = 0; i < this.gestionnaireConfiguration.gestionnaireInstruments.listeInstruments.length; i++) {   
-      var instruPotentiels = gestionnaireCourant.gestionnaireConfiguration.gestionnaireInstruments.listeInstruments[i].nom; 
+      let instruPotentiels = gestionnaireCourant.gestionnaireConfiguration.gestionnaireInstruments.listeInstruments[i].nom; 
         $("#instrumentPotentiels").append(
         '<input name="' +
         instruPotentiels +
-          '" id="instrument' +
+          '" id="' +
           i +
-          '" type="checkbox"> <label for="instrument' +
+          '" type="checkbox"> <label for="' +
           i +
           '" > '+
           instruPotentiels +
@@ -54,9 +61,9 @@ class VueConfigurationSV{
     //let gestCourant = this;
     var listeInstruSV = this.gestionnaireConfiguration.segmentVol.listeInstruments;
     for (var i = 0; i < this.gestionnaireConfiguration.segmentVol.listeInstruments.length; i++) {
-      var numero = this.gestionnaireConfiguration.gestionnaireInstruments.getInstrumentNumberByID(listeInstruSV[i].identifiant);
+      let numero = this.gestionnaireConfiguration.gestionnaireInstruments.getInstrumentNumberByID(listeInstruSV[i].identifiant);
       //console.log("Numéro de l'instrument dans genererListeInstruSV() : "+ numero);
-      $('#instrument'+ numero).appendTo('#instrumentExistant');
+      $('#'+ numero).appendTo('#instrumentExistant');
     }
   }
 }

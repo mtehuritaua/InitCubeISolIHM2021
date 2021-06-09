@@ -20,7 +20,6 @@ class GestionnaireCommandes {
             async: false,
             dataType: 'text',
             success: function(codeRecu) {
-                alert(codeRecu);
                 retour = codeRecu;
             },
             error: function() {

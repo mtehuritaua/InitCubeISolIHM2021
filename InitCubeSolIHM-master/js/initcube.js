@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
     let segmentVol = new SegmentVol("../initcube.xml");
-    
+
 
     /*-------------------------------------Gestionnaire de commandes ---------------------------------------------------*/
     let gestionnaireCommandes = new GestionnaireCommandes(segmentVol);
@@ -14,8 +14,8 @@ $(document).ready(function() {
 
     /*--------------------------------------Partie pour la classe VueInstrument----------------------------------------*/
     let vueInstruments = new Array();
-    segmentVol.listeInstruments.forEach(function (element, index) {
-        vueInstruments[index] = new VueInstrument(segmentVol.listeInstruments[index],gestionnaireCommandes); //Instanciation de la class VueInstrument
+    segmentVol.listeInstruments.forEach(function(element, index) {
+        vueInstruments[index] = new VueInstrument(segmentVol.listeInstruments[index], gestionnaireCommandes); //Instanciation de la class VueInstrument
     });
 
     //test de mise à jour des mesures instruments
@@ -37,12 +37,12 @@ $(document).ready(function() {
         element.updateGraphiques("BZ","2021-06-06 15:48:20","100");
     });*/
 
-    
+
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireConfiguration = new GestionnaireConfiguration(segmentVol);
     let vueNvelleInstrument = new VueNouvelleInstrument();
     let vueConfSV = new VueConfigurationSV(gestionnaireConfiguration);
-   
+
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");
     let graphBattTension = new Graphique("graphique", "Etat", "Batterie", "Tension", "V");

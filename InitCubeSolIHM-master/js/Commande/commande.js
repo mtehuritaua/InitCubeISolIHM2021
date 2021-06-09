@@ -6,15 +6,23 @@ class Commande {
         this.code = code;
         this.dateEnvoi = "0000/00/00 00:00:00";
         this.reponse = "non";
+        //this.dateExec = "0000/00/00 00:00:00";
+        //this.periodicite = "0";
+        //this.duree = "0";
+        //this.save = "false";
         console.log("Instanciation d'une commande " + idSatellite + " " + typeCommande + " " + refInstrument + " " + code);
     }
     setDateEnvoi(date) {
         this.dateEnvoi = date;
     }
 
-    setReponse(resultat){
+    setReponse(resultat) {
         this.reponse = resultat;
     }
+
+    /*setDateExec() {
+        this.dateExec=
+    }*/
 
     genererJSON() {
         var cmd = "{\"CMD\":" + JSON.stringify(this) + "}";

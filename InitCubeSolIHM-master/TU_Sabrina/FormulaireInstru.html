@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Centre De Contrôle De Mission - InitCube </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../css/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="../css/siteCssZ.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
+    <script type="text/javascript" src="../js/jquery.mobile-1.4.5.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+     <script type="text/javascript" src="../js/jquery.validate.min.js"></script>
+
+    <script type="text/javascript" src="../js/instrument/instrument.js"></script>
+    <script type="text/javascript" src="js/gestionnaireConfiguration-1.js"></script>
+    <script type="text/javascript" src="../js/instrument/gestionnaireInstruments.js"></script>
+    <script type="text/javascript" src="../js/instrument/vueNouvelleInstrument.js"></script>
+    <script type="text/javascript" src="../js/instrument/TypeMesure.js"></script>
+    <script type="text/javascript" src="js/segmentVol-1.js"></script>
+    <script type="text/javascript" src="js/TU_VueNouvelInstrument.js"></script>
+    <script type="text/javascript" src="js/VInstru.js"></script>
+    
+</head>
+
+<body>
+    <!-- 
+	            ======================================
+	                        Page Formulaire Ajout Instrument
+	            ==============================================
+	        -->
+    <div data-role="page" id="pageFormulaire" data-theme="b">
+
+        <!--Bouton en haut de la page-->
+        <div class="ui-grid-d">
+            <div class="ui-block-a"><a href="#popupRecap" data-rel="popup" data-position-to="window"
+                    class="ui-btn ui-icon-check ui-btn-icon-left " id="Envoyer" data-transition="pop">Envoyer</a></div>
+            <div class="ui-block-b">
+                <a href="#pageConfiguration" name="cancel" class="ui-btn  ui-btn-icon-left ui-icon-delete"
+                    id="Annuler">Annuler</a>
+            </div>
+            <div class="ui-block-c"> <button type="reset" class="ui-btn  ui-btn-icon-left ui-icon-forward"
+                    id="reset">Reset</button></div>
+            <div class="ui-block-d"><button type="button" class="ui-btn ui-icon-plus ui-btn-icon-left "
+                    id="Ajouter">Ajouter
+                    Mesure</button></div>
+            <div class="ui-block-e"><button type="button" class="ui-btn ui-icon-minus ui-btn-icon-left "
+                    id="Supprimer">Supprimer
+                    Mesure</button></div>
+        </div>
+
+        <!--  création duformulaire -->
+        <form action="#" method="post" id="formulaire">
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <div class="ui-bar">
+                        <legend style="color:#ffffff">Nouvel Instrument</legend>
+                        <label for="nom">Nom:</label>
+                        <input type="text" name="nom" id="nom" />
+                        <label for="identifiant">Identifiant:</label>
+                        <input name="identifiant" id="identifiant" />
+                        <label for="ref">Référence:</label>
+                        <input name="ref" id="ref" />
+                        <label for="adresse">Adresse:</label>
+                        <input name="adresse" id="adresse" />
+                        <label for="role">Rôle:</label>
+                        <input name="role" id="role" />
+                    </div>
+                    <form enctype="multipart/form-data" action="file_news_upload.php" method="post">
+                        <label for="image">Télécharger l'image (PNG, JPG, JPEG):</label>
+                        <input type="file" name="image" id="image" accept=".png, .jpg, .jpeg" />
+                    </form>
+                </div>
+
+                <div class="ui-block-b">
+                    <div class="ui-bar">
+                        <div id="typeMesure0">
+                            <legend style="color:#ffffff">Type de Mesure</legend>
+                            <label for="mesure">Mesure:</label>
+                            <input type="text" name="nomMesure" id="nomMesure" />
+                            <label for="codeMesure">Code Commande:</label>
+                            <input type="text" name="codeMesure" id="codeMesure" />
+                            <label for="description">Description:</label>
+                            <input type="text" name="description" id="description" />
+                            <!--  RAJOUTER UN CHAMPS DANS LE FORMULAIRE (MATRICE, IMAGE, NORMAL (menu déroulant)) -->
+                            <label for="unite">Unité:</label>
+                            <input type="text" name="unite" id="unite" />
+                            <label for="valMin">Seuil Min:</label>
+                            <input type="text" name="valMin" />
+                            <label for="valMax">Seuil Max:</label>
+                            <input type="text" name="valMax" />
+                        </div>
+                        <div id="new" class="new"> </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br />
+        <!-- Récap formulaire instrument-->
+        <div data-role="popup" id="popupRecap" data-theme="a" class="ui-corner-all" >
+            <form action="#" method="post" id="testForm">
+                <div style="padding:20px 50px;">
+                    <h3>Veuillez vérifier les informations </h3>
+
+                    <div id="bloqueInput">
+                        <legend style="color:#000000">Nouvel Instrument</legend>
+                        <label for="nom">Nom:</label>
+                        <input type="text" name="nom" id="popNom" />
+                        <label for="identifiant">Identifiant:</label>
+                        <input name="identifiant" id="popIdentifiant" />
+                        <label for="ref">Référence:</label>
+                        <input name="ref" id="popRef" />
+                        <label for="adresse">Adresse:</label>
+                        <input type="text" name="adresse" id="popAdresse" />
+                        <label for="role">Role:</label>
+                        <input type="text" name="role" id="popRole" />
+
+                        <div id="addRecap0">
+                            <legend style="color:#000000">Type de Mesure</legend>
+                            <label for="mesure">Mesure:</label>
+                            <input type="text" name="nomMesure" />
+                            <label for="codeMesure">Code Commande:</label>
+                            <input type="text" name="codeMesure" />
+                            <label for="description">Description:</label>
+                            <input type="text" name="description" />
+                            <label for="unite">Unité:</label>
+                            <input type="text" name="unite" />
+                            <label for="valMin">Seuil Min:</label>
+                            <input type="text" name="valMin" />
+                            <label for="valMax">Seuil Max:</label>
+                            <input type="text" name="valMax" />
+                        </div>
+                        <div id="newRecap" class="newRecap"> </div>
+                    </div>
+                    <button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check"
+                        id="EnvoieRecap">Envoyer</button>
+                    <a href="#" data-rel="back" type="reset" name="cancel"
+                        class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Annuler</a>
+                </div>
+            </form>
+        </div>
+        <!-- Message réponse apres envoie du formulaire      
+        <div data-position-to="window" id="Bpopup" data-rel="popup" data-theme="a" data-dismissible="false"
+            style="max-width:400px; min-width: 400px;">
+            <div role="main" class="ui-content">
+                <p>Le nouvel instrument à bien été transmis</p>
+            </div>
+        </div>-->
+        <div data-role="popup" id="bienTransmis" data-theme="a" class="ui-corner-all" data-dismissible="false">
+            <form>
+                <div style="padding:10px 20px;">
+                    <h3>Le nouvel instrument à bien été transmis</h3>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

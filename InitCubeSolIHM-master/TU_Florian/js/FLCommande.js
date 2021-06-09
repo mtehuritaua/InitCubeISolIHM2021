@@ -14,12 +14,10 @@ class Commande {
         console.log("Instanciation d'une commande " + idSatellite + " " + typeCommande + " " + refInstrument + " " + code);*/
     }
     setDateEnvoi(date) {
-        this.dateEnvoi = date;
+
     }
 
-    setReponse(resultat) {
-        this.reponse = resultat;
-    }
+    setReponse(resultat) {}
 
     /*setDateExec() {
         this.dateExec=
@@ -30,5 +28,4 @@ class Commande {
         console.log("JSON fabriqué automatiquement : " + cmd);
         return cmd;
     }
-
 }

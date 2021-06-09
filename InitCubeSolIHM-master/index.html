@@ -38,7 +38,7 @@
     <script type="text/javascript" src="js/graphiqueInstru.js"></script>
     <script type="text/javascript" src="js/Commande/commande.js"></script>
     <script type="text/javascript" src="js/Commande/gestionnaireCommandes.js"></script>
-    <script type="text/javascript" src="js/Commande/ajaxEnvoyerCommande.js"></script>
+    <!--<script type="text/javascript" src="js/Commande/ajaxEnvoyerCommande.js"></script>-->
     <script type="text/javascript" src="js/Commande/VueNouvelleCommande.js"></script>
     <script type="text/javascript" src="js/Commande/VueHistorique.js"></script>
 
@@ -485,7 +485,8 @@
         <div class="ui-grid-b">
             <div class="ui-block-a"></div>
             <div class="ui-block-b">
-                <button type="button" id="btnCamInfra">Nouvelle mesure</button>
+                <button type="button" id="btnMatrice">Acquisition d'une matrice</button>
+                <button type="button" id="btnTemperature">Acquisition d'une temperature</button>
             </div>
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
@@ -709,7 +710,6 @@
                 </div>
             </main>
         </div>
-        </main>
     </div>
 
     <!-- Scripts -->
@@ -719,7 +719,7 @@
     <script src="assets/js/plugins/jquery.easypiechart.min.js"></script>
     <script src="assets/js/ares.js"></script>
     <script>
-        jQuery(function () {
+        jQuery(function() {
             // Init page helpers (Appear + CountTo + Easy Pie Chart plugins)
             Ares.initHelpers(['appear', 'appear-countTo', 'easy-pie-chart']);
         });
@@ -741,8 +741,7 @@
             <div class="ui-grid-b">
                 <!-- Liste instrument deja sur le segment vol-->
                 <div class="ui-block-a">
-                    <div data-role="controlgroup" data-enhanced="true"
-                        class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-b ui-corner-all">
+                    <div data-role="controlgroup" data-enhanced="true" class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-b ui-corner-all">
                         <div role="heading" class="ui-controlgroup-label">
                             <h3 style="color:#ffffff"> Instruments sur le cubesat</h3>
                         </div>

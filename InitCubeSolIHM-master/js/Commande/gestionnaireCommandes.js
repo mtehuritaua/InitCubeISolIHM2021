@@ -31,7 +31,7 @@ class GestionnaireCommandes {
     }
 
     getHistorique() {
-        console.log("Entrée dans getHistorique()");
+        //console.log("Entrée dans getHistorique()");
         let gestionnaireCourant = this;
 
         $.ajax({
@@ -43,7 +43,6 @@ class GestionnaireCommandes {
             success: function(codeRecu) {
                 var tramesJson = new Array(); // Creation tableau tramesJson.
                 tramesJson = codeRecu.split(/\r?\n/); // Séparation du code reçu a chaque '\n'.
-
                 tramesJson.forEach(function(test) {
                     //Parcour chaque element du tableau.
                     var commande = $.parseJSON(test) //Permet d'obetenir grace a la variable parse.

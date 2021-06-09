@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Centre De Contrôle De Mission - InitCube </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../css/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="../css/siteCssZ.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+
+
+    <script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
+    <script type="text/javascript" src="../js/jquery.mobile-1.4.5.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="js/commande.js"></script>
+    <script type="text/javascript" src="js/gestionnaireCommandes.js"></script>
+    <script type="text/javascript" src="js/VueHistorique.js"></script>
+
+    <script type="text/javascript" src="../assets/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.serializeToJSON.js"></script>
+    <script type="text/javascript" src="js/initcube.js"></script>
+</head>
+
+<body>
+    <!--
+			======================================
+						page Commande
+			======================================
+		-->
+    <div data-role="page" id="pageCommande" data-theme="b">
+
+
+        <!-- Bootstrap and Ares CSS -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/animate.min.css">
+        <link rel="stylesheet" href="../css/ares.css">
+
+        <!-- Page Container -->
+        <!-- Available Classes: 'modern-sf', 'vintage-sf', 'interstellar-sf' -->
+        <div id="page-container" class="modern-sf">
+            <main id="page-main">
+                <div class="row">
+                    <html>
+
+                    <!--DétailHistorique-->
+                    <div class="col-md-4">
+                        <div class="block">
+                            <h2 class="block-title visibility-hidden" data-toggle="appear"
+                                data-class="animated fadeInDown" style="color:#ffffff" ;>Détail Commande</h2>
+                            <p id="listeDHC"></p>
+                        </div>
+                        <div class="block">
+                            <h2 class="block-title visibility-hidden" data-toggle="appear"
+                                data-class="animated fadeInDown" style="color:#ffffff" ;>Résultat</h2>
+                            <div id="comResu"></div>
+                        </div>
+                    </div>
+                    <!--End DétailHistorique-->
+
+                    <!--Historique-->
+                    <div class="col-md-4">
+                        <div class="block">
+                            <h2 class="block-title visibility-hidden" data-toggle="appear"
+                                data-class="animated fadeInDown" style="color:#ffffff">Historique</h2>
+                            <ul class="scroller" id="listeHC"></ul>
+                        </div>
+                    </div>
+                    <!--End Historique-->
+                    
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/core/jquery.min.js"></script>
+    <script src="../assets/js/plugins/jquery.appear.min.js"></script>
+    <script src="../assets/js/plugins/jquery.countTo.min.js"></script>
+    <script src="../assets/js/plugins/jquery.easypiechart.min.js"></script>
+    <script src="../assets/js/ares.js"></script>
+    <script>
+        jQuery(function () {
+            // Init page helpers (Appear + CountTo + Easy Pie Chart plugins)
+            Ares.initHelpers(['appear', 'appear-countTo', 'easy-pie-chart']);
+        });
+    </script>
+    </div>
+</body>
+
+</html>

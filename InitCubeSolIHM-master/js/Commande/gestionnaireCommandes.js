@@ -18,7 +18,7 @@ class GestionnaireCommandes {
             url: 'cgi-bin/cgi_1',
             data: gestCourant.listeCommandes[gestCourant.listeCommandes.length - 1].genererJSON(),
             async: false,
-            dataType: 'json',
+            dataType: 'text',
             success: function(codeRecu) {
                 retour = codeRecu;
             }
@@ -32,20 +32,21 @@ class GestionnaireCommandes {
 
         $.ajax({
             type: 'GET', //Type méthode envoie.
-            url: 'cgi-bin/cgiHistoriqueCMD_test', //Localisation du cgi.
+            url: 'cgi-bin/main', //Localisation du cgi.
             async: false,
             dataType: 'html', //Type de retour.
             success: function(codeRecu) {
                 var tramesJson = new Array(); // Creation tableau tramesJson.
                 tramesJson = codeRecu.split(/\r?\n/); // Séparation du code reçu a chaque '\n'.
-
                 tramesJson.forEach(function(test) {
                     //Parcour chaque element du tableau.
                     var commande = $.parseJSON(test) //Permet d'obetenir grace a la variable parse.
 
                     gestionnaireCourant.historique.push(new Commande(commande.CMD.idSatellite, commande.CMD.typeCommande, commande.CMD.refInstrument, commande.CMD.code))
-                    gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setDateEnvoi(commande.CMD.dateEnvoi);// = c;//.setDate(commande.DATE);
-                    gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setReponse(commande.CMD.REPONSE);// = c;//.setDate(commande.DATE);
+                    
+                    //constructor(idSatellite, typeCommande, refInstrument, code)
+                    gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setDateEnvoi(commande.CMD.dateEnvoi);
+                    gestionnaireCourant.historique[gestionnaireCourant.historique.length-1].setReponse(commande.CMD.reponse);
                     //Ajoute une instanciation de commande dans le tableau historique.
                 });
             }

@@ -8,7 +8,7 @@ class VueHistorique {
         let vuehistorique = this;
         this.gestCommande.historique.forEach(function (commande, index) {//Affiche les commandes dans la zone historique
             $('#listeHC').append('<li class="listehistorique" id="  ' + index + ' ">' + commande.idSatellite + ' ' + commande.typeCommande
-                + ' ' + commande.instrument + ' ' + commande.code + ' ' + commande.dateEnvoi + '</li>');
+                + ' ' + commande.refInstrument + ' ' + commande.code + ' ' + commande.dateEnvoi + '</li>');
         });
 
         var idCommande;
@@ -33,7 +33,7 @@ class VueHistorique {
         Type de la commande</div></div><div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].typeCommande + '\
         </div></div>');
         $('#listeDHC').append('<div class="ui-grid-a"><div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px">\
-        Type de la commande</div></div><div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].instrument + '\
+        Type de la commande</div></div><div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].refInstrument + '\
         </div></div>');
         $('#listeDHC').append('<div class="ui-grid-a"><div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px">\
         Code de la commande</div></div><div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].code + '\
@@ -76,10 +76,22 @@ class VueHistorique {
             } else if (vuehistorique.gestCommande.historique[idCommande].code == "TC") {
                 $('#comResu').append('<div class="ui-grid-a"><div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px">\
             Température</div></div><div class="ui-block-b">\
-            <div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].reponse + '\</div></div>');
+            <div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].reponse.mesure.donnees[0] + vuehistorique.gestCommande.historique[idCommande].reponse.mesure.unite + '\</div></div>');
             };
-        }
-
-
+        } else if (vuehistorique.gestCommande.historique[idCommande].typeCommande == "STATUS") {
+            /*$('#comResu').append('<div class="ui-grid-b">\
+            <div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px">\
+            '+ 'Batterie' +'</div></div>\
+            <div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px">\
+            '+ 'Charge' + '</div></div>\
+            <div class="ui-block-c"><div class="ui-bar ui-bar-b" style="height:60px">\
+            '+ vuehistorique.gestCommande.historique[idCommande].reponse.status.batterie.Charge +'</div></div>\
+            <div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px">\
+            '+ 'CourantmA' + '</div></div>\
+            <div class="ui-block-c"><div class="ui-bar ui-bar-b" style="height:60px">\
+            '+ vuehistorique.gestCommande.historique[idCommande].reponse.status.batterie.CourantmA +'</div></div></div>');*/
+        };
     }
+
+
 }

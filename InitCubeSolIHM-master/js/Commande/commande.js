@@ -12,6 +12,10 @@ class Commande {
         this.dateEnvoi = date;
     }
 
+    setReponse(resul) {
+        this.reponse = resul;
+    }
+
     genererJSON() {
         var cmd = "{ \"CMD\" : " + JSON.stringify(this) + "}";
         console.log("JSON fabriqué automatiquement : " + cmd);

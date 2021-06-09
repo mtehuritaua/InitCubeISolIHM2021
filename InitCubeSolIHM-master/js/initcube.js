@@ -91,6 +91,7 @@ $(document).ready(function() {
 
     source.addEventListener("mesure", function (evt) {
         var mesure = JSON.parse(evt.data);
+        console.log("TRAME RECU : " + mesure);
         var camera = new CCamera();
         var matrice = new CMatrice(camera);
         switch (mesure.mesure.type) {

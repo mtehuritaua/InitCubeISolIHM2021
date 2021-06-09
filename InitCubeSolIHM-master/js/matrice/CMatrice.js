@@ -8,7 +8,7 @@ class CMatrice {
 // Constructeur
    constructor(camera) {
     // définition des attributs de la classe
-    this.seuilHaut = 80;
+    this.seuilHaut = 100;
     this.seuilBas = 0;
     this.camera = camera;
 	//Les seuils intermédiaires sont calculés de façon à séparer la plage de variation en 

@@ -9,6 +9,7 @@ class VueConfigurationSV{
     $("#EnvoyerConf").click(function () {
       gestionnaireCourant.modifierListeInstrumentSV();
       gestionnaireCourant.gestionnaireConfiguration.transmettreConfSV();
+      location.href = "#pageConfiguration";
     });
     
     gestionnaireCourant.deplacerInstrument();

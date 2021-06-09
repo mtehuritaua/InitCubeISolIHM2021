@@ -19,7 +19,7 @@ $(document).ready(function() {
     });
 
     //test de mise à jour des mesures instruments
-    vueInstruments.forEach(function(element) {
+    /*vueInstruments.forEach(function(element) {
         element.updateMesures("BX","2021-06-06 15:45:20","52");
         element.updateMesures("BY","2021-06-06 15:45:20","130");
         element.updateMesures("BZ","2021-06-06 15:45:20","80");
@@ -27,7 +27,15 @@ $(document).ready(function() {
         element.updateMesures("BX","2021-06-06 15:48:20","60");
         element.updateMesures("BY","2021-06-06 15:48:20","110");
         element.updateMesures("BZ","2021-06-06 15:48:20","100");
-    });
+
+        element.updateGraphiques("BX","2021-06-06 15:45:20","52");
+        element.updateGraphiques("BY","2021-06-06 15:45:20","130");
+        element.updateGraphiques("BZ","2021-06-06 15:45:20","80");
+
+        element.updateGraphiques("BX","2021-06-06 15:48:20","60");
+        element.updateGraphiques("BY","2021-06-06 15:48:20","110");
+        element.updateGraphiques("BZ","2021-06-06 15:48:20","100");
+    });*/
 
     
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
@@ -50,15 +58,19 @@ $(document).ready(function() {
     //let graphMagnetoBZ = new Graphique("graphMagnetometre", "Magnetometre", "ValeurBZ", "Valeur", "μT");
 
     /*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
-    var source = new EventSource("cgi-bin/cubeEventServer.cgi");//modifier nom cgi: cgiDiffuserTM.cgi (TéléMesure)
-    source.addEventListener("etat", function(event) {
-        var obj = JSON.parse(event.data);
-        document.getElementById("ChargeBatterie").innerHTML = obj.batterie.niveauDeCharge + " %";
-        graphBattCharge.ajouterMesure(obj.date, obj.batterie.niveauDeCharge);
+    var source = new EventSource("cgi-bin/cgiDiffuserTM.cgi");//modifier nom cgi: cgiDiffuserTM.cgi (TéléMesure)
+    source.addEventListener("status", function(event) {
+        var trame = JSON.parse(event.data);
+        document.getElementById("charge").innerHTML = trame.status.batterie.charge;
+        
+        document.getElementById("CourantSortie").innerHTML = trame.status.batterie.CourantmA + " mA";
+        graphBattCourant.ajouterMesure(trame.date, trame.status.batterie.CourantmA);
+        document.getElementById("ChargeBatterie").innerHTML = trame.status.batterie.NiveauDeCharge + " %";
+        graphBattCharge.ajouterMesure(trame.date, trame.status.batterie.NiveauDeCharge);
+
         document.getElementById("TensionSortie").innerHTML = obj.batterie.tension + " V";
         graphBattTension.ajouterMesure(obj.date, obj.batterie.tension);
-        document.getElementById("CourantSortie").innerHTML = obj.batterie.courant + " mA";
-        graphBattCourant.ajouterMesure(obj.date, obj.batterie.courant);
+        
         document.getElementById("RamUse%").innerHTML = obj.memoire.occupMemoire + " %";
         graphRAMuse.ajouterMesure(obj.date, obj.memoire.occupMemoire);
         document.getElementById("RamDispo").innerHTML = obj.memoire.memoireDispoMo + " Mo";
@@ -77,27 +89,38 @@ $(document).ready(function() {
         }
     });
 
-    source.addEventListener("instrument", function(evt) {
-        var instru = JSON.parse(evt.data);
+    source.addEventListener("mesure", function (evt) {
+        var mesure = JSON.parse(evt.data);
         var camera = new CCamera();
         var matrice = new CMatrice(camera);
-        switch (instru.instrument.type) {
+        switch (mesure.mesure.type) {
             case "matrice":
-                camera.setPixel(instru.instrument.mesure);
+                camera.setPixel(mesure.mesure.matrice);
                 matrice.majMatrice();
                 break;
-            case "magneto":
-                vueInstruments.graphMagnetometre.ajouterMesure(
+
+            case "normal":
+                //vueInstruments[0].test();
+                //console.log("numéro de la vue demandée : "+getIndexVueInstrumentByCode(mesure.mesure.code));
+                //console.log("numéro de la vue demandée : " + getIndexVueInstrumentByCode("BX"));
+
+                vueInstruments[getIndexVueInstrumentByCode(mesure.mesure.code)].updateMesures(mesure.mesure.code, genererDateCourante(), mesure.mesure.donnees);
+                vueInstruments[getIndexVueInstrumentByCode(mesure.mesure.code)].updateGraphiques(mesure.mesure.code, genererDateCourante(), mesure.mesure.donnees);
+            //getVueInstrumentByCode(mesure.mesure.code).updateMesures(mesure.mesure.code, genererDateCourante(), mesure.mesure.donnees);
+            
+            /*case "magneto":
+                //graphMagnetoBX.ajouterMesure()
+                vueInstruments[1].graphiques[0].ajouterMesure(
                     instru.instrument.date,
-                    instru.instrument.mesure.ValeurMagnetometreBX
+                    instru.instrument.mesure.ValeurMagnetoBX
                 );
-                vueInstruments.graphMagnetometre.ajouterMesure(
+                vueInstruments[1].graphiques[1].ajouterMesure(
                     instru.instrument.date,
-                    instru.instrument.mesure.ValeurMagnetometreBY
+                    instru.instrument.mesure.ValeurMagnetoBY
                 );
-                vueInstruments.graphMagnetometre.ajouterMesure(
+                vueInstruments[1].graphiques[2].ajouterMesure(
                     instru.instrument.date,
-                    instru.instrument.mesure.ValeurMagnetometreBZ
+                    instru.instrument.mesure.ValeurMagnetoBZ
                 );
 
                 document.getElementById("valeurMagnetometreBX").innerHTML =
@@ -107,10 +130,44 @@ $(document).ready(function() {
                 document.getElementById("valeurMagnetometreBZ").innerHTML =
                     instru.instrument.mesure.ValeurMagnetoBZ + " μT";
 
-                break;
+                break;*/
+
             default:
                 console.log("Erreur d'identification de l'instrument");
-                console.log(instru.instrument.type);
+                console.log(mesure.mesure.type);
         }
     });
+    
+    function getIndexVueInstrumentByCode(code) {
+        var numero;
+        vueInstruments.forEach(function (element, index) {
+            element.instrument.listeTypesMesure.forEach(function (element) {
+                if (element.code === code) {
+                    numero = index;
+                }
+            });
+        });
+        return numero;
+    };
+
+    function genererDateCourante() {
+        var today = new Date();
+        var dd = today.getDate();
+
+        var mm = today.getMonth() + 1;
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+
+        var hh = today.getHours();
+        var mn = today.getMinutes();
+        var ss = today.getSeconds();
+        today = yyyy + '-' + mm + '-' + dd + ' ' + hh + ':' + mn + ':' + ss;
+        return today;
+    };
 });

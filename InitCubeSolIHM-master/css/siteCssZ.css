@@ -392,3 +392,7 @@ span {
     
     text-align: center;
 }
+/*------------------Page Formulaire Instrument----------------*/
+.error{
+    color:rgb(255, 0, 0);
+}

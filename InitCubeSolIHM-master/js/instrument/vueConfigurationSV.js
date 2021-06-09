@@ -9,6 +9,7 @@ class VueConfigurationSV{
     $("#EnvoyerConf").click(function () {
       gestionnaireCourant.modifierListeInstrumentSV();
       gestionnaireCourant.gestionnaireConfiguration.transmettreConfSV();
+      location.href = "#pageConfiguration";
     });
     
     gestionnaireCourant.deplacerInstrument();
@@ -26,12 +27,14 @@ class VueConfigurationSV{
 
   /*Permet de modifer l'intérieure du tableau de la liste des instrument du Segment Vol*/
   modifierListeInstrumentSV(){
+    let gestCourant = this;
     let liste = this.gestionnaireConfiguration.segmentVol.listeInstruments;
     liste.splice(0, liste.length);
-    
-    let instrumentSV = $("#instrumentExistant").val();
-    this.gestionnaireConfiguration.segmentVol.listeInstruments.push(instrumentSV);
-    console.log(this.listeInstruments);
+
+    $("#instrumentExistant :input").each(function (index){
+      $(this).attr('id');
+      gestCourant.gestionnaireConfiguration.segmentVol.listeInstruments[index] = gestCourant.gestionnaireConfiguration.gestionnaireInstruments.listeInstruments[$(this).attr('id')];
+    })
   }
 
   /*Récupere la liste instrument de la classe gestionnaireInstrument*/
@@ -42,9 +45,9 @@ class VueConfigurationSV{
         $("#instrumentPotentiels").append(
         '<input name="' +
         instruPotentiels +
-          '" id="instrument' +
+          '" id="' +
           i +
-          '" type="checkbox"> <label for="instrument' +
+          '" type="checkbox"> <label for="' +
           i +
           '" > '+
           instruPotentiels +
@@ -60,7 +63,7 @@ class VueConfigurationSV{
     for (var i = 0; i < this.gestionnaireConfiguration.segmentVol.listeInstruments.length; i++) {
       let numero = this.gestionnaireConfiguration.gestionnaireInstruments.getInstrumentNumberByID(listeInstruSV[i].identifiant);
       //console.log("Numéro de l'instrument dans genererListeInstruSV() : "+ numero);
-      $('#instrument'+ numero).appendTo('#instrumentExistant');
+      $('#'+ numero).appendTo('#instrumentExistant');
     }
   }
 }

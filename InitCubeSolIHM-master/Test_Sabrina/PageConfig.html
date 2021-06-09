@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Centre De Contrôle De Mission - InitCube </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../css/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="../css/siteCssZ.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
+    <script type="text/javascript" src="../js/jquery.mobile-1.4.5.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   
+    <script type="text/javascript" src="../js/instrument/instrument.js"></script>
+    <script type="text/javascript" src="js/gestionnaireConfiguration-2.js"></script>
+    <script type="text/javascript" src="../js/instrument/gestionnaireInstruments.js"></script>
+    <script type="text/javascript" src="../js/instrument/vueConfigurationSV.js"></script>
+    <script type="text/javascript" src="../js/instrument/TypeMesure.js"></script>
+    <script type="text/javascript" src="js/segmentVol-2.js"></script>
+    <script type="text/javascript" src="js/TI_PageConfiguration.js"></script>    
+</head>
+
+<body>
+    <!-- 
+	            ======================================
+	                        Page Configuration
+	            ==============================================
+	        -->
+
+    <div data-role="page" id="pageConfiguration" data-theme="b">
+        <div data-role="popup" id="popupTest" data-theme="a" class="ui-corner-all" data-dismissible="false"> </div>
+        <form id="Configuration">
+            <div class="ui-grid-b">
+                <!-- Liste instrument deja sur le segment vol-->
+                <div class="ui-block-a">
+                    <div data-role="controlgroup" data-enhanced="true"
+                        class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-b ui-corner-all">
+                        <div role="heading" class="ui-controlgroup-label">
+                            <h3 style="color:#ffffff"> Instruments sur le cubesat</h3>
+                        </div>
+                        <div style="padding:10px" class="ui-controlgroup-controls ui-shadow">
+                            <div id="instrumentExistant"> </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Btn deplacement des instrument à gauche ou droite -->
+
+                <div class="ui-block-b">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l"
+                                id="addListe">Ajouter</button>
+                        </div>
+                        <div class="ui-block-b">
+                            <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-r"
+                                id="removeListe">Enlever</button>
+                        </div>
+                    </div>
+                </div>
+                <!--Liste instrument potentiels -->
+                <div class="ui-block-c">
+                    <div class="ui-block-a">
+                        <div data-role="controlgroup" data-enhanced="true"
+                            class="ui-controlgroup ui-controlgroup-vertical ui-group-theme-b ui-corner-all">
+                            <div role="heading" class="ui-controlgroup-label">
+                                <h3 style="color:#ffffff"> Instruments Potentiels</h3>
+                            </div>
+                            <div style="padding:10px" class="ui-controlgroup-controls ui-shadow">
+                                <div id="instrumentPotentiels"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!--Bouton Envoyer, Ajouter, Annuler-->
+        <div class="ui-grid-b">
+            <div class="ui-block-a">
+                <a href="#popupConfirmation" data-rel="popup" data-position-to="window"
+                    class="ui-btn  ui-btn-icon-left ui-icon-check " data-transition="pop">Envoyer</a>
+            </div>
+            <div class="ui-block-b">
+                <a href="#pageEtat" name="cancelConf" class="ui-btn  ui-btn-icon-left ui-icon-delete"
+                    id="AnnulerConf">Annuler</a>
+            </div>
+            <div class="ui-block-c"> <a href="#pageFormulaire" class="ui-btn  ui-icon-plus ui-btn-icon-left">Ajouter un
+                    Instrument</a></div>
+        </div>
+        <!--Pop up de confirmation avant envoie-->
+        <div data-role="popup" id="popupConfirmation" data-theme="a" class="ui-corner-all" data-dismissible="false">
+            <form>
+                <div style="padding:10px 20px;">
+                    <h3>Etes vous sûr de vouloir modifier la configuration du segment vol ?</h3>
+                    <button type="submit" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-check"
+                        id="EnvoyerConf">Oui</button>
+                    <a href="#" data-rel="back" type="reset" name="cancel"
+                        class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-delete">Non</a>
+                </div>
+            </form>
+        </div>
+        <!-- Message réponse apres envoie du formulaire      -->
+        <div data-role="popup" id="bienRecu" data-theme="a" class="ui-corner-all" data-dismissible="false">
+            <form>
+                <div style="padding:10px 20px;">
+                    <h3>La nouvelle configuration a bien été enregistré</h3>
+                </div>
+            </form>
+        </div>
+</body>
+
+</html>

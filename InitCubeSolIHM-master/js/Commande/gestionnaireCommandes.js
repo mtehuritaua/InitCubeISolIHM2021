@@ -31,7 +31,7 @@ class GestionnaireCommandes {
     }
 
     getHistorique() {
-        console.log("Entrée dans getHistorique()");
+        //console.log("Entrée dans getHistorique()");
         let gestionnaireCourant = this;
 
         $.ajax({

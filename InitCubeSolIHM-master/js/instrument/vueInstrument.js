@@ -6,7 +6,7 @@ class VueInstrument {
         this.chargerHeader();
         this.chargerVue();
         this.chargerFooter();
-        this.updateMesures();
+        
     }
     
     /*chargerVueInstruments(){
@@ -51,6 +51,7 @@ class VueInstrument {
                                                 <div id="graph'+this.instrument.ref+'" class="graphiques"></div>');
 
         this.instrument.listeTypesMesure.forEach(function(element,index){
+            //if(element.code == code)
             $("#typesMesures"+vueCourante.instrument.ref).append('<th class="typesMesures">Valeur '+element.nom+' ('+element.unite+') </th>');
             $("#valeursMesures"+vueCourante.instrument.ref).append('<td id="valeur'+vueCourante.instrument.ref+element.code+'"></td>');
             vueCourante.graphiques.push(new GraphiqueInstru('graph' + vueCourante.instrument.ref + '', element.code, "Instrument", vueCourante.instrument.nom, element.nom, element.unite));
@@ -72,11 +73,21 @@ class VueInstrument {
                         </div>');
     }
 
+    update(code, date, valeur){
+
+    }
+
     //Rafraichir les mesures du tableau
     updateMesures(code, date, valeur) {
         let vueCourante = this;
         //mise à jour de la valeur de la mesure dans le tableau
         $("#valeur" + vueCourante.instrument.ref + code).text(valeur);
+
+    }
+
+    //Rafraichir les mesures du graphique
+    updateGraphiques(code, date, valeur){
+        let vueCourante = this;
 
         //mise à jour du graphique, s'il y en a un
         vueCourante.graphiques.forEach(function (element) {
@@ -86,11 +97,6 @@ class VueInstrument {
                 element.ajouterMesure(date, valeur);
             }
         });
-    }
-
-    //Rafraichir les mesures du graphique
-    updateGraphiques(){
-
     }
 }
 

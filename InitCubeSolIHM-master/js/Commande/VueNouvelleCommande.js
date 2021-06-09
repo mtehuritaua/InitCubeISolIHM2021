@@ -13,8 +13,11 @@ class VueNouvelleCommande {
         $('#btnCommande').click(function() {
             vueCommande.onClickEnvoyerCommande();
         });
-        $('#btnCamInfra').click(function() {
+        $('#btnMatrice').click(function() {
             vueCommande.onClickCMDMatrice();
+        });
+        $('#btnTemperature').click(function() {
+            vueCommande.onClickCMDTemperature();
         });
         $("#instru").on('change', function() {
             vueCommande.remplirMDTypeMesure(parseInt(this.value));
@@ -66,8 +69,14 @@ class VueNouvelleCommande {
         vueCommande.popup(commandeMat);
     }
 
+    onClickCMDTemperature() {
+        let vueCommande = this;
+        vueCommande.gestionnaireCommandes.genererCommande("1", "MEASURE", "CamInfra", "TC");
+        var commandeTemp = vueCommande.gestionnaireCommandes.transmettreDerniereCommande();
+        vueCommande.popup(commandeTemp);
+    }
+
     onChangeTypeCMD(typeChoisi) {
-        console.log("typeChoisi: " + typeChoisi);
         switch (typeChoisi) {
             case 'MISSION':
                 //COMMANDE MESURE CACHEE

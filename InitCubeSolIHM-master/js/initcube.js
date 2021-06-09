@@ -65,10 +65,10 @@ $(document).ready(function() {
         
         document.getElementById("CourantSortie").innerHTML = trame.status.batterie.CourantmA + " mA";
         graphBattCourant.ajouterMesure(trame.date, trame.status.batterie.CourantmA);
-        document.getElementById("ChargeBatterie").innerHTML = trame.status.batterie.NiveauDeCharge + " %";
-        graphBattCharge.ajouterMesure(trame.date, trame.status.batterie.NiveauDeCharge);
+        //document.getElementById("ChargeBatterie").innerHTML = trame.status.batterie.NiveauDeCharge% + " %";
+        //graphBattCharge.ajouterMesure(trame.date, trame.status.batterie.NiveauDeCharge+'%');
 
-        document.getElementById("TensionSortie").innerHTML = obj.batterie.tension + " V";
+        /*document.getElementById("TensionSortie").innerHTML = obj.batterie.tension + " V";
         graphBattTension.ajouterMesure(obj.date, obj.batterie.tension);
         
         document.getElementById("RamUse%").innerHTML = obj.memoire.occupMemoire + " %";
@@ -80,7 +80,7 @@ $(document).ready(function() {
         document.getElementById("StockLibreMo").innerHTML = obj.stockage.stockLibreMo + " Mo";
         graphStockLibreM.ajouterMesure(obj.date, obj.stockage.stockLibreMo);
         document.getElementById("InfoCamera1").innerHTML = obj.camera.InfoCamera1;
-        document.getElementById("InfoCamera2").innerHTML = obj.camera.InfoCamera2;
+        document.getElementById("InfoCamera2").innerHTML = obj.camera.InfoCamera2;*/
 
         if (obj.cameraIR == 0) {
             document.getElementById("CameraIR").innerHTML = "OFF";
@@ -105,8 +105,8 @@ $(document).ready(function() {
                 //console.log("numéro de la vue demandée : "+getIndexVueInstrumentByCode(mesure.mesure.code));
                 //console.log("numéro de la vue demandée : " + getIndexVueInstrumentByCode("BX"));
 
-                vueInstruments[getIndexVueInstrumentByCode(mesure.mesure.code)].updateMesures(mesure.mesure.code, genererDateCourante(), mesure.mesure.donnees);
-                vueInstruments[getIndexVueInstrumentByCode(mesure.mesure.code)].updateGraphiques(mesure.mesure.code, genererDateCourante(), mesure.mesure.donnees);
+                vueInstruments[getIndexVueInstrumentByCode(mesure.mesure.code)].update(mesure.mesure.code, genererDateCourante(), mesure.mesure.donnees);
+                //vueInstruments[getIndexVueInstrumentByCode(mesure.mesure.code)].updateGraphiques(mesure.mesure.code, genererDateCourante(), mesure.mesure.donnees);
             //getVueInstrumentByCode(mesure.mesure.code).updateMesures(mesure.mesure.code, genererDateCourante(), mesure.mesure.donnees);
             
             /*case "magneto":

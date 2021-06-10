@@ -2,7 +2,7 @@ class VueHistorique {
     constructor(gestCommande) {
         this.gestCommande = gestCommande;
         this.cameraHisto = new CCamera();
-        this.matriceHisto = new CMatriceHistorique(camera);
+        this.matriceHisto = new CMatriceHistorique(cameraHisto);
     }
 
     afficherHistorique() {

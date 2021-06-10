@@ -1,39 +1,45 @@
 class VueHistorique {
     constructor(gestCommande) {
         this.gestCommande = gestCommande;
-        this.afficherHistorique(); //Affiche l'historique
+        this.cameraHisto = new CCamera();
+        this.matriceHisto = new CMatriceHistorique(this.cameraHisto);
     }
 
     afficherHistorique() {
+        $("#listeHC").empty();
         let vuehistorique = this;
-        this.gestCommande.historique.forEach(function (commande, index) {//Affiche les commandes dans la zone historique
+        //Affiche les commandes dans la zone historique.
+        this.gestCommande.historique.forEach(function (commande, index) {
             if(commande.typeCommande == "STATUS"){
-                $('#listeHC').append('<li class="listehistorique" id="  ' + index + ' ">' + commande.idSatellite + ' ' + commande.typeCommande
-                + ' ' + commande.dateEnvoi + '</li>');
+                $('#listeHC').append('<li class="listehistorique" id="  ' + index + ' ">' 
+                + commande.idSatellite + ' ' + commande.typeCommande+ ' ' 
+                + commande.dateEnvoi + '</li>');
             }else{
-                $('#listeHC').append('<li class="listehistorique" id="  ' + index + ' ">' + commande.idSatellite + ' ' + commande.typeCommande
-                + ' ' + commande.refInstrument + ' ' + commande.code + ' ' + commande.dateEnvoi + '</li>');
+                $('#listeHC').append('<li class="listehistorique" id="  ' + index + ' ">' 
+                + commande.idSatellite  + ' ' + commande.typeCommande+ ' ' 
+                + commande.refInstrument + ' ' + commande.code + ' ' + commande.dateEnvoi + '</li>');
             }
-            
         });
-
+        //Récupère l'identifiant de la ligne cliqué.
         var idCommande;
-
         $('.listehistorique').on('click', function () {
             idCommande = $(this).attr('id');
             vuehistorique.detaillerCommande(parseInt(idCommande));
         });
-        $(".listehistorique").hover(function () { $(this).css("color", "#649AFF"); }, function () { $(this).css("color", "white"); });
+        $(".listehistorique").hover(function () { $(this).css("color", "#649AFF"); }, 
+        function () { $(this).css("color", "white"); });
     }
 
     detaillerCommande(idCommande) {
         let vuehistorique = this;
-        $("#listeDHC").empty();//Efface les valeurs entrer, avant son utilisation    
-        $("#comResu").empty();//Efface les valeurs entrer, avant son utilisation   
+        //Efface les valeurs entrer dans la zone détail, avant son utilisation  
+        $("#listeDHC").empty();  
+        //Efface les valeurs entrer dans la zone résultat, avant son utilisation
+        $("#comResu").empty();   
 
         //Détail de la commande
         $('#listeDHC').append('<div class="ui-grid-a"><div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px">\
-        Identifiant du SegmentVol</div></div><div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].idSatellite + '\
+        Identifiant du SegmentVol</div></div><div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px">' + vuehistorique.gestCommande.historique[idCommande].idSatellite + '\
         </div></div>');
         $('#listeDHC').append('<div class="ui-grid-a"><div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px">\
         Type de la commande</div></div><div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].typeCommande + '\
@@ -51,6 +57,7 @@ class VueHistorique {
         Code de la commande</div></div><div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].code + '\
         </div></div>');
             if (vuehistorique.gestCommande.historique[idCommande].code == "PIX") {
+                
                 $('#comResu').append('<table id="matrice">\
                                 <thead>\
                                     <tr>\
@@ -69,20 +76,23 @@ class VueHistorique {
                                 </tbody>\
                             </table>'
                 );
-
+                var pixel = 0;
                 for (var y = 1; y < 9; y++) {
-                    var pixel = 0;
                     for (var i = 0; i < 8; i++) {
                         $("#igne" + y).append('<td id="ixel' + pixel + '"></td>');
-                        pixel = pixel++;
+                        pixel++;
                     };
                 };
+
+                this.cameraHisto.setPixel(vuehistorique.gestCommande.historique[idCommande].reponse.mesure.matrice);
+                this.matriceHisto.majMatrice();
 
 
             } else if (vuehistorique.gestCommande.historique[idCommande].code == "TC") {
                 $('#comResu').append('<div class="ui-grid-a"><div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px">\
             Température</div></div><div class="ui-block-b">\
-            <div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].reponse.mesure.donnees[0] + vuehistorique.gestCommande.historique[idCommande].reponse.mesure.unite + '\</div></div>');
+            <div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].reponse.mesure.donnees[0] + vuehistorique.gestCommande.historique[idCommande].reponse.mesure.unite + '\
+            </div></div>');
             };
         } else if (vuehistorique.gestCommande.historique[idCommande].typeCommande == "STATUS") {
             /*$('#comResu').append('<div class="ui-grid-b">\

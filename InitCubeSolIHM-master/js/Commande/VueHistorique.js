@@ -91,7 +91,8 @@ class VueHistorique {
             } else if (vuehistorique.gestCommande.historique[idCommande].code == "TC") {
                 $('#comResu').append('<div class="ui-grid-a"><div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px">\
             Température</div></div><div class="ui-block-b">\
-            <div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].reponse.mesure.donnees[0] + vuehistorique.gestCommande.historique[idCommande].reponse.mesure.unite + '\</div></div>');
+            <div class="ui-bar ui-bar-b" style="height:60px">'+ vuehistorique.gestCommande.historique[idCommande].reponse.mesure.donnees[0] + vuehistorique.gestCommande.historique[idCommande].reponse.mesure.unite + '\
+            </div></div>');
             };
         } else if (vuehistorique.gestCommande.historique[idCommande].typeCommande == "STATUS") {
             /*$('#comResu').append('<div class="ui-grid-b">\

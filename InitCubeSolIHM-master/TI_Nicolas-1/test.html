@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Centre De Contrôle De Mission - InitCube </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="../css/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="../css/siteCssZ.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+
+
+    <script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
+    <script type="text/javascript" src="../js/jquery.mobile-1.4.5.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="js/ajax.js"></script>
+
+
+</head>
+
+<body>
+    <!--
+			======================================
+						page Commande
+			======================================
+		-->
+    <div data-role="page" id="pageCommande" data-theme="b">
+        <div data-role="header" class="general">
+            <img id="imgCnes" src="../images/cnes.png" />
+        </div>
+
+        <!-- Bootstrap and Ares CSS -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/animate.min.css">
+        <link rel="stylesheet" href="../css/ares.css">
+
+        <!-- Page Container -->
+        <!-- Available Classes: 'modern-sf', 'vintage-sf', 'interstellar-sf' -->
+        <div id="page-container" class="modern-sf">
+            <main id="page-main">
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <form method="POST" action="../cgi-bin/cgiTransmettreCMD.cgi">
+                            <input name >
+                            <button type="submit">Valider</button>
+                        </form>
+                        <!--<form>
+                            <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l"
+                                type="button" id="btnCommande">Valider</button>
+                        </form>-->
+
+                    </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/core/jquery.min.js"></script>
+    <script src="../assets/js/plugins/jquery.appear.min.js"></script>
+    <script src="../assets/js/plugins/jquery.countTo.min.js"></script>
+    <script src="../assets/js/plugins/jquery.easypiechart.min.js"></script>
+    <script src="../assets/js/ares.js"></script>
+    <script>
+        jQuery(function () {
+            // Init page helpers (Appear + CountTo + Easy Pie Chart plugins)
+            Ares.initHelpers(['appear', 'appear-countTo', 'easy-pie-chart']);
+        });
+    </script>
+    </div>
+</body>
+
+</html>

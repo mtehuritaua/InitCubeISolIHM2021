@@ -75,12 +75,11 @@ class VueHistorique {
                                 </tbody>\
                             </table>'
                 );
-
+                var pixel = 0;
                 for (var y = 1; y < 9; y++) {
-                    var pixel = 0;
                     for (var i = 0; i < 8; i++) {
                         $("#igne" + y).append('<td id="ixel' + pixel + '"></td>');
-                        pixel = pixel++;
+                        pixel++;
                     };
                 };
 

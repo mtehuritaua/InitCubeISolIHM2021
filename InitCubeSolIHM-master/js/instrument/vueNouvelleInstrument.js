@@ -5,8 +5,8 @@ class VueNouvelleInstrument {
     let gestionnaireCourant = this; //Créer variable car sinon certaine ne sont pas définie
 
     gestionnaireCourant.bloquerEcriture();
-    gestionnaireCourant.ajouterFormTypeMesure();
     gestionnaireCourant.resetForm();
+    gestionnaireCourant.ajouterFormTypeMesure();
     gestionnaireCourant.supprimerFormTypeMesure();
   }
 
@@ -21,7 +21,7 @@ class VueNouvelleInstrument {
       $("#formulaire").trigger("reset");
     });
     $("#Annuler").click(function () {
-      $("#formulaire").trigger("reset");
+      $("#formulaire").trigger("reset");      
     });
     $("#EnvoieRecap").click(function () {
       $("#formulaire").trigger("reset");
@@ -42,11 +42,19 @@ class VueNouvelleInstrument {
     });
   }
   /*Permet de supprimer les types de mesures ajouter */
-  supprimerFormTypeMesure() {
-    let gestionnaireCourant = this;
-    $("#Supprimer").click(function () {
-      $("#typeMesure1").remove().prop("id", "typeMesure" + gestionnaireCourant.nbTypesMesure--);
-      $("#addRecap1").remove().prop("id", "addRecap" + gestionnaireCourant.nbTypesMesure--);
+  supprimerFormTypeMesure() {    
+    $("#Supprimer").click(function () {  
+      let gestionnaireCourant = this   
+      for (var i = 1; i < 10; i++) { 
+        $('[id^="new"]').each(function () {
+          $('#typeMesure' + i).remove();
+          gestionnaireCourant.nbTypesMesure = 1;
+        });
+        $('[id^="newRecap"]').each(function () {
+          $('#addRecap' + i).remove();
+          gestionnaireCourant.nbTypesMesureRecap = 1;
+        });
+        }
     });
   }
 }

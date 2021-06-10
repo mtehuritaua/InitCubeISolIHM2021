@@ -384,24 +384,14 @@
         </div>
 
         <div class="general body">
-            <table id="tableMatrice">
-                <thead>
-                    <tr>
-                        <th data-priority="1">Instrument</th>
-                        <th data-priority="2">Moyenne des mesures en °C</th>
-                        <th data-priority="3">Etat camera IR</th>
-                    </tr>
-                </thead>
+            <table id="tableMatrice" class="tableInstrument">
                 <tbody>
-                    <tr>
-                        <td>Camera Thermique</td>
-                        <td id="tempMoyenne"></td>
-                        <td id="CameraIR"></td>
-                        <td id="arrMatrice"></td>
-                    </tr>
+                    <tr id="typesMesuresCamInfra"></tr>
+                    <tr id="valeursMesuresCamInfra"></tr>
                 </tbody>
             </table>
-
+            <br/>
+            <div id="graphCamInfra" class="graphiques"></div>
             <table id="matrice">
                 <thead>
                     <tr>

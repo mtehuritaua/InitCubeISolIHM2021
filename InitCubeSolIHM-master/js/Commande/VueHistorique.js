@@ -6,6 +6,7 @@ class VueHistorique {
     }
 
     afficherHistorique() {
+        $("#listeHC").empty();
         let vuehistorique = this;
         //Affiche les commandes dans la zone historique.
         this.gestCommande.historique.forEach(function (commande, index) {

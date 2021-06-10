@@ -33,6 +33,7 @@ class GestionnaireCommandes {
     getHistorique() {
         //console.log("Entrée dans getHistorique()");
         let gestionnaireCourant = this;
+        this.historique.length = 0;
 
         $.ajax({
             type: 'GET', //Type méthode envoie.

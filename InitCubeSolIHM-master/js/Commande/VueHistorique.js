@@ -85,7 +85,7 @@ class VueHistorique {
                 };
 
                 this.cameraHisto.setPixel(vuehistorique.gestCommande.historique[idCommande].reponse.mesure.matrice);
-                matrice.majMatrice();
+                this.matriceHisto.majMatrice();
 
 
             } else if (vuehistorique.gestCommande.historique[idCommande].code == "TC") {

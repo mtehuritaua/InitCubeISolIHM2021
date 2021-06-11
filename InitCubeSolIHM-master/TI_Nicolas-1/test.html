@@ -46,10 +46,11 @@
                 <div class="row">
                     <div class="col-md-4">
 
-                        <form method="POST" action="../cgi-bin/cgiTransmettreCMD.cgi">
-                            <input name >
+                        <form method="GET" action="../cgi-bin/cgiTransmettreCMD.cgi">
+                            <input name="commande">
                             <button type="submit">Valider</button>
                         </form>
+                        <!--{"CMD":{"idSatellite":"1","typeCommande":"MEASURE","refInstrument":"CamInfra","code":"TC","dateEnvoi":"0000/00/00 00:00:00","reponse":"non"}}-->
                         <!--<form>
                             <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l"
                                 type="button" id="btnCommande">Valider</button>

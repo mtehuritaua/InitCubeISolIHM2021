@@ -28,6 +28,7 @@ class VueHistorique {
         });
         $(".listehistorique").hover(function () { $(this).css("color", "#649AFF"); }, 
         function () { $(this).css("color", "white"); });
+        this.detaillerCommande(0);
     }
 
     detaillerCommande(idCommande) {

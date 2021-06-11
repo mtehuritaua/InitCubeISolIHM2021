@@ -13,9 +13,7 @@ class VueHistorique {
                 $('#listeHC').append('<li class="listehistorique" id="  ' + index + ' ">' + commande.idSatellite + ' ' + commande.typeCommande
                 + ' ' + commande.refInstrument + ' ' + commande.code + ' ' + commande.dateEnvoi + '</li>');
             }
-            
         });
-
         var idCommande;
 
         $('.listehistorique').on('click', function () {
@@ -69,11 +67,11 @@ class VueHistorique {
                             </table>'
                 );
 
+                var pixel = 0;
                 for (var y = 1; y < 9; y++) {
-                    var pixel = 0;
                     for (var i = 0; i < 8; i++) {
                         $("#igne" + y).append('<td id="ixel' + pixel + '"></td>');
-                        pixel = pixel++;
+                        pixel++;
                     };
                 };
 

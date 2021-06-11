@@ -76,7 +76,7 @@ $(document).ready(function() {
         graphBattCharge.ajouterMesure(genererDateCourante(), trame.status.batterie.charge);*/
         document.getElementById("CourantSortie").innerHTML = trame.status.batterie.CourantmA + "mA";
         graphBattCourant.ajouterMesure(genererDateCourante(), trame.status.batterie.CourantmA);
-        document.getElementById("NiveauDeCharge%").innerHTML = trame.status.batterie.NiveauDeCharge% + "%";
+        document.getElementById("NiveauDeCharge").innerHTML = trame.status.batterie.NiveauDeCharge + "%";
         graphBattNivCharge.ajouterMesure(genererDateCourante(), trame.status.batterie.NiveauDeCharge + '%');
         document.getElementById("TemperatureBatt").innerHTML = trame.status.batterie.Temperature + "°C";
         grahpBattTemp.ajouterMesure(genererDateCourante(), trame.status.batterie.Temperature);
@@ -85,7 +85,7 @@ $(document).ready(function() {
 
         /*document.getElementById("Date/heureBord").innerHTML = trame.status.bord.Date/heureBord;
         graphBordDate.ajouterMesure(genererDateCourante(), trame.status.bord.Date/heureBord);*/
-        document.getElementById("OccupationRAM%").innerHTML = trame.status.bord.OccupationRAM% + " %";
+        document.getElementById("OccupationRAM").innerHTML = trame.status.bord.OccupationRAM + " %";
         graphBordRamUse.ajouterMesure(genererDateCourante(), trame.status.bord.OccupationRAM + '%');
         document.getElementById("StockageSDLibreMo").innerHTML = trame.status.bord.StockageSDLibreMo + " Mo";
         graphStockSDLibreMo.ajouterMesure(genererDateCourante(), trame.status.bord.StockageSDLibreMo);

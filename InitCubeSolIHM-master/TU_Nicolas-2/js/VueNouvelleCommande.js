@@ -3,7 +3,7 @@ class VueNouvelleCommande {
         $("#Bpopup").hide();
         $("#Mpopup").hide();
         $("#AbcVD").hide();
-        
+        //this.popup();
     }
 
     popup(value) {

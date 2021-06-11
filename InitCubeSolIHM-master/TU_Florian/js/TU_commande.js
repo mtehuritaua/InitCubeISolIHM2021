@@ -24,7 +24,7 @@ class Commande {
 
     genererJSON() {
         var cmd = "{\"CMD\":" + JSON.stringify(this) + "}";
-        console.log("JSON fabriqué automatiquement : " + cmd);
+        console.log("La trame JSON fabriquée est : " + cmd);
         return cmd;
     }
 }

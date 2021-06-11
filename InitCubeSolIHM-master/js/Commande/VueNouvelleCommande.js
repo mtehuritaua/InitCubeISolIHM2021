@@ -21,7 +21,8 @@ class VueNouvelleCommande {
         });
         $("#instru").on('change', function() {
             vueCommande.remplirMDTypeMesure(parseInt(this.value));
-
+            //($('#instru span').text());
+            //($('#code span').text());
             $("#choixCode").show();
         });
         $("#typeCommande").on('change', function() {
@@ -92,7 +93,7 @@ class VueNouvelleCommande {
                 break;
             case 'STATUS':
                 //COMMANDE MESURE CACHEE
-                $("#choixInstru").show();
+                $("#choixInstru").hide();
                 $("#choixCode").hide();
                 $("#choixDate").hide();
                 //Le reste est à définir

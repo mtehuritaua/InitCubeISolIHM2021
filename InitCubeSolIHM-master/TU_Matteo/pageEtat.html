@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta charset="utf-8">
+        <link rel="icon" href="../favicon.ico"/>
+        <link rel="stylesheet" href="../css/jquery.mobile-1.4.5.css">
+        <link rel="stylesheet" href="../css/siteCssZ.css">
+        <link rel="stylesheet" href="../css/jquery-ui.css">
+
+        <script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
+        <script type="text/javascript" src="../js/jquery.mobile-1.4.5.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="../js/graphique.js"></script>
+        <script type="text/javascript" src="../js/resizeGraphic.js"></script>
+        <script type="text/javascript" src="../js/canvasjs.min.js"></script>
+        <script type="text/javascript" src="../js/instrument/instrument.js"></script>
+
+        <script type="text/javascript" src="../js/instrument/TypeMesure.js"></script>
+        <script type="text/javascript" src="../js/instrument/vueInstrument.js"></script>
+
+        
+        
+        <script type="text/javascript" src="js/segmentVolTest.js"></script>
+
+        <script type="text/javascript" src="../js/graphiqueInstru.js"></script>
+        <script type="text/javascript" src="js/initcube.js"></script>
+    </head>
+
+    <body>
+        <!--
+            ======================================
+                            Page Etat
+            ======================================
+            -->
+        <div data-role="page" id="pageEtat" class="general" data-theme="b">
+            <div id="header" class="general">
+                <img id="imgCnes" src="../images/cnes.png" />
+            </div>
+            <div class="general body">
+                <div id="bandeauInfoUtile">
+                    <h2>Centre de contrôle des missions</h2>
+                    <table id="tableEtat" class="ui-body-b ui-shadow">
+                        <thead id="nomInfo">
+                            <tr>
+                                <th>Niveau de charge de la batterie</th>
+                                <th>Tension en sortie</th>
+                                <th>Courant en sortie</th>
+                                <th>RAM utilisée en %</th>
+                                <th>Ram disponible</th>
+                                <th>Stockage libre en %</th>
+                                <th>Stockage libre en Mo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="info">
+                            <tr>
+                                <td id="ChargeBatterie"></td>
+                                <td id="TensionSortie"></td>
+                                <td id="CourantSortie"></td>
+                                <td id="RamUse%"></td>
+                                <td id="RamDispo"></td>
+                                <td id="StockLibre%"></td>
+                                <td id="StockLibreMo"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+                <div id="graphique" class="graphiques"></div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+                <div data-role="navbar" data-grid="" data-iconpos="left">
+                    <ul id="menu">
+                        <li><a href="#pageEtat">Etat</a></li>
+                        <li><a href="#pageInstruments"> Instruments</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 
+            ======================================
+                        Page Instruments
+            ======================================
+        -->
+    <div data-role="page" id="pageInstruments" data-theme="b">
+        <div id="header" class="general">
+            <img id="imgCnes" src="../images/cnes.png" />
+        </div>
+
+        <div data-role="main" class="general body">
+
+            <div id="Instrument" class="general"> </div>
+
+            <div id="schemaSyno">
+                <script type="text/javascript" src="../js/schemaSyno/mainSchema.js"></script>
+                <script type="text/javascript" src="../js/schemaSyno/Rectangle.js"></script>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+            <div data-role="navbar" data-grid="" data-iconpos="left">
+                <ul id="menu">
+                    <li><a href="#pageEtat">Etat</a></li>
+                    <li><a href="#pageInstruments"> Instruments</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>

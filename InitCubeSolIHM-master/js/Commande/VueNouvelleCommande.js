@@ -92,7 +92,7 @@ class VueNouvelleCommande {
                 break;
             case 'STATUS':
                 //COMMANDE MESURE CACHEE
-                $("#choixInstru").hide();
+                $("#choixInstru").show();
                 $("#choixCode").hide();
                 $("#choixDate").hide();
                 //Le reste est à définir

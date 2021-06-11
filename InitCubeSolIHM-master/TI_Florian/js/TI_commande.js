@@ -18,13 +18,17 @@ class Commande {
     }
 
     setReponse(resultat) {
-        /*setDateExec() {
-            this.dateExec=*/
+        this.reponse = resultat;
     }
+
+    /*setDateExec() {
+        this.dateExec=
+    }*/
 
     genererJSON() {
         var cmd = "{\"CMD\":" + JSON.stringify(this) + "}";
         console.log("JSON fabriqué automatiquement : " + cmd);
         return cmd;
     }
+
 }

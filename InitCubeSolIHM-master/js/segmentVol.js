@@ -70,6 +70,7 @@ class SegmentVol {
     //genererMenuInstruments ajoute les instruments au menu de la page instrument
     genererMenuInstruments() {
         //console.log("Nouvel Instrument du fichier : initcube.xml");
+        $("#Instrument").empty();
         for (var i = 0; i < this.listeInstruments.length; i++) {
             $("#Instrument").append('<div class="Instrument_1"><a href="#page' 
             + this.listeInstruments[i].ref + '"><img src="images/' 

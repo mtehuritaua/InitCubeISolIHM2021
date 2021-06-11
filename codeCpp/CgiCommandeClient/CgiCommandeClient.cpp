@@ -20,8 +20,8 @@ void CgiCommandeClient::transmettreEntete() {
 }
 
 void CgiCommandeClient::recupererCommande() {
-    //commande = getenv("QUERY_STRING");
-    getline(cin, commande);
+    commande = getenv("QUERY_STRING");
+    //getline(cin, commande);
 }
 
 void CgiCommandeClient::transmettreCommande(){

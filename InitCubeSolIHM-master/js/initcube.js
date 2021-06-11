@@ -116,6 +116,8 @@ $(document).ready(function() {
     });
 
     source.addEventListener("mesure", function (evt) {
+        gestionnaireCommandes.getHistorique(); //charge l'historique
+        vueHistorique.afficherHistorique(); //affiche l'historique
         var mesure = JSON.parse(evt.data);
         //console.log("TRAME RECU : " + mesure);
         var camera = new CCamera();

@@ -4,7 +4,7 @@ class SegmentVol {
         this.urlFichierConf = urlFichierConf;
         this.listeInstruments = new Array();
         this.fichierConf = this.recupererFichierConf();
-        this.chargerInstruments();
+        //this.chargerInstruments();
         this.genererMenuInstruments();
     }
 
@@ -14,7 +14,7 @@ class SegmentVol {
     }
 
     //chargerInstruments permet de récupérer les informations des instruments dans le fichier XML
-    chargerInstruments() {
+    /*chargerInstruments() {
         let segmentVolCourant = this;
 
         this.fichierConf.find('instrument').each(
@@ -28,7 +28,7 @@ class SegmentVol {
                         segmentVolCourant.listeInstruments[segmentVolCourant.listeInstruments.length - 1].addTypeMesure(nom, code, description, unite, valMin, valMax);
                     });
             });
-    }
+    }*/
 
     //genererMenuInstruments ajoute les instruments au menu de la page instrument
     genererMenuInstruments() {

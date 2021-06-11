@@ -69,24 +69,26 @@
                 <table id="tableEtat" class="ui-body-b ui-shadow">
                     <thead id="nomInfo">
                         <tr>
-                            <th>Niveau de charge de la batterie</th>
-                            <th>Tension en sortie</th>
-                            <th>Courant en sortie</th>
-                            <th>RAM utilisée en %</th>
-                            <th>Ram disponible</th>
-                            <th>Stockage libre en %</th>
-                            <th>Stockage libre en Mo</th>
+                            <th>Charge batterie (en %)</th>
+                            <th>Tension en sortie (en V)</th>
+                            <th>Courant en sortie (en mA)</th>
+                            <th>RAM utilisée (en %)</th>
+                            <th>Stockage libre (en Mo)</th>
+                            <th>Température batterie (en °C)</th>
+                            <th>Température bord (en °C)</th>
+                            <th>Température cube (en °C)</th>
                         </tr>
                     </thead>
                     <tbody id="info">
                         <tr>
-                            <td id="ChargeBatterie"></td>
+                            <td id="NiveauDeCharge%"></td>
                             <td id="TensionSortie"></td>
-                            <td id="CourantSortie"></td>
-                            <td id="RamUse%"></td>
-                            <td id="RamDispo"></td>
-                            <td id="StockLibre%"></td>
-                            <td id="StockLibreMo"></td>
+                            <td id="CourantSortie"></td>                                                                                    
+                            <td id="OccupationRAM%"></td>
+                            <td id="StockageSDLibreMo"></td>
+                            <td id="TemperatureBatt"></td>
+                            <td id="TemperatureBord"></td>
+                            <td id="TemperatureCube"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -271,7 +273,7 @@
                     ======================================
         -->
 
-    <div data-role="page" id="pageCamera" data-theme="b">
+    <!-- <div data-role="page" id="pageCamera" data-theme="b">
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
         </div>
@@ -322,7 +324,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div>-->
     <!--
                         ======================================
                                     page Magnetometre
@@ -382,106 +384,112 @@
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
         </div>
-
         <div class="general body">
-            <table id="tableMatrice" class="tableInstrument">
-                <tbody>
-                    <tr id="typesMesuresCamInfra"></tr>
-                    <tr id="valeursMesuresCamInfra"></tr>
-                </tbody>
-            </table>
-            <br/>
-            <div id="graphCamInfra" class="graphiques"></div>
-            <table id="matrice">
-                <thead>
-                    <tr>
-                        <th id="entete" COLSPAN=8>Caméra thermique</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr id="ligne1">
-                        <td id="pixel0"></td>
-                        <td id="pixel1"></td>
-                        <td id="pixel2"></td>
-                        <td id="pixel3"></td>
-                        <td id="pixel4"></td>
-                        <td id="pixel5"></td>
-                        <td id="pixel6"></td>
-                        <td id="pixel7"></td>
-                    </tr>
-                    <tr id="ligne2">
-                        <td id="pixel8"></td>
-                        <td id="pixel9"></td>
-                        <td id="pixel10"></td>
-                        <td id="pixel11"></td>
-                        <td id="pixel12"></td>
-                        <td id="pixel13"></td>
-                        <td id="pixel14"></td>
-                        <td id="pixel15"></td>
-                    </tr>
-                    <tr id="ligne3">
-                        <td id="pixel16"></td>
-                        <td id="pixel17"></td>
-                        <td id="pixel18"></td>
-                        <td id="pixel19"></td>
-                        <td id="pixel20"></td>
-                        <td id="pixel21"></td>
-                        <td id="pixel22"></td>
-                        <td id="pixel23"></td>
-                    </tr>
-                    <tr id="ligne4">
-                        <td id="pixel24"></td>
-                        <td id="pixel25"></td>
-                        <td id="pixel26"></td>
-                        <td id="pixel27"></td>
-                        <td id="pixel28"></td>
-                        <td id="pixel29"></td>
-                        <td id="pixel30"></td>
-                        <td id="pixel31"></td>
-                    </tr>
-                    <tr id="ligne5">
-                        <td id="pixel32"></td>
-                        <td id="pixel33"></td>
-                        <td id="pixel34"></td>
-                        <td id="pixel35"></td>
-                        <td id="pixel36"></td>
-                        <td id="pixel37"></td>
-                        <td id="pixel38"></td>
-                        <td id="pixel39"></td>
-                    </tr>
-                    <tr id="ligne6">
-                        <td id="pixel40"></td>
-                        <td id="pixel41"></td>
-                        <td id="pixel42"></td>
-                        <td id="pixel43"></td>
-                        <td id="pixel44"></td>
-                        <td id="pixel45"></td>
-                        <td id="pixel46"></td>
-                        <td id="pixel47"></td>
-                    </tr>
-                    <tr id="ligne7">
-                        <td id="pixel48"></td>
-                        <td id="pixel49"></td>
-                        <td id="pixel50"></td>
-                        <td id="pixel51"></td>
-                        <td id="pixel52"></td>
-                        <td id="pixel53"></td>
-                        <td id="pixel54"></td>
-                        <td id="pixel55"></td>
-                    </tr>
-                    <tr id="ligne8">
-                        <td id="pixel56"></td>
-                        <td id="pixel57"></td>
-                        <td id="pixel58"></td>
-                        <td id="pixel59"></td>
-                        <td id="pixel60"></td>
-                        <td id="pixel61"></td>
-                        <td id="pixel62"></td>
-                        <td id="pixel63"></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <table id="tableMatrice" class="tableInstrument">
+                        <tbody>
+                            <tr id="typesMesuresCamInfra"></tr>
+                            <tr id="valeursMesuresCamInfra"></tr>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <div id="graphCamInfra" class="graphiques"></div>
+                </div>
+                <div class="ui-block-b">
+                    <table id="matrice">
+                        <thead>
+                            <tr>
+                                <th id="entete" COLSPAN=8>Matrice</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="ligne1">
+                                <td id="pixel0"></td>
+                                <td id="pixel1"></td>
+                                <td id="pixel2"></td>
+                                <td id="pixel3"></td>
+                                <td id="pixel4"></td>
+                                <td id="pixel5"></td>
+                                <td id="pixel6"></td>
+                                <td id="pixel7"></td>
+                            </tr>
+                            <tr id="ligne2">
+                                <td id="pixel8"></td>
+                                <td id="pixel9"></td>
+                                <td id="pixel10"></td>
+                                <td id="pixel11"></td>
+                                <td id="pixel12"></td>
+                                <td id="pixel13"></td>
+                                <td id="pixel14"></td>
+                                <td id="pixel15"></td>
+                            </tr>
+                            <tr id="ligne3">
+                                <td id="pixel16"></td>
+                                <td id="pixel17"></td>
+                                <td id="pixel18"></td>
+                                <td id="pixel19"></td>
+                                <td id="pixel20"></td>
+                                <td id="pixel21"></td>
+                                <td id="pixel22"></td>
+                                <td id="pixel23"></td>
+                            </tr>
+                            <tr id="ligne4">
+                                <td id="pixel24"></td>
+                                <td id="pixel25"></td>
+                                <td id="pixel26"></td>
+                                <td id="pixel27"></td>
+                                <td id="pixel28"></td>
+                                <td id="pixel29"></td>
+                                <td id="pixel30"></td>
+                                <td id="pixel31"></td>
+                            </tr>
+                            <tr id="ligne5">
+                                <td id="pixel32"></td>
+                                <td id="pixel33"></td>
+                                <td id="pixel34"></td>
+                                <td id="pixel35"></td>
+                                <td id="pixel36"></td>
+                                <td id="pixel37"></td>
+                                <td id="pixel38"></td>
+                                <td id="pixel39"></td>
+                            </tr>
+                            <tr id="ligne6">
+                                <td id="pixel40"></td>
+                                <td id="pixel41"></td>
+                                <td id="pixel42"></td>
+                                <td id="pixel43"></td>
+                                <td id="pixel44"></td>
+                                <td id="pixel45"></td>
+                                <td id="pixel46"></td>
+                                <td id="pixel47"></td>
+                            </tr>
+                            <tr id="ligne7">
+                                <td id="pixel48"></td>
+                                <td id="pixel49"></td>
+                                <td id="pixel50"></td>
+                                <td id="pixel51"></td>
+                                <td id="pixel52"></td>
+                                <td id="pixel53"></td>
+                                <td id="pixel54"></td>
+                                <td id="pixel55"></td>
+                            </tr>
+                            <tr id="ligne8">
+                                <td id="pixel56"></td>
+                                <td id="pixel57"></td>
+                                <td id="pixel58"></td>
+                                <td id="pixel59"></td>
+                                <td id="pixel60"></td>
+                                <td id="pixel61"></td>
+                                <td id="pixel62"></td>
+                                <td id="pixel63"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+    
         <br/>
         <div class="ui-grid-b">
             <div class="ui-block-a"></div>
@@ -737,7 +745,6 @@
         <div id="header" class="general">
             <img id="imgCnes" src="images/cnes.png" />
         </div>
-        <div data-role="popup" id="popupTest" data-theme="a" class="ui-corner-all" data-dismissible="false"> </div>
         <form id="Configuration">
             <div class="ui-grid-b">
                 <!-- Liste instrument deja sur le segment vol-->
@@ -799,14 +806,14 @@
                 </div>
             </form>
         </div>
-        <!-- Message réponse apres envoie du formulaire      -->
+        <!-- Message réponse apres envoie du formulaire      
         <div data-role="popup" id="bienRecu" data-theme="a" class="ui-corner-all" data-dismissible="false">
             <form>
                 <div style="padding:10px 20px;">
                     <h3>La nouvelle configuration a bien été enregistré</h3>
                 </div>
             </form>
-        </div>
+        </div>-->
 
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
             <div data-role="navbar" data-grid="" data-iconpos="left">

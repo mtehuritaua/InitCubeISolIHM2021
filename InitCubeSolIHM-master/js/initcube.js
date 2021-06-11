@@ -15,7 +15,7 @@ $(document).ready(function() {
     /*--------------------------------------Partie pour la classe VueInstrument----------------------------------------*/
     let vueInstruments = new Array();
     segmentVol.listeInstruments.forEach(function(element, index) {
-        vueInstruments[index] = new VueInstrument(segmentVol.listeInstruments[index], gestionnaireCommandes); //Instanciation de la class VueInstrument
+        vueInstruments[index] = new VueInstrument(segmentVol.listeInstruments[index]); //Instanciation de la class VueInstrument
     });
 
     //test de mise à jour des mesures instruments
@@ -44,13 +44,23 @@ $(document).ready(function() {
     let vueConfSV = new VueConfigurationSV(gestionnaireConfiguration);
 
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
-    let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");
-    let graphBattTension = new Graphique("graphique", "Etat", "Batterie", "Tension", "V");
-    let graphBattCourant = new Graphique("graphique", "Etat", "Batterie", "Courant", "A");
-    let graphRAMuse = new Graphique("graphique", "Etat", "RAM", "Occupation", "%");
-    let graphRAMdispo = new Graphique("graphique", "Etat", "RAM", "Disponile", "Mo");
-    let graphStockLibreP = new Graphique("graphique", "Etat", "Stockage", "Libre", "%");
-    let graphStockLibreM = new Graphique("graphique", "Etat", "Stockage", "Disponible", "Mo");
+    //let graphBattCharge = new Graphique("graphique", "Status", "Batterie", "ChargeBatterie");
+    let graphBattCourant = new Graphique("graphique", "Status", "Batterie", "Courant", "mA");
+    let graphBattNivCharge = new Graphique("graphique", "Status", "Batterie", "NiveauDeCharge", "%");
+    let grahpBattTemp = new Graphique("graphique", "Status", "Batterie", "Temperature", "°C");
+    let graphBattTension = new Graphique("graphique", "Status", "Batterie", "Tension", "V");
+    
+    //let graphBordDate = new Graphique("graphique", "Status", "Bord", "Date/Heure");
+    let graphBordRamUse = new Graphique("graphique", "Status", "Bord", "Occupation", "%");
+    let graphStockSDLibreMo = new Graphique("graphique", "Status", "Bord", "StockageSDLibreMo", "Mo");
+    let grahpBordTemp = new Graphique("graphique", "Status", "Bord", "Temperature", "°C");
+
+    let grahpCubeTemp = new Graphique("graphique", "Status", "Cube", "Temperature", "°C");
+
+    /*let graphInstruMarche = new Graphique("graphique", "Status", "Instrument", "Marche");
+    let graphInstruMode = new Graphique("graphique", "Status", "Instrument", "Mode");
+    let grahpInstruTemp = new Graphique("graphique", "Status", "Instrument", "Temperature", "°C");
+    let graphInstruErr = new Graphique("graphique", "Status", "Instrument", "erreur");*/
 
     /*--------------------------------------Graphiques de la page Magnétomètre-----------------------------------------*/
     //let graphMagnetoBX = new Graphique("graphMagnetometre", "Magnetometre", "ValeurBX", "Valeur", "μT");
@@ -61,28 +71,44 @@ $(document).ready(function() {
     var source = new EventSource("cgi-bin/cgiDiffuserTM.cgi");//modifier nom cgi: cgiDiffuserTM.cgi (TéléMesure)
     source.addEventListener("status", function(event) {
         var trame = JSON.parse(event.data);
-        document.getElementById("charge").innerHTML = trame.status.batterie.charge;
         
-        document.getElementById("CourantSortie").innerHTML = trame.status.batterie.CourantmA + " mA";
-        graphBattCourant.ajouterMesure(trame.date, trame.status.batterie.CourantmA);
-        //document.getElementById("ChargeBatterie").innerHTML = trame.status.batterie.NiveauDeCharge% + " %";
-        //graphBattCharge.ajouterMesure(trame.date, trame.status.batterie.NiveauDeCharge+'%');
+        /*document.getElementById("ChargeBatterie").innerHTML = trame.status.batterie.charge;
+        graphBattCharge.ajouterMesure(genererDateCourante(), trame.status.batterie.charge);*/
+        document.getElementById("CourantSortie").innerHTML = trame.status.batterie.CourantmA + "mA";
+        graphBattCourant.ajouterMesure(genererDateCourante(), trame.status.batterie.CourantmA);
+        document.getElementById("NiveauDeCharge").innerHTML = trame.status.batterie.NiveauDeCharge + "%";
+        graphBattNivCharge.ajouterMesure(genererDateCourante(), trame.status.batterie.NiveauDeCharge + '%');
+        document.getElementById("TemperatureBatt").innerHTML = trame.status.batterie.Temperature + "°C";
+        grahpBattTemp.ajouterMesure(genererDateCourante(), trame.status.batterie.Temperature);
+        document.getElementById("TensionSortie").innerHTML = trame.status.batterie.TensionV + " V";
+        graphBattTension.ajouterMesure(genererDateCourante(), trame.status.batterie.TensionV);
 
-        /*document.getElementById("TensionSortie").innerHTML = obj.batterie.tension + " V";
-        graphBattTension.ajouterMesure(obj.date, obj.batterie.tension);
+        /*document.getElementById("Date/heureBord").innerHTML = trame.status.bord.Date/heureBord;
+        graphBordDate.ajouterMesure(genererDateCourante(), trame.status.bord.Date/heureBord);*/
+        document.getElementById("OccupationRAM").innerHTML = trame.status.bord.OccupationRAM + " %";
+        graphBordRamUse.ajouterMesure(genererDateCourante(), trame.status.bord.OccupationRAM + '%');
+        document.getElementById("StockageSDLibreMo").innerHTML = trame.status.bord.StockageSDLibreMo + " Mo";
+        graphStockSDLibreMo.ajouterMesure(genererDateCourante(), trame.status.bord.StockageSDLibreMo);
+        document.getElementById("TemperatureBord").innerHTML = trame.status.bord.Temperature + "°C";
+        grahpBordTemp.ajouterMesure(genererDateCourante(), trame.status.bord.Temperature);
+
+        document.getElementById("TemperatureCube").innerHTML = trame.status.cube.Temperature + "°C";
+        grahpCubeTemp.ajouterMesure(genererDateCourante(), trame.status.cube.Temperature);
+
+        /*document.getElementById("Marche").innerHTML = trame.status.instrument.Marche;
+        graphInstruMarche.ajouterMesure(genererDateCourante(), trame.status.instrument.Marche);
+        document.getElementById("Mode").innerHTML = trame.status.instrument.Mode;
+        graphInstruMode.ajouterMesure(genererDateCourante(), trame.status.instrument.Mode);
+        document.getElementById("Temperature").innerHTML = trame.status.instrument.Temperature + "°C";
+        grahpInstruTemp.ajouterMesure(genererDateCourante(), trame.status.instrument.Temperature);
+        document.getElementById("erreur").innerHTML = trame.status.instrument.erreur;
+        graphInstruErr.ajouterMesure(genererDateCourante(), trame.status.instrument.erreur);*/
         
-        document.getElementById("RamUse%").innerHTML = obj.memoire.occupMemoire + " %";
-        graphRAMuse.ajouterMesure(obj.date, obj.memoire.occupMemoire);
-        document.getElementById("RamDispo").innerHTML = obj.memoire.memoireDispoMo + " Mo";
-        graphRAMdispo.ajouterMesure(obj.date, obj.memoire.memoireDispoMo);
-        document.getElementById("StockLibre%").innerHTML = obj.stockage.stockLibreEnP + " %";
-        graphStockLibreP.ajouterMesure(obj.date, obj.stockage.stockLibreEnP);
-        document.getElementById("StockLibreMo").innerHTML = obj.stockage.stockLibreMo + " Mo";
-        graphStockLibreM.ajouterMesure(obj.date, obj.stockage.stockLibreMo);
-        document.getElementById("InfoCamera1").innerHTML = obj.camera.InfoCamera1;
+        
+        /*document.getElementById("InfoCamera1").innerHTML = obj.camera.InfoCamera1;
         document.getElementById("InfoCamera2").innerHTML = obj.camera.InfoCamera2;*/
 
-        if (obj.cameraIR == 0) {
+        if (trame.cameraIR == 0) {
             document.getElementById("CameraIR").innerHTML = "OFF";
         } else {
             document.getElementById("CameraIR").innerHTML = "ON";
@@ -90,10 +116,8 @@ $(document).ready(function() {
     });
 
     source.addEventListener("mesure", function (evt) {
-        gestionnaireCommandes.getHistorique(); //charge l'historique
-        vueHistorique.afficherHistorique(); //affiche l'historique
         var mesure = JSON.parse(evt.data);
-        console.log("TRAME RECU : " + mesure);
+        //console.log("TRAME RECU : " + mesure);
         var camera = new CCamera();
         var matrice = new CMatrice(camera);
         switch (mesure.mesure.type) {
@@ -131,9 +155,9 @@ $(document).ready(function() {
                 document.getElementById("valeurMagnetometreBY").innerHTML =
                     instru.instrument.mesure.ValeurMagnetoBY + " μT";
                 document.getElementById("valeurMagnetometreBZ").innerHTML =
-                    instru.instrument.mesure.ValeurMagnetoBZ + " μT";
+                    instru.instrument.mesure.ValeurMagnetoBZ + " μT";*/
 
-                break;*/
+                break;
 
             default:
                 console.log("Erreur d'identification de l'instrument");
@@ -170,6 +194,17 @@ $(document).ready(function() {
         var hh = today.getHours();
         var mn = today.getMinutes();
         var ss = today.getSeconds();
+        if (hh < 10) {
+            hh = '0' + hh;
+        }
+
+        if (mn < 10) {
+            mn = '0' + mn;
+        }
+        if (ss < 10) {
+            ss = '0' + ss;
+        }
+
         today = yyyy + '-' + mm + '-' + dd + ' ' + hh + ':' + mn + ':' + ss;
         return today;
     };

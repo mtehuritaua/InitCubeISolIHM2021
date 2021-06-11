@@ -15,6 +15,14 @@ function genererDateCourante() {
     var hh = today.getHours();
     var mn = today.getMinutes();
     var ss = today.getSeconds();
-    today = yyyy + '-' + mm + '-' + dd + ' ' + hh + ':' + mn + ':' + ss;
+    if (hh < 10) {
+        hh = '0' + hh;
+    }
+
+    if (mn < 10) {
+        mn = '0' + mn;
+    }
+
+    today = yyyy + '/' + mm + '/' + dd + ' ' + hh + ':' + mn + ':' + ss;
     return today;
 };

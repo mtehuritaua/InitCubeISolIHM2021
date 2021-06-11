@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Centre De Contrôle De Mission - InitCube </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../css/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="../css/siteCssZ.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+
+
+    <script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.bundle.js"></script>
+    <script type="text/javascript" src="../js/jquery.mobile-1.4.5.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="../js/instrument/Mesure.js"></script>
+    <script type="text/javascript" src="../js/instrument/TypeMesure.js"></script>
+    <script type="text/javascript" src="js/TI_segmentVol.js"></script>
+    <script type="text/javascript" src="js/TI_commande.js"></script>
+    <script type="text/javascript" src="js/TI_gestionnaireCommandes.js"></script>
+    <script type="text/javascript" src="js/TI_VueNouvelleCommande.js"></script>
+    <script type="text/javascript" src="js/TI_initcube.js"></script>
+    <script type="text/javascript" src="js/TI_instrument.js"></script>
+
+    <script type="text/javascript" src="../assets/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery.serializeToJSON.js"></script>
+
+</head>
+
+<body>
+    <!--
+			======================================
+						page Commande
+			======================================
+		-->
+    <div data-role="page" id="pageCommande" data-theme="b">
+        <div data-role="header" class="general">
+            <img id="imgCnes" src="../images/cnes.png" />
+        </div>
+
+        <!-- Bootstrap and Ares CSS -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/animate.min.css">
+        <link rel="stylesheet" href="../css/ares.css">
+
+        <!-- Page Container -->
+        <!-- Available Classes: 'modern-sf', 'vintage-sf', 'interstellar-sf' -->
+        <div id="page-container" class="modern-sf">
+            <main id="page-main">
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- Environment -->
+                        <div class="block">
+
+                            <div class="block-header overflow-hidden">
+                                <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown" style="color:#ffffff">CENTRE DE COMMANDE</h2>
+                            </div>
+
+                            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                            <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+                            <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+                            <link rel="stylesheet" href="../css/siteCssZ.css">
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+                            <html>
+                            <!--Formulaire Commande -->
+                            <div class="block-content">
+                                <form id="myForm">
+                                    <div class="ui-field-contain">
+                                        <label for="liste"> Identifiant du satellite :</label>
+                                        <select style="color:#000000" name="liste" id="idSatellite">
+                                            <option value="1"> 1 </option>
+                                        </select>
+                                    </div>
+                                    <div class="ui-field-contain" id="choixTypeCMD">
+                                        <label for="liste"> Type de commande :</label>
+                                        <select style="color:#000000" name="liste" id="typeCommande">
+                                            <option value="MISSION">MISSION</option>
+                                            <option value="MEASURE">MEASURE</option>
+                                            <option value="STATUS">STATUS</option>
+                                            <option value="DEPLOY">DEPLOY</option>
+                                            <option value="SURVIVAL">SURVIVAL</option>
+                                            <option value="EMPTY">EMPTY</option>
+                                            <option value="SAVE">SAVE</option>
+                                            <option value="MEETING">MEETING</option>
+                                            <option value="DATE">DATE</option>
+                                        </select>
+                                    </div>
+                                    <div class="ui-field-contain" id="choixInstru">
+                                        <label for="liste"> Instruments :</label>
+                                        <select style="color:#000000" name="liste" id="instru"></select>
+
+                                    </div>
+                                    <div class="ui-field-contain" id="choixCode">
+                                        <label for="liste"> Type de mesure :</label>
+                                        <select style="color:#000000" name="liste" id="code"></select>
+                                    </div>
+                                    <div class="ui-field-contain" id="choixDate">
+                                        <label for="DateEtHeure"> Date et heure :</label>
+                                        <input name="date" class="form-control" type="datetime-local">
+                                    </div>
+                                    <div>
+                                        <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l" type="button" id="btnCommande">Valider</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-fullscreen="false" data-theme="b">
+                        <div data-role="navbar" data-grid="" data-iconpos="left">
+                            <ul id="menu">
+                                <li><a href="#pageEtat">Etat</a></li>
+                                <li><a href="#pageInstruments"> Instruments</a></li>
+                                <li><a href="#pageCommande">Commande</a></li>
+                                <li><a href="#pageConfiguration"> Configuration</a></li>
+                            </ul>
+                        </div>
+                    </div>
+            </main>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="../assets/js/core/jquery.min.js"></script>
+        <script src="../assets/js/plugins/jquery.appear.min.js"></script>
+        <script src="../assets/js/plugins/jquery.countTo.min.js"></script>
+        <script src="../assets/js/plugins/jquery.easypiechart.min.js"></script>
+        <script src="../assets/js/ares.js"></script>
+        <script>
+            jQuery(function() {
+                // Init page helpers (Appear + CountTo + Easy Pie Chart plugins)
+                Ares.initHelpers(['appear', 'appear-countTo', 'easy-pie-chart']);
+            });
+        </script>
+    </div>
+</body>
+
+</html>

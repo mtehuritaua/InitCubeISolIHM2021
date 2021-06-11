@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+    /*-------------------------------------Segment Vol-----------------------------------------------------------------*/
+    let segmentVol = new SegmentVol("XMLtest.xml");
+
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     let graphBattCharge = new Graphique("graphique", "Etat", "Batterie", "Charge", "%");
     let graphBattTension = new Graphique("graphique", "Etat", "Batterie", "Tension", "V");
@@ -10,7 +13,7 @@ $(document).ready(function() {
     let graphStockLibreM = new Graphique("graphique", "Etat", "Stockage", "Disponible", "Mo");
 
     /*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
-    var source = new EventSource("cgi-bin/cgiDiffuserTM.cgi");//modifier nom cgi: cgiDiffuserTM.cgi (TéléMesure)
+    var source = new EventSource("../cgi-bin/cgiDiffuserTM.cgi");//modifier nom cgi: cgiDiffuserTM.cgi (TéléMesure)
     source.addEventListener("status", function(event) {
         var trame = JSON.parse(event.data);
         document.getElementById("charge").innerHTML = trame.status.batterie.charge;

@@ -64,7 +64,7 @@
 		</typeMesure>
   	</instrument>
 	  
-  	<instrument>
+  	<!--<instrument>
 		<description>
 			<id>124BCD</id>
 			<adresse>0x0C</adresse>
@@ -96,5 +96,5 @@
 			<valMin>0</valMin>
 			<valMax>+100</valMax>
 		</typeMesure>
-  	</instrument>    
+  	</instrument>-->    
 </initcube>

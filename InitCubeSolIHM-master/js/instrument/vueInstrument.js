@@ -1,7 +1,6 @@
 class VueInstrument {
-    constructor(instrument , gestCommandes){
+    constructor(instrument){
         this.instrument = instrument;
-        this.gestionnaireCommandes = gestCommandes;
         this.graphiques = Array();
         this.chargerHeader();
         this.chargerVue();

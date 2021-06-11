@@ -19,7 +19,7 @@
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
    
     <script type="text/javascript" src="../js/instrument/instrument.js"></script>
-    <script type="text/javascript" src="js/gestionnaireConfiguration-2.js"></script>
+    <script type="text/javascript" src="../js/instrument/gestionnaireConfiguration.js"></script>
     <script type="text/javascript" src="../js/instrument/gestionnaireInstruments.js"></script>
     <script type="text/javascript" src="../js/instrument/vueConfigurationSV.js"></script>
     <script type="text/javascript" src="../js/instrument/TypeMesure.js"></script>
@@ -35,7 +35,6 @@
 	        -->
 
     <div data-role="page" id="pageConfiguration" data-theme="b">
-        <div data-role="popup" id="popupTest" data-theme="a" class="ui-corner-all" data-dismissible="false"> </div>
         <form id="Configuration">
             <div class="ui-grid-b">
                 <!-- Liste instrument deja sur le segment vol-->
@@ -105,14 +104,7 @@
                 </div>
             </form>
         </div>
-        <!-- Message réponse apres envoie du formulaire      -->
-        <div data-role="popup" id="bienRecu" data-theme="a" class="ui-corner-all" data-dismissible="false">
-            <form>
-                <div style="padding:10px 20px;">
-                    <h3>La nouvelle configuration a bien été enregistré</h3>
-                </div>
-            </form>
-        </div>
+    </div>
 </body>
 
 </html>

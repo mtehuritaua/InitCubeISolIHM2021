@@ -100,7 +100,7 @@
 
 	<!-- TEST D'UN NOUVEL INSTRUMENT-->
 
-	<instrument>
+	<!--<instrument>
 		<description>
 			<id>125THE</id>
 			<adresse>0x54</adresse>
@@ -116,5 +116,5 @@
 			<valMin>-200</valMin>
 			<valMax>+200</valMax>
 		</typeMesure>
-  	</instrument>
+  	</instrument>-->
 </initcube>

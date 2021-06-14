@@ -21,7 +21,8 @@ class VueNouvelleCommande {
         });
         $("#instru").on('change', function() {
             vueCommande.remplirMDTypeMesure(parseInt(this.value));
-
+            //($('#instru span').text());
+            //($('#code span').text());
             $("#choixCode").show();
         });
         $("#typeCommande").on('change', function() {

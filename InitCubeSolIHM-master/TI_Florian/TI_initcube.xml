@@ -102,6 +102,34 @@
 
 	<!--<instrument>
 		<description>
+			<id>128LUM</id>
+			<adresse>0x65</adresse>
+			<ref>Capteur luminosité</ref>
+			<nom>Capteur de luminosite</nom>
+			<role>Mesurer une intensité de lumière</role>
+		</description>	
+		<typeMesure>			
+			<nom>Rayonnement Visible</nom>
+			<code>RVI</code>
+			<description>Mesurer une intensité de lumière</description>
+			<unite>lux</unite>
+			<valMin>+2</valMin>
+			<valMax>+20</valMax>
+		</typeMesure>
+		<typeMesure>			
+			<nom>Rayonnement Infra Rouge</nom>
+			<code>RI</code>
+			<description>Mesurer une intensité de lumière</description>
+			<unite>lux</unite>
+			<valMin>+4</valMin>
+			<valMax>+40</valMax>
+		</typeMesure>
+  	</instrument>-->
+
+<!-- Instrument Thermomètre -->
+
+	<!--<instrument>
+		<description>
 			<id>125THE</id>
 			<adresse>0x54</adresse>
 			<ref>Thermometre</ref>

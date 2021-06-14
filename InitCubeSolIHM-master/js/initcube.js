@@ -22,7 +22,7 @@ $(document).ready(function() {
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireConfiguration = new GestionnaireConfiguration(segmentVol);
     let vueNvelleInstrument = new VueNouvelleInstrument();
-    let vueConfSV = new VueConfigurationSV(gestionnaireConfiguration);
+    let vueConfSV = new VueConfigurationSV(gestionnaireConfiguration, vueInstruments);
 
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/
     //let graphBattCharge = new Graphique("graphique", "Status", "Batterie", "ChargeBatterie");

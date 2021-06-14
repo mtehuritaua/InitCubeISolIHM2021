@@ -1,13 +1,22 @@
 class VueConfigurationSV{
-  constructor(gestConf) {
+  constructor(gestConf, vueInstru) {
     this.gestionnaireConfiguration = gestConf;
+    this.vueInstruments = vueInstru;
 
     let gestionnaireCourant = this;
     this.genererListeInstrumentsPotentiels();
     this.genererListeInstrumentsSV();
     
     $("#EnvoyerConf").click(function () {
+     let instru = gestionnaireCourant.gestionnaireConfiguration.segmentVol.listeInstruments
+
       gestionnaireCourant.modifierListeInstrumentSV();
+
+      gestionnaireCourant.vueInstruments.splice(0, instru.length);
+      instru.forEach(function(element, index) {
+        gestionnaireCourant.vueInstruments[index] = new VueInstrument(instru[index]); //Instanciation de la class VueInstrument
+      });
+
       gestionnaireCourant.gestionnaireConfiguration.segmentVol.genererMenuInstruments();
       gestionnaireCourant.gestionnaireConfiguration.transmettreConfSV();
       location.href = "#pageConfiguration";

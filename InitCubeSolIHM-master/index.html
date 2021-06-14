@@ -77,10 +77,10 @@
                     </thead>
                     <tbody id="info">
                         <tr>
-                            <td id="NiveauDeCharge%"></td>
+                            <td id="NiveauDeCharge"></td>
                             <td id="TensionSortie"></td>
-                            <td id="CourantSortie"></td>                                                                                    
-                            <td id="OccupationRAM%"></td>
+                            <td id="CourantSortie"></td>
+                            <td id="OccupationRAM"></td>
                             <td id="StockageSDLibreMo"></td>
                             <td id="TemperatureBatt"></td>
                             <td id="TemperatureBord"></td>
@@ -484,12 +484,12 @@
                 </div>
             </div>
         </div>
-    
+
         <br/>
         <div class="ui-grid-b">
             <div class="ui-block-a"></div>
             <div class="ui-block-b">
-                <button type="button" id="btnMatrice">Acquisition d'une matrice</button>
+                <button type="button" id="btnMatrice">Acquisition d'une image thermique</button>
                 <button type="button" id="btnTemperature">Acquisition d'une temperature</button>
             </div>
         </div>
@@ -623,15 +623,6 @@
                             </div>
                             <div role="main" class="ui-content" data-theme="a">
                                 <p>La commande n'a pas été transmise</p>
-                            </div>
-                        </div>
-                        <!-- Erreur transmission-->
-                        <div data-position-to="window" data-transition="pop" id="AbcVD" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px; min-width: 400px;">
-                            <div data-role="header" data-theme="a" class="Popup">
-                                <h3>Information</h3>
-                            </div>
-                            <div role="main" class="ui-content">
-                                <p>Erreur ACK</p>
                             </div>
                         </div>
                     </div>

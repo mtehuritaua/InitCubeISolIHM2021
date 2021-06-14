@@ -3,10 +3,9 @@ class VueNouvelleCommande {
         let vueCommande = this;
         this.gestionnaireCommandes = gestCommandes;
         this.remplirMDInstruments();
-        this.remplirMDTypeMesure(0);
+        //this.remplirMDTypeMesure(0);
         $("#Bpopup").hide();
         $("#Mpopup").hide();
-        $("#AbcVD").hide();
         $("#choixInstru").hide();
         $("#choixCode").hide();
         $("#choixDate").hide();
@@ -19,18 +18,16 @@ class VueNouvelleCommande {
         $('#btnTemperature').click(function() {
             vueCommande.onClickCMDTemperature();
         });
-        $("#instru").on('change', function() {
+        $("#instru").on('click', function() {
             vueCommande.remplirMDTypeMesure(parseInt(this.value));
-            //($('#instru span').text());
-            //($('#code span').text());
             $("#choixCode").show();
         });
-        $("#typeCommande").on('change', function() {
+        $("#typeCommande").on('click', function() {
             vueCommande.onChangeTypeCMD(this.value);
         });
     }
 
-    // génère et transmet une commande quand on clique sur le bouton "valider"
+    // Génère et transmet une commande quand on clique sur le bouton "valider"
     onClickEnvoyerCommande() {
         let vueCommande = this;
         vueCommande.gestionnaireCommandes.genererCommande($('#idSatellite').val(), $('#typeCommande').val(), this.gestionnaireCommandes.segmentVol.listeInstruments[$('#instru').val()].ref, $('#code').val());
@@ -41,9 +38,12 @@ class VueNouvelleCommande {
     // Charge les différents instruments du XML dans le menu déroulant
     remplirMDInstruments() {
         let vueCommande = this;
+        $("#instru").empty();
         for (var i = 0; i < vueCommande.gestionnaireCommandes.segmentVol.listeInstruments.length; i++) {
             $("#instru").append('<option value ="' + i + '">' + vueCommande.gestionnaireCommandes.segmentVol.listeInstruments[i].ref + '</option>');
         }
+        $("#instru-button span").text(vueCommande.gestionnaireCommandes.segmentVol.listeInstruments[0].ref);
+
     }
 
     // Charge les différents types de Mesure par rapport à l'instrument choisi
@@ -53,7 +53,7 @@ class VueNouvelleCommande {
         for (var i = 0; i < vueCommande.gestionnaireCommandes.segmentVol.listeInstruments[numInstrument].listeTypesMesure.length; i++) {
             $("#code").append('<option value ="' + vueCommande.gestionnaireCommandes.segmentVol.listeInstruments[numInstrument].listeTypesMesure[i].code + '">' + vueCommande.gestionnaireCommandes.segmentVol.listeInstruments[numInstrument].listeTypesMesure[i].code + '</option>');
         }
-        //$("#code-button span").text(vueCommande.gestionnaireCommandes.segmentVol.listeInstruments[numInstrument].listeTypesMesure[i].code);
+        $("#code-button span").text(vueCommande.gestionnaireCommandes.segmentVol.listeInstruments[numInstrument].listeTypesMesure[0].code);
     }
 
     popup(value) {
@@ -80,25 +80,25 @@ class VueNouvelleCommande {
     onChangeTypeCMD(typeChoisi) {
         switch (typeChoisi) {
             case 'MISSION':
-                //COMMANDE MESURE CACHEE
                 $("#choixInstru").show();
                 $("#choixCode").hide();
                 $("#choixDate").show();
                 break;
             case 'MEASURE':
-                //COMMANDE MESURE OUVERT
                 $("#choixInstru").show();
                 $("#choixCode").hide();
                 $("#choixDate").hide();
                 break;
             case 'STATUS':
-                //COMMANDE MESURE CACHEE
+                $("#choixInstru").show();
+                $("#choixCode").hide();
+                $("#choixDate").hide();
+                break;
+            default:
                 $("#choixInstru").hide();
                 $("#choixCode").hide();
                 $("#choixDate").hide();
-                //Le reste est à définir
                 break;
         }
     }
-
 }

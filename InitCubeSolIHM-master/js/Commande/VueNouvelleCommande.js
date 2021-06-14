@@ -43,7 +43,6 @@ class VueNouvelleCommande {
             $("#instru").append('<option value ="' + i + '">' + vueCommande.gestionnaireCommandes.segmentVol.listeInstruments[i].ref + '</option>');
         }
         $("#instru-button span").text(vueCommande.gestionnaireCommandes.segmentVol.listeInstruments[0].ref);
-
     }
 
     // Charge les différents types de Mesure par rapport à l'instrument choisi
@@ -90,7 +89,7 @@ class VueNouvelleCommande {
                 $("#choixDate").hide();
                 break;
             case 'STATUS':
-                $("#choixInstru").show();
+                $("#choixInstru").hide();
                 $("#choixCode").hide();
                 $("#choixDate").hide();
                 break;

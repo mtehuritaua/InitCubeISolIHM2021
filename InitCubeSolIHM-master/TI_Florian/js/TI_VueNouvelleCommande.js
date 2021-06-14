@@ -7,11 +7,11 @@ class VueNouvelleCommande {
         $("#choixInstru").hide();
         $("#choixCode").hide();
         $("#choixDate").hide();
-        $("#instru").on('change', function() {
+        $("#instru").on('click', function() {
             vueCommande.remplirMDTypeMesure(parseInt(this.value));
             $("#choixCode").show();
         });
-        $("#typeCommande").on('change', function() {
+        $("#typeCommande").on('click', function() {
             vueCommande.onChangeTypeCMD(this.value);
         });
     }
@@ -24,9 +24,11 @@ class VueNouvelleCommande {
     // Charge les différents instruments du XML dans le menu déroulant
     remplirMDInstruments() {
         let vueCommande = this;
+        $("#instru").empty();
         for (var i = 0; i < vueCommande.gestionnaireCommandes.segmentVol.listeInstruments.length; i++) {
             $("#instru").append('<option value ="' + i + '">' + vueCommande.gestionnaireCommandes.segmentVol.listeInstruments[i].ref + '</option>');
         }
+        $("#instru-button span").text(vueCommande.gestionnaireCommandes.segmentVol.listeInstruments[0].ref);
     }
 
     // Charge les différents types de Mesure par rapport à l'instrument choisi
@@ -64,7 +66,12 @@ class VueNouvelleCommande {
                 $("#choixDate").hide();
                 break;
             case 'STATUS':
-                $("#choixInstru").show();
+                $("#choixInstru").hide();
+                $("#choixCode").hide();
+                $("#choixDate").hide();
+                break;
+            default:
+                $("#choixInstru").hide();
                 $("#choixCode").hide();
                 $("#choixDate").hide();
                 break;

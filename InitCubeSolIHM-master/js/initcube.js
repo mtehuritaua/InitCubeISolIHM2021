@@ -70,14 +70,16 @@ $(document).ready(function() {
     /*---------------------------------------Méthode de la classe Graphique pour la Page Etat-------------------------*/
     var source = new EventSource("cgi-bin/cgiDiffuserTM.cgi");//modifier nom cgi: cgiDiffuserTM.cgi (TéléMesure)
     source.addEventListener("status", function(event) {
-        var trame = JSON.parse(event.data);
+        gestionnaireCommandes.getHistorique();
+	vueHistorique.afficherHistorique();
+	var trame = JSON.parse(event.data);
         
         /*document.getElementById("ChargeBatterie").innerHTML = trame.status.batterie.charge;
         graphBattCharge.ajouterMesure(genererDateCourante(), trame.status.batterie.charge);*/
         document.getElementById("CourantSortie").innerHTML = trame.status.batterie.CourantmA + "mA";
         graphBattCourant.ajouterMesure(genererDateCourante(), trame.status.batterie.CourantmA);
-        document.getElementById("NiveauDeCharge").innerHTML = trame.status.batterie.NiveauDeCharge + "%";
-        graphBattNivCharge.ajouterMesure(genererDateCourante(), trame.status.batterie.NiveauDeCharge + '%');
+        document.getElementById("NiveauDeCharge").innerHTML = trame.status.batterie.NiveauCharge + "%";
+        graphBattNivCharge.ajouterMesure(genererDateCourante(), trame.status.batterie.NiveauCharge + '%');
         document.getElementById("TemperatureBatt").innerHTML = trame.status.batterie.Temperature + "°C";
         grahpBattTemp.ajouterMesure(genererDateCourante(), trame.status.batterie.Temperature);
         document.getElementById("TensionSortie").innerHTML = trame.status.batterie.TensionV + " V";
@@ -108,11 +110,11 @@ $(document).ready(function() {
         /*document.getElementById("InfoCamera1").innerHTML = obj.camera.InfoCamera1;
         document.getElementById("InfoCamera2").innerHTML = obj.camera.InfoCamera2;*/
 
-        if (trame.cameraIR == 0) {
+        /*if (trame.cameraIR == 0) {
             document.getElementById("CameraIR").innerHTML = "OFF";
         } else {
             document.getElementById("CameraIR").innerHTML = "ON";
-        }
+        }*/
     });
 
     source.addEventListener("mesure", function (evt) {
@@ -120,6 +122,10 @@ $(document).ready(function() {
         //console.log("TRAME RECU : " + mesure);
         var camera = new CCamera();
         var matrice = new CMatrice(camera);
+	gestionnaireCommandes.getHistorique();
+        vueHistorique.afficherHistorique();
+
+	
         switch (mesure.mesure.type) {
             case "matrice":
                 camera.setPixel(mesure.mesure.matrice);

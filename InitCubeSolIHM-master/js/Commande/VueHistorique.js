@@ -3,6 +3,8 @@ class VueHistorique {
         this.gestCommande = gestCommande;
         this.cameraHisto = new CCamera();
         this.matriceHisto = new CMatriceHistorique(this.cameraHisto);
+	//this.afficherHistorique();
+	//this.detaillerCommande(0);
     }
 
     afficherHistorique() {
@@ -28,7 +30,7 @@ class VueHistorique {
         });
         $(".listehistorique").hover(function () { $(this).css("color", "#649AFF"); }, 
         function () { $(this).css("color", "white"); });
-        this.detaillerCommande(0);
+        //this.detaillerCommande(0);
     }
 
     detaillerCommande(idCommande) {

@@ -6,7 +6,6 @@ class VueNouvelleCommande {
         //this.remplirMDTypeMesure(0);
         $("#Bpopup").hide();
         $("#Mpopup").hide();
-        $("#AbcVD").hide();
         $("#choixInstru").hide();
         $("#choixCode").hide();
         $("#choixDate").hide();
@@ -28,7 +27,7 @@ class VueNouvelleCommande {
         });
     }
 
-    // g         énère et transmet une commande quand on clique sur le bouton "valider"
+    // Génère et transmet une commande quand on clique sur le bouton "valider"
     onClickEnvoyerCommande() {
         let vueCommande = this;
         vueCommande.gestionnaireCommandes.genererCommande($('#idSatellite').val(), $('#typeCommande').val(), this.gestionnaireCommandes.segmentVol.listeInstruments[$('#instru').val()].ref, $('#code').val());

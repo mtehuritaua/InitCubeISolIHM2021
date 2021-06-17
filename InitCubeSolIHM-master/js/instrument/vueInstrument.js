@@ -53,7 +53,7 @@ class VueInstrument {
             if((element.code != "PIX")&&(element.code != "IMG")){
             $("#typesMesures"+vueCourante.instrument.ref).append('<th class="typesMesures">Valeur '+element.nom+' ('+element.unite+') </th>');
             $("#valeursMesures"+vueCourante.instrument.ref).append('<td id="valeur'+vueCourante.instrument.ref+element.code+'"></td>');
-            vueCourante.graphiques.push(new GraphiqueInstru('graph' + vueCourante.instrument.ref + '', element.code, "Instrument", vueCourante.instrument.nom, element.nom, element.unite));
+            vueCourante.graphiques.push(new GraphiqueInstru('graph' + vueCourante.instrument.ref + '', element.code, "Instrument", vueCourante.instrument.ref, element.nom, element.unite));
             }
         });
 
@@ -97,7 +97,8 @@ class VueInstrument {
             //Si le code passé en paramètre correspond bien à celui de la mesure suive par ce graphique
             //On ajoute la mesure sur le graphique
             if (element.code === code) {
-                element.ajouterMesure(date, valeur);
+		//On transforme la chaine de caractère de la valeur en int (base 10) avant de l'afficher sur le graphique?
+                element.ajouterMesure(date, parseInt(valeur,10)); 
             }
         });
     }

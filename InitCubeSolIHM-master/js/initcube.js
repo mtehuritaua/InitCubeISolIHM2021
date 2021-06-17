@@ -21,7 +21,7 @@ $(document).ready(function() {
 
     /*-------------------------------------Gestionnaire d'Instrument---------------------------------------------------*/
     let gestionnaireConfiguration = new GestionnaireConfiguration(segmentVol);
-    let vueNvelleInstrument = new VueNouvelleInstrument();
+    //let vueNvelleInstrument = new VueNouvelleInstrument();
     let vueConfSV = new VueConfigurationSV(gestionnaireConfiguration, vueInstruments);
 
     /*-------------------------------------Graphiques de la page Etat--------------------------------------------------*/

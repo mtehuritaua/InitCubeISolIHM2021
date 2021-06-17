@@ -199,7 +199,23 @@ span {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    column-count: 2;
+    position: relative;
+    /*column-count: 2;*/
+}
+
+#btnTemperature {
+    position: absolute;
+    bottom: 0;
+}
+
+#btnMatrice {
+    /*position: absolute;
+    bottom: 0;*/
+}
+
+.mesure {
+    position: relative;
+    margin: 40px;
 }
 
 .tableInstrument {
@@ -229,6 +245,7 @@ span {
 
 #matrice {
     margin: auto;
+    aspect-ratio: 1 / 1;
 }
 
 #matrice>tbody>tr>td {
